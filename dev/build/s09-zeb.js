@@ -46279,6 +46279,16 @@ void main() {
   var AXIS_Z = 34;
   var AXIS_X0 = XS[0] - 8;
   var AXIS_X1 = XS[4] + 9;
+  var RISE = 1150;
+  var R_STEP = 80;
+  var R_LEN = 830;
+  var PV_DELAY = 600;
+  var PV_DUR = 1010;
+  var PV_LEN = 450;
+  var PV_STEP_ROOF = 80;
+  var PV_STEP_STRIP = 60;
+  var AXIS_DELAY = 700;
+  var AXIS_DUR = 900;
   var s09_zeb_default = defineDiagram({
     id: "s09-zeb",
     states: 2,
@@ -46299,13 +46309,14 @@ void main() {
         const mass = new three_module_exports.Group();
         root.add(mass);
         const box2 = S.solid(boxGeo(BW, H2, BD), {}, mass);
+        const floorClip = new three_module_exports.Plane(new three_module_exports.Vector3(0, -1, 0), H2);
         const fl = [];
         for (let k = 1; k < nf; k++) {
           const y = k * FLOOR;
           fl.push(-BW / 2, y, BD / 2, BW / 2, y, BD / 2);
           fl.push(-BW / 2, y, BD / 2, -BW / 2, y, -BD / 2);
         }
-        S.lines(fl, { width: LW.hair, color: C.hair }, mass);
+        S.lines(fl, { width: LW.hair, color: C.hair, clippingPlanes: [floorClip] }, root);
         const pvPart = S.part(i === 4 ? "Grade 1 solar panels" : GRADES[i].split(":")[0] + " solar panels", root);
         const strips = [];
         const nStrips = i + 1;
@@ -46325,10 +46336,10 @@ void main() {
           const yT = PV_LIFT + PV_T + 5e-3;
           const seg = [0, yT, 0.15, 0, yT, PV_L - 0.15];
           for (let c = 1; c * PV_CELL < PV_L - 0.2; c++) seg.push(-PV_W / 2 + 0.04, yT, c * PV_CELL, PV_W / 2 - 0.04, yT, c * PV_CELL);
-          S.lines(seg, { width: LW.hair, color: isRed ? C.redDeep : C.hair }, pivot);
-          strips.push(pivot);
+          const grid = S.lines(seg, { width: LW.hair, color: isRed ? C.redDeep : C.hair }, pivot);
+          strips.push({ pivot, grid });
         }
-        blds.push({ root, mass, box: box2, H: H2, pvPart, strips });
+        blds.push({ root, mass, box: box2, H: H2, pvPart, strips, floorClip });
       });
       const axis = S.part("Axis arrow");
       const shaft = new three_module_exports.Group();
@@ -46357,42 +46368,48 @@ void main() {
       });
       const g5Top = new three_module_exports.Vector3();
       const mandate = S.label({
+        // ink leader: the slide's rollout list already shows 2025 in red, so the diagram keeps its two reds
+        // (Grade 1 panels, Grade 5 outline)
         text: "Required for new private buildings from 2025",
-        leaderTone: "red",
+        leaderTone: "ink",
         anchor: () => g5Top.set(XS[0], blds[0].H, 0),
         anchorObj: blds[0].root,
-        place: { mode: "fixed", x: 40, y: 150, ax: "left", ay: "top" },
+        place: { mode: "fixed", x: 37, y: 125, ax: "left", ay: "top" },
         leader: "v",
         nowrap: false,
         maxWidth: 300
       });
       S.anim.prop("rise", 0, (v) => {
         blds.forEach((b, i) => {
-          const s = sub(v, i * 0.065, i * 0.065 + 0.74, ease.out);
+          const a = i * R_STEP / RISE;
+          const s = sub(v, a, a + R_LEN / RISE, ease.out);
           b.mass.scale.y = Math.max(1e-3, s);
           b.mass.visible = s > 2e-3;
           b.pvPart.position.y = b.H * s;
+          b.floorClip.constant = b.H * s - 0.25;
         });
-      }, { kind: "reveal", dur: 1300 });
+      }, { kind: "reveal", dur: RISE });
       S.anim.prop("pv", 0, (v) => {
         blds.forEach((b, i) => {
-          b.strips.forEach((p, k) => {
-            const a = i * 0.11 + k * 0.035;
-            const s = sub(v, a, a + 0.42, ease.out);
-            p.scale.z = Math.max(1e-3, s);
-            p.visible = s > 2e-3;
+          b.strips.forEach((st, k) => {
+            const a = (PV_STEP_ROOF * i + PV_STEP_STRIP * k) / PV_DUR;
+            const s = sub(v, a, a + PV_LEN / PV_DUR, ease.out);
+            st.pivot.scale.z = Math.max(1e-3, s);
+            st.pivot.visible = s > 2e-3;
+            st.grid.material.setOpacity(sub(s, 0.5, 1));
           });
         });
-      }, { kind: "reveal", dur: 1100, delay: 650 });
+      }, { kind: "reveal", dur: PV_DUR, delay: PV_DELAY });
       S.anim.prop("axis", 0, (v) => {
-        const s = ease.inOut(v);
+        const s = ease.inOutSine(v);
         shaft.scale.x = Math.max(1e-3, s);
         shaft.visible = s > 2e-3;
         head.position.set(AXIS_X0 + (AXIS_X1 - AXIS_X0) * s, 0, AXIS_Z);
-        head.visible = s > 0.04;
-      }, { kind: "reveal", dur: 900, delay: 900 });
-      gradeLabels.forEach((l, i) => labelProp(S, "lab" + i, l, { delay: 1250 + i * 75 }));
-      labelProp(S, "cap", capLabel, { delay: 1700 });
+        head.scale.setScalar(Math.max(1e-3, sub(s, 0, 0.06)));
+        head.visible = s > 2e-3;
+      }, { kind: "reveal", dur: AXIS_DUR, delay: AXIS_DELAY });
+      gradeLabels.forEach((l, i) => labelProp(S, "lab" + i, l, { delay: 1350 + i * 75 }));
+      labelProp(S, "cap", capLabel, { delay: 1750 });
       const g5Lines = blds[0].box.userData.lines.material;
       S.anim.prop("mandate", 0, (v) => {
         g5Lines.uniforms.uColorA.value.copy(ink).lerp(red, v);
@@ -46400,7 +46417,7 @@ void main() {
         g5Lines.uniforms.uWidthA.value = LW.silhouette + 0.6 * v;
         g5Lines.uniforms.uWidthB.value = LW.crease + 0.9 * v;
       }, { kind: "reveal", dur: 700 });
-      labelProp(S, "mandateLab", mandate, { delay: 450 });
+      labelProp(S, "mandateLab", mandate, { delay: 600 });
       return {
         targets: (n) => {
           const t = {
@@ -46417,13 +46434,16 @@ void main() {
           return t;
         },
         plan: (name, from, to, dir) => {
-          if (dir < 0) {
-            if (name.startsWith("lab") || name === "cap" || name === "mandateLab") return { delay: 0, dur: 300, ease: ease.in };
-            if (name === "axis") return { delay: 0, dur: 450, ease: ease.in };
-            if (name === "pv") return { delay: 100, dur: 500, ease: ease.in };
-            if (name === "rise") return { delay: 300, dur: 650, ease: ease.in };
-            if (name === "mandate") return { delay: 0, dur: 500, ease: ease.inOut };
+          if (dir > 0) {
+            if (name === "rise" || name === "pv" || name === "axis") return { ease: ease.linear };
+            if (name === "mandate") return { dur: 800, ease: ease.inOut };
+            return null;
           }
+          if (name.startsWith("lab") || name === "cap" || name === "mandateLab") return { delay: 0, dur: 400, ease: ease.in };
+          if (name === "axis") return { delay: 100, dur: 700, ease: ease.linear };
+          if (name === "pv") return { delay: 100, dur: 900, ease: ease.linear };
+          if (name === "rise") return { delay: 600, dur: 900, ease: ease.linear };
+          if (name === "mandate") return { delay: 0, dur: 500, ease: ease.inOut };
           return null;
         }
       };

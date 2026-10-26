@@ -16,6 +16,16 @@ Updated 2026-10-26 10:15 (integration pass). Every check ran headless, `--strict
 | PDF from `?view=print` (`.tmp/main/pdf/final.pdf`) | 39 pages, 1440 x 810 pt, 11.7 MB |
 | Stale references (localhost, server.mjs, Present.cmd, presenter.html, print.html, TEMPORARY) | none left in src/engine, src/slides, src/styles, build/publish scripts or dist |
 
+## Copy v2 + notes v2 pass (2026-10-26, afternoon)
+| Item | State |
+|---|---|
+| Build applies spec/copy-v2.json by default (`--no-copy` leaves it out); presenter notes come from spec/notes-v2.json, `notesFor(key, images, override)` still appends photo credits and PHOTO NEEDED notes | DONE |
+| timing.json: s17 B5 and s04 B3 reveal nothing now (cues and diagram states kept); content titles synced to the copy-v2 headlines (s01 "Seoul: The Carrot and the Stick") | DONE |
+| Layout fixes for the new text: s09 strikethrough 9:32 shortened to 244 px; s18 14:79 set line break (new `afterCopy` override hook in slides.js); s20 14:162 / 14:165 one line (wrap check) | DONE |
+| Credit lines in notes.js no longer use em dashes (": " separators; credit text from images.json is undashed) | DONE |
+| s01 to s20 each: fully built render + `audit=1&beat=last` (strict, offline): 0 violations, fonts ok, 0 errors, 0 wrap mismatches; 0 em/en dashes in slide text and in all 39 notes; checkpoint per slide | DONE |
+| Live site not republished in this pass (checkpoints used --no-site) | open |
+
 ## Notes
 - Photos: the user will provide the missing ones. Pairs without a usable file show the neutral panel with caption; nothing else needed.
 - The verified `dist/` is the 10:01 build. After it, the 3D session put `s05-trajectory`, `s06-reactor`, `s09-zeb` and `s17-parks` back into

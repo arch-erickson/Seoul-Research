@@ -145,9 +145,13 @@ export default defineDiagram({
     const releaseMs = (p) => lerp(WIPE[0], WIPE[1], (dMax - NS.dot(p)) / (dMax - dMin));
 
     // ---------- buildings ----------
-    const mat = S.material(C.model, { unique: true, clippingPlanes: [clipSolid], side: THREE.DoubleSide });
+    // clipBase keeps everything above the plinth top, so in beat 1 each volume rises out of the plinth whole
+    // (the dome keeps its true shape instead of being squashed by a scale)
+    const clipBase = new THREE.Plane(new THREE.Vector3(0, 1, 0), -(Y0 - 0.02));
+    const CLIP = [clipSolid, clipBase];
+    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: THREE.DoubleSide });
     mat.clipShadows = true;
-    const eClip = { clippingPlanes: [clipSolid] };
+    const eClip = { clippingPlanes: CLIP };
     const solids = new THREE.Group();
     plant.add(solids);
     const mk = (geo) => {
@@ -163,7 +167,7 @@ export default defineDiagram({
     const gAnnex = mk(boxAt(ANNEX));
 
     // hairline detail: springline of the dome, aux roof meeting the containment, turbine hall bays
-    const hair = { width: LW.hair, color: C.hair, clippingPlanes: [clipSolid] };
+    const hair = { width: LW.hair, color: C.hair, clippingPlanes: CLIP };
     const vh = new THREE.Vector3(VIEW.x, 0, VIEW.z).normalize();
     const phiV = Math.atan2(vh.z, vh.x);
     const ring = [];
@@ -178,14 +182,14 @@ export default defineDiagram({
       const x = -xa + (2 * xa * i) / 32;
       arc.push(new THREE.Vector3(x, AUX.h + 0.02, Math.sqrt(Math.max(0, RC * RC - x * x))));
     }
-    S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: [clipSolid] }, gAux);
+    S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: CLIP }, gAux);
     const bays = [];
     for (let k = 1; k < 8; k++) {
       const z = TURB.z0 + (k * (TURB.z1 - TURB.z0)) / 8;
       bays.push(TURB.x1 + 0.02, ANNEX.h, z, TURB.x1 + 0.02, TURB.h, z);
     }
     S.lines(bays, hair, gTurb);
-    const volumes = [gCont, gAux, gTurb, gAnnex].map(g => ({ g, ink: inkUnder(g) }));
+    const volumes = [[gCont, HC + RC], [gAux, AUX.h], [gTurb, TURB.h], [gAnnex, ANNEX.h]].map(([g, h]) => ({ g, h: h + 0.5 }));
 
     // ---------- dashed outline of the plant (drawn behind the cut) + depth-only occluder ----------
     const phantom = new THREE.Group();
@@ -304,7 +308,7 @@ export default defineDiagram({
       const m = new THREE.InstancedMesh(hg, S.material(color), list.length);
       m.frustumCulled = false;
       m.castShadow = false;            // flying specks must not smudge the ground
-      m.receiveShadow = true;
+      m.receiveShadow = false;         // (with VSM shadows, receivers are drawn into the shadow map too)
       m.renderOrder = -3;              // drawn before the outline's depth-only occluder, so they never vanish behind it
       field.add(m);
       return m;
@@ -363,17 +367,16 @@ export default defineDiagram({
     let P1 = 0, P2 = 0;
     const lastRelease = houses[houses.length - 1].t0;
     function update() {
-      // beat 1: the plinth unfolds, then the volumes rise one after another (80 ms apart)
+      // beat 1: the plinth unfolds, then the volumes rise out of it one after another (80 ms apart)
       const t1 = P1 * T1;
       const pk = ease.out(sub(t1, 0, 600));
       plinth.scale.set(Math.max(1e-3, pk), 1, Math.max(1e-3, pk));
       plinth.visible = pk > 0.001;
       for (const l of plinthInk) l.material.setOpacity(sub(t1, 0, 200));
-      volumes.forEach(({ g, ink }, i) => {
+      volumes.forEach(({ g, h }, i) => {
         const lt = sub(t1, 160 + i * 80, 160 + i * 80 + 820);
-        g.scale.y = Math.max(1e-3, ease.out(lt));
+        g.position.y = Y0 - h * (1 - ease.out(lt));
         g.visible = lt > 0.001;
-        for (const l of ink) l.material.setOpacity(sub(lt, 0, 0.18));
       });
       // beat 2
       const ms = P2 * T2;

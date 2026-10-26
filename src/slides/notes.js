@@ -643,6 +643,8 @@ function clean(value) {
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
+    .replace(/(\d)\s*[–—]\s*(\d)/g, '$1 to $2')
+    .replace(/\s*[–—]\s*/g, ', ')
     .trim()
     .replace(/([\\*_`[\]<>~#|])/g, '\\$1');
 }
@@ -654,22 +656,22 @@ function photoLine(side, place) {
   const license = clean(side.license);
   const parts = [credit || 'credit missing'];
   if (license && !credit.includes(license)) parts.push(license);
-  let line = `- ${label}${year} — ${parts.join(' · ')}`;
+  let line = `- ${label}${year}: ${parts.join(' · ')}`;
   if (side.status === 'user-supply') {
     line += `\n  - **PHOTO NEEDED:** ${clean(side.userSupplyNote) || 'no open-licence photo found yet'}`;
   } else if (side.status === 'low-res') {
     const size = side.width && side.height ? ` (${Number(side.width)}×${Number(side.height)} px)` : '';
-    line += `\n  - **LOW-RES${size}** — may look soft on the projector${side.codexUpscalePrompt ? '; upscale prompt is in spec/images.json' : ''}`;
+    line += `\n  - **LOW-RES${size}:** may look soft on the projector${side.codexUpscalePrompt ? '; upscale prompt is in spec/images.json' : ''}`;
   }
   return line;
 }
 
 function creditsBlock(pair, id) {
-  if (!pair) return `**Photo credits**\n- *Photos for ${id} not delivered yet — placeholder panels are on screen.*`;
+  if (!pair) return `**Photo credits**\n- *Photos for ${id} not delivered yet; placeholder panels are on screen.*`;
   const lines = SIDES.map(([k, place]) => {
     const side = pair[k];
     if (!side || (!side.file && side.status !== 'user-supply')) {
-      return `- **${place}** — *photo not delivered yet; placeholder panel on screen*`;
+      return `- **${place}:** *photo not delivered yet; placeholder panel on screen*`;
     }
     return photoLine(side, place);
   });
@@ -694,7 +696,7 @@ export function notesFor(key, images, override) {
     const ids = Array.from({ length: 18 }, (_, i) => `i${String(i + 1).padStart(2, '0')}`);
     const blocks = ids.map((id) => {
       const pair = pairs.find((p) => p.id === id);
-      const theme = pair && pair.theme ? ` — ${clean(pair.theme)}` : '';
+      const theme = pair && pair.theme ? `: ${clean(pair.theme)}` : '';
       return creditsBlock(pair, id).replace('**Photo credits**', `**${id}${theme}**`);
     });
     return `${base}\n\n${blocks.join('\n\n')}`;

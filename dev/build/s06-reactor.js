@@ -46405,9 +46405,11 @@ void main() {
       const clipGhost = new three_module_exports.Plane(NS.clone(), -1e4);
       const cutAt = (p2ms) => lerp2(dMax, dMin, sub(p2ms, WIPE[0], WIPE[1]));
       const releaseMs = (p) => lerp2(WIPE[0], WIPE[1], (dMax - NS.dot(p)) / (dMax - dMin));
-      const mat = S.material(C.model, { unique: true, clippingPlanes: [clipSolid], side: three_module_exports.DoubleSide });
+      const clipBase = new three_module_exports.Plane(new three_module_exports.Vector3(0, 1, 0), -(Y0 - 0.02));
+      const CLIP = [clipSolid, clipBase];
+      const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: three_module_exports.DoubleSide });
       mat.clipShadows = true;
-      const eClip = { clippingPlanes: [clipSolid] };
+      const eClip = { clippingPlanes: CLIP };
       const solids = new three_module_exports.Group();
       plant.add(solids);
       const mk = (geo) => {
@@ -46421,7 +46423,7 @@ void main() {
       const gAux = mk(boxAt(AUX));
       const gTurb = mk(boxAt(TURB));
       const gAnnex = mk(boxAt(ANNEX));
-      const hair = { width: LW.hair, color: C.hair, clippingPlanes: [clipSolid] };
+      const hair = { width: LW.hair, color: C.hair, clippingPlanes: CLIP };
       const vh = new three_module_exports.Vector3(VIEW.x, 0, VIEW.z).normalize();
       const phiV = Math.atan2(vh.z, vh.x);
       const ring = [];
@@ -46436,14 +46438,14 @@ void main() {
         const x = -xa + 2 * xa * i / 32;
         arc.push(new three_module_exports.Vector3(x, AUX.h + 0.02, Math.sqrt(Math.max(0, RC * RC - x * x))));
       }
-      S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: [clipSolid] }, gAux);
+      S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: CLIP }, gAux);
       const bays = [];
       for (let k = 1; k < 8; k++) {
         const z = TURB.z0 + k * (TURB.z1 - TURB.z0) / 8;
         bays.push(TURB.x1 + 0.02, ANNEX.h, z, TURB.x1 + 0.02, TURB.h, z);
       }
       S.lines(bays, hair, gTurb);
-      const volumes = [gCont, gAux, gTurb, gAnnex].map((g) => ({ g, ink: inkUnder(g) }));
+      const volumes = [[gCont, HC + RC], [gAux, AUX.h], [gTurb, TURB.h], [gAnnex, ANNEX.h]].map(([g, h]) => ({ g, h: h + 0.5 }));
       const phantom = new three_module_exports.Group();
       plant.add(phantom);
       const ph = [];
@@ -46564,7 +46566,7 @@ void main() {
         const m = new three_module_exports.InstancedMesh(hg, S.material(color), list.length);
         m.frustumCulled = false;
         m.castShadow = false;
-        m.receiveShadow = true;
+        m.receiveShadow = false;
         m.renderOrder = -3;
         field.add(m);
         return m;
@@ -46636,11 +46638,10 @@ void main() {
         plinth.scale.set(Math.max(1e-3, pk), 1, Math.max(1e-3, pk));
         plinth.visible = pk > 1e-3;
         for (const l of plinthInk) l.material.setOpacity(sub(t1, 0, 200));
-        volumes.forEach(({ g, ink }, i) => {
+        volumes.forEach(({ g, h }, i) => {
           const lt = sub(t1, 160 + i * 80, 160 + i * 80 + 820);
-          g.scale.y = Math.max(1e-3, ease.out(lt));
+          g.position.y = Y0 - h * (1 - ease.out(lt));
           g.visible = lt > 1e-3;
-          for (const l of ink) l.material.setOpacity(sub(lt, 0, 0.18));
         });
         const ms = P2 * T2;
         const c = P2 > 0 ? cutAt(ms) : 1e4;
