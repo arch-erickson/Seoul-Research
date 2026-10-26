@@ -199,6 +199,35 @@ Rules every session must keep so the site works online:
 
 ---
 
+## 11. The clicker: Norwii N27, native buttons only
+
+The user presents with a Norwii N27. The Norwii Presenter app can't be used on the college PC, so the deck handles the clicker's **factory buttons** with no configuration (official manual: https://www.norwii.com/manualen/374-en.html). Holding both page buttons cycles four modes and the clicker remembers the last one, so all four must work:
+
+| N27 button | Sends (by mode) | Deck action |
+|---|---|---|
+| Page down, short | Right arrow · Page Down · wheel notch down · Down arrow | next beat / next slide |
+| Page up, short | Left arrow · Page Up · wheel notch up · Up arrow | back |
+| Page up, long | F5 or Shift+F5 (slideshow) | present (never reloads); long again sends Esc = leave fullscreen |
+| Page down, long | B or . (black screen) | black screen toggle |
+| Hyperlink, short | Tab | pause / resume timer (Tab never moves focus) |
+| Hyperlink, double | Enter | next |
+| Hyperlink, long | Alt+Tab | left to Windows: switches between the slide and presenter windows |
+| Laser, volume | (hardware / system volume) | nothing needed |
+
+Implemented in `src/engine/input.js` (`resolveKey`, `bindKeys`, `bindWheel`, 121 tests). Still to wire (MAIN): `bindWheel` in both views (ignore the presenter notes panel, `[data-scrollable]`); a **clicker test** on the presenter start screen that shows each press and the action it triggered; a "clicker ready" indicator showing which deck window has keyboard focus; and **refresh safety**: the leader saves its state to `sessionStorage` on every change and restores it on load, so even an accidental reload keeps the slide, beat and timer.
+
+---
+
+## 12. Checkpoints: save after every finished piece
+
+The user's words: "commit the progress ... commit after each slide is finalized. This will help in case I run out of usage." After each finished item (a diagram marked DONE, a verified photo pair, a slide's copy applied, an engine milestone), run:
+
+`node scripts/checkpoint.mjs --message "<what was finished>"`
+
+It commits a snapshot (src, scripts, spec, assets/img, drafts, STATUS files) to `arch-erickson/Seoul-Research` and pushes. A lock makes it safe to run from any session at any time. **The 3D and IMAGES sessions use `--no-site`** (source snapshot only). Only MAIN runs it without `--no-site`, which also rebuilds and updates the live site, but only if the deck passes a strict offline smoke test.
+
+---
+
 ## 10. The PDF (made last, when the user asks)
 
 The user's words: "the pdf should simply be for sending via email as a static preview which should look good without the animations." It comes from `?view=print`: every slide fully built (all beats), 3D diagrams captured at their final state, photo slides included, references appendix last, no timer overlay, one 16:9 page per slide. MAIN renders it with headless Chrome `--print-to-pdf` once everything is final and delivers it to the course folder. The presenter start screen reminds the user to submit it.

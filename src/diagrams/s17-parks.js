@@ -14,15 +14,14 @@ const S1 = Math.sqrt(17.74);   // 4.21 m: citywide
 const S2 = Math.sqrt(5.65);    // 2.38 m: within a five-minute walk
 const T = 0.2;                 // plate thickness (top face at y = 0)
 const FIG_H = 1.7;             // scale figure height
-const FIG_D = 0.04;            // cut-out thickness
 
 // ---- view ----
-const AZ = 45, EL = 30, SCALE = 72;
-const AT = [280, 137];
+const AZ = 45, EL = 30, SCALE = 75;
+const AT = [280, 138];
 const az = AZ * DEG;
 const DOWN = new THREE.Vector3(Math.sin(az), 0, Math.cos(az));    // ground direction that reads "down" on screen
 const RIGHT = new THREE.Vector3(Math.cos(az), 0, -Math.sin(az));  // ground direction that reads "right"
-const GAP_T = 8.58;                                               // centre-to-centre distance along DOWN
+const GAP_T = 8.36;                                               // centre-to-centre distance along DOWN
 const C2 = DOWN.clone().multiplyScalar(GAP_T);                    // centre of the five-minute plate
 
 // Standing figure, front view, as a closed outline (right half; mirrored for the left). Metres, feet at y 0.
@@ -60,10 +59,9 @@ export default defineDiagram({
   },
   build(S) {
     const clip = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.001);   // figures rise out of the plate top
-    const figGeo = new THREE.ExtrudeGeometry(figureShape(), { depth: FIG_D, bevelEnabled: false, curveSegments: 20 });
-    figGeo.translate(0, 0, -FIG_D / 2);
-    figGeo.computeVertexNormals();
-    const figMat = S.material(C.model, { unique: true, clippingPlanes: [clip] });
+    // a flat cut-out (one face, so the outline is a single clean line)
+    const figGeo = new THREE.ShapeGeometry(figureShape(), 20);
+    const figMat = S.material(C.model, { unique: true, side: THREE.DoubleSide, clippingPlanes: [clip] });
     figMat.clipShadows = true;
 
     // one plate: grows from its back corner; grid of 1 m squares on the top face
@@ -94,7 +92,7 @@ export default defineDiagram({
       lift.add(face);
       S.solid(figGeo, {
         material: figMat,
-        edges: { color: C.edge, color2: C.edge, width: 1.25, width2: 1.25, clippingPlanes: [clip] },
+        edges: { color: C.edge, color2: C.edge, width: 1.15, width2: 1.15, clippingPlanes: [clip] },
       }, face);
       return { root, lift };
     }
@@ -102,7 +100,7 @@ export default defineDiagram({
     const city = plate('Citywide plate', S1, new THREE.Vector3(0, 0, 0), false);
     const walk = plate('Five-minute plate', S2, C2, true);
     const at = (r, d, c = new THREE.Vector3()) => c.clone().addScaledVector(RIGHT, r).addScaledVector(DOWN, d);
-    const fig1 = figure('Citywide figure', at(-0.8, 0.3));
+    const fig1 = figure('Citywide figure', at(-0.35, 0.9));
     const fig2 = figure('Five-minute figure', at(-0.3, 0.1, C2));
 
     // captions centred under each plate's front corner
