@@ -1,0 +1,783 @@
+[
+  {
+    "key": "s09",
+    "headline": "Zero-Energy Building Rules",
+    "elements": [
+      {
+        "id": "9:3",
+        "group": "B1 · headline",
+        "old": "Grade 5 to Grade 1.",
+        "action": "rewrite",
+        "new": "Zero-Energy Building Rules"
+      },
+      {
+        "id": "9:7",
+        "group": "B2 · the ladder",
+        "old": "GRADE 5",
+        "action": "keep",
+        "new": "GRADE 5",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:8",
+        "group": "B2 · the ladder",
+        "old": "20–40%",
+        "action": "rewrite",
+        "new": "20 to 40%",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:10",
+        "group": "B2 · the ladder",
+        "old": "GRADE 4",
+        "action": "keep",
+        "new": "GRADE 4",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:12",
+        "group": "B2 · the ladder",
+        "old": "GRADE 3",
+        "action": "keep",
+        "new": "GRADE 3",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:14",
+        "group": "B2 · the ladder",
+        "old": "GRADE 2",
+        "action": "keep",
+        "new": "GRADE 2",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:16",
+        "group": "B2 · the ladder",
+        "old": "GRADE 1",
+        "action": "keep",
+        "new": "GRADE 1",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:17",
+        "group": "B2 · the ladder",
+        "old": "over 100%",
+        "action": "keep",
+        "new": "over 100%",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted"
+      },
+      {
+        "id": "9:19",
+        "group": "B2 · the ladder",
+        "old": "Energy self-sufficiency rate — the share of its energy the building produces itself",
+        "action": "rewrite",
+        "new": "Share of energy the building makes itself",
+        "note": "inside the area replaced by diagram s09-zeb; not shown while the diagram is mounted (same wording as the diagram caption)"
+      },
+      {
+        "id": "9:22",
+        "group": "B3 · rollout + the delay",
+        "old": "THE ROLLOUT",
+        "action": "keep",
+        "new": "THE ROLLOUT"
+      },
+      {
+        "id": "9:23",
+        "group": "B3 · rollout + the delay",
+        "old": "2020",
+        "action": "keep",
+        "new": "2020"
+      },
+      {
+        "id": "9:24",
+        "group": "B3 · rollout + the delay",
+        "old": "All new public buildings must meet ZEB",
+        "action": "rewrite",
+        "new": "Required for new public buildings"
+      },
+      {
+        "id": "9:25",
+        "group": "B3 · rollout + the delay",
+        "old": "over 1,000 m², later extended to 500 m²",
+        "action": "rewrite",
+        "new": "over 1,000 m², later over 500 m²"
+      },
+      {
+        "id": "9:27",
+        "group": "B3 · rollout + the delay",
+        "old": "2023",
+        "action": "keep",
+        "new": "2023"
+      },
+      {
+        "id": "9:28",
+        "group": "B3 · rollout + the delay",
+        "old": "Public sector at Grade 5",
+        "action": "keep",
+        "new": "Public sector at Grade 5"
+      },
+      {
+        "id": "9:30",
+        "group": "B3 · rollout + the delay",
+        "old": "2024",
+        "action": "keep",
+        "new": "2024"
+      },
+      {
+        "id": "9:31",
+        "group": "B3 · rollout + the delay",
+        "old": "Private mandate planned",
+        "action": "rewrite",
+        "new": "Private rule planned"
+      },
+      {
+        "id": "9:33",
+        "group": "B3 · rollout + the delay",
+        "old": "delayed one year after industry pushback",
+        "action": "keep",
+        "new": "delayed one year after industry pushback"
+      },
+      {
+        "id": "9:35",
+        "group": "B3 · rollout + the delay",
+        "old": "2025",
+        "action": "keep",
+        "new": "2025"
+      },
+      {
+        "id": "9:36",
+        "group": "B3 · rollout + the delay",
+        "old": "Private sector at Grade 5",
+        "action": "keep",
+        "new": "Private sector at Grade 5"
+      },
+      {
+        "id": "9:37",
+        "group": "B3 · rollout + the delay",
+        "old": "complexes ≥30 units · buildings over 1,000 m²",
+        "action": "rewrite",
+        "new": "30 or more apartments · buildings over 1,000 m²"
+      },
+      {
+        "id": "9:39",
+        "group": "B3 · rollout + the delay",
+        "old": "2030",
+        "action": "keep",
+        "new": "2030"
+      },
+      {
+        "id": "9:40",
+        "group": "B3 · rollout + the delay",
+        "old": "All new buildings to be ZEB",
+        "action": "rewrite",
+        "new": "Goal for all new buildings in Korea"
+      },
+      {
+        "id": "9:41",
+        "group": "B3 · rollout + the delay",
+        "old": "reported — less certain",
+        "action": "rewrite",
+        "new": "reported in some sources"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "B1 · These are Korea's national zero-energy building (ZEB) grades, run by MOLIT (Korea's Ministry of Land, Infrastructure and Transport). Seoul's climate plan builds on them.",
+      "B2 · What the grades measure: energy self-sufficiency, the share of its own energy a building produces itself. Grade 5 is 20 to 40%, Grade 1 is over 100%.",
+      "B2 · Seoul's own plan for new public buildings: Grade 5 now, Grade 4 by 2030, Grade 3 by 2050.",
+      "B3 · Public first (2020, Grade 5 in 2023), private after. Private rule planned for 2024, delayed one year after the construction industry pushed back.",
+      "B3 · Mention that sources give slightly different rollout dates.",
+      "B3 · Read this word for word (Hong Seongjun, head of MOLIT's Green Building Division): \"improving the energy performance of private buildings, which account for the majority of buildings, is an essential task\"",
+      "B3 · If asked: no confirmed % for grades 4 to 2 · private apartment rule is 13% in one source, 40% in another · 2030 goal is less certain · no source gives the Energy Dream Center a grade.",
+      "B3 · Next: photo pair, Seoul City Hall and P.S. 62, two public buildings. Then the Energy Dream Center, which makes as much energy as it uses in a year."
+    ],
+    "layoutRisks": [
+      "9:3: new headline measures about 1184 px at 84 px Black in the 1300 px box (old text 798 px). Still one line, but it fills most of the width.",
+      "9:37: \"30 or more apartments · buildings over 1,000 m²\" is about 410 px against 387 px for the original text; fits the 600 px box. 9:31 \"Private rule planned\" is shorter than before (about 217 px against 273 px).",
+      "9:24 and 9:40: \"Required for new public buildings\" (33 characters) and \"Goal for all new buildings in Korea\" (35 characters) are both shorter than the old 38-character 9:24 line; they fit the 600 px box at 21 px."
+    ],
+    "flags": [
+      "For the study guide (dossier 3.2): the private rule was first planned for 2024 and was delayed one year after pushback from the construction industry. Talks with the industry ran into mid-2025.",
+      "For the study guide (dossier 3.2), the detail behind the s09 \"If asked\" note: the sources give no confirmed percentages for grades 4 to 2. For new private apartments, one source says they must make at least 13% of their own energy, and another says 40% self-sufficiency for complexes of 30 or more units; they seem to be different measures, or one is a later revision. The 2030 goal (all new buildings in Korea to be ZEB) is reported but less certain. No source gives the Energy Dream Center a ZEB grade, so don't call it Grade 1.",
+      "For the main session (outside b3.json): .tmp/main/check-notes.mjs line 22 requires an em dash (U+2014) in every beat header (in the regex between \"(B\\d+)\" and \"(.+)\"). Change the header format to \"**[0:00] B1 · headline**\" and update the regex to match \" · \" in its place, so the rebuilt s09 to s12 notes pass with no em dashes."
+    ]
+  },
+  {
+    "key": "s10",
+    "headline": "Seoul Energy Dream Center",
+    "elements": [
+      {
+        "id": "12:2",
+        "group": "B1 · headline",
+        "old": "Zero energy. Built on a landfill.",
+        "action": "rewrite",
+        "new": "Seoul Energy Dream Center"
+      },
+      {
+        "id": "12:40",
+        "group": "B2 · the ground",
+        "old": "COMPACTED MUNICIPAL WASTE — FORMER NANJIDO LANDFILL",
+        "action": "rewrite",
+        "new": "OLD NANJIDO LANDFILL",
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted (diagram label: \"Old Nanjido landfill\")"
+      },
+      {
+        "id": "12:67",
+        "group": "B5 · wings + PV",
+        "old": "Summer sun",
+        "action": "keep",
+        "new": "Summer sun",
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted"
+      },
+      {
+        "id": "12:70",
+        "group": "B6 · performance data",
+        "old": "PV + fixed solar shading",
+        "action": "rewrite",
+        "new": "Solar panels on the roof and wings",
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "12:71",
+        "group": "B6 · performance data",
+        "old": "The wings shade the glazing, shelter the\nentrance, and carry the array — three jobs",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted; what the wings do moves to the notes"
+      },
+      {
+        "id": "12:73",
+        "group": "B6 · performance data",
+        "old": "45° pinwheel massing",
+        "action": "rewrite",
+        "new": "Three floors, each turned 45°",
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "12:74",
+        "group": "B6 · performance data",
+        "old": "Three storeys widening conically upward",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted"
+      },
+      {
+        "id": "12:76",
+        "group": "B6 · performance data",
+        "old": "Piles through the waste",
+        "action": "rewrite",
+        "new": "Piles reach solid ground",
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "12:77",
+        "group": "B6 · performance data",
+        "old": "Driven to bearing strata — the subsoil\ncannot carry load",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s10-edc; not shown while the diagram is mounted; why piles are needed moves to the notes"
+      },
+      {
+        "id": "12:79",
+        "group": "B6 · performance data",
+        "old": "PROGRAM",
+        "action": "keep",
+        "new": "PROGRAM"
+      },
+      {
+        "id": "12:80",
+        "group": "B6 · performance data",
+        "old": "3,500 m²",
+        "action": "keep",
+        "new": "3,500 m²"
+      },
+      {
+        "id": "12:81",
+        "group": "B6 · performance data",
+        "old": "Renewable-energy exhibition centre",
+        "action": "rewrite",
+        "new": "Renewable energy exhibition and education center"
+      },
+      {
+        "id": "12:83",
+        "group": "B6 · performance data",
+        "old": "ENERGY",
+        "action": "keep",
+        "new": "ENERGY"
+      },
+      {
+        "id": "12:84",
+        "group": "B6 · performance data",
+        "old": "280,000 kWh / yr",
+        "action": "rewrite",
+        "new": "280,000 kWh a year"
+      },
+      {
+        "id": "12:85",
+        "group": "B6 · performance data",
+        "old": "Fully supplied by its own grid-tied PV",
+        "action": "rewrite",
+        "new": "Met over the year by its own solar panels"
+      },
+      {
+        "id": "12:87",
+        "group": "B6 · performance data",
+        "old": "HEATING & COOLING",
+        "action": "keep",
+        "new": "HEATING & COOLING"
+      },
+      {
+        "id": "12:88",
+        "group": "B6 · performance data",
+        "old": "Geothermal",
+        "action": "keep",
+        "new": "Geothermal"
+      },
+      {
+        "id": "12:89",
+        "group": "B6 · performance data",
+        "old": "Envelope to Passive House standard",
+        "action": "rewrite",
+        "new": "Built to Passive House standard"
+      },
+      {
+        "id": "12:91",
+        "group": "B6 · performance data",
+        "old": "CERTIFICATION",
+        "action": "rewrite",
+        "new": "SAVINGS"
+      },
+      {
+        "id": "12:92",
+        "group": "B6 · performance data",
+        "old": "KGBC + PH",
+        "action": "rewrite",
+        "new": "Over 70%"
+      },
+      {
+        "id": "12:93",
+        "group": "B6 · performance data",
+        "old": "Reported over 70% energy savings",
+        "action": "rewrite",
+        "new": "Less energy than a similar building (reported)"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "B1 · Name, date and place: Seoul Energy Dream Center, opened 2012 in World Cup Park, Mapo-gu, on top of the old Nanjido landfill. Korea's first zero-energy public building.",
+      "B1 · Designed by a German and Korean team led by Fraunhofer ISE, for the Seoul city government.",
+      "B1 · If asked about Gerkan Marg & Partners: some sites credit them, I couldn't confirm it.",
+      "B2 · The ground: the landfill waste cannot carry the building's weight.",
+      "B3 · So piles go down through the waste to solid ground, and the building sits on a reinforced concrete base plate.",
+      "B4 · The shape: square plan, three floors that get wider as they rise, each turned 45° (a pinwheel look with slanted outer walls). The shape is meant to cut energy demand.",
+      "B5 · The wings: wedge-shaped roof edges that shade the windows, shelter the entrance and hold solar panels.",
+      "B5 · White marble facade reflects sunlight (one source says about 60%).",
+      "B6 · Solar panels on the roof, the wings and a small patch of ground cover the full yearly demand, about 280,000 kWh. It stays connected to the grid. Geothermal does heating and cooling.",
+      "B6 · Over 70% less energy than a similar ordinary building. That is a reported figure.",
+      "B6 · Certified by KGBC (Korea's green building certification) and the Building Energy Efficiency Label. Envelope designed to Passive House standards.",
+      "B6 · Passive House is a German standard for very well insulated, airtight buildings that need very little heating or cooling.",
+      "B6 · The program: a public exhibition and education center about energy."
+    ],
+    "layoutRisks": [
+      "12:84: \"280,000 kWh a year\" is about 377 px at 36 px Black (old 326 px); fits the 500 px box.",
+      "12:93: about 381 px against 292 px before; fits the 500 px box.",
+      "12:91 to 12:93: this block now reads SAVINGS / Over 70% instead of CERTIFICATION / KGBC + PH. 12:92 keeps its current black color.",
+      "12:70 and 12:73 (only matter if the diagram is not mounted) grow to about 299 and 248 px in their 330 px boxes.",
+      "12:81: \"Renewable energy exhibition and education center\" is about 430 px in the 500 px box; one line, close to the edge.",
+      "12:89: \"Built to Passive House standard\" is about 270 px in the 500 px box.",
+      "12:85: \"Met over the year by its own solar panels\" is about 345 px in the 500 px box (old text about 315 px)."
+    ],
+    "flags": [
+      "For the study guide (dossier 6.1): Fraunhofer ISE is Germany's Fraunhofer Institute for Solar Energy Systems. It led the German and Korean design team and oversaw construction. Some sites credit Gerkan Marg & Partners as the architect; the dossier could not verify that, so credit Fraunhofer ISE as the design lead and bring up the other name only if asked."
+    ]
+  },
+  {
+    "key": "s11",
+    "headline": "Nowon Energy Zero House",
+    "elements": [
+      {
+        "id": "10:5",
+        "group": "B1 · headline",
+        "old": "121 units. Net zero.",
+        "action": "rewrite",
+        "new": "Nowon Energy Zero House"
+      },
+      {
+        "id": "10:9",
+        "group": "B2 · exploded assembly",
+        "old": "Geothermal field",
+        "action": "keep",
+        "new": "Geothermal field",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:10",
+        "group": "B2 · exploded assembly",
+        "old": "~130 ground-source heat pumps",
+        "action": "rewrite",
+        "new": "About 130 heat pumps",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:12",
+        "group": "B2 · exploded assembly",
+        "old": "Structure",
+        "action": "keep",
+        "new": "Structure",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:14",
+        "group": "B2 · exploded assembly",
+        "old": "Continuous insulation",
+        "action": "rewrite",
+        "new": "Passive House envelope",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted (the diagram merges insulation, airtightness and glazing into this one part)"
+      },
+      {
+        "id": "10:15",
+        "group": "B2 · exploded assembly",
+        "old": "thermal-bridge free",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:17",
+        "group": "B2 · exploded assembly",
+        "old": "Airtight membrane",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:18",
+        "group": "B2 · exploded assembly",
+        "old": "Passive House airtightness",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:20",
+        "group": "B2 · exploded assembly",
+        "old": "Triple glazing",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:22",
+        "group": "B2 · exploded assembly",
+        "old": "MVHR heat recovery",
+        "action": "rewrite",
+        "new": "Heat recovery ventilation",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:24",
+        "group": "B2 · exploded assembly",
+        "old": "PV array",
+        "action": "rewrite",
+        "new": "Solar panels",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:25",
+        "group": "B2 · exploded assembly",
+        "old": "1,300–1,800 panels",
+        "action": "rewrite",
+        "new": "1,300 to 1,800 panels",
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:26",
+        "group": "B2 · exploded assembly",
+        "old": "Exploded assembly — ordinary construction, layered correctly",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s11-nowon; not shown while the diagram is mounted; the \"ordinary construction\" point moves to the notes"
+      },
+      {
+        "id": "10:29",
+        "group": "B3 · scale + certification",
+        "old": "SCALE & CERTIFICATION",
+        "action": "keep",
+        "new": "SCALE & CERTIFICATION"
+      },
+      {
+        "id": "10:30",
+        "group": "B3 · scale + certification",
+        "old": "121 units",
+        "action": "rewrite",
+        "new": "121 apartments"
+      },
+      {
+        "id": "10:31",
+        "group": "B3 · scale + certification",
+        "old": "MOLIT national R&D programme with Seoul\nand Nowon-gu — a public–private–academic build",
+        "action": "rewrite",
+        "new": "Korean national research program\nwith Seoul and Nowon-gu"
+      },
+      {
+        "id": "10:32",
+        "group": "B3 · scale + certification",
+        "old": "First Korean housing to earn\nGerman Passive House certification",
+        "action": "keep",
+        "new": "First Korean housing to earn\nGerman Passive House certification"
+      },
+      {
+        "id": "10:33",
+        "group": "B3 · scale + certification",
+        "old": "Building 102, August 2018",
+        "action": "keep",
+        "new": "Building 102, August 2018"
+      },
+      {
+        "id": "10:36",
+        "group": "B4 · performance",
+        "old": "PERFORMANCE",
+        "action": "keep",
+        "new": "PERFORMANCE"
+      },
+      {
+        "id": "10:37",
+        "group": "B4 · performance",
+        "old": "75–80%",
+        "action": "rewrite",
+        "new": "75 to 80%"
+      },
+      {
+        "id": "10:38",
+        "group": "B4 · performance",
+        "old": "−61%",
+        "action": "rewrite",
+        "new": "Up to 61%"
+      },
+      {
+        "id": "10:39",
+        "group": "B4 · performance",
+        "old": "energy self-sufficiency",
+        "action": "rewrite",
+        "new": "share of energy it makes itself"
+      },
+      {
+        "id": "10:40",
+        "group": "B4 · performance",
+        "old": "residents' energy costs",
+        "action": "rewrite",
+        "new": "lower energy costs for residents"
+      },
+      {
+        "id": "10:42",
+        "group": "B5 · the NYC question",
+        "old": "NYC's building problem is apartments, not towers.\nResidential is 48% of New York's building emissions.",
+        "action": "rewrite",
+        "new": "LL97 limits for large NYC apartment buildings\nabout 50% lower from 2030"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "B1 · Name, date and place: Nowon Energy Zero House (EZ House), Nowon-gu, Seoul. Korea's first zero-energy apartment complex. Finished September 2017, residents moved in from November 2017.",
+      "B1 · Net zero means it makes as much energy as it uses over a year. Say it aims for net zero. The reported figure is 75 to 80% of its own energy.",
+      "B2 · The exploded view: ordinary building parts, carefully layered. Bottom to top: geothermal field, structure, Passive House envelope (insulation, airtight layer, triple glazing), heat recovery ventilation, solar panels.",
+      "B3 · How it got built: a national research program run by MOLIT with Seoul and Nowon-gu. Point out who was involved: the national government, the city, the district, companies and universities.",
+      "B3 · August 2018: Building 102 became the first Korean housing to earn German Passive House certification.",
+      "B4 · The 75 to 80% self-sufficiency and the up to 61% lower energy costs (compared with similar ordinary apartments) are reported figures.",
+      "B4 · President Moon Jae-in visited in December 2017, called it Korea's first zero-energy apartment complex and used it to start a national expansion push.",
+      "B5 · LL97 limit for big apartment buildings (over 25,000 sq ft) drops by about half in 2030.",
+      "B5 · Then ask: \"What would a NYCHA version of this building look like?\"",
+      "B5 · NYCHA is the New York City Housing Authority, the city's public housing.",
+      "B5 · To answer it, look at who pays for it and who builds it, along with the design.",
+      "B5 · If asked: cost figures don't agree, so give none · energy costs are up to 61% lower (the 100% claim is weakly sourced) · panel counts vary, so give the range · my sources don't say if NYCHA must meet this limit."
+    ],
+    "layoutRisks": [
+      "10:5: headline grows to about 1153 px at 84 px (old 787 px); fits the 1400 px box on one line.",
+      "10:30: \"121 apartments\" is about 428 px at 56 px Black (old 237 px); fits the 700 px box.",
+      "10:37 and 10:38: \"75 to 80%\" about 249 px in a 330 px box and \"Up to 61%\" about 247 px in a 350 px box (old 193 and 125 px). Fits, but the gap between the two numbers shrinks.",
+      "10:39 and 10:40: about 268 px (box 330) and 285 px (box 350), old 201 and 205 px.",
+      "10:42: still two lines; line 1 \"LL97 limits for large NYC apartment buildings\" is about 566 px and line 2 about 340 px in the 700 px box (font metrics; the line 1 it replaces measures about 590 px, so it gets slightly shorter)."
+    ],
+    "flags": [
+      "For the study guide (general knowledge): heat recovery ventilation means the fresh air coming in is warmed or cooled by the stale air going out, so little heat is lost.",
+      "For the study guide (dossier 6.2): panel counts differ between sources. UNESCAP gives 1,284 panels and 130 geothermal heat pumps; another source gives 1,800 panels. The slide uses about 1,300 to 1,800 panels plus about 130 heat pumps.",
+      "For the study guide (dossier 6.2 and the appendix): don't give a construction cost. Published figures are US$4.5M, about US$18M and about US$49M in different sources, so if asked, say they don't agree. Don't claim a 100% cut in energy costs. That claim comes from one weakly sourced government-linked presentation. Use up to 61% lower.",
+      "For the study guide: don't use the old figure of 48% (residential share of New York's building emissions) from the earlier slide. It isn't in the dossier.",
+      "For the study guide: don't say NYCHA has to meet this exact LL97 limit. The dossier doesn't say which limits apply to NYCHA buildings.",
+      "For the study guide only (dossier 8.2), the exact LL97 figures behind \"drops by about half in 2030\": the limit for multifamily buildings over 25,000 sq ft is 0.00675 t CO₂e per sq ft a year in 2024 to 2029 and about 0.00335 (0.003346640) in 2030 to 2034, a 50.4% drop. These numbers stay off the slide and out of the speaker notes."
+    ]
+  },
+  {
+    "key": "s12",
+    "headline": "Two LEED Gold Buildings",
+    "elements": [
+      {
+        "id": "10:53",
+        "group": "B1 · headline",
+        "old": "Two ways to build big.",
+        "action": "rewrite",
+        "new": "Two LEED Gold Buildings"
+      },
+      {
+        "id": "10:56",
+        "group": "B2 · Amorepacific",
+        "old": "AMOREPACIFIC HQ",
+        "action": "keep",
+        "new": "AMOREPACIFIC HQ"
+      },
+      {
+        "id": "10:57",
+        "group": "B2 · Amorepacific",
+        "old": "David Chipperfield Architects with Arup · Sustainability as massing",
+        "action": "rewrite",
+        "new": "David Chipperfield Architects with Arup · 2017"
+      },
+      {
+        "id": "10:65",
+        "group": "B2 · Amorepacific",
+        "old": "↑",
+        "action": "keep",
+        "new": "↑",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:66",
+        "group": "B2 · Amorepacific",
+        "old": "↓",
+        "action": "keep",
+        "new": "↓",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted"
+      },
+      {
+        "id": "10:67",
+        "group": "B2 · Amorepacific",
+        "old": "Central courtyard drives natural\nventilation and daylight. Three\n“hurban openings” cut through the\nfaçade. Fins tuned for solar gain.",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted; the diagram labels \"Central courtyard / Three large openings / Sun-shading fins\" replace this paragraph"
+      },
+      {
+        "id": "10:68",
+        "group": "B2 · Amorepacific",
+        "old": "CIBSE Building Performance Award —\njudged on measured performance.",
+        "action": "remove",
+        "new": null,
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted; the CIBSE award moves to the B5 line (10:114)"
+      },
+      {
+        "id": "10:69",
+        "group": "B2 · Amorepacific",
+        "old": "~22 storeys · 7,000–8,000 occupants",
+        "action": "rewrite",
+        "new": "About 22 floors · 7,000 to 8,000 workers",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:71",
+        "group": "B3 · Lotte World Tower",
+        "old": "LOTTE WORLD TOWER",
+        "action": "keep",
+        "new": "LOTTE WORLD TOWER"
+      },
+      {
+        "id": "10:72",
+        "group": "B3 · Lotte World Tower",
+        "old": "Kohn Pedersen Fox · Sustainability as equipment",
+        "action": "rewrite",
+        "new": "Kohn Pedersen Fox · 2017"
+      },
+      {
+        "id": "10:101",
+        "group": "B3 · Lotte World Tower",
+        "old": "Vertical-axis wind turbines",
+        "action": "rewrite",
+        "new": "Wind turbines near the top",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:103",
+        "group": "B3 · Lotte World Tower",
+        "old": "Photovoltaics on the façade",
+        "action": "rewrite",
+        "new": "Solar panels",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted (matches the diagram label; facade integration is single-sourced)"
+      },
+      {
+        "id": "10:105",
+        "group": "B3 · Lotte World Tower",
+        "old": "720 geothermal probes, ~200 m deep",
+        "action": "rewrite",
+        "new": "720 geothermal wells, about 200 m deep",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:107",
+        "group": "B3 · Lotte World Tower",
+        "old": "Han River water heat exchange",
+        "action": "rewrite",
+        "new": "Han River water for heating and cooling",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted (matches the diagram label)"
+      },
+      {
+        "id": "10:108",
+        "group": "B3 · Lotte World Tower",
+        "old": "555 m · 123 floors · greywater reuse, rainwater harvesting",
+        "action": "rewrite",
+        "new": "555 m · 123 floors",
+        "note": "inside the area replaced by diagram s12-towers; not shown while the diagram is mounted (matches the diagram label; greywater and rainwater move to the notes)"
+      },
+      {
+        "id": "10:111",
+        "group": "B4 · the same badge",
+        "old": "LEED GOLD",
+        "action": "keep",
+        "new": "LEED GOLD"
+      },
+      {
+        "id": "10:112",
+        "group": "B4 · the same badge",
+        "old": "LEED GOLD",
+        "action": "keep",
+        "new": "LEED GOLD"
+      },
+      {
+        "id": "10:114",
+        "group": "B5 · the judgment",
+        "old": "One got its performance from the shape of the building. The other bolted equipment onto a shape chosen for other reasons.",
+        "action": "rewrite",
+        "new": "Amorepacific HQ · CIBSE Building Performance Award · judged on measured performance"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "B1 · Both buildings were finished in 2017 and both are LEED Gold.",
+      "B1 · LEED is the US Green Building Council's green building rating. Gold is the second highest of four levels: Certified, Silver, Gold, Platinum.",
+      "B2 · Amorepacific HQ: David Chipperfield Architects, Arup on building services. Won a 2010 competition, built from 2014, finished 2017. The company has been on this site since 1956.",
+      "B2 · Cube around a central courtyard, shaped for natural air flow and daylight. Three big openings, called hanging gardens, bring light and air deep inside. Fins on the facade cut sun and glare.",
+      "B2 · LEED Gold 2018 (Core & Shell: base building only). Use about 22 floors and 7,000 to 8,000 people.",
+      "B3 · Lotte World Tower: Kohn Pedersen Fox, 555 m, 123 floors, one of the tallest buildings in the world. One source reports it as the first building over 100 floors to get LEED Gold. The form draws on Korean ceramics, porcelain and calligraphy.",
+      "B3 · Lotte equipment: 720 geothermal wells about 200 m deep, Han River water used for heating and cooling, wind turbines near the top, solar panels, energy recovery wheels, greywater reuse, rainwater harvesting.",
+      "B3 · Energy recovery wheel: moves heat from outgoing air to incoming air. Greywater: used sink and shower water, reused for things like flushing toilets.",
+      "B3 · If asked: say \"solar panels, and one source says some are built into the facade\". For the turbines say \"vertical-axis turbines near the top\". Sources disagree on the type.",
+      "B4 · Amorepacific saves energy mostly through its shape (courtyard, openings, fins), while Lotte relies mostly on added equipment.",
+      "B5 · CIBSE Building Performance Award: CIBSE (the UK body for building services engineers) judges measured performance, so the award shows Amorepacific works in use.",
+      "B5 · \"LEED Gold rates Lotte against a standard building of the same kind. A 555 meter tower still has a huge amount of embodied carbon and uses a lot of energy per person.\"",
+      "B5 · Embodied carbon: the carbon released to make materials like concrete and steel and to build with them."
+    ],
+    "layoutRisks": [
+      "10:114: now about 1119 px against 1534 px before; shorter, one line in the 1680 px box.",
+      "10:107 and 10:105 (only matter if the diagram is not mounted) grow to about 325 and 334 px in their 520 px boxes.",
+      "10:53: \"Two LEED Gold Buildings\" is about 1,200 px at 84 px in the 1,400 px box; one line."
+    ],
+    "flags": [
+      "For the i09 notes (photo pair right after s09; Seoul City Hall and P.S. 62), moved here from the old s12 aside. Two bullets under B1 · Seoul: \"Seoul City Hall, 2012, iArc Architects. About 28% of its energy from renewables (city figure). Double-skin glass facade, 1,516 m² green wall over 7 floors.\" and \"Criticized for the glass wave over the preserved 1926 building.\"",
+      "For the study guide (dossier 6.3): Seoul City Hall gets about 28.3% of its energy from solar panels, solar thermal and geothermal (the city's own figure; Wikipedia says over 25%). A double-skin facade is two layers of glass with an air gap between them. The green wall is 1,516 m² and runs from floor 1 to floor 7.",
+      "For the study guide (dossier 6.5): size figures conflict. One source gives 216,000 m² and 30 floors, another gives 22 floors above ground plus 7 basement levels. Occupants are 7,000 in one source and 8,000 in another. Use about 22 floors above ground and 7,000 to 8,000 people.",
+      "For the study guide (general knowledge): LEED Core & Shell rates the base building (structure, envelope and central systems) and leaves out the tenant interiors.",
+      "For the study guide: CIBSE is the Chartered Institution of Building Services Engineers, the UK professional body for engineers who design heating, cooling and lighting systems. Its Building Performance Award is judged on measured performance.",
+      "For the study guide (general knowledge): an energy recovery wheel is a turning wheel that passes heat from outgoing air to incoming air. Greywater is used water from sinks and showers, reused for things like flushing toilets.",
+      "For the study guide (dossier 6.4): LEED rates a building against a standard building of the same type, so it measures relative efficiency. A 555 m tower's embodied carbon and energy use per person stay very large whatever its rating.",
+      "For the study guide: the notes no longer say what Amorepacific makes. If the guide mentions that it is a Korean cosmetics company, mark it as general knowledge; the dossier doesn't say it."
+    ]
+  }
+]

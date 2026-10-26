@@ -1,0 +1,31 @@
+/* ?view=print (src/engine/print.js): every slide fully built, one per 1920x1080 page, no margins, no animation,
+   no timer overlay. Chrome: Ctrl+P, Save as PDF, Background graphics on (or headless --print-to-pdf). */
+@page { size: 1920px 1080px; margin: 0; }
+
+html[data-view="print"], body[data-view="print"] { height: auto; overflow: visible; background: #fff; }
+body[data-view="print"] { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body[data-view="print"] .print-root { position: static; background: #fff; }
+body[data-view="print"] .stage { position: relative; height: auto; overflow: visible; transform: none; background: #fff; }
+body[data-view="print"] .deck { position: static; }
+body[data-view="print"] .slide {
+  position: relative; display: block; width: 1920px; height: 1080px; overflow: hidden;
+  break-after: page; page-break-after: always; break-inside: avoid; page-break-inside: avoid;
+}
+body[data-view="print"] .slide:last-child { break-after: auto; page-break-after: auto; }
+body[data-view="print"] .el { transition: none !important; }
+body[data-view="print"] .diagram-slot img.snapshot { position: absolute; display: block; max-width: none; }
+
+@media screen {
+  html[data-view="print"], body[data-view="print"] { background: #2a2a2b; }
+  body[data-view="print"] .slide { margin: 0 auto 24px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); }
+  body[data-view="print"] .print-status {
+    position: fixed; right: 16px; top: 16px; z-index: 10; padding: 8px 12px; background: #111112; color: #fff;
+    font: 500 13px/1.3 var(--font); border-radius: 4px;
+  }
+}
+@media print {
+  html, body { width: 1920px; background: #fff !important; }
+  body[data-view="print"] .stage { zoom: 1 !important; }
+  body[data-view="print"] .slide { margin: 0 !important; box-shadow: none !important; }
+  .print-status { display: none !important; }
+}

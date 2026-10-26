@@ -1,0 +1,657 @@
+[
+  {
+    "key": "s17",
+    "title": "Green Space Close to Home",
+    "inOneSentence": "Seoul has plenty of park space on average but much less near where people live, so it is building small gardens within a five-minute walk of home, along with an elevated walking park, rooftop gardens and cool roofs.",
+    "background": [
+      "Seoul counts its park space in two ways. Across the whole city there are 17.74 m² of park per person (2022). If you count only the parks people can reach in a five-minute walk from home, the number drops to 5.65 m² per person, about a third of the average. Both numbers are for Seoul. In 2017 they were 16.6 m² and 5.5 m², so the citywide number has grown faster than the walking number.",
+      "That gap is the reason for Garden City Seoul, a plan the city announced in 2023. Its goal is a garden within a five-minute walk of home. The city built 536 municipal gardens in 2024 and set a goal of 1,036 by the end of 2025. Your research didn't find a final count for 2025. The plan has four keywords: emptiness, connection, ecology and sensibility. Seoul has also built bigger parks to fill gaps, such as Seoul Botanic Park in Magok, in the southwest of the city. Construction started in November 2015 and it cost ₩215.6 billion.",
+      "Seoullo 7017 is a separate, earlier project. It was a road overpass built in 1970. In 2017 it reopened as an elevated walking park, about 1 km long and planted as a living plant library. It cost about US$52 million. The name comes from the two years, 70 for 1970 and 17 for 2017, and the 17 also matches its 17 walkways. New York's High Line is the obvious comparison. The High Line was built on an old elevated rail line, while Seoullo was a road that cars used every day, so Seoul gave road space to people on foot.",
+      "The last part of the slide is about roofs. Seoul pays up to 70% of the construction cost of a rooftop garden on a private building, up from 50% before. A study of the Jung-gu district describes the rules as a roof bigger than 99 m², preferably on a building 10 years old or newer. The city says a rooftop garden cuts a building's heating and cooling energy by 12 to 15% on average. The program is small and its totals are reported in scattered pieces, such as 2,227 m² across six new gardens in a 2025 city release. In 2026 the city also started a cool-roof pilot, covering 31,204 m² of roof at 152 sites with heat-reflecting paint for vulnerable households, to cut their summer power bills. The city plans to expand it to whole priority districts.",
+      "For New York the useful idea is the way of measuring. Both cities have almost no empty land for new parks, so each new garden or park has to be placed on purpose. If a city counts only park space within walking distance, the neighborhoods with the least nearby green space move to the top of the list."
+    ],
+    "numbers": [
+      {
+        "value": "17.74 m²",
+        "meaning": "Park area per person across all of Seoul, in 2022.",
+        "source": "SMG, Garden City Seoul policy archive (dossier §5.3)",
+        "confidence": "solid",
+        "note": "Say it's the citywide average."
+      },
+      {
+        "value": "5.65 m²",
+        "meaning": "Park area per person if you count only parks within a five-minute walk of home.",
+        "source": "SMG, Garden City Seoul policy archive (dossier §5.3)",
+        "confidence": "solid",
+        "note": "Same city, about a third of the citywide number."
+      },
+      {
+        "value": "16.6 m² and 5.5 m²",
+        "meaning": "The same two measures in 2017.",
+        "source": "SMG green space pages (dossier §5.3)",
+        "confidence": "solid",
+        "note": "Only needed if someone asks how the gap has changed over time."
+      },
+      {
+        "value": "536",
+        "meaning": "Municipal gardens Seoul built in 2024 under Garden City Seoul.",
+        "source": "SMG, Over 500 New Municipal Gardens Within 5 Minutes of Home",
+        "confidence": "solid",
+        "note": "Reported by the city itself."
+      },
+      {
+        "value": "1,036",
+        "meaning": "The city's goal for the number of gardens by the end of 2025.",
+        "source": "SMG, Garden City Seoul (dossier §5.3)",
+        "confidence": "hedge",
+        "note": "It's a goal. Say \"the goal was 1,036\" and, if asked, \"I couldn't find a final count.\""
+      },
+      {
+        "value": "1970 · 2017 · about 1 km",
+        "meaning": "Seoullo 7017 was built as a road overpass in 1970 and reopened as a walking park in 2017. It is about 1 km long.",
+        "source": "Wikipedia, Seoullo 7017 (dossier §5.2)",
+        "confidence": "solid",
+        "note": "Say \"about 1 km.\""
+      },
+      {
+        "value": "About US$52 million",
+        "meaning": "What it cost to turn the overpass into Seoullo 7017.",
+        "source": "Wikipedia, Seoullo 7017 (dossier §5.2)",
+        "confidence": "solid",
+        "note": "Only if asked. Keep the word \"about.\""
+      },
+      {
+        "value": "Up to 70%",
+        "meaning": "The largest share of a private rooftop garden's construction cost that the city will pay. It used to be 50%.",
+        "source": "SMG, Seoul Expands Rooftop Gardens; Seoul Solution, Roof Gardening Support Project (dossier §5.4)",
+        "confidence": "solid",
+        "note": "It's the maximum, so say \"up to.\""
+      },
+      {
+        "value": "12 to 15%",
+        "meaning": "The city's figure for the average cut in a building's heating and cooling energy after it gets a rooftop garden.",
+        "source": "SMG (dossier §5.4)",
+        "confidence": "solid",
+        "note": "This is per building. Don't present it as a saving for the whole city."
+      },
+      {
+        "value": "31,204 m² · 152 sites",
+        "meaning": "Roof area painted with heat-reflecting paint in the 2026 cool-roof pilot, for vulnerable households.",
+        "source": "Korea Times, cool roof paint (September 2026)",
+        "confidence": "solid",
+        "note": "It's a pilot. The expansion to whole districts is only planned."
+      }
+    ],
+    "explainSimply": "Picture a city with one giant park at the edge of town. On paper everyone gets lots of park per person, but if you live across town you can't use it on an ordinary weekday. The 5.65 m² number counts only the park you could walk to in five minutes, so it shows what people actually have close to home.",
+    "sayThis": [
+      "If you only count the parks people can actually walk to, you'd put new parks in different places."
+    ],
+    "questions": [
+      {
+        "q": "If both numbers are for Seoul, why is one about three times bigger?",
+        "a": "The citywide number counts every park in Seoul and divides by everyone. The walking number counts only park space within a five-minute walk of home. Large parks raise the citywide average, but people who live far from them can't use them every day."
+      },
+      {
+        "q": "Did Seoul actually build 1,036 gardens?",
+        "a": "The city reported 536 new gardens in 2024 and set a goal of 1,036 by the end of 2025. I couldn't find a final count, so I treat 1,036 as a goal."
+      },
+      {
+        "q": "Isn't Seoullo basically a copy of the High Line?",
+        "a": "They share the idea of a park on an old raised structure. The High Line reused a rail line. Seoullo was a 1970 road overpass that carried cars, so Seoul took road space away from drivers and gave it to people walking. That's why it connects to the road removal idea on slide 19."
+      },
+      {
+        "q": "Is a 12 to 15% energy cut from rooftop gardens a big deal for Seoul's climate plan?",
+        "a": "It's a useful saving for each building that gets a garden, based on the city's own average. The program is small, though. Reported projects are a few thousand m² at a time, like 2,227 m² across six gardens in 2025. So it helps those buildings, but it's a small part of the city's climate plan."
+      },
+      {
+        "q": "Are these small gardens enough to change the 5.65 m² number?",
+        "a": "My sources give the number of gardens but not their size, so I can't say how much they move the walking number. What the program does show is a change in planning. The city now plans green space around walking distance from home."
+      }
+    ],
+    "dontSay": [
+      "Don't present 17.74 m² and 5.65 m² as Seoul against New York. Both numbers are for Seoul.",
+      "Don't say Seoul reached 1,036 gardens. It's a goal, and you couldn't find a final count.",
+      "Don't cite the \"400+ hectares\" of green roofs that circulates online. It comes from a weak source.",
+      "Don't describe the 12 to 15% as a citywide energy saving. It's the city's average for each building with a rooftop garden.",
+      "Don't say Seoullo is part of Garden City Seoul. Seoullo opened in 2017, and Garden City Seoul started in 2023.",
+      "Don't give a length, cost or opening date for the High Line. Those aren't in your research.",
+      "Don't say the cool-roof paint covers whole districts yet. The 2026 pilot is 152 sites, and the district expansion is only planned."
+    ],
+    "terms": [
+      {
+        "term": "m² per person",
+        "meaning": "Square meters of park divided by the number of residents. One square meter is a little under 11 square feet."
+      },
+      {
+        "term": "Five-minute walk",
+        "meaning": "A common planning measure for what counts as close to home. Seoul's 5.65 m² number counts only park space within that distance."
+      },
+      {
+        "term": "Municipal garden",
+        "meaning": "A garden built and run by the city government."
+      },
+      {
+        "term": "Elevated park",
+        "meaning": "A park built on top of an old raised structure, like a road overpass or a rail viaduct."
+      },
+      {
+        "term": "Overpass / viaduct",
+        "meaning": "A road or rail line raised on columns so it crosses over the streets below."
+      },
+      {
+        "term": "Rooftop garden (green roof)",
+        "meaning": "Soil and plants installed on a roof. They shade and insulate the roof, which lowers the energy needed to heat and cool the floors below."
+      },
+      {
+        "term": "Cool roof",
+        "meaning": "A roof coated with light, heat-reflecting paint so it soaks up less sunlight and keeps the rooms below cooler in summer."
+      },
+      {
+        "term": "Subsidy",
+        "meaning": "Money the government pays to cover part of a cost. Seoul covers up to 70% of a private rooftop garden's construction cost."
+      },
+      {
+        "term": "Seoullo (suh-ool-lo)",
+        "meaning": "The name of the elevated walking park. The 7017 stands for 1970, when the overpass was built, and 2017, when it reopened."
+      }
+    ],
+    "nycLink": "New York, like Seoul, has almost no empty land for new parks, so measuring park space by walking distance is a practical way to choose where new green space goes. Seoullo and the High Line are the photo pair on the next slide. The High Line reused a rail line and Seoullo reused a road, and that difference sets up idea 05 on slide 19, giving road space back to people. This slide also gives you a backup discussion question: should a city count all of its park space, or only park space within a five-minute walk?"
+  },
+  {
+    "key": "i17",
+    "title": "Two Elevated Parks",
+    "seoul": "Seoullo 7017 in central Seoul, a 1970 road overpass that reopened in 2017 as a walking park about 1 km long, planted as a living plant library.",
+    "nyc": "The High Line on Manhattan's West Side, a park built on top of an old elevated rail line.",
+    "why": "Both cities turned an old raised structure into a park in the air. The High Line once carried trains. Seoullo carried cars, so Seoul gave up road space to make it."
+  },
+  {
+    "key": "s18",
+    "title": "Buses and the Climate Card",
+    "inOneSentence": "Two Seoul transit moves: the 2004 bus reform, which gave buses their own lanes in the middle of the road and one fare system with the subway, and the 2024 Climate Card, a single monthly price for unlimited trains, buses and public bikes.",
+    "background": [
+      "In July 2004 Seoul rebuilt its whole bus network and switched it over in one night. Before the reform, most subway lines shared a fare system, but buses were left out of it. The reform tied them together with one fare based on distance and free transfers between bus and subway. The same fare system later spread to Gyeonggi Province in July 2007 and to Incheon in 2009.",
+      "The reform also changed the streets. Main roads got bus lanes in the middle of the road, with island stops where riders wait between the lanes of traffic. Routes were sorted into four colors so people could read the network at a glance: blue for long main routes, green for local neighborhood routes, red for express routes to the suburbs and yellow for downtown loops. A graphic design choice helped make the policy work.",
+      "The results were strong, with a few cautions. Bus speeds rose by up to 11 km/h, and travel speeds on main roads rose 33 to 50% (December 2004). Bus accidents fell 24% in the first year, which research linked to UN-Habitat calls the reform's biggest success. Ridership went up too, but the size depends on which years are compared, from about 9% to 21%. UN-Habitat's cautious figure is about 9%, or 406,000 more riders a day (September 2003 to September 2004). UN-Habitat also found that service got much better while the city kept paying high subsidies in the first few years.",
+      "The Climate Card came twenty years later. It was announced in September 2023, piloted in January 2024 and fully launched in July 2024. For ₩65,000 a month you get unlimited rides on Seoul metro lines, Seoul-licensed buses including late-night ones, and Ttareungi public bikes. It costs ₩62,000 without bikes, and the youth version is ₩58,000 with bikes. It doesn't cover the Shinbundang Line, buses licensed outside Seoul or metropolitan express buses. A version that adds the Hangang River Bus costs ₩67,000. The card has been spreading to nearby cities such as Gimpo, Goyang and Seongnam.",
+      "Seoul reports 10 million reloads by April 2025. A reload is one monthly top-up of the pass, so the same rider is counted many times. The city hasn't released how many people use the card or how much driving it replaced. New York's closest match is OMNY fare capping. Once you've paid for a set number of rides in any 7 days, the rest of your rides in those 7 days are free. Citi Bike is sold separately. Seoul's version adds bike share and carries a climate name, so the city presents riding transit as part of its climate plan."
+    ],
+    "numbers": [
+      {
+        "value": "July 2004",
+        "meaning": "When Seoul switched its whole bus network to the new system, in one night.",
+        "source": "Seoul Solution, Reforming Public Transportation in Seoul (dossier §7.1)",
+        "confidence": "solid",
+        "note": "The fare system reached Gyeonggi in July 2007 and Incheon in 2009."
+      },
+      {
+        "value": "+11 km/h",
+        "meaning": "The biggest rise in bus speed after the reform.",
+        "source": "Dossier §7.1 bus reform sources",
+        "confidence": "solid",
+        "note": "Say \"up to.\" It's the largest gain, and many routes saw less."
+      },
+      {
+        "value": "33 to 50%",
+        "meaning": "Rise in travel speed on main roads, measured in December 2004.",
+        "source": "Dossier §7.1 bus reform sources",
+        "confidence": "solid",
+        "note": "This is for main roads only."
+      },
+      {
+        "value": "24%",
+        "meaning": "Drop in bus traffic accidents in the first year after the reform.",
+        "source": "UN-Habitat-linked research (dossier §7.1)",
+        "confidence": "solid",
+        "note": "That research calls it the reform's biggest success."
+      },
+      {
+        "value": "9 to 21%",
+        "meaning": "Rise in bus ridership. The figure depends on the years compared: 17.8% (2004 to 2006), 21.2% (2004 to 2007) and 9.4% (2004 to 2017).",
+        "source": "UN-Habitat, Bus reform in Seoul, and other §7.1 sources",
+        "confidence": "varies",
+        "note": "Give the range, or UN-Habitat's cautious figure of about 9% (406,000 more daily riders). Never add the figures together."
+      },
+      {
+        "value": "₩65,000",
+        "meaning": "Monthly price of the Climate Card for unlimited rides, Ttareungi bikes included.",
+        "source": "SMG, Climate Card pages (dossier §7.2)",
+        "confidence": "solid",
+        "note": "₩62,000 without bikes. Youth: ₩58,000 with bikes, ₩55,000 without."
+      },
+      {
+        "value": "10 million",
+        "meaning": "Total reloads (monthly top-ups) of the Climate Card by April 2025.",
+        "source": "SMG, Climate Card pages (dossier §7.2)",
+        "confidence": "solid",
+        "note": "One rider who reloads every month is counted many times. Don't call it 10 million users."
+      },
+      {
+        "value": "January 2024 · July 2024",
+        "meaning": "The Climate Card pilot started in January 2024, and the full launch came in July 2024.",
+        "source": "SMG, Climate Card pages (dossier §7.2)",
+        "confidence": "solid",
+        "note": "It was announced in September 2023."
+      }
+    ],
+    "explainSimply": "The Climate Card works like a gym membership. You pay once at the start of the month, then every extra ride feels free, so you stop asking whether a trip is worth the fare. The center bus lanes are like a train track painted down the middle of the street. Buses get their own path, away from cars stopping at the curb.",
+    "sayThis": [],
+    "questions": [
+      {
+        "q": "What actually changed in the 2004 bus reform?",
+        "a": "Seoul switched its whole bus network in one night in July 2004. Main roads got center bus lanes with island stops, and routes were sorted into four colors. Buses also joined the subway in one fare system based on distance, with free transfers."
+      },
+      {
+        "q": "Your slide says ridership rose 9% to 21%. Which is it?",
+        "a": "It depends on the years compared. Sources give 17.8% for 2004 to 2006, 21.2% for 2004 to 2007 and 9.4% for 2004 to 2017. UN-Habitat's cautious number is about 9%, or 406,000 more daily riders in the first year. I give the range and never add them together."
+      },
+      {
+        "q": "How many people use the Climate Card, and did it get anyone out of their car?",
+        "a": "Seoul reports 10 million reloads by April 2025, but each reload is one monthly top-up, so the same person is counted many times. The city hasn't released a user count or any data on driving. That missing data is a fair criticism of the program."
+      },
+      {
+        "q": "How is this different from OMNY fare capping in New York?",
+        "a": "The idea is similar. With OMNY, once you've paid for a set number of rides in 7 days, the rest are free. Seoul charges one monthly price up front, includes the Ttareungi bike share and named the pass for the climate. In New York, Citi Bike is a separate membership."
+      },
+      {
+        "q": "Did the bus reform save the city money?",
+        "a": "No. UN-Habitat found the reform made service much better, but the city still had to pay high subsidies in the first few years. Good bus service took public money to run."
+      }
+    ],
+    "dontSay": [
+      "Don't add the ridership figures together, and don't present 21% as the one true number.",
+      "Don't call the 10 million reloads \"10 million users.\" Reloads are monthly top-ups.",
+      "Don't claim the Climate Card reduced driving or emissions. Seoul hasn't released that data.",
+      "Don't repeat the dossier's line that the card pays for itself at about 4 rides a day. It doesn't match the prices. If someone asks, the only safe line is \"₩65,000 is about the price of 42 subway rides at ₩1,550.\"",
+      "Don't say the River Bus is included in the ₩65,000 card. It's an add-on at ₩67,000.",
+      "Don't say the reform cut subsidies or paid for itself.",
+      "Don't give OMNY's exact cap (number of rides or dollar amount). It isn't in your research, so say \"a set number of rides in 7 days.\"",
+      "Don't convert won to dollars on the spot. The conversion isn't in your research and exchange rates change."
+    ],
+    "terms": [
+      {
+        "term": "Median (center) bus lane",
+        "meaning": "A bus-only lane in the middle of the road. Riders board at island stops between the traffic lanes."
+      },
+      {
+        "term": "Island stop",
+        "meaning": "A bus platform in the middle of the street, reached by a crosswalk, so buses in the center lanes can pick people up."
+      },
+      {
+        "term": "Main (trunk) and local (feeder) routes",
+        "meaning": "Main routes are long lines on big roads (blue in Seoul). Local routes are neighborhood buses that bring people to them (green)."
+      },
+      {
+        "term": "Distance-based fare with free transfers",
+        "meaning": "You pay by how far you travel, and switching between bus and subway during the trip doesn't cost a new fare."
+      },
+      {
+        "term": "Fare capping",
+        "meaning": "Once you've paid for a set number of rides in a period (7 days for OMNY), the rest of your rides in that period are free."
+      },
+      {
+        "term": "OMNY",
+        "meaning": "New York's tap-to-pay fare system for the subway and buses."
+      },
+      {
+        "term": "Ttareungi (tah-rung-ee)",
+        "meaning": "Seoul's public bike share. It's included in the ₩65,000 Climate Card."
+      },
+      {
+        "term": "Reload",
+        "meaning": "One monthly top-up of the Climate Card. Seoul counts these, and one rider can make many."
+      },
+      {
+        "term": "Ridership",
+        "meaning": "How many trips people take on a transit service."
+      }
+    ],
+    "nycLink": "New York already has most of the pieces: red bus lanes, OMNY fare capping and Citi Bike. They are run and sold separately. Seoul shows two moves New York could copy. One is redesigning a bus network all at once, with lanes in the middle of the road. The other is a single pass that includes bike share and is named for the climate, which is idea 04 on slide 19."
+  },
+  {
+    "key": "i18",
+    "title": "Two Bus Lanes",
+    "seoul": "A bus lane running down the middle of a Seoul road, with an island stop between the traffic lanes. Seoul added these center lanes on main roads in the July 2004 reform, and bus speeds rose by up to 11 km/h.",
+    "nyc": "A red-painted bus lane in New York. The red paint marks the lane for buses, and many of New York's bus lanes run along the curb.",
+    "why": "Both cities give buses their own lane. Seoul put its lanes down the middle of the road with island stops, which keeps buses away from cars stopping at the curb."
+  },
+  {
+    "key": "s19",
+    "title": "Five Ideas for New York",
+    "inOneSentence": "The five Seoul tools you think New York could borrow, each matched to a gap in New York today, with city retrofit loans as your main recommendation.",
+    "background": [
+      "This slide pulls the whole talk together. Each row pairs a tool Seoul already uses with a gap in New York. Row 02, city loans for building retrofits, is your main recommendation, so it gets the most time.",
+      "01 Food waste charged by weight. In Seoul a household taps an RFID card on a shared smart bin. The lid opens, the bin weighs the food waste, and that household is billed for it. Reports show about 9 to 31% less food waste, and households that cut 10 to 30% compared with the year before can earn up to 5,000 points (worth about ₩5,000). New York made curbside composting mandatory, but organics were only 2.4% of residential waste in 2025, up from 1.4% in 2024. Fines were set to start in April 2025, were paused within three weeks and came back on January 1, 2026. The Independent Budget Office (IBO) found that pickup nearly tripled while fines were on and fell about 43% after they stopped. New York's bins give no feedback and no reward. Buildings already have to provide refuse rooms, so a bin that weighs food waste could be written into the building code.",
+      "02 City loans for building retrofits. Seoul's Building Retrofit Program (BRP) started in 2008. In 2013 the interest rate dropped from 2.5% to 1.75%, and the loan can now cover up to 100% of the eligible cost (it was 80%). New York's Local Law 97 covers buildings over 25,000 sq ft. It sets a carbon limit for each building and fines owners $268 for every ton of CO₂e over it. About 11% of buildings are over the 2024 to 2029 limits, and about 63% would be over the 2030 limits if nothing changes. The law sets the target and the fine and leaves the money question to owners. A city loan fund on terms like Seoul's, tied to LL97, would give owners a way to pay for the work the law asks for.",
+      "03 Balcony solar kits. Seoul's Solar City plan (2017) set a goal of small solar panels on 540,000 apartment balconies, using standard kits renters can install, with published safety and appearance rules. New York has many balconies, fire escapes and railings that produce no power, and your research found no city program for them. The problems are the code, permits and landlord consent, since the technology is ready. The three asks are an approved-kit list, a simple Department of Buildings (DOB) permit for a plug-in unit, and a renter's right to install. Germany's balcony solar boom shows the idea can spread once permits are simple.",
+      "04 and 05. Idea 04 is a transit pass named for the climate. Seoul's Climate Card costs ₩65,000 a month and includes bike share. New York's OMNY fare capping is similar, but Citi Bike is separate, so the two asks are to put Citi Bike on the same OMNY pass and give it a climate name. Idea 05 is road removal. At Cheonggyecheon, Seoul tore down an elevated highway that carried about 168,000 vehicles a day and opened up the stream buried under it, and the gridlock opponents predicted did not happen. New York has its own live debates about the BQE, a cap over the Cross Bronx Expressway and the Gowanus corridor, and Seoul's traffic record is evidence for them."
+    ],
+    "numbers": [
+      {
+        "value": "9 to 31%",
+        "meaning": "Drop in food waste reported for Seoul's RFID weigh-and-pay bins.",
+        "source": "Korea Environment Corporation reporting via Seoul waste case studies (dossier §4.2)",
+        "confidence": "varies",
+        "note": "Another table on the same site gives 10 to 30%. Use the range and don't pick one exact figure."
+      },
+      {
+        "value": "2.4%",
+        "meaning": "Share of New York's residential waste collected as organics (food and yard waste) in 2025. It was 1.4% in 2024.",
+        "source": "Dossier §8.1 (Waste Today on the IBO analysis, Grist)",
+        "confidence": "solid",
+        "note": "Say \"of residential waste collected.\""
+      },
+      {
+        "value": "Nearly tripled, then about 43% lower",
+        "meaning": "What happened to New York's organics pickup while fines were on in 2025, and after they stopped.",
+        "source": "IBO analysis, reported by Waste Today",
+        "confidence": "solid",
+        "note": "Credit the IBO when you say it."
+      },
+      {
+        "value": "$25 to $300",
+        "meaning": "New York composting fines per violation: $25, $50 or $100 for buildings with 1 to 8 units, and $100, $200 or $300 for buildings with 9 or more.",
+        "source": "DSNY, Compost Enforcement Flyer 2025",
+        "confidence": "solid",
+        "note": "Only if someone asks about fairness or how big the fines are."
+      },
+      {
+        "value": "About 17% · up to 75%",
+        "meaning": "Share of New York's trash that is recycled, composted or reused today, and DSNY's own estimate of what's possible.",
+        "source": "Dossier §8.1 (DSNY)",
+        "confidence": "solid",
+        "note": "Background for row 01. It isn't on the slide."
+      },
+      {
+        "value": "Up to 100% at 1.75%",
+        "meaning": "Seoul's retrofit loan terms since 2013. The loan can cover the whole eligible cost, at 1.75% interest a year.",
+        "source": "Seoul Solution, Building Retrofit Program; C40, BRP Loan Scheme (dossier §3.1)",
+        "confidence": "solid",
+        "note": "Before 2013 it was 2.5% and up to 80%."
+      },
+      {
+        "value": "$268 per ton",
+        "meaning": "LL97 fine for each ton of CO₂e a building emits over its limit.",
+        "source": "NYC Department of Buildings, LL97 page (dossier §8.2)",
+        "confidence": "solid",
+        "note": "Applies to buildings over 25,000 sq ft."
+      },
+      {
+        "value": "About 11% · about 63%",
+        "meaning": "Share of covered buildings over the 2024 to 2029 limits today, and the share projected to be over the 2030 limits if owners do nothing more.",
+        "source": "Dossier §8.2 (LL97 sources)",
+        "confidence": "solid",
+        "note": "Always say \"projected\" and \"if nothing changes\" with the 63%."
+      },
+      {
+        "value": "540,000",
+        "meaning": "Seoul's goal for apartment balconies with mini solar panels under Solar City Seoul.",
+        "source": "SMG, Seoul City of Solar Power (dossier §2.3)",
+        "confidence": "hedge",
+        "note": "It's a goal. Your research doesn't say how many balconies got panels. The 2019 report of 285,000 households covers the whole solar program."
+      },
+      {
+        "value": "₩65,000",
+        "meaning": "Monthly price of Seoul's Climate Card, bike share included.",
+        "source": "SMG, Climate Card pages (dossier §7.2)",
+        "confidence": "solid",
+        "note": "Explained in detail on slide 18."
+      },
+      {
+        "value": "About 168,000",
+        "meaning": "Vehicles a day on the elevated highway Seoul removed at Cheonggyecheon.",
+        "source": "Dossier §5.1 (Landscape Performance Series and other Cheonggyecheon sources)",
+        "confidence": "solid",
+        "note": "Say \"about.\""
+      }
+    ],
+    "explainSimply": "Think of LL97 as a teacher who sets a hard deadline and takes points off for late work. Seoul's loans are like the same teacher also offering a tutor. The deadline stays the same, and students now have a way to meet it. The other four rows follow the same pattern. Each one matches a Seoul tool to a New York problem.",
+    "sayThis": [
+      "So here are the five ideas I said New York could borrow from Seoul.",
+      "This one is my main recommendation."
+    ],
+    "questions": [
+      {
+        "q": "Why are retrofit loans your main recommendation?",
+        "a": "LL97 already sets limits and fines of $268 per ton over the limit, but it leaves the financing to owners. About 63% of covered buildings are projected to go over the 2030 limits if nothing changes. Seoul pairs its goals with loans for up to 100% of the cost at 1.75%. A city loan fund like that would give owners a way to pay for the work the law requires."
+      },
+      {
+        "q": "Where would New York get the money for a loan fund, and doesn't New York already have some financing programs?",
+        "a": "My research covered Seoul's program and LL97 itself. It didn't look at how New York would fund a loan program or at every financing option owners have today. What I can say is that LL97 doesn't come with city loans like Seoul's. Loans are paid back, unlike grants, but how New York would set one up is the next question to study."
+      },
+      {
+        "q": "Composting fines worked in 2025. Why add Seoul's weighing bins?",
+        "a": "The IBO found pickup nearly tripled while fines were on and fell about 43% after they stopped, so fines do push people. Seoul adds feedback and a reward. Each household pays by weight, can earn points for cutting back, and Seoul reports 9 to 31% less food waste."
+      },
+      {
+        "q": "Is plug-in balcony solar safe and legal here?",
+        "a": "Seoul uses standard kits with published safety and appearance rules. In New York the barriers my research found are the code, the permit process and landlord consent. I didn't study the electrical code in detail, so my ask is for the city to approve a list of safe kits and create a simple DOB permit."
+      },
+      {
+        "q": "The BQE and the Cross Bronx carry trucks and connect whole regions. Isn't Cheonggyecheon a different case?",
+        "a": "Every corridor is different, and I'm not promising the same result. What Cheonggyecheon gives New York is evidence. A highway carrying about 168,000 vehicles a day came down and the predicted gridlock didn't happen. Seoul also reformed its buses at the same time, so the lesson I'd take is to pair road removal with better transit."
+      }
+    ],
+    "dontSay": [
+      "Don't say 540,000 balconies have solar panels. It's Seoul's goal.",
+      "Don't say 63% of buildings are failing LL97 today. About 11% are over the current (2024 to 2029) limits, and 63% is a 2030 projection if nothing changes.",
+      "Don't say New York offers owners no help at all. Say LL97 doesn't come with city loans like Seoul's, and that your research didn't cover other financing programs.",
+      "Don't promise that removing the BQE or the Cross Bronx would cause no traffic problems. Say the predicted gridlock didn't happen at Cheonggyecheon.",
+      "Don't use the \"639% biodiversity increase\" for Cheonggyecheon. It's an index. Use the species counts instead, like plants going from 62 to 308 species.",
+      "Don't mention LL97 carbon-credit trading. It comes from one blog that nothing else backs up.",
+      "Don't give numbers for Germany's balcony solar. Your research mentions the boom but has no figures.",
+      "Don't say every Seoul household uses a weighing bin. Your research has no figure for how many homes have them."
+    ],
+    "terms": [
+      {
+        "term": "LL97 (Local Law 97)",
+        "meaning": "New York's 2019 law that sets carbon limits for buildings over 25,000 sq ft and fines owners who go over. It aims to cut building emissions 40% by 2030 and 80% by 2050 from 2005 levels."
+      },
+      {
+        "term": "Retrofit",
+        "meaning": "Upgrading an existing building, for example with insulation, new windows or heat pumps, so it uses less energy."
+      },
+      {
+        "term": "BRP (Building Retrofit Program)",
+        "meaning": "Seoul's program of low-interest city loans for energy upgrades to existing buildings."
+      },
+      {
+        "term": "Ton of CO₂e",
+        "meaning": "A metric ton of carbon dioxide, or the amount of another greenhouse gas that warms the planet as much. LL97 fines are counted per ton over the limit."
+      },
+      {
+        "term": "Organics",
+        "meaning": "Food scraps and yard waste collected for composting."
+      },
+      {
+        "term": "IBO",
+        "meaning": "New York City's Independent Budget Office, which reviews city programs and spending."
+      },
+      {
+        "term": "DOB",
+        "meaning": "New York City's Department of Buildings, which handles building codes and permits."
+      },
+      {
+        "term": "Plug-in balcony solar",
+        "meaning": "A small solar panel kit that hangs on a balcony railing and plugs into a home outlet."
+      },
+      {
+        "term": "Highway cap",
+        "meaning": "A deck built over a sunken highway, with a park or streets on top. Plans for the Cross Bronx Expressway propose one."
+      },
+      {
+        "term": "BQE",
+        "meaning": "The Brooklyn-Queens Expressway. Its stacked section under the Brooklyn Heights Promenade is the part being debated."
+      },
+      {
+        "term": "Reduced demand (Braess paradox)",
+        "meaning": "When a road is removed, some trips move to transit, other routes or other times, and some don't happen at all, so traffic often turns out lighter than feared. The Braess paradox is a related idea from traffic math: adding a road can sometimes slow a network down, and removing one can leave it no worse."
+      },
+      {
+        "term": "Cheonggyecheon (chung-gyeh-chun)",
+        "meaning": "The stream in central Seoul that was buried under an elevated highway and opened up again from 2003 to 2005."
+      }
+    ],
+    "nycLink": "This is the slide where the comparison turns into advice. Each row takes something Seoul has tried and points it at a New York gap: the slow composting program, the LL97 money gap, the city's unused balconies, the separate OMNY and Citi Bike, and the highway debates. Row 02 is the main argument of the talk. New York already has fines through LL97, and city loans would give owners a way to pay for the work."
+  },
+  {
+    "key": "s20",
+    "title": "Carrot and Stick Compared",
+    "inOneSentence": "The closing slide sums up what worked in Seoul, where Seoul fell short and where New York stands, then gives your one recommendation and opens the discussion.",
+    "background": [
+      "The title comes back here. In this talk the carrot means rewards and cheap loans, and the stick means rules and fines. For buildings that already exist, Seoul leaned mostly on carrots and New York leans mostly on the stick. The slide gives three short findings, one line each.",
+      "What worked in Seoul. The One Less Nuclear Power Plant program set a goal of saving or producing 2 million TOE of energy, about the output of one nuclear reactor. Seoul reached 2.04 million TOE in June 2014, six months early. Eco-Mileage, a voluntary rewards program for saving energy at home, was the most effective single part. It had 1.68 million participants by June 2014 and saved 190,000 TOE. The retrofit loans at 1.75% are the third example. Together they show that rewards and loans can get a whole city to take part.",
+      "Where Seoul fell short. On January 1, 2026, Seoul, Incheon and Gyeonggi stopped sending household trash straight to landfills. The ban was passed in 2021 with five years to prepare, but the region didn't build enough incinerators. Seoul runs only four (Gangnam, Mapo, Nowon and Yangcheon), and most of them are 20 to 30 or more years old. In the first half of 2026, trash handled by private companies rose to 457 tons a day, 3.2 times as much as before, while public incineration grew by only 80 tons. Some districts now send trash to private incinerators in Cheonan and Sejong, and Gangnam planned to send some to Cheongju, about 130 km away by road. The cities receiving it are pushing back.",
+      "Where New York stands. LL97 fines owners $268 for each ton of CO₂e over their building's limit, and it leaves the financing to owners. About 63% of covered buildings would be over the 2030 limits if nothing changes. Seoul's landfill ban raises a fair question for New York. Is LL97 asking for retrofits faster than the city's workers and suppliers can deliver them?",
+      "Your closing recommendation is the retrofit loans, because LL97 already has the fines and owners still need a way to pay for the work. Then you mention that the full sources are in the submitted PDF and open the floor with your question about Seoul's loans and New York's fines. Backup questions are ready if the room is quiet: Lotte World Tower compared with Nowon EZ House, fines and fairness for low-income families, and park space within walking distance."
+    ],
+    "numbers": [
+      {
+        "value": "2 million TOE",
+        "meaning": "Seoul's goal for energy saved or produced in phase 1 of One Less Nuclear Power Plant (2012 to 2014), about the output of one nuclear reactor.",
+        "source": "SMG, One Less Nuclear Power Plant report (dossier §2.1)",
+        "confidence": "solid",
+        "note": "The goal was 410,000 TOE from new renewables plus 1.59 million TOE from efficiency and using less."
+      },
+      {
+        "value": "2.04 million TOE · June 2014",
+        "meaning": "What Seoul actually reached, six months ahead of schedule.",
+        "source": "SMG, One Less Nuclear Power Plant report (dossier §2.1)",
+        "confidence": "solid",
+        "note": "Say \"six months early.\""
+      },
+      {
+        "value": "1.68 million",
+        "meaning": "People taking part in Eco-Mileage by June 2014. Together they saved 190,000 TOE.",
+        "source": "SMG, One Less Nuclear Power Plant report (dossier §2.1 and §7.3)",
+        "confidence": "solid",
+        "note": "Call them participants. Don't say households."
+      },
+      {
+        "value": "1.75%",
+        "meaning": "Interest rate on Seoul's retrofit loans since 2013, down from 2.5%.",
+        "source": "Seoul Solution, Building Retrofit Program (dossier §3.1)",
+        "confidence": "solid",
+        "note": "Loans can cover up to 100% of the eligible cost."
+      },
+      {
+        "value": "January 1, 2026",
+        "meaning": "Start of the ban on sending household trash straight to landfills in Seoul, Incheon and Gyeonggi.",
+        "source": "Seoul Economic Daily; Kyunghyang Shinmun (dossier §4.4)",
+        "confidence": "solid",
+        "note": "It took effect on schedule, with no emergency delay."
+      },
+      {
+        "value": "457 tons a day · 3.2 times",
+        "meaning": "Seoul household trash handled by private companies in the first half of 2026, and how much that grew.",
+        "source": "Seoul Economic Daily, October 2026 (dossier §4.4)",
+        "confidence": "solid",
+        "note": "Only if asked for detail on the crisis."
+      },
+      {
+        "value": "About 130 km",
+        "meaning": "Reported road distance some Seoul trash now travels to private incinerators.",
+        "source": "Seoul Economic Daily, \"Seoul's Trash Travels 130 Kilometers\" (October 2026)",
+        "confidence": "varies",
+        "note": "That's the road distance. In a straight line, Cheonan is about 85 km, Cheongju about 110 km and Sejong about 125 km from Seoul. Those straight-line figures are map estimates and aren't in your dossier."
+      },
+      {
+        "value": "$268 per ton",
+        "meaning": "LL97 fine for each ton of CO₂e over a building's limit.",
+        "source": "NYC Department of Buildings, LL97 page (dossier §8.2)",
+        "confidence": "solid",
+        "note": "Same number as slide 19."
+      },
+      {
+        "value": "About 63%",
+        "meaning": "Share of LL97 buildings projected to be over the 2030 limits if owners do nothing more.",
+        "source": "Dossier §8.2 (LL97 sources)",
+        "confidence": "solid",
+        "note": "Always say \"if nothing changes.\""
+      }
+    ],
+    "explainSimply": "A carrot is a reward and a stick is a punishment. Seoul mostly offered rewards, like points for saving energy and cheap loans for upgrades. New York mostly uses fines. Seoul's trash problem shows that a strict rule can backfire if people don't have what they need to follow it. That's why you'd give New York owners a loan to go with the fine.",
+    "sayThis": [
+      "If I had to pick one idea for New York, it would be the retrofit loans. LL97 already has the fines, and owners still need a way to pay for the work.",
+      "Would you rather design under Seoul's loans or New York's fines?"
+    ],
+    "questions": [
+      {
+        "q": "So which works better, the carrot or the stick?",
+        "a": "From my research, each one has a weak spot when it's used alone. Seoul's rewards and loans got huge participation, like 1.68 million Eco-Mileage participants, but its landfill ban came before the incinerators were ready. New York has strong limits and fines but no city loans. My recommendation is to add Seoul-style loans to the fines New York already has."
+      },
+      {
+        "q": "The landfill ban is a stick. Doesn't Seoul's trash crisis weaken your case for Seoul?",
+        "a": "It's part of my case. The ban came with five years to prepare, and the region didn't build enough incinerators, so trash now travels about 130 km by road to other cities. It shows what happens when a rule arrives before the means to follow it. LL97 could run into the same problem if owners don't have the money or the contractors."
+      },
+      {
+        "q": "Did One Less Nuclear Power Plant actually shut down a nuclear plant?",
+        "a": "The name describes an amount of energy. The goal was 2 million TOE saved or produced, about the output of one reactor, and Seoul reached 2.04 million TOE in June 2014. My research doesn't link it to closing any specific plant."
+      },
+      {
+        "q": "Where is Seoul's trash going now?",
+        "a": "Some districts send it to private incinerators outside the region. Gangdong sends trash to Cheonan and Sejong, and Gangnam planned to send some to Cheongju. Trash handled by private companies grew 3.2 times in the first half of 2026, and Cheongju's operators agreed not to bid on new contracts from the Seoul region through the end of next year."
+      },
+      {
+        "q": "Are Seoul's emissions actually going down? What's the latest total?",
+        "a": "I couldn't find a recent citywide total for Seoul in English sources. What I can give you is the plan: a 2005 baseline of 52.34 Mt CO₂e, half of that by 2033 and net zero by 2050. That's why I talk about programs with measured results, like the 2.04 million TOE."
+      }
+    ],
+    "dontSay": [
+      "Don't give a recent total for Seoul's citywide emissions. It isn't published in English sources you can point to. Use the 2005 baseline of 52.34 Mt and the goal of half by 2033.",
+      "Don't call the 1.68 million \"households.\" They are Eco-Mileage participants.",
+      "Don't say the trash travels 130 km in a straight line. It's the reported road distance.",
+      "Don't say One Less Nuclear Power Plant closed a nuclear reactor.",
+      "Don't say LL97 will fail. Say about 63% of buildings are projected to miss the 2030 limits if nothing changes.",
+      "Don't call the landfill ban a total failure. It took effect on schedule and is struggling because there aren't enough incinerators.",
+      "If Nowon comes up in Q&A, don't use the \"100% energy cost\" claim. Say up to 61% lower energy costs and about 75 to 80% self-sufficiency."
+    ],
+    "terms": [
+      {
+        "term": "Carrot and stick",
+        "meaning": "Rewards (carrots) and penalties (sticks) used to change how people or companies behave."
+      },
+      {
+        "term": "Incentive and mandate",
+        "meaning": "An incentive rewards people for acting. A mandate requires them to act."
+      },
+      {
+        "term": "TOE (ton of oil equivalent)",
+        "meaning": "A unit for comparing different kinds of energy. One TOE is about the energy you get from burning one metric ton of crude oil."
+      },
+      {
+        "term": "Eco-Mileage",
+        "meaning": "Seoul's voluntary program that tracks energy use at home and gives small rewards for cutting it."
+      },
+      {
+        "term": "Direct landfill ban",
+        "meaning": "A rule that household trash can't go straight into a landfill. It has to be burned or processed first."
+      },
+      {
+        "term": "Incinerator",
+        "meaning": "A plant that burns trash, which shrinks what is left over to bury."
+      },
+      {
+        "term": "Capital region",
+        "meaning": "Seoul together with the surrounding Incheon and Gyeonggi areas."
+      }
+    ],
+    "nycLink": "This slide is where the comparison ends up. New York already uses the stick, through LL97 fines and composting fines. Seoul shows what the carrot can do, and its landfill ban shows what goes wrong when a rule comes before the means to follow it. Your one recommendation for New York is city retrofit loans to go with the LL97 fines."
+  },
+  {
+    "key": "refs",
+    "title": "References and Photo Credits",
+    "howToCite": "Open this slide only if someone asks for a source, and say the full list is also in the submitted PDF. The sources are grouped the same way as the dossier's reference list: Seoul Metropolitan Government (SMG) pages, Seoul Solution (the city's policy library), international organizations, academic studies, architecture sources, news reporting and New York sources. When you cite out loud, name the source in a few words, for example \"according to UN-Habitat\" or \"the city's own figures.\" Credits for every photo slide (photographer, license and where the photo came from) are listed here too. After answering, go back to slide 20.",
+    "keySources": [
+      "SMG, One Less Nuclear Power Plant: Seoul Sustainable Energy Action Plan (PDF). Supports the 2 million TOE goal, the 2.04 million TOE reached in June 2014 and Eco-Mileage's 1.68 million participants.",
+      "Seoul Solution, Building Retrofit Program, and C40, Urban Efficiency II: Seoul BRP Loan Scheme. Support the retrofit loans at 1.75% for up to 100% of cost, and the range of reported results.",
+      "Seoul Solution waste pages and Development Asia, Using a Fee-Based System to Reduce Waste. Support the priced trash bags since 1995 and the RFID food waste bins.",
+      "Seoul Economic Daily (October 2026) and Kyunghyang Shinmun (January 2026). Support the 2026 landfill ban, the 3.2 times rise in private trash handling and trash traveling about 130 km.",
+      "Landscape Performance Series, Cheonggyecheon Stream Restoration case study. Supports the species counts before and after and the 3.3 to 5.9 °C cooling.",
+      "UN-Habitat, Bus reform in Seoul (PDF). Supports the cautious ridership figure of about 9%, the better service and the high subsidies in the first years.",
+      "SMG, Garden City Seoul and Climate Card pages. Support park area per person, the 536 gardens, the Climate Card prices and the 10 million reloads.",
+      "NYC Department of Buildings, LL97 page, and Building Energy Exchange, LL97 FAQ. Support the 25,000 sq ft threshold, the $268 per ton fine and the carbon limits.",
+      "Waste Today on the IBO composting analysis, and Grist. Support New York organics at 2.4% of residential waste and pickup nearly tripling under fines, then falling about 43%.",
+      "Fraunhofer ISE (Seoul Energy Dream Center) and UNESCAP (Nowon EZ House). Support the facts about Seoul's two zero-energy buildings."
+    ]
+  }
+]

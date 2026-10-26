@@ -1,0 +1,441 @@
+[
+  {
+    "key": "s01",
+    "headline": "Seoul: The Carrot and the Stick",
+    "elements": [
+      {
+        "id": "5:10",
+        "group": null,
+        "old": "SEOUL",
+        "action": "keep",
+        "new": "SEOUL"
+      },
+      {
+        "id": "5:11",
+        "group": null,
+        "old": "The Carrot and the Stick",
+        "action": "keep",
+        "new": "The Carrot and the Stick"
+      },
+      {
+        "id": "5:14",
+        "group": null,
+        "old": "Erickson Cabrera",
+        "action": "keep",
+        "new": "Erickson Cabrera"
+      },
+      {
+        "id": "5:15",
+        "group": null,
+        "old": "ARCH 3551  ·  Sustainability History & Practice",
+        "action": "keep",
+        "new": "ARCH 3551  ·  Sustainability History & Practice"
+      },
+      {
+        "id": "5:20",
+        "group": null,
+        "old": "SEOUL",
+        "action": "keep",
+        "new": "SEOUL",
+        "note": "Covered by the s01-map diagram (timing.json \"replaces\"); the diagram draws this label."
+      },
+      {
+        "id": "5:21",
+        "group": null,
+        "old": "9.4 million people  ·  37.57°N 126.98°E",
+        "action": "keep",
+        "new": "9.4 million people  ·  37.57°N 126.98°E",
+        "note": "Covered by the s01-map diagram (timing.json \"replaces\"); the diagram draws this label."
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [],
+    "layoutRisks": [],
+    "beatEdits": [],
+    "flags": [
+      "timing.json \"title\" for s01 still has an em dash. Wherever the title shows (presenter view, slide list, page title) use \"Seoul: The Carrot and the Stick\".",
+      "5:21 coordinates (37.57°N 126.98°E) are not in the dossier. They are a correct map locator for central Seoul and were already sent to the s01-map diagram, so they stay.",
+      "Old s01 notes in spec/slides.json use banned patterns (\"Not because you're better people...\", \"This is not a travel brochure\", the \"actively failing right now\" reveal, \"Open with a question, not a fact\"). The notes step must rewrite s01 completely. Suggested notes: Ask \"How many of you composted last night?\" and pause. In Seoul, food waste bins weigh what you throw out and bill your household for it. One Seoul policy is struggling right now (the 2026 landfill ban), and we'll get to it. \"By the end, you'll have five ideas New York could borrow from Seoul.\""
+    ]
+  },
+  {
+    "key": "s02",
+    "headline": "Comparing the Two Cities",
+    "elements": [
+      {
+        "id": "5:22",
+        "group": null,
+        "old": "Same problem.",
+        "action": "rewrite",
+        "new": "Comparing the Two Cities",
+        "note": "Stays black (#111112). One line now."
+      },
+      {
+        "id": "5:23",
+        "group": null,
+        "old": "Opposite philosophy.",
+        "action": "remove",
+        "new": null,
+        "note": "Second headline line no longer needed."
+      },
+      {
+        "id": "5:24",
+        "group": null,
+        "old": "SEOUL",
+        "action": "keep",
+        "new": "SEOUL"
+      },
+      {
+        "id": "5:25",
+        "group": null,
+        "old": "NEW YORK",
+        "action": "keep",
+        "new": "NEW YORK"
+      },
+      {
+        "id": "5:27",
+        "group": null,
+        "old": "POPULATION",
+        "action": "rewrite",
+        "new": "CITY POPULATION"
+      },
+      {
+        "id": "5:28",
+        "group": null,
+        "old": "9.4M",
+        "action": "keep",
+        "new": "9.4M"
+      },
+      {
+        "id": "5:29",
+        "group": null,
+        "old": "8.3M",
+        "action": "keep",
+        "new": "8.3M"
+      },
+      {
+        "id": "5:31",
+        "group": null,
+        "old": "METRO REGION",
+        "action": "rewrite",
+        "new": "METRO POPULATION"
+      },
+      {
+        "id": "5:32",
+        "group": null,
+        "old": "26M",
+        "action": "keep",
+        "new": "26M"
+      },
+      {
+        "id": "5:33",
+        "group": null,
+        "old": "20M",
+        "action": "keep",
+        "new": "20M"
+      },
+      {
+        "id": "5:35",
+        "group": null,
+        "old": "BUILDINGS' SHARE OF EMISSIONS",
+        "action": "keep",
+        "new": "BUILDINGS' SHARE OF EMISSIONS"
+      },
+      {
+        "id": "5:36",
+        "group": null,
+        "old": "67%",
+        "action": "keep",
+        "new": "67%"
+      },
+      {
+        "id": "5:37",
+        "group": null,
+        "old": "66–71%",
+        "action": "rewrite",
+        "new": "66 to 71%"
+      },
+      {
+        "id": "5:39",
+        "group": null,
+        "old": "THE CLIMATE POLICY",
+        "action": "rewrite",
+        "new": "BUILDING POLICY",
+        "note": "Local Law 97 covers buildings over 25,000 sq ft. Shorter than the old text, so it fits."
+      },
+      {
+        "id": "5:40",
+        "group": null,
+        "old": "LEND AT 1.75%",
+        "action": "rewrite",
+        "new": "LOANS AT 1.75%"
+      },
+      {
+        "id": "5:41",
+        "group": null,
+        "old": "FINE $268/TON",
+        "action": "rewrite",
+        "new": "FINES AT $268/TON"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Both cities have the same problem with their buildings. Seoul helps owners pay for upgrades with cheap loans, and New York fines owners whose buildings go over a carbon limit.",
+      "Both cities are very dense and build tall. Seoul is mostly apartments, and New York has a mix of building types. Neither city has free land for new parks.",
+      "Population numbers are rounded.",
+      "New York's buildings share changes from year to year in its emissions inventories, so the slide shows a range (66 to 71%). Seoul's 67% comes from its current climate plan.",
+      "Seoul: Basic Plan for Carbon Neutrality and Green Growth",
+      "Seoul's Building Retrofit Program (BRP, since 2008): loans up to 100% of the eligible cost at 1.75% a year",
+      "New York: Local Law 97 (2019), buildings over 25,000 sq ft",
+      "LL97 fine: $268 for every ton of CO₂e over the building's limit",
+      "Next: why buildings? Show the split."
+    ],
+    "layoutRisks": [
+      "5:22: one line now (measured 1224 of 1400 px). With 5:23 gone there is an empty band between the headline and the SEOUL / NEW YORK headers at y 432; leave it or move the table up.",
+      "5:41: \"FINES AT $268/TON\" measures 428 of 500 px (old text 327 px). Fits, but it is the widest value in the table.",
+      "5:37: \"66 to 71%\" measures 269 of 500 px (old 206 px). Fits."
+    ],
+    "beatEdits": [
+      "Beat show names still use the old labels (\"row POPULATION\", \"row METRO REGION\", \"row THE CLIMATE POLICY\"). Same elements, new text; no timing change.",
+      "B1 \"headline (both lines)\" now shows only the one-line headline (5:22). Same cue, no timing change."
+    ],
+    "flags": [
+      "timing.json \"title\" for s02 still holds the old two-line slogan headline. Use \"Comparing the Two Cities\" wherever titles show.",
+      "For the study guide (BRP history, dossier §3.1): in 2013 the BRP interest rate went from 2.5% to 1.75% a year, and the loan cap went from 80% to 100% of the eligible cost."
+    ]
+  },
+  {
+    "key": "s03",
+    "headline": "Seoul's Emissions by Sector",
+    "elements": [
+      {
+        "id": "5:49",
+        "group": null,
+        "old": "Two-thirds of the problem",
+        "action": "rewrite",
+        "new": "Seoul's Emissions by Sector",
+        "note": "One line now."
+      },
+      {
+        "id": "5:50",
+        "group": null,
+        "old": "is already built.",
+        "action": "remove",
+        "new": null,
+        "note": "Second headline line no longer needed."
+      },
+      {
+        "id": "5:53",
+        "group": null,
+        "old": "67%",
+        "action": "keep",
+        "new": "67%",
+        "note": "Covered by the s03-donut diagram (timing.json \"replaces\"); the diagram draws the centre label."
+      },
+      {
+        "id": "5:54",
+        "group": null,
+        "old": "BUILDINGS",
+        "action": "keep",
+        "new": "BUILDINGS",
+        "note": "Covered by the s03-donut diagram (timing.json \"replaces\"); the diagram draws the centre label."
+      },
+      {
+        "id": "5:56",
+        "group": null,
+        "old": "Buildings",
+        "action": "keep",
+        "new": "Buildings"
+      },
+      {
+        "id": "5:57",
+        "group": null,
+        "old": "67%",
+        "action": "keep",
+        "new": "67%"
+      },
+      {
+        "id": "5:59",
+        "group": null,
+        "old": "Transportation",
+        "action": "keep",
+        "new": "Transportation"
+      },
+      {
+        "id": "5:60",
+        "group": null,
+        "old": "18%",
+        "action": "keep",
+        "new": "18%"
+      },
+      {
+        "id": "5:62",
+        "group": null,
+        "old": "Waste & other",
+        "action": "rewrite",
+        "new": "Other sectors",
+        "note": "The dossier only says buildings plus transport are 85%; it does not say what the other 15% is, so the legend should not name waste."
+      },
+      {
+        "id": "5:63",
+        "group": null,
+        "old": "15%",
+        "action": "keep",
+        "new": "15%"
+      },
+      {
+        "id": "5:65",
+        "group": null,
+        "old": "52.34 Mt CO₂e",
+        "action": "keep",
+        "new": "52.34 Mt CO₂e"
+      },
+      {
+        "id": "5:66",
+        "group": null,
+        "old": "Seoul's 2005 baseline — the number every target\nis measured against",
+        "action": "rewrite",
+        "new": "Seoul's total emissions in 2005 · baseline year",
+        "note": "One line now (measured 413 of 470 px)."
+      },
+      {
+        "id": "5:71",
+        "group": null,
+        "old": "Seoul is 0.6% of South Korea's land area\nand 18% of its population.",
+        "action": "rewrite",
+        "new": "Seoul within South Korea",
+        "note": "Old figures (0.6% of land, 18% of population) are not in the dossier."
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "About two-thirds of Seoul's emissions come from buildings that are already standing, so most of the work is fixing existing buildings.",
+      "Sources disagree on the exact buildings share: 67% (current plan), 68.2% (Seoul's 2020 Green New Deal release), 68.8% (UNESCAP, 2018 data). Say \"roughly two-thirds\".",
+      "Transportation 18%: the plan says buildings plus transport make 85%, and 85 minus 67 is 18. If someone asks about the other 15%: I only have the buildings and transport numbers, so I can't break down the rest.",
+      "52.34 Mt CO₂e = Seoul's total emissions in 2005 (Mt = million tons). The 2033 goal is to cut that in half. The 2050 goal is carbon neutrality (net zero). CO₂e = all greenhouse gases counted as the amount of CO₂ that would have the same warming effect.",
+      "Baseline year = the starting year Seoul measures its cuts against (2005).",
+      "Point to the red area on the map: that's Seoul."
+    ],
+    "layoutRisks": [
+      "5:49: one line now (measured 1193 of 1600 px). With 5:50 gone there is extra space above the legend at y 472.",
+      "5:66: one line instead of two, so the caption block is about 26 px shorter."
+    ],
+    "beatEdits": [
+      "B2 \"map caption (Seoul is 0.6% of land, 18% of population)\" now reveals \"Seoul within South Korea\". Same element, no timing change.",
+      "B1 \"headline (both lines)\" now shows only the one-line headline (5:49). Same cue, no timing change."
+    ],
+    "flags": [
+      "timing.json \"title\" for s03 still holds the old two-line headline. Use \"Seoul's Emissions by Sector\" wherever titles show.",
+      "0.6% of land and 18% of population are not in the dossier, so don't say them."
+    ]
+  },
+  {
+    "key": "s04",
+    "headline": "Seoul's Two Emergencies",
+    "elements": [
+      {
+        "id": "7:20",
+        "group": null,
+        "old": "Two emergencies.",
+        "action": "rewrite",
+        "new": "Seoul's Two Emergencies",
+        "note": "Measured 1150 of 1300 px."
+      },
+      {
+        "id": "7:39",
+        "group": null,
+        "old": "A garbage mountain and a power failure — not a manifesto.",
+        "action": "remove",
+        "new": null,
+        "note": "Closing sentence is a script line; it moves to the notes."
+      },
+      {
+        "id": "17:5",
+        "group": null,
+        "old": "1978",
+        "action": "keep",
+        "new": "1978",
+        "note": "Covered by the s04-timeline diagram (timing.json \"replaces\"); the diagram draws the years."
+      },
+      {
+        "id": "17:6",
+        "group": null,
+        "old": "Nanjido becomes\nSeoul's official dump",
+        "action": "rewrite",
+        "new": "Nanjido becomes\nSeoul's main dump",
+        "note": "Covered by the s04-timeline diagram; text matches the diagram label."
+      },
+      {
+        "id": "17:9",
+        "group": null,
+        "old": "1993",
+        "action": "keep",
+        "new": "1993",
+        "note": "Covered by the s04-timeline diagram; the diagram draws the years."
+      },
+      {
+        "id": "17:10",
+        "group": null,
+        "old": "Dump closed;\nstabilisation begins",
+        "action": "rewrite",
+        "new": "Dump closes",
+        "note": "Covered by the s04-timeline diagram; text matches the diagram label."
+      },
+      {
+        "id": "17:13",
+        "group": null,
+        "old": "2002",
+        "action": "keep",
+        "new": "2002",
+        "note": "Covered by the s04-timeline diagram; the diagram draws the years."
+      },
+      {
+        "id": "17:14",
+        "group": null,
+        "old": "Reopens as\nWorld Cup Park",
+        "action": "keep",
+        "new": "Reopens as\nWorld Cup Park",
+        "note": "Covered by the s04-timeline diagram; already matches the diagram label."
+      },
+      {
+        "id": "17:17",
+        "group": null,
+        "old": "2011",
+        "action": "keep",
+        "new": "2011",
+        "note": "Covered by the s04-timeline diagram; the diagram draws the years."
+      },
+      {
+        "id": "17:18",
+        "group": null,
+        "old": "Fukushima +\nSeoul blackout",
+        "action": "rewrite",
+        "new": "Fukushima and\na Seoul blackout",
+        "note": "Covered by the s04-timeline diagram; text matches the diagram label."
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Two problems pushed Seoul to act: first the Nanjido landfill, then Fukushima and the Seoul blackout in 2011, which led to One Less Nuclear Power Plant.",
+      "1977 to 1978: Nanjido, an island in the Han River, is joined to the mainland and becomes the city dump. It was easy to reach and far from downtown.",
+      "Two mounds about 90 m high. Korea had no modern treatment yet for the gas or the dirty liquid draining out of the trash, so methane and toxic gases leaked.",
+      "1993: the city decides to close the dump (some sources say dumping ended in 1992). 2002: it opens as World Cup Park. More on Nanjido on slide 14.",
+      "2011: Fukushima, then a blackout in Seoul the same year",
+      "Background today: Korea makes only about a fifth of its own energy (22.1% in 2024, 35th of 38 OECD countries)",
+      "OECD = a group of 38 mostly wealthy countries",
+      "Next: the plan that came out of this, with real target dates."
+    ],
+    "layoutRisks": [
+      "7:20: \"Seoul's Two Emergencies\" measures 1150 of 1300 px (old 830 px). Fits on one line.",
+      "7:39 removed: the band under the timeline (y 886) is now empty.",
+      "17:10: \"Dump closes\" is one line instead of two (only matters if the HTML timeline labels are still rendered)."
+    ],
+    "beatEdits": [
+      "B3: drop the closing line from \"show\" (show becomes empty). Keep the beat: it still moves s04-timeline to state 3 at 45 s."
+    ],
+    "flags": [
+      "timing.json \"title\" for s04 still holds the old headline. Use \"Seoul's Two Emergencies\" wherever titles show.",
+      "Not used on s04 (from dossier §4.3, for the s10 and s14 notes or the study guide): park names Haneul (Sky) Park and Noeul Park, planning 1991 to 1996, construction 1996 to 2002, landfill gas captured and used, Energy Dream Center on the site."
+    ]
+  }
+]

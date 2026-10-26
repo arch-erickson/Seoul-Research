@@ -1,0 +1,16 @@
+{
+  "name": "seoul-deck",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "shot": "node scripts/shot.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "@fontsource/montserrat": "5.2.8"
+  }
+}

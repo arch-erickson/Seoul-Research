@@ -1,0 +1,550 @@
+[
+  {
+    "key": "s01",
+    "title": "Seoul: The Carrot and the Stick",
+    "inOneSentence": "The title slide, where you introduce yourself, ask the class about composting, and promise five ideas New York could borrow from Seoul.",
+    "background": [
+      "The title comes from an old saying about getting a donkey to move. You can hold a carrot in front of it as a reward, or tap it with a stick as a punishment. In city climate policy, a carrot is something like a cheap loan, a subsidy or reward points. A stick is something like a fine or a ban. The talk looks at how Seoul and New York use these two kinds of tools on the same problem, which is getting existing buildings to pollute less.",
+      "Seoul is a fair match for New York. The city of Seoul has about 9.4 million people and New York City about 8.3 million. Both cities are very dense and build tall, and in both, buildings cause roughly two-thirds of the greenhouse gas emissions. Neither city has empty land left for big new parks. Because they face the same limits, an idea that works in Seoul has a real chance of working in New York.",
+      "You open with composting because everyone can picture it. Seoul uses shared smart bins for food waste. A resident taps a card, the bin weighs what goes in, and that household is billed by weight. New York made curbside composting mandatory, but in 2025 organics were only about 2.4% of the residential waste the city collected. Most people in the room probably did not compost last night, so the question opens the comparison in a friendly way.",
+      "You also tell the class early that one Seoul policy is in trouble right now. Since January 1, 2026, Seoul, Incheon and Gyeonggi can no longer send household trash straight to a landfill. The region did not build enough incinerators in time, so some trash is now sent to other regions. Slide 15 covers this. Saying it on the first slide shows the class you will include Seoul's problems along with its successes.",
+      "The five ideas come on slide 19: food waste charged by weight, city loans for building retrofits, balcony solar kits, a transit pass named for the climate, and removing a highway the way Seoul did at Cheonggyecheon. You only need to promise them here."
+    ],
+    "numbers": [
+      {
+        "value": "9.4 million",
+        "meaning": "People living in the city of Seoul. The wider metro area has about 26 million.",
+        "source": "Dossier comparison table (§0)",
+        "confidence": "solid",
+        "note": "Rounded. Say \"about 9.4 million people.\""
+      },
+      {
+        "value": "37.57°N 126.98°E",
+        "meaning": "The map position (latitude and longitude) of central Seoul.",
+        "source": "Map locator only (the dossier doesn't give it)",
+        "confidence": "hedge",
+        "note": "No need to read it out. If asked, it just marks central Seoul on the map."
+      },
+      {
+        "value": "January 1, 2026",
+        "meaning": "The day Seoul, Incheon and Gyeonggi stopped sending household trash straight to landfills.",
+        "source": "Seoul Economic Daily; Kyunghyang Shinmun",
+        "confidence": "solid",
+        "note": "Only a teaser here. The details are on slide 15."
+      },
+      {
+        "value": "2.4%",
+        "meaning": "Organics (food and yard waste for compost) as a share of New York's residential waste collected in 2025. It was 1.4% in 2024.",
+        "source": "NYC composting sources (dossier §8.1)",
+        "confidence": "solid",
+        "note": "Only needed if someone asks why you opened with composting."
+      }
+    ],
+    "explainSimply": "Think of two parents who want a kid to clean their room. One offers a reward when the room is clean. The other takes the phone away if it isn't. For older buildings, Seoul mostly acts like the first parent and New York mostly acts like the second.",
+    "sayThis": [
+      "How many of you composted last night?",
+      "By the end, you'll have five ideas New York could borrow from Seoul."
+    ],
+    "questions": [
+      {
+        "q": "Why compare New York with Seoul? Why not a city in Europe?",
+        "a": "Seoul matches New York on the hard parts. The city populations are close (about 9.4 million and 8.3 million), both cities are dense and tall, and buildings cause roughly two-thirds of emissions in both. Neither has open land for big new parks, so lessons move between them more easily."
+      },
+      {
+        "q": "What exactly is the carrot and what is the stick?",
+        "a": "For existing buildings, Seoul's main tool is a carrot. Its Building Retrofit Program lends owners up to 100% of the eligible cost of an upgrade at 1.75% interest. New York's main tool is a stick. Local Law 97 fines owners $268 for every ton of CO₂e their building emits over its limit."
+      },
+      {
+        "q": "Doesn't Seoul use sticks too?",
+        "a": "Yes. Korea has made people buy priced trash bags since 1995, Seoul bills food waste by weight, many new buildings must meet a zero-energy grade, older diesel vehicles are banned from central Seoul, and the 2026 landfill ban is a rule with no reward attached. The title describes the main tool each city uses on buildings that already exist. For those, Seoul leans on loans and rewards and New York leans on fines."
+      },
+      {
+        "q": "Is composting actually required in New York?",
+        "a": "Yes, curbside composting is mandatory. Fines were set to start in April 2025, were paused within three weeks, and came back on January 1, 2026, with 330 summonses in the first stretch. Organics were still only about 2.4% of residential waste collected in 2025."
+      },
+      {
+        "q": "Which Seoul policy is struggling?",
+        "a": "The ban on sending household trash straight to landfills, which started January 1, 2026. It was passed in 2021 with five years to prepare, but the region did not add enough incinerators. Seoul has only four, and most are 20 to more than 30 years old, so some districts now send trash to other regions. Slide 15 covers it."
+      }
+    ],
+    "dontSay": [
+      "Don't present Seoul as a perfect model. You bring up the 2026 waste crisis on purpose.",
+      "Don't say Seoul only uses carrots. It also uses priced trash bags, fines, vehicle bans and zero-energy rules for new buildings.",
+      "Don't read the map coordinates out as research. They are not in the dossier and only mark the location.",
+      "Don't give a number for how many Seoul households use the weighing bins. Your sources don't have one."
+    ],
+    "terms": [
+      {
+        "term": "Carrot and stick",
+        "meaning": "A reward (carrot) or a punishment (stick) used to change behavior. Here the carrots are loans, subsidies and reward points, and the sticks are fines, bans and requirements."
+      },
+      {
+        "term": "Mandate",
+        "meaning": "A rule that requires something, like a law that says new buildings must make some of their own energy."
+      },
+      {
+        "term": "Composting / organics",
+        "meaning": "Turning food scraps and yard waste into soil. New York collects this waste at the curb and calls it organics."
+      },
+      {
+        "term": "Direct landfill ban",
+        "meaning": "A rule that household trash can no longer go straight into a landfill. It has to be burned or processed first."
+      }
+    ],
+    "nycLink": "This slide sets up the whole talk. New York has the same building problem as Seoul and mostly uses fines, while Seoul mostly uses loans and rewards. The composting question gives the class a New York habit to think about, and the promise of five ideas tells them the talk ends with steps New York could take."
+  },
+  {
+    "key": "i01",
+    "title": "Two Vertical Cities",
+    "seoul": "The Seoul skyline along the Han River, with apartment towers and N Seoul Tower. About 9.4 million people live in the city, and most of its housing is apartments.",
+    "nyc": "The Midtown Manhattan skyline, with offices and apartments mixed together. About 8.3 million people live in New York City, and its buildings are a mix of types.",
+    "why": "Both cities are dense and tall, so most of their climate problem sits inside buildings packed close together. The pair gives the class a picture of both cities before the numbers start."
+  },
+  {
+    "key": "s02",
+    "title": "Comparing the Two Cities",
+    "inOneSentence": "Seoul and New York side by side on population, the share of emissions that comes from buildings, and the main policy each city uses on existing buildings.",
+    "background": [
+      "The two cities are close in size. Seoul has about 9.4 million people in the city and about 26 million in the metro area. New York has about 8.3 million in the city and about 20 million in the metro area. All four numbers are rounded. Both cities are very dense and build tall, and both rely heavily on transit (New York's use is very high by US standards). Seoul's housing is mostly apartments, and New York has a mix of building types. Neither city has free land for big new parks.",
+      "Buildings are the biggest source of emissions in both cities. Seoul's current climate plan puts buildings at 67% of the city's greenhouse gas emissions. New York's share changes from one emissions inventory to the next, between 66 and 71%, so the slide shows a range. In both cities, about two-thirds of the problem comes from the buildings themselves.",
+      "Seoul's main tool for older buildings is the Building Retrofit Program (BRP), which started in 2008. The city lends owners money to upgrade their buildings so they use less energy. In 2012 the program grew under One Less Nuclear Power Plant and opened up to private buildings and homes. In 2013 Seoul cut the interest rate from 2.5% to 1.75% a year and raised the most it would lend from 80% to 100% of the eligible cost. So an owner can borrow the full eligible cost from the city at a low rate and pay it back over time.",
+      "New York's main tool is Local Law 97 (LL97), passed in 2019. It covers buildings over 25,000 square feet. Each building gets a yearly carbon limit per square foot based on how it is used, for example offices or apartments. If a building goes over its limit, the owner pays $268 for every ton of CO₂e above it. The law aims for 40% lower emissions by 2030 and 80% lower by 2050, compared with 2005. The limits get much stricter in 2030. About 11% of covered buildings were estimated to be over the 2024 to 2029 limits, and about 63% are projected to be over the 2030 limits if owners do nothing.",
+      "Put together, this is where the title comes from. Seoul helps owners pay for upgrades, and New York charges owners who stay over the limit. Your sources describe LL97 as leaving the financing to owners. That gap is the reason for your main recommendation on slide 19, a city loan program for retrofits that works alongside LL97."
+    ],
+    "numbers": [
+      {
+        "value": "9.4M and 8.3M",
+        "meaning": "People living inside the city limits of Seoul and of New York.",
+        "source": "Dossier comparison table (§0)",
+        "confidence": "solid",
+        "note": "Rounded. Say \"about.\""
+      },
+      {
+        "value": "26M and 20M",
+        "meaning": "People in each metro area, meaning the city plus the towns and suburbs around it.",
+        "source": "Dossier comparison table (§0)",
+        "confidence": "solid",
+        "note": "Rounded. Say \"about.\""
+      },
+      {
+        "value": "67%",
+        "meaning": "Share of Seoul's greenhouse gas emissions that comes from buildings.",
+        "source": "Seoul's Basic Plan for Carbon Neutrality and Green Growth (Korea Herald)",
+        "confidence": "varies",
+        "note": "Seoul's 2020 Green New Deal release says 68.2% and a UNESCAP paper (2018 data) says 68.8%. \"Roughly two-thirds\" is safe."
+      },
+      {
+        "value": "66 to 71%",
+        "meaning": "Share of New York's greenhouse gas emissions that comes from buildings.",
+        "source": "NYC greenhouse gas inventories",
+        "confidence": "varies",
+        "note": "The share moves with the inventory year, so give the range."
+      },
+      {
+        "value": "1.75%",
+        "meaning": "Yearly interest rate on Seoul's retrofit loans since 2013. It was 2.5% before.",
+        "source": "Seoul Solution (BRP); C40 (BRP loan scheme)",
+        "confidence": "solid",
+        "note": "The current climate plan also mentions long-term interest-free loans. If asked, say 1.75% is the BRP rate set in 2013."
+      },
+      {
+        "value": "100%",
+        "meaning": "The most of an upgrade's eligible cost a BRP loan can cover, since 2013. It was 80% before.",
+        "source": "Seoul Solution (BRP); C40 (BRP loan scheme)",
+        "confidence": "solid",
+        "note": "Say \"up to 100% of the eligible cost.\""
+      },
+      {
+        "value": "$268 per ton",
+        "meaning": "LL97 fine for every ton of CO₂e a building emits over its yearly limit.",
+        "source": "NYC Department of Buildings (LL97)",
+        "confidence": "solid",
+        "note": "Say \"$268 for every ton over the limit.\""
+      },
+      {
+        "value": "25,000 sq ft",
+        "meaning": "LL97 covers buildings larger than this.",
+        "source": "NYC Department of Buildings (LL97)",
+        "confidence": "solid",
+        "note": "Smaller buildings are outside LL97."
+      },
+      {
+        "value": "40% by 2030 and 80% by 2050",
+        "meaning": "LL97's emission cuts, measured from 2005 levels.",
+        "source": "LL97 sources (dossier §8.2)",
+        "confidence": "solid",
+        "note": "Seoul also measures from 2005, which makes the two easy to compare."
+      },
+      {
+        "value": "About 11% and about 63%",
+        "meaning": "Estimated share of covered buildings over the 2024 to 2029 limits (11%), and the share projected to be over the 2030 limits if nothing changes (63%).",
+        "source": "LL97 sources (dossier §8.2)",
+        "confidence": "hedge",
+        "note": "These are estimates and projections. Say \"projected\" and \"if nothing changes.\""
+      }
+    ],
+    "explainSimply": "Picture two cities that both want building owners to fix drafty, wasteful buildings. Seoul offers to lend the owner the full cost at a very low rate, and the owner pays it back slowly. New York sets a limit and sends the owner a bill for every ton over it.",
+    "sayThis": [
+      "Seoul lends owners the money and New York fines them, so that's where my title comes from."
+    ],
+    "questions": [
+      {
+        "q": "Why does New York get a range and Seoul a single number?",
+        "a": "New York's buildings share moves from one inventory year to the next, so I show 66 to 71%. Seoul's 67% comes from its current climate plan. Seoul's own sources also differ a little (67%, 68.2% and 68.8%), so for both cities the fair summary is roughly two-thirds."
+      },
+      {
+        "q": "How does Local Law 97 decide a building's limit?",
+        "a": "Each building gets a yearly carbon limit per square foot, based on what it is used for, such as offices or apartments. The 2030 limits are much stricter than the 2024 to 2029 ones. For offices the cap drops by about 64.5%, and for apartment buildings by about 50%. Owners pay $268 for each ton of CO₂e above the limit."
+      },
+      {
+        "q": "Did Seoul's loans actually cut much energy?",
+        "a": "They did, but the totals depend on who is counting. C40 reports 25,841 tons of CO₂ saved from 2012 to 2015 across about 4,200 projects, and other reports count 20,000 or even 72,000 buildings. A measured sample of 100 buildings used about 10% less energy in homes and 6.5% less in other buildings. I give a range and cover it more on slide 8."
+      },
+      {
+        "q": "Isn't the 1.75% out of date? I read that Seoul offers interest-free loans.",
+        "a": "Good catch. Seoul's current climate plan does mention long-term interest-free loans for efficiency upgrades. The 1.75% is the BRP rate Seoul set in 2013, which is what the slide shows. Both are cheap city money for upgrades, and that is the comparison I'm making."
+      },
+      {
+        "q": "Doesn't New York offer any financing to building owners?",
+        "a": "My sources describe LL97 as setting the limit and the fine and leaving the financing to owners. There may be smaller state or private programs I didn't cover. What I didn't find is a city loan at BRP terms tied to LL97, and that is my main recommendation on slide 19."
+      }
+    ],
+    "dontSay": [
+      "Don't say Seoul never fines or New York never helps. Each city mainly uses one tool on existing buildings.",
+      "Don't give one number for BRP results. Reported totals run from about 4,200 projects to 72,000 buildings depending on the source.",
+      "Don't present 67% as the only figure. Seoul sources also give 68.2% and 68.8%.",
+      "Don't call the 11% and 63% counts of buildings that failed. They are estimates and a projection.",
+      "Don't mention LL97 carbon credit trading. It comes from one unconfirmed blog."
+    ],
+    "terms": [
+      {
+        "term": "Metro population",
+        "meaning": "Everyone in the city plus the suburbs and nearby towns that form one urban region."
+      },
+      {
+        "term": "Retrofit",
+        "meaning": "Upgrading an existing building so it uses less energy and pollutes less."
+      },
+      {
+        "term": "Building Retrofit Program (BRP)",
+        "meaning": "Seoul's program, running since 2008, that lends owners money at a low rate to make their buildings more efficient."
+      },
+      {
+        "term": "Local Law 97 (LL97)",
+        "meaning": "New York's 2019 law that sets yearly carbon limits for buildings over 25,000 square feet and fines owners who go over."
+      },
+      {
+        "term": "CO₂e (carbon dioxide equivalent)",
+        "meaning": "A way to add up all greenhouse gases in one unit, by counting each gas as the amount of CO₂ that would cause the same warming."
+      },
+      {
+        "term": "Emissions inventory",
+        "meaning": "A city's count of the greenhouse gases it produces in a given year, broken down by source."
+      },
+      {
+        "term": "Basic Plan for Carbon Neutrality and Green Growth",
+        "meaning": "Seoul's current 10-year climate plan. It aims to cut emissions in half by 2033 and reach net zero by 2050."
+      }
+    ],
+    "nycLink": "This slide sets up the main comparison. Both cities have the same building problem, and New York uses LL97 fines while leaving the money to owners. The rest of the talk asks whether New York could add a Seoul-style retrofit loan next to its fines."
+  },
+  {
+    "key": "i02",
+    "title": "Housing from Above",
+    "seoul": "Apartment blocks in Jamsil, Seoul, seen from above. Seoul's housing is mostly apartments.",
+    "nyc": "A large New York housing complex seen from above (read its name from the caption on the slide). New York has a mix of building types, and its buildings cause 66 to 71% of the city's emissions.",
+    "why": "Both photos show a lot of homes packed into a small area. These are the kinds of buildings each city has to upgrade to reach its climate targets."
+  },
+  {
+    "key": "s03",
+    "title": "Seoul's Emissions by Sector",
+    "inOneSentence": "Where Seoul's greenhouse gas emissions come from, with buildings at about two-thirds, plus the 2005 total that all of Seoul's targets are measured against.",
+    "background": [
+      "The donut chart splits Seoul's emissions into three parts. Buildings are 67%, transportation is 18%, and other sectors make up the last 15%. The climate plan gives buildings at 67% and buildings plus transportation together at 85%, so transportation works out to 85 minus 67, or 18%. Your sources don't break down the other 15%, so the legend just says \"Other sectors.\"",
+      "Sources give slightly different numbers for buildings. The current plan says 67%, Seoul's 2020 Green New Deal release said 68.2%, and a UNESCAP paper using 2018 data said 68.8%. They all land close to two-thirds, which is why you say \"roughly two-thirds\" out loud. Separately, buildings use 56% of all the energy Seoul consumes. That number measures energy use, so keep it apart from the emissions share.",
+      "Most of these emissions come from buildings that are already standing. Rules for new construction help, but they don't change the buildings people already live and work in. To cut most of its emissions, a city has to upgrade the buildings it already has. That is the job of Seoul's retrofit loans and of New York's LL97.",
+      "52.34 Mt CO₂e is Seoul's total emissions in 2005. Mt means million metric tons, and CO₂e means all greenhouse gases counted together as if they were CO₂. Seoul measures its targets against 2005, which is called the baseline year. The plan aims to cut emissions to half of the 2005 level by 2033 and reach carbon neutrality (net zero) by 2050. Slide 5 shows that path.",
+      "The small map shows where Seoul sits in South Korea. Point to the red area and move on. The old slide had land and population shares for Seoul, but those numbers are not in your sources, so they came off."
+    ],
+    "numbers": [
+      {
+        "value": "67%",
+        "meaning": "Share of Seoul's greenhouse gas emissions from buildings.",
+        "source": "Seoul's Basic Plan for Carbon Neutrality and Green Growth (Korea Herald)",
+        "confidence": "varies",
+        "note": "Also 68.2% (Seoul Green New Deal, 2020) and 68.8% (UNESCAP, 2018 data). Say \"roughly two-thirds.\""
+      },
+      {
+        "value": "18%",
+        "meaning": "Share of Seoul's emissions from transportation.",
+        "source": "Worked out from the plan (85% minus 67%)",
+        "confidence": "hedge",
+        "note": "The plan publishes the combined 85%. Say \"about 18%\" and explain the subtraction if asked."
+      },
+      {
+        "value": "15%",
+        "meaning": "Everything outside buildings and transportation.",
+        "source": "Worked out from the plan (100% minus 85%)",
+        "confidence": "hedge",
+        "note": "No breakdown in your sources. Don't guess what is in it."
+      },
+      {
+        "value": "85%",
+        "meaning": "Buildings and transportation together, as a share of Seoul's emissions.",
+        "source": "Seoul's Basic Plan for Carbon Neutrality and Green Growth (Korea Herald)",
+        "confidence": "solid",
+        "note": "The 18% for transportation comes from this number."
+      },
+      {
+        "value": "52.34 Mt CO₂e",
+        "meaning": "Seoul's total greenhouse gas emissions in 2005, the baseline year.",
+        "source": "Seoul's Basic Plan for Carbon Neutrality and Green Growth (Korea Herald)",
+        "confidence": "solid",
+        "note": "Mt = million tons. No recent citywide total is published in accessible English sources, so use this one."
+      },
+      {
+        "value": "Half by 2033, net zero by 2050",
+        "meaning": "Seoul's targets: emissions at half the 2005 level by 2033, and carbon neutral by 2050.",
+        "source": "Seoul's Basic Plan for Carbon Neutrality and Green Growth (Korea Herald)",
+        "confidence": "solid",
+        "note": "Slide 5 covers these."
+      },
+      {
+        "value": "56%",
+        "meaning": "Share of Seoul's total energy use that goes to buildings.",
+        "source": "BRP sources (dossier §3.1)",
+        "confidence": "solid",
+        "note": "This one measures energy use, while the 67% measures emissions, so keep them separate."
+      }
+    ],
+    "explainSimply": "Imagine Seoul's emissions as a pizza cut into three slices. Two slices come from buildings. Cars, buses and trucks make up about half of the third slice, and everything else makes up the rest of it.",
+    "sayThis": [
+      "So most of the work is fixing buildings that are already standing."
+    ],
+    "questions": [
+      {
+        "q": "Why are buildings so much bigger than transportation in Seoul?",
+        "a": "My sources don't explain the reasons, but two things fit. Seoul has very high transit use, so fewer trips are made by car, and every building in a dense city needs heating, cooling and electricity. New York looks similar, with buildings at 66 to 71%."
+      },
+      {
+        "q": "What is in the other 15%?",
+        "a": "My sources only give the buildings share and the buildings plus transportation total. So I can't break down the rest, and I labeled it \"Other sectors\" so I wouldn't guess."
+      },
+      {
+        "q": "What does CO₂e mean, and why 2005?",
+        "a": "CO₂e adds up all greenhouse gases, like methane, as the amount of CO₂ that would cause the same warming. 2005 is Seoul's baseline year, the starting point every target is measured from. Seoul's total that year was 52.34 million tons."
+      },
+      {
+        "q": "How much has Seoul actually cut since 2005?",
+        "a": "I couldn't find a recent citywide total for Seoul in English sources, so I don't want to give a number. What I can give is the target, half of the 2005 level by 2033. For Korea as a whole, 2024 emissions were 691.6 million tons, down about 2% from the year before."
+      },
+      {
+        "q": "I've seen buildings listed at 56% of Seoul's energy. Why does your slide say 67%?",
+        "a": "They measure different things. 56% is the share of Seoul's energy use that goes to buildings, from the retrofit program sources. 67% is the share of greenhouse gas emissions, from the climate plan. My sources don't explain the gap, so I keep the two numbers separate."
+      }
+    ],
+    "dontSay": [
+      "Don't say Seoul is 0.6% of South Korea's land or 18% of its population. Those were on the old slide but are not in your sources.",
+      "Don't name what is in the other 15% (waste, industry or anything else). Your sources don't break it down.",
+      "Don't give a current Seoul emissions total. None is published in accessible English sources.",
+      "Don't treat 67% as exact. Seoul sources also give 68.2% and 68.8%.",
+      "Don't present 18% as a published figure. It comes from 85% minus 67%.",
+      "Don't compare Seoul's 52.34 Mt with Korea's 691.6 Mt as a share. They are from different years (2005 and 2024)."
+    ],
+    "terms": [
+      {
+        "term": "Sector",
+        "meaning": "A part of the city's activity that produces emissions, like buildings or transportation."
+      },
+      {
+        "term": "Mt",
+        "meaning": "Million metric tons."
+      },
+      {
+        "term": "CO₂e",
+        "meaning": "All greenhouse gases added together, each counted as the amount of CO₂ that would cause the same warming."
+      },
+      {
+        "term": "Baseline year",
+        "meaning": "The year a target is measured from. For Seoul (and for LL97) it is 2005."
+      },
+      {
+        "term": "Carbon neutrality (net zero)",
+        "meaning": "Cutting emissions as far as possible and balancing whatever is left with things that take carbon out of the air, so the total comes to zero."
+      },
+      {
+        "term": "Existing building stock",
+        "meaning": "All the buildings a city already has today."
+      }
+    ],
+    "nycLink": "New York has almost the same split, with buildings at 66 to 71% of its emissions. So both cities have to fix buildings that already exist, which is the problem LL97 and Seoul's retrofit loans are each trying to solve. LL97's targets are also measured from 2005, the same baseline year Seoul uses."
+  },
+  {
+    "key": "i03",
+    "title": "Older Apartment Blocks",
+    "seoul": "Hyundai Apartments in Apgujeong, Seoul, at street level. Older blocks like these are what Seoul's Building Retrofit Program is aimed at. Its stated goal is 90,000 buildings, about 20% of Seoul's buildings that are over 20 years old.",
+    "nyc": "1100 Grand Concourse in the Bronx, an older New York apartment building. Under LL97, the limits for apartment buildings over 25,000 square feet get about 50% stricter in 2030.",
+    "why": "Both are older apartment buildings that people live in today. They are the existing buildings both cities have to upgrade, which is the point of slide 3."
+  },
+  {
+    "key": "s04",
+    "title": "Seoul's Two Emergencies",
+    "inOneSentence": "The history behind Seoul's green policies, told through two crises, the Nanjido garbage dump and the 2011 energy scare after Fukushima and a Seoul blackout.",
+    "background": [
+      "Seoul's green policies grew out of real problems. The timeline shows two of them. The first was a giant garbage dump on Nanjido, and the second was the energy scare of 2011.",
+      "Nanjido was an island in the Han River. In January 1977 work began on an embankment that joined it to the mainland, and in 1978 it became Seoul's official dump. The city chose it because it was easy to reach and far from downtown. Trash piled up in two mounds about 90 m high. At the time Korea had no modern way to treat landfill gas or leachate (the dirty liquid that drains out of trash), so the site leaked methane and toxic gases.",
+      "In 1993 the city decided to close the dump and start making the ground stable. Some sources say dumping ended in 1992. Planning for a park ran from 1991 to 1996, and building it took from 1996 to 2002. It opened as World Cup Park for the 2002 FIFA World Cup. Today the gas from the old trash is captured and used, the mounds are Haneul (Sky) Park and Noeul Park, and the site also holds the Seoul Energy Dream Center (slide 10). Slide 14 goes deeper into the park.",
+      "The second emergency came in 2011. The Fukushima nuclear accident happened in Japan, and the same year Seoul had a blackout. Seoul launched One Less Nuclear Power Plant as a direct response to these two events. Its first goal was to save or produce 2 million TOE of energy, about what one nuclear reactor produces in a year, through efficiency, energy saving and new renewables. Slide 6 covers the program.",
+      "Behind both stories is a basic fact about Korea. The country makes only about a fifth of its own energy (22.1% in 2024), which ranks it 35th of the 38 countries in the OECD. It has to import most of the rest. Your dossier calls this the pressure behind everything Seoul does on energy."
+    ],
+    "numbers": [
+      {
+        "value": "1977",
+        "meaning": "Work began (January 7, 1977) on the embankment that joined Nanjido to the mainland.",
+        "source": "Seoul Solution (Landfill Recovery Project); Development Asia",
+        "confidence": "solid",
+        "note": "The notes say \"1977 to 1978\" to cover both steps."
+      },
+      {
+        "value": "1978",
+        "meaning": "Nanjido became Seoul's official dump.",
+        "source": "Seoul Solution (Landfill Recovery Project); Development Asia",
+        "confidence": "solid",
+        "note": "The slide calls it Seoul's main dump."
+      },
+      {
+        "value": "About 90 m",
+        "meaning": "Height the trash reached, in two mounds.",
+        "source": "Seoul Solution (Landfill Recovery Project); Development Asia",
+        "confidence": "solid",
+        "note": "Say \"about 90 meters,\" roughly a 30-story building."
+      },
+      {
+        "value": "1993",
+        "meaning": "The year the city decided to close the dump and begin making the ground stable.",
+        "source": "Seoul Solution (Landfill Recovery Project); Development Asia",
+        "confidence": "varies",
+        "note": "Some sources say dumping ended in 1992. The most cited span is 1978 to 1993."
+      },
+      {
+        "value": "1991 to 1996, then 1996 to 2002",
+        "meaning": "Planning for the park, then building it.",
+        "source": "Seoul Solution (Landfill Recovery Project)",
+        "confidence": "solid",
+        "note": "Planning started while the dump was still open."
+      },
+      {
+        "value": "2002",
+        "meaning": "World Cup Park opened, in time for the 2002 FIFA World Cup.",
+        "source": "Seoul Solution; Development Asia",
+        "confidence": "solid",
+        "note": "More on slide 14."
+      },
+      {
+        "value": "2011",
+        "meaning": "Year of the Fukushima accident and a Seoul blackout, the events that led to One Less Nuclear Power Plant.",
+        "source": "SMG One Less Nuclear Power Plant plan; C40",
+        "confidence": "solid",
+        "note": "Your sources give only the year for the blackout. Don't add a date or a cause."
+      },
+      {
+        "value": "2 million TOE",
+        "meaning": "The first-phase goal of One Less Nuclear Power Plant, about the yearly output of one nuclear reactor.",
+        "source": "SMG One Less Nuclear Power Plant plan",
+        "confidence": "solid",
+        "note": "Met in June 2014, six months early, at 2.04 million TOE. Save the details for slide 6."
+      },
+      {
+        "value": "22.1%",
+        "meaning": "Share of its own energy that South Korea produced in 2024.",
+        "source": "Asia Business Daily",
+        "confidence": "solid",
+        "note": "Say \"about a fifth.\""
+      },
+      {
+        "value": "35th of 38",
+        "meaning": "Korea's rank for energy self-sufficiency among OECD countries.",
+        "source": "Asia Business Daily",
+        "confidence": "solid",
+        "note": "The OECD is a group of 38 mostly wealthy countries."
+      }
+    ],
+    "explainSimply": "Think of a family that only starts sorting its junk after the garage is full, and only starts saving power after the lights go out. Seoul's story is like that. Its dump grew into two hills about 90 m high, roughly a 30-story building, and leaked gas. Then in 2011 came Fukushima and a blackout in Seoul. Each problem pushed the city to act.",
+    "sayThis": [],
+    "questions": [
+      {
+        "q": "Why did Seoul put its dump on an island in the river?",
+        "a": "Nanjido was easy to reach and far from downtown, which is why it was chosen in 1978. Work had started in 1977 on an embankment that joined the island to the mainland. Back then Korea had no modern system to treat landfill gas or the liquid draining out of the trash."
+      },
+      {
+        "q": "When exactly did the dump close?",
+        "a": "The most cited version is that it was used from 1978 to 1993, when the city decided to close it and start making the ground stable. Some sources say dumping ended in 1992. The park opened in 2002."
+      },
+      {
+        "q": "What did a blackout have to do with nuclear power?",
+        "a": "My sources say Seoul launched One Less Nuclear Power Plant in direct response to Fukushima and the 2011 Seoul blackout. The idea was to save or produce as much energy as one nuclear reactor makes, about 2 million TOE, through efficiency and new renewables. I don't have details on what caused the blackout, so I keep it to the year."
+      },
+      {
+        "q": "Did Seoul actually shut down a nuclear plant?",
+        "a": "Not that my sources show. The name refers to the goal of saving or producing as much energy as one reactor makes. My sources describe it as a program about cutting demand and getting citizens to take part, and none of them say a reactor closed because of it. Phase 1 reached its 2 million TOE goal in June 2014, six months early."
+      },
+      {
+        "q": "If Korea only makes 22.1% of its own energy, can one city's program really matter?",
+        "a": "On its own it can't change the national picture, but the city gains are real. Phase 1 saved or produced 2.04 million TOE, and Eco-Mileage, the citizen rewards program, had 1.68 million participants by June 2014. Seoul's electricity self-sufficiency roughly doubled, from under 3% in 2011 to around 5% a few years later."
+      }
+    ],
+    "dontSay": [
+      "Don't give a date or a cause for the 2011 Seoul blackout. Your sources only give the year.",
+      "Don't say Seoul closed a nuclear plant. The program saved and produced energy equal to one reactor's output.",
+      "Don't present 1993 as the only possible date. Some sources say dumping ended in 1992.",
+      "Don't call Nanjido \"the world's tallest trash mountain.\" That phrase comes from a travel article and your main sources don't back it.",
+      "Don't give an exact figure for where Seoul's electricity self-sufficiency ended up. Sources say 5% or 5.5%, so say \"around 5%.\""
+    ],
+    "terms": [
+      {
+        "term": "Landfill / dump",
+        "meaning": "A place where trash is buried or piled up."
+      },
+      {
+        "term": "Leachate",
+        "meaning": "The dirty liquid that drains out of rotting trash. It can pollute soil and water if it isn't collected and treated."
+      },
+      {
+        "term": "Landfill gas / methane",
+        "meaning": "Gas given off by rotting trash. A large part of it is methane, a strong greenhouse gas that can also catch fire."
+      },
+      {
+        "term": "Stabilization",
+        "meaning": "Making an old landfill safe and solid by controlling its gas and liquid and letting the ground settle before it is reused."
+      },
+      {
+        "term": "Fukushima",
+        "meaning": "The nuclear accident in Japan in March 2011, after a large earthquake and tsunami."
+      },
+      {
+        "term": "One Less Nuclear Power Plant",
+        "meaning": "Seoul's energy program, started in 2012, to save or produce as much energy as one nuclear reactor puts out."
+      },
+      {
+        "term": "TOE (tonne of oil equivalent)",
+        "meaning": "The energy in one metric ton of oil. It lets you add up different kinds of energy in one unit."
+      },
+      {
+        "term": "Energy self-sufficiency",
+        "meaning": "The share of the energy a country (or a building) uses that it produces itself."
+      },
+      {
+        "term": "OECD",
+        "meaning": "The Organisation for Economic Co-operation and Development, a group of 38 mostly wealthy countries."
+      }
+    ],
+    "nycLink": "New York has its own version of the landfill story. Fresh Kills on Staten Island was once the world's largest landfill and is now becoming Freshkills Park, opening in phases, which the next photo slide shows. The energy story helps explain Seoul's carrot approach, since One Less Nuclear Power Plant asked citizens to take part through programs like Eco-Mileage."
+  },
+  {
+    "key": "i04",
+    "title": "Two Landfills in Use",
+    "seoul": "Nanjido in 1983, while it was still Seoul's working dump. Dumping ran from 1978 to 1993, and the trash grew into two mounds about 90 m high.",
+    "nyc": "Fresh Kills on Staten Island in 1973, a public domain photo from the EPA's DOCUMERICA project. It was once the world's largest landfill and is now Freshkills Park, a 2,200-acre park opening in phases.",
+    "why": "Both cities once sent their trash to one huge landfill, and both are turning that landfill into a park. Here the two cities followed the same path at about the same time, which slide 14 comes back to."
+  }
+]

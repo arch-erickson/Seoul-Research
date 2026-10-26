@@ -1,0 +1,709 @@
+[
+  {
+    "key": "s13",
+    "headline": "Trash Fees and Smart Bins",
+    "elements": [
+      {
+        "id": "12:104",
+        "group": "B1 · headline",
+        "old": "Your trash is weighed.",
+        "action": "rewrite",
+        "new": "Trash Fees and Smart Bins"
+      },
+      {
+        "id": "12:105",
+        "group": "B1 · headline",
+        "old": "And billed.",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:109",
+        "group": "B2 · the mechanism",
+        "old": "01",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:110",
+        "group": "B2 · the mechanism",
+        "old": "TAP",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:111",
+        "group": "B2 · the mechanism",
+        "old": "RFID household card\nidentifies you",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:114",
+        "group": "B2 · the mechanism",
+        "old": "→",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:116",
+        "group": "B2 · the mechanism",
+        "old": "02",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:117",
+        "group": "B2 · the mechanism",
+        "old": "WEIGH",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:118",
+        "group": "B2 · the mechanism",
+        "old": "A load cell in the shared\nbin reads the deposit",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:121",
+        "group": "B2 · the mechanism",
+        "old": "4.2 kg",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:122",
+        "group": "B2 · the mechanism",
+        "old": "→",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:124",
+        "group": "B2 · the mechanism",
+        "old": "03",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:125",
+        "group": "B2 · the mechanism",
+        "old": "BILL",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:126",
+        "group": "B2 · the mechanism",
+        "old": "Charged by weight — plus\npoints back for cutting",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:127",
+        "group": "B2 · the mechanism",
+        "old": "₩",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:128",
+        "group": "B2 · the mechanism",
+        "old": "up to 5,000\npoints back",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:131",
+        "group": "B3 · the results",
+        "old": "FOOD WASTE REDUCTION",
+        "action": "keep",
+        "new": "FOOD WASTE REDUCTION"
+      },
+      {
+        "id": "12:132",
+        "group": "B3 · the results",
+        "old": "9–31%",
+        "action": "rewrite",
+        "new": "9 to 31%"
+      },
+      {
+        "id": "12:133",
+        "group": "B3 · the results",
+        "old": "under the RFID weight-based system",
+        "action": "rewrite",
+        "new": "with RFID bins that charge by weight"
+      },
+      {
+        "id": "12:135",
+        "group": "B3 · the results",
+        "old": "−8% in year one, −11% by 1996",
+        "action": "rewrite",
+        "new": "Trash down 8% in 1995, 11% by 1996"
+      },
+      {
+        "id": "12:136",
+        "group": "B3 · the results",
+        "old": "nationwide volume-based bag fees",
+        "action": "rewrite",
+        "new": "paid trash bags, nationwide since 1995"
+      },
+      {
+        "id": "12:137",
+        "group": "B3 · the results",
+        "old": "Feed, compost, biogas",
+        "action": "rewrite",
+        "new": "Up to 5,000 points"
+      },
+      {
+        "id": "12:138",
+        "group": "B3 · the results",
+        "old": "where separated food waste goes",
+        "action": "rewrite",
+        "new": "for a 10 to 30% cut vs. last year"
+      },
+      {
+        "id": "12:139",
+        "group": "B3 · the results",
+        "old": "₩490 bag · ₩100,000 fine",
+        "action": "rewrite",
+        "new": "₩490 a bag · fines up to ₩100,000"
+      },
+      {
+        "id": "12:141",
+        "group": "B4 · the real lesson",
+        "old": "The fee is not the clever part. The feedback loop is — the bin tells you what you did, every single time.",
+        "action": "rewrite",
+        "new": "New York · composting required · fines from $25 to $300 · bins are not weighed · no rewards"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Bag fees started nationwide in 1995: you buy official priced bags for general trash, meaning anything that is not recycling or food waste. Food waste is charged by weight at a shared bin.",
+      "About ₩490 for a standard bag; fines up to ₩100,000.",
+      "How the bin works (now drawn by the 3D diagram): tap the household RFID card, the lid opens, the bin weighs what you drop in, and the household is billed for that weight. 4.2 kg is only an example value.",
+      "RFID card: a chip card the bin reads, like a building key fob.",
+      "Reward (now on screen): households that cut food waste 10 to 30% against the same period last year earn up to 5,000 points (about ₩5,000).",
+      "Separated food waste is turned into animal feed, compost and biogas.",
+      "Say: \"Trash went down 8% in 1995 and 11% by 1996.\" Caveat on the 8%: Seoul Solution says the 1995 drop may be overstated because many large items were thrown out free that year, so 1996 (11%) is the more reliable number.",
+      "Seoul's bin shows each household how much food waste it threw out each time, and New York has nothing like that yet. This becomes recommendation 1 on slide 19, which also has the 2.4% New York organics figure.",
+      "New York line on screen: composting is required and buildings can be fined. The bins do not weigh the food waste and there are no rewards. DSNY fines: $25, $50, $100 for buildings of 1 to 8 units; $100, $200, $300 for 9 or more units.",
+      "Transition to Nanjido: this system came after Seoul had already built a garbage mountain."
+    ],
+    "layoutRisks": [
+      "12:104: one line, about 1,070 px at 82 px in a 1,300 px box; line 2 (12:105) is removed, so the column below can move up or keep its place.",
+      "12:132: \"9 to 31%\" is 8 characters against 5; about 300 to 330 px at 76 px Black in a 380 px box. Should fit; check it does not wrap.",
+      "12:135: \"Trash down 8% in 1995, 11% by 1996\" is 34 characters, about 338 px at 19 px in a 380 px box. Fits on one line.",
+      "12:137: \"Up to 5,000 points\" is about 180 px at 19 px in a 380 px box (old ink 214 px). Fine.",
+      "12:138: \"for a 10 to 30% cut vs. last year\" is 33 characters, about 264 px at 16 px in a 380 px box (old ink 272 px). Fine.",
+      "12:139: kept as \"₩490 a bag · fines up to ₩100,000\"; adding \"About\" would push it past the 380 px box, so the hedge lives in the notes.",
+      "12:141: about 92 characters at 26 px Light, roughly 1,180 px in a 1,680 px box (old ink 1,288 px). One line."
+    ],
+    "diagramReplacesGroups": [
+      "B2 · the mechanism"
+    ]
+  },
+  {
+    "key": "s14",
+    "headline": "From Landfill to Park",
+    "elements": [
+      {
+        "id": "12:152",
+        "group": "B1 · headline",
+        "old": "90 metres of garbage.",
+        "action": "rewrite",
+        "new": "From Landfill to Park"
+      },
+      {
+        "id": "12:172",
+        "group": "B2 · the capped mound",
+        "old": "CAPPED WASTE MASS",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:173",
+        "group": "B2 · the capped mound",
+        "old": "LANDFILL GAS EXTRACTION WELLS",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:174",
+        "group": "B2 · the capped mound",
+        "old": "Two mounds, ~90 m high. No gas or leachate treatment existed in Korea at the time.",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "12:177",
+        "group": "B3 · timeline + Freshkills",
+        "old": "1978",
+        "action": "keep",
+        "new": "1978"
+      },
+      {
+        "id": "12:178",
+        "group": "B3 · timeline + Freshkills",
+        "old": "Designated Seoul's official dump",
+        "action": "rewrite",
+        "new": "Nanjido becomes Seoul's main dump"
+      },
+      {
+        "id": "12:180",
+        "group": "B3 · timeline + Freshkills",
+        "old": "1993",
+        "action": "keep",
+        "new": "1993"
+      },
+      {
+        "id": "12:181",
+        "group": "B3 · timeline + Freshkills",
+        "old": "Closed; stabilisation begins",
+        "action": "rewrite",
+        "new": "Dump closes"
+      },
+      {
+        "id": "12:183",
+        "group": "B3 · timeline + Freshkills",
+        "old": "2002",
+        "action": "keep",
+        "new": "2002"
+      },
+      {
+        "id": "12:184",
+        "group": "B3 · timeline + Freshkills",
+        "old": "Reopens as World Cup Park",
+        "action": "keep",
+        "new": "Reopens as World Cup Park"
+      },
+      {
+        "id": "12:186",
+        "group": "B3 · timeline + Freshkills",
+        "old": "2012",
+        "action": "keep",
+        "new": "2012"
+      },
+      {
+        "id": "12:187",
+        "group": "B3 · timeline + Freshkills",
+        "old": "Energy Dream Center opens on site",
+        "action": "keep",
+        "new": "Energy Dream Center opens on site"
+      },
+      {
+        "id": "12:188",
+        "group": "B3 · timeline + Freshkills",
+        "old": "New York did the same thing.",
+        "action": "rewrite",
+        "new": "New York: Freshkills Park, Staten Island"
+      },
+      {
+        "id": "12:189",
+        "group": "B3 · timeline + Freshkills",
+        "old": "Freshkills Park, Staten Island — once the world's\nlargest landfill, now 2,200 acres opening in phases.",
+        "action": "rewrite",
+        "new": "Once the world's largest landfill\n2,200-acre park, opening in phases"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Nanjido (nahn-jee-doh), Haneul (hah-nool), Noeul (no-ool).",
+      "Nanjido was a Han River island, chosen in 1978 because it was easy to reach and far from downtown.",
+      "Trash was piled into two mounds about 90 m high (the 3D diagram shows the height, the cap, the gas wells and Haneul Park).",
+      "Korea had no modern landfill gas or leachate treatment at the time, so the site gave off methane and toxic gases. Leachate is the dirty liquid that drains out of buried trash.",
+      "Planning started in 1991. The dump closed in 1993 and the ground was stabilized. Construction ran 1996 to 2002, in time for the 2002 World Cup.",
+      "If asked: some sources say dumping ended in 1992. 1978 to 1993 is the range most sources use.",
+      "Landfill gas is now captured and used; the mounds became Haneul (Sky) Park and Noeul Park.",
+      "2012: the Energy Dream Center from slide 10 was built on this same ground.",
+      "New York is doing the same thing at Freshkills, on roughly the same timeline. Present it as a fair comparison between peers, without lecturing.",
+      "Transition: this is the success story; the next slide is what went wrong in 2026."
+    ],
+    "layoutRisks": [
+      "12:152: \"From Landfill to Park\" is about the same width as the old headline (about 930 px).",
+      "12:189: two lines as before, both shorter than the old lines."
+    ],
+    "diagramReplacesGroups": [
+      "B2 · the capped mound"
+    ]
+  },
+  {
+    "key": "s15",
+    "headline": "The 2026 Landfill Ban",
+    "elements": [
+      {
+        "id": "13:5",
+        "group": "B1 · headline",
+        "old": "Seoul's trash now travels",
+        "action": "rewrite",
+        "new": "The 2026 Landfill Ban"
+      },
+      {
+        "id": "13:6",
+        "group": "B1 · headline",
+        "old": "130 kilometres.",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:10",
+        "group": "B2 · the ban",
+        "old": "1 JANUARY 2026   ·   DIRECT LANDFILLING OF HOUSEHOLD WASTE BANNED — SEOUL, INCHEON, GYEONGGI",
+        "action": "rewrite",
+        "new": "JANUARY 1, 2026   ·   DIRECT LANDFILLING OF HOUSEHOLD WASTE BANNED IN SEOUL, INCHEON AND GYEONGGI"
+      },
+      {
+        "id": "13:12",
+        "group": "B3 · the capacity gap",
+        "old": "WHAT ACTUALLY HAPPENED",
+        "action": "rewrite",
+        "new": "AFTER THE BAN"
+      },
+      {
+        "id": "13:13",
+        "group": "B3 · the capacity gap",
+        "old": "457 t/day",
+        "action": "keep",
+        "new": "457 t/day"
+      },
+      {
+        "id": "13:14",
+        "group": "B3 · the capacity gap",
+        "old": "privately handled household waste, H1 2026 — a 3.2× rise",
+        "action": "rewrite",
+        "new": "privately handled household waste, Jan to Jun 2026, up 3.2×"
+      },
+      {
+        "id": "13:16",
+        "group": "B3 · the capacity gap",
+        "old": "+80 t",
+        "action": "keep",
+        "new": "+80 t"
+      },
+      {
+        "id": "13:17",
+        "group": "B3 · the capacity gap",
+        "old": "the entire rise in public incineration (1,921 → 2,001)",
+        "action": "rewrite",
+        "new": "rise in public incineration, 1,921 to 2,001 t"
+      },
+      {
+        "id": "13:19",
+        "group": "B3 · the capacity gap",
+        "old": "4",
+        "action": "keep",
+        "new": "4"
+      },
+      {
+        "id": "13:20",
+        "group": "B3 · the capacity gap",
+        "old": "incinerators in Seoul — most 20 to 30+ years old",
+        "action": "rewrite",
+        "new": "incinerators in Seoul, most 20 or more years old"
+      },
+      {
+        "id": "13:23",
+        "group": "B4 · the export",
+        "old": "WHERE IT GOES NOW",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:24",
+        "group": "B4 · the export",
+        "old": "Cheonan",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:26",
+        "group": "B4 · the export",
+        "old": "85 km",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:27",
+        "group": "B4 · the export",
+        "old": "Sejong",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:29",
+        "group": "B4 · the export",
+        "old": "115 km",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:30",
+        "group": "B4 · the export",
+        "old": "Cheongju",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:32",
+        "group": "B4 · the export",
+        "old": "130 km",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:33",
+        "group": "B4 · the export",
+        "old": "Districts now truck household waste out of the capital region entirely.",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:35",
+        "group": "B5 · the pushback",
+        "old": "Cheongju's operators have agreed not to bid on capital-region contracts through the end of next year.",
+        "action": "rewrite",
+        "new": "Cheongju operators: no bids on Seoul, Incheon or Gyeonggi contracts through the end of next year"
+      },
+      {
+        "id": "13:38",
+        "group": "B6 · the question",
+        "old": "A ban without infrastructure is not a policy. It is a deadline.",
+        "action": "rewrite",
+        "new": "New York · about 63% of LL97 buildings projected to miss 2030 caps without further action"
+      },
+      {
+        "id": "13:39",
+        "group": "B6 · the question",
+        "old": "About 63% of NYC buildings are projected to miss their 2030 LL97 caps. Are we making the same mistake?",
+        "action": "rewrite",
+        "new": "Discussion: can New York's retrofit workers and supply chain keep up with LL97?"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Gyeonggi (gyung-gee), Cheonan (chuh-nahn), Cheongju (chung-joo), Sejong (seh-jong).",
+      "Change of tone: everything before this slide was the success story.",
+      "The ban was passed in 2021 with a five-year grace period, and the local governments of Seoul, Incheon and Gyeonggi mostly did not add incinerator capacity during those five years.",
+      "The ban started on schedule on January 1, 2026, with no emergency delay.",
+      "Direct landfilling means burying raw household trash. Under the ban it has to be burned or processed first.",
+      "Public incinerators took on only 80 t more, so much of the waste went to private companies instead, and some of it left the region.",
+      "The 1,921 to 2,001 t figures come with no time period, so do not do math between them and the 457 t a day. If someone asks, say the report does not give a period.",
+      "Seoul's four incinerators: Gangnam, Mapo, Nowon, Yangcheon.",
+      "Where it goes (now drawn on the map diagram): Gangdong ships to private incinerators in Cheonan and Sejong; Gangnam plans to send waste to Cheongju. The map shows straight-line distances (Cheonan about 85 km, Cheongju about 110, Sejong about 125). The 130 km figure is the road distance reported by Seoul Economic Daily, Oct 2026.",
+      "Capital region means Seoul, Incheon and Gyeonggi together.",
+      "This is an environmental justice issue, because the trash now goes to other cities that did not produce it.",
+      "Pending: amendments to the Wastes Control Act, timing unclear. Seongnam is building a 500 t/day replacement incinerator.",
+      "Seoul banned direct landfilling of household waste before it built enough incinerators to replace it.",
+      "LL97 fines buildings that cannot comply. Ask the question on screen: \"Can New York's retrofit workers and supply chain keep up with LL97?\" Then stop and wait for answers."
+    ],
+    "layoutRisks": [
+      "13:10: about 98 characters, one more than the old band text, so it should fit the red band as before (old ink 1,237 px in 1,600 px).",
+      "13:14: about 59 characters at 18 px, roughly 530 px in a 620 px box (old was 56 characters).",
+      "13:38: about 89 characters at 27 px Light, roughly 1,210 px in a 1,640 px box. One line.",
+      "13:35: about 96 characters at 19 px, roughly 940 px in a 1,680 px box (old ink 978 px). Fine.",
+      "13:39: about 79 characters at 19 px, roughly 765 px in a 1,640 px box (old ink 1,005 px). Fine."
+    ],
+    "diagramReplacesGroups": [
+      "B4 · the export"
+    ]
+  },
+  {
+    "key": "s16",
+    "headline": "Restoring Cheonggyecheon",
+    "elements": [
+      {
+        "id": "13:50",
+        "group": "B1 · headline",
+        "old": "168,000 cars a day. Removed.",
+        "action": "rewrite",
+        "new": "Restoring Cheonggyecheon"
+      },
+      {
+        "id": "13:53",
+        "group": "B2 · before and after",
+        "old": "BEFORE · ELEVATED EXPRESSWAY",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:68",
+        "group": "B2 · before and after",
+        "old": "Stream culverted beneath a double-deck road",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:69",
+        "group": "B2 · before and after",
+        "old": "AFTER · DAYLIGHTED STREAM",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:90",
+        "group": "B2 · before and after",
+        "old": "Open water, planting, and a walkable corridor",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "13:93",
+        "group": "B3 · biodiversity",
+        "old": "SPECIES COUNT, 2003 → 2008",
+        "action": "rewrite",
+        "new": "NUMBER OF SPECIES, 2003 TO 2008"
+      },
+      {
+        "id": "13:94",
+        "group": "B3 · biodiversity",
+        "old": "Plants",
+        "action": "keep",
+        "new": "Plants"
+      },
+      {
+        "id": "13:97",
+        "group": "B3 · biodiversity",
+        "old": "62",
+        "action": "keep",
+        "new": "62"
+      },
+      {
+        "id": "13:98",
+        "group": "B3 · biodiversity",
+        "old": "308",
+        "action": "keep",
+        "new": "308"
+      },
+      {
+        "id": "13:99",
+        "group": "B3 · biodiversity",
+        "old": "Insects",
+        "action": "keep",
+        "new": "Insects"
+      },
+      {
+        "id": "13:102",
+        "group": "B3 · biodiversity",
+        "old": "15",
+        "action": "keep",
+        "new": "15"
+      },
+      {
+        "id": "13:103",
+        "group": "B3 · biodiversity",
+        "old": "192",
+        "action": "keep",
+        "new": "192"
+      },
+      {
+        "id": "13:104",
+        "group": "B3 · biodiversity",
+        "old": "Birds",
+        "action": "keep",
+        "new": "Birds"
+      },
+      {
+        "id": "13:107",
+        "group": "B3 · biodiversity",
+        "old": "6",
+        "action": "keep",
+        "new": "6"
+      },
+      {
+        "id": "13:108",
+        "group": "B3 · biodiversity",
+        "old": "36",
+        "action": "keep",
+        "new": "36"
+      },
+      {
+        "id": "13:109",
+        "group": "B3 · biodiversity",
+        "old": "Fish",
+        "action": "keep",
+        "new": "Fish"
+      },
+      {
+        "id": "13:112",
+        "group": "B3 · biodiversity",
+        "old": "4",
+        "action": "keep",
+        "new": "4"
+      },
+      {
+        "id": "13:113",
+        "group": "B3 · biodiversity",
+        "old": "25",
+        "action": "keep",
+        "new": "25"
+      },
+      {
+        "id": "13:116",
+        "group": "B4 · cooling and air",
+        "old": "−35%",
+        "action": "rewrite",
+        "new": "35% less"
+      },
+      {
+        "id": "13:117",
+        "group": "B4 · cooling and air",
+        "old": "small-particle air pollution, 74 → 48 µg/m³",
+        "action": "rewrite",
+        "new": "small-particle air pollution, 74 to 48 µg/m³"
+      },
+      {
+        "id": "13:118",
+        "group": "B4 · cooling and air",
+        "old": "3.3–5.9°C",
+        "action": "rewrite",
+        "new": "3.3 to 5.9°C"
+      },
+      {
+        "id": "13:119",
+        "group": "B4 · cooling and air",
+        "old": "cooler than a parallel road four blocks away",
+        "action": "rewrite",
+        "new": "cooler than a parallel road 4 to 7 blocks away"
+      },
+      {
+        "id": "13:122",
+        "group": "B5 · induced demand",
+        "old": "The gridlock everyone predicted never arrived.",
+        "action": "rewrite",
+        "new": "Highway carried about 168,000 vehicles a day · predicted gridlock did not happen"
+      },
+      {
+        "id": "13:123",
+        "group": "B5 · induced demand",
+        "old": "Reduced demand is empirically documented, not theoretical. That is exactly the evidence\nNew York's BQE, Cross Bronx and Gowanus debates are missing.",
+        "action": "rewrite",
+        "new": "Reduced demand · fewer car trips when road space is removed\nNew York highway debates: Brooklyn-Queens Expressway (BQE), Cross Bronx Expressway, Gowanus Expressway"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Say Cheonggyecheon roughly as chung-gyeh-chun. Project facts: 2003 to 2005, about US$281 million, 5.8 km (3.6 miles) of restored corridor. The elevated highway carried about 168,000 vehicles a day and the stream was buried under it. Say these at the headline, since the 168,000 now appears on screen only at the last beat.",
+      "Before and after captions now live in the 3D diagram (elevated highway and buried stream, then the opened stream with planted banks and walkways).",
+      "The often quoted 639% comes from an overall index, so it cannot be read as a species count. Give the counts for each group instead (plants alone went up about 397%).",
+      "µg/m³ means micrograms of particles per cubic meter of air.",
+      "The slide shows the biggest estimate (LAF). Say: \"That's the highest estimate. Other studies find a smaller effect.\" WWF found 3 to 4°C cooler than areas 400 m away. A peer-reviewed study that pulled many studies together, the most careful source, found cooler daily average temperatures within about 300 m of the stream.",
+      "Corridor bus ridership rose 15.1% (2003 to 2008), but the 2004 bus reform happened at the same time, so do not give the stream all the credit.",
+      "Reduced demand: when road space is taken away, some car trips stop happening and nearby streets do not jam as people feared. People arguing about the BQE, Cross Bronx and Gowanus can point to this case.",
+      "Transition: Seoul kept going, from one stream to a citywide plan for green space."
+    ],
+    "layoutRisks": [
+      "13:50: \"Restoring Cheonggyecheon\" is about 1,180 px at 82 px Black with -3% tracking in a 1,500 px box. One line.",
+      "13:93: 31 characters against 26, about 280 px in a 670 px box. Fine.",
+      "13:117: \"small-particle air pollution, 74 to 48 µg/m³\" is about 360 px at 17 px in a 420 px box (old ink 349 px).",
+      "13:118: \"3.3 to 5.9°C\" is 3 characters longer, about 280 px at 46 px in a 440 px box. Fine.",
+      "13:119: about 46 characters at 17 px, roughly 375 px in a 420 px box. Tight.",
+      "13:122: about 80 characters at 27 px Light, roughly 1,090 px in a 1,640 px box (old ink 613 px). One line.",
+      "13:123: two lines as before; line 1 is about 600 px and line 2 (about 102 characters) about 1,050 px at 19 px in a 1,640 px box. Line 2 is now longer than the old 847 px line, so check it does not wrap."
+    ],
+    "diagramReplacesGroups": [
+      "B2 · before and after"
+    ]
+  }
+]

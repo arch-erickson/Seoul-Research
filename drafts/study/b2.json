@@ -1,0 +1,633 @@
+[
+  {
+    "key": "s05",
+    "title": "Seoul's Climate Targets",
+    "inOneSentence": "This slide shows Seoul's main climate plan: cut the city's emissions to half of the 2005 level by 2033, reach net zero by 2050, and push polluting cars out step by step.",
+    "background": [
+      "Seoul's current climate plan is called the Basic Plan for Carbon Neutrality and Green Growth in Seoul. It is a 10-year plan. It starts from the amount of greenhouse gas the city gave off in 2005, which was 52.34 million tons of CO₂e, and every target is measured against that 2005 number.",
+      "The plan has two big targets. The first is to cut emissions to half of the 2005 level by 2033. The second is to reach carbon neutrality, also called net zero, by 2050. Net zero means that whatever gas the city still gives off is balanced by gas taken back out of the air, so the total comes to zero. The chart on the slide draws a straight line between those dates only to make the picture easy to read. The plan sets the 2033 and 2050 targets and does not promise a straight path between them.",
+      "There is no recent total for Seoul's emissions in English sources, so you cannot say how far along the city is today. Stay with the 2005 starting point and the two targets.",
+      "Buildings cause about two-thirds of Seoul's emissions, and buildings and transport together cause 85%. So after buildings, cars are the next big piece. Korea gives every vehicle an emission grade from 1 to 5, and Grade 5 pollutes the most. Grade 5 diesel vehicles are already banned citywide from December to March and all year in central Seoul. The plan then adds one step at a time: Grade 4 diesel vehicles out of central Seoul's green transport zones in 2025, Grade 4 vehicles banned citywide in 2030, gas and diesel cars banned from central Seoul in 2035, and banned citywide in 2050. The plan was written with 2025 as a future date, and your sources do not say how that step was carried out, so call it the planned 2025 step.",
+      "The plan also aims for 279,000 electric vehicles by 2033, the same year as the halfway emissions target. The car bans are a useful reminder that Seoul uses firm rules as well as rewards. Its reward approach is strongest on existing buildings, which is where the talk goes next."
+    ],
+    "numbers": [
+      {
+        "value": "52.34 Mt CO₂e",
+        "meaning": "Seoul's total greenhouse gas emissions in 2005, the starting point for every target in the plan.",
+        "source": "Dossier §1.1, Korea Herald",
+        "confidence": "solid",
+        "note": "Say \"52.34 million tons in 2005.\" It is the same 2005 baseline used for the buildings share on slide 3."
+      },
+      {
+        "value": "Half by 2033",
+        "meaning": "The plan's first target: emissions down to half of the 2005 level by 2033.",
+        "source": "Dossier §1.1, Korea Herald",
+        "confidence": "solid",
+        "note": "Always say \"half of the 2005 level.\" If someone wants a number, half of 52.34 is about 26 million tons, but that is your own math and is not a published figure."
+      },
+      {
+        "value": "Net zero by 2050",
+        "meaning": "The plan's long-term target: carbon neutrality, where emissions left over are balanced out.",
+        "source": "Dossier §1.1",
+        "confidence": "solid",
+        "note": "Korea's national target is also 2050, so the city and the country line up on this date."
+      },
+      {
+        "value": "85%",
+        "meaning": "Share of Seoul's greenhouse gas that comes from buildings and transport together. Buildings alone are about two-thirds (67%).",
+        "source": "Dossier §1.1",
+        "confidence": "solid",
+        "note": "Use it if someone asks why a talk about buildings covers cars."
+      },
+      {
+        "value": "December to March",
+        "meaning": "The months when Grade 5 diesel vehicles are banned across the whole city. In central Seoul they are banned all year.",
+        "source": "Dossier §1.3",
+        "confidence": "solid",
+        "note": "This ban is already in force. The dossier does not give the reason for those months, so don't explain it unless you have checked."
+      },
+      {
+        "value": "2025",
+        "meaning": "Planned year for banning Grade 4 diesel vehicles from central Seoul's green transport zones.",
+        "source": "Dossier §1.3",
+        "confidence": "hedge",
+        "note": "Call it \"the planned 2025 step.\" Your sources do not confirm how it was carried out."
+      },
+      {
+        "value": "2030 · 2035 · 2050",
+        "meaning": "Planned years for the next car bans: Grade 4 citywide (2030), gas and diesel cars in central Seoul (2035), gas and diesel cars citywide (2050).",
+        "source": "Dossier §1.3",
+        "confidence": "solid",
+        "note": "These are plan dates. Say \"Seoul plans to.\""
+      },
+      {
+        "value": "279,000",
+        "meaning": "Target number of electric vehicles in Seoul by 2033.",
+        "source": "Dossier §1.3",
+        "confidence": "solid",
+        "note": "A target. Your sources do not give how many electric vehicles Seoul has now."
+      }
+    ],
+    "explainSimply": "Think of it like a savings plan that starts from one known number. In 2005 Seoul put out 52.34 million tons of greenhouse gas. The plan says get down to half of that by 2033, and to net zero by 2050, where anything still given off is balanced out. The car bans are the steps along the way, with one more kind of polluting car pushed out every few years.",
+    "sayThis": [
+      "By 2035, Seoul plans to ban gas and diesel cars from downtown."
+    ],
+    "questions": [
+      {
+        "q": "Is Seoul on track to cut its emissions in half by 2033?",
+        "a": "I couldn't find a recent total for Seoul's emissions in English sources, so I can't say. What I can show is the 2005 starting point of 52.34 million tons and the targets. For the whole country, Korea's emissions were 691.6 million tons in 2024, down about 2% from the year before, but that number covers all of Korea and doesn't tell us about Seoul."
+      },
+      {
+        "q": "Why talk about cars in a talk about buildings?",
+        "a": "Buildings cause about two-thirds of Seoul's emissions, and buildings and transport together cause 85%. So transport is the next biggest piece after buildings. The car bans also show that Seoul uses firm rules as well as rewards."
+      },
+      {
+        "q": "What do Grade 4 and Grade 5 mean?",
+        "a": "Korea gives vehicles an emission grade from 1 to 5, and Grade 5 pollutes the most. Grade 5 diesel vehicles are already banned citywide from December to March and all year in central Seoul. Grade 4 vehicles are the next group the plan goes after."
+      },
+      {
+        "q": "It's 2026 now. Did the 2025 ban actually start?",
+        "a": "The plan set 2025 as the date for banning Grade 4 diesel vehicles from central Seoul's green transport zones. My sources list it as a plan date and don't confirm how it was carried out. So I present it as the planned 2025 step."
+      },
+      {
+        "q": "Does the 2035 ban include hybrid cars?",
+        "a": "My sources only say internal combustion engine vehicles, which means anything with a gas or diesel engine. They don't say how hybrids are treated. I'd need to check the city's own rules before answering that."
+      }
+    ],
+    "dontSay": [
+      "Don't give a current total for Seoul's emissions. No 2024 or 2025 city total is published in English sources. Stick to the 52.34 Mt baseline and the targets.",
+      "Don't say the bars show Seoul's real yearly emissions. The straight path between 2005, 2033 and 2050 is only for the picture.",
+      "Don't say \"half of today's emissions.\" The target is half of the 2005 level.",
+      "Don't say \"zero emissions by 2050.\" Say net zero or carbon neutral, which allows some emissions as long as they are balanced out.",
+      "Don't say gas and diesel cars are banned citywide in 2035. The 2035 ban covers central Seoul. The citywide ban is planned for 2050.",
+      "Don't present the 2025 Grade 4 ban as confirmed and in force. Call it the planned 2025 step.",
+      "Don't mix up Seoul's city target with Korea's national target, which is a 40% cut from 2018 levels by 2030.",
+      "Don't use figures from seoulvision2030.com or 2030seoulplan.com. They look like unofficial sites. Use the city government or Seoul Solution."
+    ],
+    "terms": [
+      {
+        "term": "CO₂e",
+        "meaning": "Carbon dioxide equivalent. All greenhouse gases counted as the amount of CO₂ that would cause the same warming, so they can be added into one number."
+      },
+      {
+        "term": "Mt",
+        "meaning": "Megatonne, meaning one million metric tons."
+      },
+      {
+        "term": "Baseline year",
+        "meaning": "The year a plan measures from. For Seoul's plan it is 2005."
+      },
+      {
+        "term": "Carbon neutrality (net zero)",
+        "meaning": "The point where the greenhouse gas a place still gives off is balanced by gas taken back out of the air, so the total is zero."
+      },
+      {
+        "term": "Vehicle emission grade",
+        "meaning": "Korea's rating of vehicles from 1 to 5 by how much they pollute. Grade 5 pollutes the most."
+      },
+      {
+        "term": "Green transport zone",
+        "meaning": "Areas of central Seoul where the city limits polluting cars."
+      },
+      {
+        "term": "Combustion engine vehicle",
+        "meaning": "Any vehicle with a gas or diesel engine. On the old slide this was written ICE, for internal combustion engine."
+      },
+      {
+        "term": "Basic Plan for Carbon Neutrality and Green Growth in Seoul",
+        "meaning": "Seoul's current 10-year climate plan, the source of every target on this slide."
+      }
+    ],
+    "nycLink": "Both cities measure from 2005. New York's Local Law 97 aims to cut emissions from large buildings 40% by 2030 and 80% by 2050 from 2005 levels, while Seoul's plan covers the whole city, with half by 2033 and net zero by 2050. The car bans matter for the main argument because they show Seoul uses firm rules too, so the talk is about where each city uses rewards and where it uses penalties. The photo after this slide puts downtown Seoul next to a toll sign for Manhattan's Congestion Relief Zone, two cities both trying to limit cars downtown."
+  },
+  {
+    "key": "i05",
+    "title": "Downtown Traffic",
+    "seoul": "Sejong-daero, the wide boulevard in central Seoul by the statue of Admiral Yi Sun-sin and the Sejong Center (the photo picked is from 2019). Central Seoul is where the car bans start. Grade 5 diesel vehicles are already banned there all year, and the plan bans gas and diesel cars from central Seoul in 2035.",
+    "nyc": "A Congestion Relief Zone toll sign on a street in Midtown Manhattan, listing the car toll. Your dossier does not cover New York's toll program, so if someone asks, stay with what the sign shows.",
+    "why": "Both cities are trying to keep polluting cars out of their downtowns. Seoul is doing it with bans by vehicle grade, and the New York sign shows a toll for driving into the zone."
+  },
+  {
+    "key": "s06",
+    "title": "One Less Nuclear Power Plant",
+    "inOneSentence": "This slide explains Seoul's program to save or produce as much energy as one nuclear reactor makes in a year, and how it reached that goal six months early.",
+    "background": [
+      "Two events in 2011 led to this program. The Fukushima nuclear disaster happened in Japan, and Seoul had a blackout the same year. In 2012 Seoul started a program called One Less Nuclear Power Plant. The idea was that the city could save or produce the same amount of energy that one power plant makes, so it would need one less plant.",
+      "The Phase 1 goal was 2 million TOE, which the city compared to the yearly output of one nuclear reactor. TOE means ton of oil equivalent. It is a unit that lets you add electricity, gas and other kinds of energy into one number. The plan split the goal into two parts: 1.59 million TOE from using less energy and 410,000 TOE from new renewable energy. Those are the 79% and 21% on the slide.",
+      "Seoul reached 2.04 million TOE in June 2014, six months early. The most effective single measure was Eco-Mileage, a voluntary rewards program for saving energy at home. It made each household's energy use something people could see and compare, and it gave small rewards for cutting it. By June 2014 it had 1.68 million participants, and together they saved 190,000 TOE. The 1.68 million comes back on the last slide. The 3D diagram may label this part \"1.68 million households plus building retrofits.\" If it does, say \"participants\" out loud, because that is what the sources count.",
+      "Phase 2 ran from 2014 to 2020 with bigger goals, including 20% of Seoul's electricity made inside the city. C40, a network of large cities working on climate, reports 4.65 million TOE of energy cut from 2012 to 2017. Electricity made in Seoul went from 2.9% in 2011 to about 5%. C40 says 5% and the city says 5.5% by 2015, so say it roughly doubled. That is still far below the 20% goal. The city set up the Seoul Energy Corporation to carry the work forward.",
+      "Why this matters: Korea makes only 22.1% of its own energy (2024), 35th of 38 OECD countries, and Seoul made under 3% of its own electricity in 2011. So the city started by cutting how much energy it uses, and it asked residents to take part through programs like Eco-Mileage."
+    ],
+    "numbers": [
+      {
+        "value": "2 million TOE",
+        "meaning": "The Phase 1 goal for energy saved or produced, which the city compared to one nuclear reactor's output in a year.",
+        "source": "Dossier §2.1, SMG energy action plan",
+        "confidence": "solid",
+        "note": "The reactor comparison is the city's own. Say \"about one reactor's output in a year.\""
+      },
+      {
+        "value": "2.04 million TOE · June 2014",
+        "meaning": "What Phase 1 actually reached, six months ahead of schedule.",
+        "source": "Dossier §2.1",
+        "confidence": "solid",
+        "note": "Safe to say as is."
+      },
+      {
+        "value": "1.59 million TOE · 410,000 TOE (79% · 21%)",
+        "meaning": "How the 2 million TOE goal was planned: 1.59 million from using less energy and 410,000 from new renewables.",
+        "source": "Dossier §2.1",
+        "confidence": "solid",
+        "note": "This is the planned split of the goal. Sources give no split for the final 2.04 million. The exact shares are 79.5% and 20.5%; the slide rounds them to 79% and 21%."
+      },
+      {
+        "value": "1.68 million",
+        "meaning": "People taking part in Eco-Mileage by June 2014.",
+        "source": "Dossier §2.1 and §7.3",
+        "confidence": "solid",
+        "note": "Say \"participants.\" The sources do not say households."
+      },
+      {
+        "value": "190,000 TOE",
+        "meaning": "Energy saved by Eco-Mileage in Phase 1, part of the 2 million TOE goal.",
+        "source": "Dossier §2.1",
+        "confidence": "solid",
+        "note": "It was the most effective single measure, but it was only part of the total."
+      },
+      {
+        "value": "2.9% to about 5%",
+        "meaning": "Share of Seoul's electricity made inside the city, from 2011 to Phase 2.",
+        "source": "C40 (5%); SMG (5.5% by 2015)",
+        "confidence": "varies",
+        "note": "Sources disagree on the end point. Say \"from under 3% to about 5%, roughly doubled.\""
+      },
+      {
+        "value": "20%",
+        "meaning": "Phase 2's goal for electricity made inside Seoul.",
+        "source": "Dossier §2.2",
+        "confidence": "solid",
+        "note": "Only bring it up if asked. Reported results reach about 5%."
+      },
+      {
+        "value": "4.65 million TOE",
+        "meaning": "Energy cut from 2012 to 2017, as reported by C40.",
+        "source": "C40, OLNPP Phase 2 case study",
+        "confidence": "solid",
+        "note": "The period starts in 2012, so it includes the Phase 1 years too."
+      },
+      {
+        "value": "22.1%",
+        "meaning": "Share of its own energy that Korea produced in 2024, 35th of 38 OECD countries.",
+        "source": "Asia Business Daily",
+        "confidence": "solid",
+        "note": "This is a national number. Use it to explain why energy matters so much in Korea."
+      }
+    ],
+    "explainSimply": "Picture a household that keeps blowing a fuse. It can pay for a bigger electrical hookup, or it can switch off what it doesn't need and add a small solar panel. Seoul did the second thing at city scale. About four-fifths of the goal came from using less energy and about one-fifth from new renewable energy.",
+    "sayThis": [
+      "Seoul decided its job was to cut how much energy the city uses."
+    ],
+    "questions": [
+      {
+        "q": "Is 2 million TOE really what one nuclear reactor makes?",
+        "a": "That comparison comes from Seoul's own plan, and I use it the way the city did, to show the size of the goal. A power plant's output can be counted in more than one way, for example the fuel it burns or the electricity it sends out, so I wouldn't defend it as an exact match. The solid number is the goal itself, 2 million TOE."
+      },
+      {
+        "q": "How did Eco-Mileage get people to save energy?",
+        "a": "It made home energy use visible. Members could see how much they used and compare it with before, and they earned small rewards for cutting it. By June 2014 it had 1.68 million participants who saved 190,000 TOE, and it was rated the most effective single measure in Phase 1."
+      },
+      {
+        "q": "Did Phase 2 hit its targets?",
+        "a": "Not the electricity target. Phase 2 aimed for 20% of Seoul's electricity to be made in the city, and reported numbers reach about 5% (5.5% by 2015 in the city's own figure). C40 does report 4.65 million TOE of energy cut from 2012 to 2017, but that period also includes Phase 1."
+      },
+      {
+        "q": "Why did Seoul start with using less energy?",
+        "a": "Korea makes only 22.1% of its own energy, one of the lowest shares in the OECD, and Seoul made under 3% of its own electricity in 2011. After Fukushima and the 2011 blackout, the city chose to cut demand first. Most of the Phase 1 goal, 1.59 of the 2 million TOE, came from using less."
+      },
+      {
+        "q": "Do the 79% and 21% describe the final result?",
+        "a": "They describe the planned split of the 2 million TOE goal. My sources give the total result, 2.04 million TOE, but no split for it. So I present the percentages as the plan."
+      }
+    ],
+    "dontSay": [
+      "Don't say 1.68 million households. The dossier counts 1.68 million Eco-Mileage participants.",
+      "Don't say Eco-Mileage delivered the whole 2 million TOE. It saved 190,000 TOE of it.",
+      "Don't present 79% and 21% as the split of the final 2.04 million result. They are the planned split of the goal.",
+      "Don't say Seoul shut down a nuclear plant. The program saved or produced energy equal to one reactor's yearly output.",
+      "Don't give one exact number for electricity made in Seoul after Phase 2. Say it went from under 3% to about 5%.",
+      "Don't say Seoul reached its 20% Phase 2 electricity goal."
+    ],
+    "terms": [
+      {
+        "term": "TOE (ton of oil equivalent)",
+        "meaning": "The energy in one metric ton of crude oil. It is used to add up savings of electricity, gas and other fuels in one number."
+      },
+      {
+        "term": "Eco-Mileage",
+        "meaning": "Seoul's voluntary rewards program for saving energy at home. Members see and compare their energy use and earn small rewards for cutting it."
+      },
+      {
+        "term": "Renewable energy",
+        "meaning": "Energy from sources that don't run out, such as sunlight or geothermal heat. Here it mostly means solar panels."
+      },
+      {
+        "term": "Electricity self-sufficiency",
+        "meaning": "The share of the electricity used in Seoul that is made inside Seoul."
+      },
+      {
+        "term": "Fukushima",
+        "meaning": "The 2011 nuclear accident in Japan, caused by an earthquake and tsunami. It is one of the two events that led to this program."
+      },
+      {
+        "term": "C40",
+        "meaning": "A network of large cities around the world that work together on climate. It publishes case studies, including on Seoul."
+      },
+      {
+        "term": "Seoul Energy Corporation",
+        "meaning": "A city energy agency Seoul set up to carry this program's work forward."
+      }
+    ],
+    "nycLink": "New York's main building law, LL97, puts limits and fines on building owners. Seoul's energy program asked residents to use less and gave them small rewards, and 1.68 million people took part. That is the reward side of the comparison, and the 1.68 million comes back in the summary on slide 20. The photo after this slide puts solar panels on a Seoul roof next to the Indian Point nuclear plant on the Hudson, many small sources of power next to one big one."
+  },
+  {
+    "key": "i06",
+    "title": "Solar Roof and Nuclear Plant",
+    "seoul": "Solar panels on a Seoul roof. By 2019 Solar City Seoul had 357.1 MW of solar across 285,000 households. The image team had not found an open-licence photo for this side yet, so check which photo ends up on the slide.",
+    "nyc": "The Indian Point nuclear plant in Buchanan, Westchester County, seen across the Hudson River, with its concrete reactor domes. The photo brief says the plant closed in 2021, but that is not in your dossier, so only mention it if you have checked it.",
+    "why": "Seoul's program was measured against one nuclear reactor's yearly output. This pair puts many small solar roofs next to one large power plant."
+  },
+  {
+    "key": "s07",
+    "title": "Solar Panels on Balconies",
+    "inOneSentence": "This slide covers Solar City Seoul, the 2017 program that put small solar panels on apartment balcony railings, with a goal of 1 GW more solar by 2022.",
+    "background": [
+      "Solar City Seoul started in 2017. Its goals were 1 GW of new solar power by 2022 and solar for 1 million households. The budget was about ₩1.7 trillion, or about US$1.46 billion, and most of it was public money.",
+      "Seoul is a city of tall apartment blocks, so each apartment has very little roof. The city looked at balconies instead. It offered small standard solar kits that mount on the balcony railing. The kits were subsidized, renters could install them, and the city published design and safety standards for them. The target was 540,000 apartment balconies, plus 90,000 rental homes and 370,000 buildings. Those three parts add up to 1 million, the same as the household goal, though the dossier does not say that is how the goal was split.",
+      "By 2019 Seoul had 357.1 MW of solar across 285,000 households, and the program was described as ahead of its interim goal. 1 GW is 1,000 MW, so that is about a third of the way. A UN projection expected 583 MW by the end of 2020 and 1,015 MW by the end of 2022, but those were forecasts. Your sources do not give a final total for 2022.",
+      "Seoul named its own main problem: not enough space on buildings and public facilities to put panels. Seoul also has a longer history of supporting small solar. In 2013 it became the first Korean city to pay small solar plants of 50 kW or less for each kWh they made, for five years.",
+      "For New York, the dossier calls balcony solar the idea New York could copy most directly. New York has hundreds of thousands of balconies, fire escapes and south-facing railings that make no power. The barriers are the building code, permits and landlord consent. New York would need a list of approved kits, a Department of Buildings process that doesn't require a full alteration filing for a plug-in kit, and a right for renters to install one. The dossier also points to Germany, where balcony solar spread quickly once permits got simpler."
+    ],
+    "numbers": [
+      {
+        "value": "1 GW by 2022",
+        "meaning": "Solar City Seoul's goal for new solar power capacity.",
+        "source": "Dossier §2.3, SMG Seoul City of Solar Power",
+        "confidence": "solid",
+        "note": "This is a goal. Your sources do not confirm whether it was reached."
+      },
+      {
+        "value": "1 million households",
+        "meaning": "The program's goal for how many households would get solar.",
+        "source": "Dossier §2.3",
+        "confidence": "solid",
+        "note": "A goal. The 2019 progress figure is 285,000 households."
+      },
+      {
+        "value": "About US$1.46 billion (₩1.7 trillion)",
+        "meaning": "The program's budget, mostly public money.",
+        "source": "Dossier §2.3",
+        "confidence": "solid",
+        "note": "Say \"about.\" The dollar amount is a conversion of the won figure."
+      },
+      {
+        "value": "540,000",
+        "meaning": "Apartment balconies targeted for small solar kits.",
+        "source": "Dossier §2.3 and §8.3",
+        "confidence": "solid",
+        "note": "A target, and it comes back at the end of the talk."
+      },
+      {
+        "value": "90,000 rental homes · 370,000 buildings",
+        "meaning": "The other two parts of the program's targets, next to the balconies.",
+        "source": "Dossier §2.3",
+        "confidence": "solid",
+        "note": "These are targets. Your sources give no results for these two parts."
+      },
+      {
+        "value": "357.1 MW · 285,000 households",
+        "meaning": "Solar installed by 2019 and the number of households it reached.",
+        "source": "Dossier §2.3, pv-magazine, SMG",
+        "confidence": "solid",
+        "note": "About a third of the 1 GW goal. It was described as ahead of the interim goal."
+      },
+      {
+        "value": "583 MW · 1,015 MW",
+        "meaning": "A UN projection of where the program would be by the end of 2020 and the end of 2022.",
+        "source": "Dossier §2.3",
+        "confidence": "hedge",
+        "note": "These were forecasts. Don't present them as results."
+      },
+      {
+        "value": "50 kW · five years · 2013",
+        "meaning": "Seoul was the first Korean city to pay small solar plants of 50 kW or less for each kWh they made, for five years, starting with a 2013 measure.",
+        "source": "Dossier §2.3, SMG",
+        "confidence": "solid",
+        "note": "Background only. It shows Seoul supported small solar before 2017."
+      }
+    ],
+    "explainSimply": "Think of a big apartment building as a wall of balconies. Each balcony gets one small solar panel on its railing, put up by the renter like a small appliance, and it makes a little electricity for that apartment. One panel makes a small amount, but Seoul aimed for 540,000 balconies.",
+    "sayThis": [
+      "In Seoul, a renter can put a small solar panel on their balcony."
+    ],
+    "questions": [
+      {
+        "q": "Did Seoul actually reach 1 GW by 2022?",
+        "a": "My sources stop at 2019, when Seoul had 357.1 MW, about a third of the goal, and was reported as ahead of schedule. A UN projection expected about 1,015 MW by the end of 2022, but that was a forecast. I didn't find a confirmed final number, so I won't claim it was reached."
+      },
+      {
+        "q": "How much power does one balcony panel make?",
+        "a": "My sources don't give a number for one kit. Each kit is small and covers only part of one apartment's electricity. What matters is the number of balconies: Seoul targeted 540,000 of them."
+      },
+      {
+        "q": "Why doesn't New York do this already?",
+        "a": "The dossier names three barriers: the building code, permits and landlord consent. New York would need a list of approved kits, a simple Department of Buildings process for plug-in kits, and a right for renters to install one. Germany is the example the dossier gives of balcony solar spreading once permits got simpler."
+      },
+      {
+        "q": "Who paid for it?",
+        "a": "Mostly the public. The program's budget was about ₩1.7 trillion, about US$1.46 billion, and the balcony kits were subsidized. My sources don't give the subsidy amount for each kit."
+      },
+      {
+        "q": "Could New Yorkers put panels on fire escapes?",
+        "a": "Fire escapes are emergency exits, so anything on them would need to keep the way out clear, and that is a question for code officials. My sources list fire escapes among the surfaces that make no power today. I would start with real balconies and south-facing railings."
+      }
+    ],
+    "dontSay": [
+      "Don't say Seoul reached 1 GW or 1 million households. Your sources stop at 357.1 MW and 285,000 households in 2019.",
+      "Don't present 583 MW or 1,015 MW as results. They were UN projections.",
+      "Don't say every balcony in Seoul has a panel. 540,000 balconies was a target.",
+      "Don't give a price, wattage or subsidy amount for a single kit. The dossier has none.",
+      "Don't call the New York barriers technical. The dossier names the building code, permits and landlord consent.",
+      "Don't propose putting panels on fire escapes. Fire escapes are emergency exits, and any change there would need a code review."
+    ],
+    "terms": [
+      {
+        "term": "Solar PV (photovoltaic)",
+        "meaning": "Solar panels that turn sunlight straight into electricity."
+      },
+      {
+        "term": "Mini-PV (balcony solar kit)",
+        "meaning": "A small solar panel kit that mounts on an apartment's balcony railing and makes electricity for that apartment. In Seoul the kits were standard, subsidized and installable by renters."
+      },
+      {
+        "term": "kW, MW, GW",
+        "meaning": "Units of power capacity. 1 MW is 1,000 kW, and 1 GW is 1,000 MW."
+      },
+      {
+        "term": "kWh (kilowatt-hour)",
+        "meaning": "A unit of energy, the amount you get from 1 kW running for one hour. Electric bills are counted in kWh."
+      },
+      {
+        "term": "Subsidy",
+        "meaning": "Money the government pays to lower the cost of something it wants people to buy or do."
+      },
+      {
+        "term": "Interim goal",
+        "meaning": "A checkpoint target partway to the final goal."
+      },
+      {
+        "term": "Solar City Seoul",
+        "meaning": "Seoul's 2017 solar program, with the 1 GW by 2022 goal and the balcony kits."
+      }
+    ],
+    "nycLink": "Balcony solar is idea 03 in the recommendations on slide 19. The dossier calls it the idea New York could copy most directly, because New York also has a huge stock of apartments with balconies and railings that make no power. What New York is missing is the set of rules: an approved kit list, a simple permit path for plug-in kits and a renter's right to install. The photo after this slide puts Seoul's balcony panels next to a New York building with fire escapes."
+  },
+  {
+    "key": "i07",
+    "title": "Balconies in Both Cities",
+    "seoul": "Apartment balconies in Seoul with small solar panels on the railings. Solar City Seoul targeted 540,000 apartment balconies for these kits.",
+    "nyc": "The front of a New York apartment building with fire escapes and no solar panels. The dossier notes that New York has hundreds of thousands of balconies, fire escapes and south-facing railings that make no power.",
+    "why": "The two photos show the same kind of surface on an apartment building. In Seoul it makes electricity, and in New York the building code, permits and landlord consent stand in the way."
+  },
+  {
+    "key": "s08",
+    "title": "Paying for Building Retrofits",
+    "inOneSentence": "This slide puts Seoul's low-interest retrofit loans next to New York's Local Law 97 limits and fines, which is the main comparison of the whole talk.",
+    "background": [
+      "Buildings use 56% of Seoul's energy and cause about two-thirds of its emissions. Most of those buildings are already standing, so the big question is how to pay for fixing them. A retrofit means upgrading an existing building, for example with insulation, better windows, new lighting or a new heating and cooling system.",
+      "Seoul's answer is the Building Retrofit Project, or BRP, which started in 2008. In 2012 it grew under One Less Nuclear Power Plant and opened to private universities and hospitals, then to homes. The city lends owners money at a low interest rate to pay for upgrades. In 2013 the city cut the rate from 2.5% to 1.75% a year and raised the most it would lend from 80% to 100% of the eligible cost, so an owner can start the work without paying for it up front. The stated target is 90,000 buildings, which is 20% of Seoul's buildings that are over 20 years old.",
+      "Results depend on the source, so always name it. C40 reports 25,841 tons of CO₂ saved from 2012 to 2015 across about 4,200 projects, and other C40 reporting says 72,000 buildings were improved. A city report says 20,000 buildings and houses and 192,234 TOE of energy saved. A measured sample of 100 buildings (2012 to 2013) found that homes used 10% less energy and other buildings 6.5% less, and 59 welfare facilities (social service buildings) saved about 15%.",
+      "New York's answer is Local Law 97, passed in 2019. It covers buildings over 25,000 sq ft. Each building gets a yearly carbon limit per square foot, set by its type of use, such as offices or apartment buildings. The law does not tell owners what to fix. If a building goes over its limit, the owner pays $268 for each ton of CO₂e over the limit, every year. The overall goal is a 40% cut by 2030 and 80% by 2050, from 2005 levels.",
+      "The limits get much tighter in 2030. The office limit drops by 64.5% and the apartment building limit by 50.4% compared with 2024 to 2029. About 11% of covered buildings are estimated to be over the 2024 to 2029 limits, and about 63% are projected to be over the 2030 limits if nothing changes. LL97 leaves it to owners to find the money for upgrades. That gap is the reason for your second recommendation, a New York city loan for LL97 upgrades on terms like Seoul's."
+    ],
+    "numbers": [
+      {
+        "value": "56%",
+        "meaning": "Buildings' share of Seoul's total energy use.",
+        "source": "Dossier §3.1",
+        "confidence": "solid",
+        "note": "This is energy use. Buildings' share of emissions is about two-thirds (67%). Keep the two apart."
+      },
+      {
+        "value": "1.75% a year",
+        "meaning": "The BRP loan interest rate after the 2013 change, down from 2.5%.",
+        "source": "Dossier §3.1, C40, Seoul Solution",
+        "confidence": "solid",
+        "note": "Say \"since 2013.\" It was 2.5% before that."
+      },
+      {
+        "value": "100% of eligible cost",
+        "meaning": "The most the BRP will lend for an upgrade, raised from 80% in 2013.",
+        "source": "Dossier §3.1",
+        "confidence": "solid",
+        "note": "Say \"eligible cost.\" It covers the parts of the project the program accepts."
+      },
+      {
+        "value": "90,000 buildings",
+        "meaning": "The BRP's stated target, 20% of Seoul's buildings over 20 years old.",
+        "source": "Dossier §3.1",
+        "confidence": "solid",
+        "note": "A target. Don't say it was reached."
+      },
+      {
+        "value": "25,841 t CO₂ · about 4,200 projects (2012 to 2015)",
+        "meaning": "BRP results as reported by C40.",
+        "source": "C40 Urban Efficiency II case study",
+        "confidence": "varies",
+        "note": "Results differ by source and cutoff date. Name the source when you give it."
+      },
+      {
+        "value": "72,000 buildings",
+        "meaning": "Buildings improved, from other C40 reporting.",
+        "source": "C40 Cities100",
+        "confidence": "varies",
+        "note": "The highest count. Give it as part of the range."
+      },
+      {
+        "value": "20,000 buildings and houses · 192,234 TOE",
+        "meaning": "BRP results in a Seoul city government report.",
+        "source": "SMG report (Seoul Solution)",
+        "confidence": "varies",
+        "note": "Name the source. It does not match the C40 counts."
+      },
+      {
+        "value": "10% · 6.5%",
+        "meaning": "Measured energy savings in a sample of 100 buildings (2012 to 2013): homes 10% less, other buildings 6.5% less.",
+        "source": "Dossier §3.1",
+        "confidence": "solid",
+        "note": "A sample of 100 buildings, so present it as an example of what upgrades saved."
+      },
+      {
+        "value": "59 welfare facilities · about 15%",
+        "meaning": "Social service buildings retrofitted, saving about 15% of their average energy use.",
+        "source": "Dossier §3.1",
+        "confidence": "solid",
+        "note": "Only if someone asks about public or social buildings."
+      },
+      {
+        "value": "$268 per ton of CO₂e",
+        "meaning": "LL97's yearly fine for each ton a building goes over its limit.",
+        "source": "NYC DOB, LL97 rules",
+        "confidence": "solid",
+        "note": "Say \"each year.\" The fine repeats every year a building is over."
+      },
+      {
+        "value": "25,000 sq ft",
+        "meaning": "The size above which LL97 covers a building.",
+        "source": "NYC DOB",
+        "confidence": "solid",
+        "note": "Safe to say as is."
+      },
+      {
+        "value": "40% by 2030 · 80% by 2050",
+        "meaning": "LL97's overall goals for covered buildings, measured from 2005 levels.",
+        "source": "Dossier §8.2",
+        "confidence": "solid",
+        "note": "Same baseline year as Seoul's plan, 2005."
+      },
+      {
+        "value": "64.5% · 50.4%",
+        "meaning": "How much tighter the 2030 limits are than the 2024 to 2029 limits, for offices and for apartment buildings.",
+        "source": "NYC Rules, LL97 emissions limits",
+        "confidence": "solid",
+        "note": "This is why so many more buildings go over in 2030."
+      },
+      {
+        "value": "About 11% · about 63%",
+        "meaning": "Covered buildings over the 2024 to 2029 limits, and covered buildings projected to be over the 2030 limits if nothing changes.",
+        "source": "Dossier §8.2",
+        "confidence": "solid",
+        "note": "Both are estimates. Say \"about,\" and say \"if nothing changes\" with the 63%."
+      }
+    ],
+    "explainSimply": "Imagine your building needs a new boiler and new windows. In Seoul, the city offers a loan at 1.75% a year that can cover the whole eligible cost, so the owner can start now and pay it back over time. In New York, the city sets a carbon limit and sends a bill if the building goes over it. For example, a building 100 tons over its limit would pay 100 × $268, which is $26,800, every year until it gets under the limit.",
+    "sayThis": [
+      "So my second idea for New York is a city loan for these upgrades, like Seoul's."
+    ],
+    "questions": [
+      {
+        "q": "If the loans are optional, why would owners in Seoul take one?",
+        "a": "The loan makes the upgrade easier to start. Since 2013 it can cover 100% of the eligible cost at 1.75% a year, and the upgrades cut energy use. In a measured sample of 100 buildings, homes used 10% less energy and other buildings 6.5% less, which means lower energy bills."
+      },
+      {
+        "q": "How many buildings did the BRP actually reach?",
+        "a": "It depends on the source and what it counts. C40 reports about 4,200 projects from 2012 to 2015, other C40 reporting says 72,000 buildings, and a city report says 20,000 buildings and houses. So I give the range and name the source. The target was 90,000 buildings."
+      },
+      {
+        "q": "Wouldn't fines work faster than loans?",
+        "a": "Fines set a clear deadline, and New York's target is the harder one. The problem is that a fine doesn't help an owner pay for the work, and about 63% of covered buildings are projected to be over the 2030 limits if nothing changes. That's why I suggest adding a Seoul-style loan to LL97, tied to meeting the limits."
+      },
+      {
+        "q": "Does New York offer owners any financing?",
+        "a": "LL97 itself sets the limits and the fines and leaves the money to owners. In my research I didn't find a city loan like Seoul's BRP. I'd say it that carefully, since there may be smaller programs I didn't cover."
+      },
+      {
+        "q": "Why does the share of buildings over the limit jump from about 11% to about 63%?",
+        "a": "Because the limits get much tighter in 2030. Compared with the 2024 to 2029 limits, the office limit drops by 64.5% and the apartment building limit by 50.4%. A building that passes today can be well over in 2030 without any change on its side."
+      }
+    ],
+    "dontSay": [
+      "Don't give a single total for what the BRP achieved. Figures run from about 4,200 projects to 72,000 buildings depending on the source and the cutoff date.",
+      "Don't say the BRP reached its 90,000 building target.",
+      "Don't say 1.75% was the rate from the start. It was 2.5% until 2013.",
+      "Don't claim 1.75% is Seoul's rate today. It is the BRP rate set in 2013. Seoul's newer climate plan mentions long-term interest-free loans for upgrades, but the dossier has no details, so only mention that if asked.",
+      "Don't mix up 56% and two-thirds. 56% is buildings' share of Seoul's energy use, and about two-thirds (67%) is their share of emissions.",
+      "Don't say New York gives owners no help at all. Say LL97 leaves the financing to owners and you found no city loan like Seoul's.",
+      "Don't say LL97 tells owners which upgrades to make. It sets a carbon limit per square foot by building type and lets owners choose how to meet it.",
+      "Don't say 63% of buildings are over the limit now. About 11% are over the 2024 to 2029 limits, and about 63% are projected to be over the 2030 limits if nothing changes.",
+      "Don't mention LL97 carbon-credit trading starting in 2026. Only one weak source claims it.",
+      "Don't give numbers about the Empire State Building's own energy upgrades in the next photo. That is not in your dossier."
+    ],
+    "terms": [
+      {
+        "term": "Retrofit",
+        "meaning": "Upgrading an existing building so it uses less energy, for example with insulation, new windows, lighting, or heating and cooling equipment."
+      },
+      {
+        "term": "Building Retrofit Project (BRP)",
+        "meaning": "Seoul's program, started in 2008, that lends building owners money at low interest to pay for retrofits."
+      },
+      {
+        "term": "Eligible cost",
+        "meaning": "The part of a project's cost that the loan program agrees to pay for."
+      },
+      {
+        "term": "Local Law 97 (LL97)",
+        "meaning": "New York's 2019 law, part of the Climate Mobilization Act, that sets yearly carbon limits for buildings over 25,000 sq ft and fines owners who go over."
+      },
+      {
+        "term": "Emissions limit (cap)",
+        "meaning": "The most greenhouse gas a building may give off per square foot each year under LL97. It depends on the building's type of use, called its occupancy group, such as office or multifamily."
+      },
+      {
+        "term": "Multifamily",
+        "meaning": "A building with several separate homes, such as an apartment building."
+      },
+      {
+        "term": "Welfare facilities",
+        "meaning": "Social service buildings, such as community or care centers."
+      },
+      {
+        "term": "SMG",
+        "meaning": "Seoul Metropolitan Government, the city government of Seoul."
+      }
+    ],
+    "nycLink": "This is the center of the talk and the source of your main recommendation, idea 02 on slide 19. New York already has the limits and the fines. What it lacks is a way to help owners pay for the work, and about 63% of covered buildings could be over the 2030 limits. The dossier's suggestion is a city loan fund on BRP terms (up to 100% of cost at 1.75%), tied to meeting LL97 limits, so an owner facing a fine has a way to pay for the fix. Seoul is weaker on the other side, since its loans are voluntary, so the comparison suggests each city could use what the other has."
+  },
+  {
+    "key": "i08",
+    "title": "Two Older Buildings",
+    "seoul": "An older building in downtown Seoul (the photo picked so far is Sewoon Sangga, a long concrete building near Euljiro; check the caption on the slide). It is shown as older building stock. No source says it was retrofitted, so don't call it a BRP building. The BRP target is 90,000 buildings, 20% of Seoul's buildings over 20 years old.",
+    "nyc": "The Empire State Building in Midtown Manhattan. It is far over 25,000 sq ft, so Local Law 97 covers it, and the owner pays for any upgrades it needs to stay under its limit.",
+    "why": "Both are large older buildings of the kind that need upgrades. In Seoul the city lends money for that work, and in New York the owner pays and faces fines for going over the limit."
+  }
+]

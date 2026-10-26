@@ -1,0 +1,663 @@
+[
+  {
+    "key": "s13",
+    "title": "Trash Fees and Smart Bins",
+    "inOneSentence": "How Seoul charges households for trash: priced bags for general trash since 1995, and shared smart bins that weigh food waste and bill each household for it.",
+    "background": [
+      "Since 1995, everyone in Korea, Seoul included, has paid for general trash by buying official priced bags. General trash means anything that is not recycling or food waste, which are kept separate. The more trash you throw out, the more bags you have to buy, so people have a reason to throw out less. This kind of system is called pay as you throw, and Korea's version is the one other countries usually point to.",
+      "Food waste goes into shared smart bins instead. A resident taps a household RFID card on the bin, the lid opens, the bin weighs what goes in, and that household is billed for the weight. The 3D diagram on the slide walks through these three steps. The 4.2 kg on the bin's display is only an example.",
+      "There is a reward too. A household that cuts its food waste by 10 to 30% compared with the same period a year earlier can earn up to 5,000 points in each evaluation period, worth about ₩5,000. The separated food waste is turned into animal feed, compost and biogas.",
+      "The results are on the slide. The bag fees cut trash by about 8% in 1995 and 11% by 1996, both compared with 1994. Seoul Solution warns that the 1995 number may be too high, because many people threw out large items for free that year, so the 1996 number is the one to trust. For the weighing bins, the reported drop in food waste is 9 to 31%.",
+      "New York has made curbside composting mandatory, and buildings can be fined from $25 to $300 depending on their size. But New York's brown bins don't weigh anything and there is no reward, so a household never learns how much food it throws out. Seoul's bin gives each household its own number every time. That gap becomes the first idea New York could borrow, on slide 19."
+    ],
+    "numbers": [
+      {
+        "value": "1995",
+        "meaning": "The year Korea, Seoul included, started charging for general trash through official priced bags.",
+        "source": "Seoul Solution, Volume Based Waste Fee page",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "About ₩490",
+        "meaning": "The price of one standard official trash bag, given as a reference price.",
+        "source": "Seoul Solution; Development Asia (dossier §4.1)",
+        "confidence": "varies",
+        "note": "The dossier gives it as an approximate reference. Always say \"about ₩490 for a standard bag.\""
+      },
+      {
+        "value": "Up to ₩100,000",
+        "meaning": "The highest fine for breaking the trash rules.",
+        "source": "Seoul Solution; Development Asia (dossier §4.1)",
+        "confidence": "solid",
+        "note": "Say \"up to,\" since this is the top of the range."
+      },
+      {
+        "value": "8% (1995)",
+        "meaning": "How much trash went down in the first year of the bag fees, compared with 1994.",
+        "source": "Seoul Solution, Volume Based Waste Fee page",
+        "confidence": "hedge",
+        "note": "Seoul Solution says this may be too high, because many large items were thrown out free in 1995. Mention it, then lean on the 11%."
+      },
+      {
+        "value": "11% (1996)",
+        "meaning": "How much trash had gone down by 1996, compared with 1994.",
+        "source": "Seoul Solution, Volume Based Waste Fee page",
+        "confidence": "solid",
+        "note": "The safer of the two numbers."
+      },
+      {
+        "value": "9 to 31%",
+        "meaning": "The reported drop in food waste with the RFID bins that charge by weight.",
+        "source": "Korean agency reporting, Dec 2013 (Korea Environment Corporation figures, dossier §4.2)",
+        "confidence": "varies",
+        "note": "The same reporting also gives 10 to 30%. Call it a reported range and don't claim an exact number."
+      },
+      {
+        "value": "Up to 5,000 points (about ₩5,000)",
+        "meaning": "The reward a household can earn in each evaluation period if it cuts its food waste 10 to 30% compared with the same period a year earlier.",
+        "source": "Dossier §4.2",
+        "confidence": "solid",
+        "note": "Keep the two ranges apart. 10 to 30% is the cut a household needs for points, and 9 to 31% is the overall result."
+      },
+      {
+        "value": "4.2 kg",
+        "meaning": "The weight shown on the bin's display in the 3D diagram.",
+        "source": "Example value only",
+        "confidence": "hedge",
+        "note": "It's only an example on the drawing. Don't present it as a real measurement."
+      },
+      {
+        "value": "$25 to $300",
+        "meaning": "New York composting fines: $25, $50 and $100 for buildings with 1 to 8 units, and $100, $200 and $300 for buildings with 9 or more units.",
+        "source": "DSNY Compost Enforcement Flyer 2025",
+        "confidence": "solid",
+        "note": "Bigger buildings face bigger fines. If asked what makes the amount step up, point to the DSNY flyer."
+      },
+      {
+        "value": "2.4%",
+        "meaning": "Share of New York's residential waste collected as organics (food and yard waste) in 2025, up from 1.4% in 2024.",
+        "source": "Dossier §8.1 (Waste Today on the IBO analysis; Grist)",
+        "confidence": "solid",
+        "note": "This number belongs to slide 19. Keep it ready in case someone asks how New York's composting is going."
+      }
+    ],
+    "explainSimply": "It works like a water or electric meter. You pay for what you use, and the bill shows you how much that was. Seoul does this for food scraps. The bin is the meter, and every time you use it, your household sees its own number.",
+    "sayThis": [],
+    "questions": [
+      {
+        "q": "How does the bin know whose food waste it is?",
+        "a": "Each household has an RFID card, a chip card like a building key fob. You tap it on the bin, the lid opens, and the bin weighs what you drop in. Your household is then billed for that weight."
+      },
+      {
+        "q": "Doesn't charging for trash make people dump it illegally?",
+        "a": "That's a common worry with any trash fee. Korea backs its fees with fines of up to ₩100,000 for breaking the rules. My sources don't measure illegal dumping, so I can't give a number for it. What they do show is that trash went down 11% by 1996 after the fees started."
+      },
+      {
+        "q": "Is the 9 to 31% drop really because of the bins, or because of other things like the points or the bag fees?",
+        "a": "The figure comes from Korean agency reporting from December 2013, and my sources don't explain how the study was done. The same reporting also gives 10 to 30%. So I present it as a reported range, and I don't claim the bin alone caused all of the drop."
+      },
+      {
+        "q": "Could New York do this?",
+        "a": "New York already has the rule and the fines for composting. What it doesn't have is a bin that tells each household how much it threw out, or a reward for cutting back. New York buildings already have refuse rooms, so weighing bins could go there. This is idea 1 on slide 19."
+      },
+      {
+        "q": "How much is ₩490 in US dollars?",
+        "a": "The dossier doesn't give dollar amounts, and exchange rates change. One US dollar buys more than ₩1,000, so a standard bag costs well under a dollar. I'd check a current rate before giving an exact figure."
+      }
+    ],
+    "dontSay": [
+      "Don't say every household in Seoul uses a weighing bin. The dossier describes shared smart bins but gives no figure for how many homes have them.",
+      "Don't present the 4.2 kg on the diagram as a real measurement. It's an example.",
+      "Don't lean on the 8% drop for 1995. Seoul Solution itself says it may be too high, so use the 11% for 1996.",
+      "Don't mix up the two ranges. 9 to 31% is how much food waste went down, and 10 to 30% is the cut a household needs to earn points.",
+      "Don't use the recycling figures (recycling up more than 30%, about 70% of household waste recycled). They come from one source and aren't measured from the same starting point.",
+      "Don't say New Yorkers pay for food waste by weight. New York fines buildings that don't separate it, and nobody is charged by weight.",
+      "Don't call Korea's system the strictest in the world as if it were a measured fact."
+    ],
+    "terms": [
+      {
+        "term": "Pay as you throw",
+        "meaning": "A trash system where you pay based on how much you throw out, for example by buying priced bags."
+      },
+      {
+        "term": "General trash",
+        "meaning": "Trash that isn't recycling or food waste. In Korea it has to go in the official priced bags."
+      },
+      {
+        "term": "RFID",
+        "meaning": "Radio-frequency identification. A chip card the bin reads with a tap, like a building key fob or a contactless transit card."
+      },
+      {
+        "term": "Load cell",
+        "meaning": "The scale sensor inside the bin that weighs what you drop in."
+      },
+      {
+        "term": "Biogas",
+        "meaning": "Gas, mostly methane, made when food waste breaks down in a closed tank. It can be burned for energy."
+      },
+      {
+        "term": "DSNY",
+        "meaning": "The New York City Department of Sanitation, which collects trash, recycling and compost."
+      },
+      {
+        "term": "Organics",
+        "meaning": "Food scraps and yard waste that can be turned into compost."
+      }
+    ],
+    "nycLink": "New York uses the stick for composting. It's mandatory, and fines came back on January 1, 2026. But the bins give no feedback and there's no reward, and organics were only about 2.4% of residential waste collected in 2025. Seoul's weighing bin adds the two things New York is missing, which becomes idea 1 on slide 19. It also fits the title of the talk, since Seoul pairs a stick (paying by weight) with a carrot (points)."
+  },
+  {
+    "key": "i13",
+    "title": "Two Food Waste Bins",
+    "seoul": "An RFID food waste bin at an apartment complex. A resident taps a household card, the bin weighs the food waste, and the household pays for that weight. Check the photo credit for the place. If the photo was taken outside Seoul, call it the same kind of bin Seoul uses.",
+    "nyc": "A DSNY brown curbside compost bin. Composting is mandatory in New York, but this bin has no scale, so nobody sees how much food they throw out.",
+    "why": "Both bins collect food scraps. Seoul's bin measures each household and New York's bin doesn't, which is the main point of slide 13."
+  },
+  {
+    "key": "s14",
+    "title": "From Landfill to Park",
+    "inOneSentence": "How Seoul turned Nanjido, its old garbage mountain, into World Cup Park, and how New York is doing the same thing at Freshkills.",
+    "background": [
+      "Nanjido (nahn-jee-doh) was an island in the Han River. Work on an embankment joining it to the mainland began in January 1977, and in 1978 it became Seoul's official dump. It was picked because it was easy to reach and far from downtown.",
+      "Over about 15 years the trash piled up into two mounds about 90 m high, roughly as tall as a 30-story building. Korea had no modern system for landfill gas or leachate at the time. Leachate is the dirty liquid that drains out of buried trash. Rotting trash makes methane, and the site gave off methane and toxic gases.",
+      "Planning to fix the site started in 1991. In 1993 the city decided to close the dump and stabilize the ground (some sources say dumping ended in 1992). The 3D diagram shows the general idea of the fix: a sealed cap over the trash, wells that collect the gas, and a park on top. The gas is now captured and used. Construction ran from 1996 to 2002, and the site opened as World Cup Park for the 2002 FIFA World Cup. The two mounds became Haneul Park (hah-nool, meaning sky) and Noeul Park (no-ool).",
+      "In 2012 the Seoul Energy Dream Center, Korea's first zero-energy public building, opened on the same ground (slide 10). The old trash can't carry a building's weight, so the center stands on piles that reach down to solid ground.",
+      "New York is doing the same thing at Freshkills Park on Staten Island. Fresh Kills was once the world's largest landfill, and it is becoming a park of about 2,200 acres that opens in phases. The two cities reached the same answer on their own, on roughly the same timeline, so this slide presents them as equals."
+    ],
+    "numbers": [
+      {
+        "value": "1977",
+        "meaning": "Work began on an embankment joining Nanjido island to the mainland (January 7, 1977).",
+        "source": "Seoul Solution, Landfill Recovery Project",
+        "confidence": "solid",
+        "note": "Background only. It isn't on the slide."
+      },
+      {
+        "value": "1978",
+        "meaning": "Nanjido became Seoul's official dump.",
+        "source": "Seoul Solution, Landfill Recovery Project; Development Asia",
+        "confidence": "solid",
+        "note": "The slide says \"main dump.\""
+      },
+      {
+        "value": "About 90 m",
+        "meaning": "How high the trash piled up, in two mounds.",
+        "source": "Seoul Solution; Development Asia",
+        "confidence": "solid",
+        "note": "Say \"about 90 meters.\" Don't call it the world's tallest."
+      },
+      {
+        "value": "1993",
+        "meaning": "The year the city decided to close the dump and began stabilizing the site.",
+        "source": "Seoul Solution; Development Asia",
+        "confidence": "varies",
+        "note": "Some sources say dumping ended in 1992. Say \"1993, though some sources say 1992.\""
+      },
+      {
+        "value": "1991, then 1996 to 2002",
+        "meaning": "Planning started in 1991, and the work to turn the site into a park ran from 1996 to 2002.",
+        "source": "Seoul Solution; Development Asia",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "2002",
+        "meaning": "World Cup Park opened, in time for the 2002 FIFA World Cup.",
+        "source": "Development Asia, Turning a Dumpsite into the World Cup Eco Park",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "2012",
+        "meaning": "The Seoul Energy Dream Center, Korea's first zero-energy public building, opened on the old landfill.",
+        "source": "Fraunhofer ISE; Seoul Solution (dossier §6.1)",
+        "confidence": "solid",
+        "note": "Slide 10 covers the building itself."
+      },
+      {
+        "value": "About 2,200 acres",
+        "meaning": "The size of Freshkills Park on Staten Island, which is opening in phases.",
+        "source": "Dossier §8.6",
+        "confidence": "solid",
+        "note": "Say \"about 2,200 acres, opening in phases.\""
+      }
+    ],
+    "explainSimply": "Picture a giant trash pile covered with a thick sealed lid, with pipes poking through to pull the gas out safely, and grass and paths planted on top of the lid. That's Haneul Park. People now walk on top of what used to be a pile of garbage about as tall as a 30-story building.",
+    "sayThis": [
+      "New York and Seoul came up with the same answer here, at about the same time."
+    ],
+    "questions": [
+      {
+        "q": "Is it safe to walk on a park built on trash?",
+        "a": "The dump was closed and the ground stabilized before the park opened in 2002, and the landfill gas is now collected and used. My sources don't give health monitoring data, so I'd say the main gas problem is handled by collecting the gas, without claiming more than that."
+      },
+      {
+        "q": "What happens to the gas now?",
+        "a": "It's pulled out through wells in the mounds and used. The dossier doesn't say exactly what it's used for, so I wouldn't say it makes electricity or heats homes."
+      },
+      {
+        "q": "How can you put a zero-energy building on top of a landfill?",
+        "a": "The old trash can't carry the weight of a building, so the Energy Dream Center sits on piles under a reinforced concrete base plate, and the piles reach solid ground. It's a good example of a site's history shaping the architecture. The building opened in 2012 and is covered on slide 10."
+      },
+      {
+        "q": "Did Nanjido close in 1992 or 1993?",
+        "a": "Sources differ. The range most sources use is 1978 to 1993, with 1993 as the year the city decided to close it. Some sources say dumping actually stopped in 1992."
+      },
+      {
+        "q": "How does Freshkills compare with Nanjido?",
+        "a": "Fresh Kills on Staten Island was once the world's largest landfill, and it's becoming a park of about 2,200 acres that opens in phases. Seoul's park opened in 2002, so Seoul finished sooner. The two cities came to the same idea on their own, on roughly the same timeline."
+      }
+    ],
+    "dontSay": [
+      "Don't call Nanjido the world's tallest trash mountain. That comes from a news headline, and the dossier doesn't back it up.",
+      "Don't give 1993 as certain. Some sources say dumping ended in 1992.",
+      "Don't give Freshkills facts the dossier doesn't have, like the year it closed, its height, or how much of the park is open today. Say \"opening in phases.\"",
+      "Don't say the gas makes electricity or heats homes. The dossier only says it is captured and used.",
+      "Don't credit Gerkan Marg & Partners for the Energy Dream Center. Credit Fraunhofer ISE as the design lead.",
+      "Don't say one city copied the other. The dossier says they reached the same answer on their own."
+    ],
+    "terms": [
+      {
+        "term": "Landfill",
+        "meaning": "A place where trash is buried. Modern landfills have liners, gas collection and leachate treatment, and Nanjido had none of these."
+      },
+      {
+        "term": "Landfill gas and methane",
+        "meaning": "Gas made as buried trash rots. Much of it is methane, a strong greenhouse gas that can also catch fire."
+      },
+      {
+        "term": "Leachate",
+        "meaning": "The dirty liquid that drains out of buried trash, for example when rain soaks through it."
+      },
+      {
+        "term": "Cap",
+        "meaning": "A sealed cover laid over a closed landfill to keep rain out and gas in, with soil and plants on top."
+      },
+      {
+        "term": "Gas collection well",
+        "meaning": "A pipe drilled into the trash that pulls out the landfill gas so it doesn't leak into the air."
+      },
+      {
+        "term": "Stabilization",
+        "meaning": "Making a closed landfill safe while the trash settles, mainly by covering it and controlling its gas and liquid."
+      },
+      {
+        "term": "Piles",
+        "meaning": "Long columns driven deep into the ground to carry a building's weight down to firm soil or rock."
+      },
+      {
+        "term": "Haneul and Noeul",
+        "meaning": "The two parks on top of the old mounds. Haneul means sky. Noeul means sunset glow."
+      }
+    ],
+    "nycLink": "This is the slide where New York and Seoul are equals. Fresh Kills was once the world's largest landfill, and Freshkills Park (about 2,200 acres, opening in phases) is the same idea as World Cup Park. Showing a place where New York is already doing well makes the rest of the comparison feel fair. It also sets up the next slide, where Seoul's newer waste policy runs into trouble."
+  },
+  {
+    "key": "i14",
+    "title": "Two Landfill Parks",
+    "seoul": "Haneul Park in World Cup Park, on top of one of the two old Nanjido trash mounds. The mounds were about 90 m high, and the gas inside is now captured and used.",
+    "nyc": "Freshkills Park on Staten Island, on the site of what was once the world's largest landfill. It covers about 2,200 acres and is opening in phases.",
+    "why": "Both are parks built on top of old city dumps. Seoul's opened in 2002, and Freshkills is still opening in stages."
+  },
+  {
+    "key": "s15",
+    "title": "The 2026 Landfill Ban",
+    "inOneSentence": "Since January 1, 2026, Seoul and its region can't bury raw household trash, but they didn't build enough incinerators first, so some trash is now trucked to other cities.",
+    "background": [
+      "In 2021, a law banned direct landfilling of household waste in Seoul, Incheon and Gyeonggi, the area together called the capital region. Direct landfilling means burying raw household trash. Under the ban, trash has to be burned or processed first. The law gave the region a five-year grace period to get ready.",
+      "During those five years, local governments mostly did not add incinerator capacity, and news reports say they largely neglected it. Seoul still runs only four public incinerators, in Gangnam, Mapo, Nowon and Yangcheon, and most of them are 20 to 30 or more years old. The ban still started on schedule on January 1, 2026, with no emergency delay.",
+      "From January to June 2026, Seoul's privately handled household waste reached 457 tons a day, a 3.2-fold rise. Public incineration went up by only 80 tons (from 1,921 to 2,001 tons). So much of the trash went to private companies, and some of it left the region. Gangdong district ships waste to private incinerators in Cheonan and Sejong, and Gangnam district plans to send waste to Cheongju. On the map, the straight-line distances from central Seoul are about 85 km to Cheonan, 110 km to Cheongju and 125 km to Sejong. Seoul Economic Daily reported that some trash travels about 130 km, which is the distance by road.",
+      "The cities receiving the trash are pushing back. Operators in Cheongju agreed not to bid on contracts from Seoul, Incheon or Gyeonggi through the end of next year. This is an environmental justice problem, because the trash ends up in communities that didn't make it. Amendments to the Wastes Control Act are pending in the National Assembly with no clear timing, and the nearby city of Seongnam is building a new 500-ton-a-day incinerator to replace an old one.",
+      "The slide ends with a question for the class. New York's Local Law 97 fines buildings that go over their emissions caps, and about 63% of covered buildings are projected to miss their 2030 caps without further action. Seoul set its deadline before the incinerators were ready. The question is whether New York's retrofit workers and supply chain can keep up with what LL97 asks for. This is where you stop talking and let the class answer."
+    ],
+    "numbers": [
+      {
+        "value": "January 1, 2026",
+        "meaning": "The day direct landfilling of household waste was banned in Seoul, Incheon and Gyeonggi.",
+        "source": "Seoul Economic Daily; Kyunghyang Shinmun",
+        "confidence": "solid",
+        "note": "It started on schedule, with no emergency delay."
+      },
+      {
+        "value": "2021, five-year grace period",
+        "meaning": "The ban became law in 2021 and gave the region five years to prepare.",
+        "source": "Seoul Economic Daily; Kyunghyang Shinmun (dossier §4.4)",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "4 incinerators",
+        "meaning": "Seoul's public incinerators: Gangnam, Mapo, Nowon and Yangcheon. Most are 20 to 30 or more years old.",
+        "source": "Seoul Economic Daily (dossier §4.4)",
+        "confidence": "solid",
+        "note": "The slide says \"most 20 or more years old.\""
+      },
+      {
+        "value": "457 t/day",
+        "meaning": "Seoul's privately handled household waste, January to June 2026.",
+        "source": "Seoul Economic Daily, Oct 13, 2026 (Private Waste Handling Jumps 3.2-Fold)",
+        "confidence": "solid",
+        "note": "Say \"457 tons a day in the first half of this year.\""
+      },
+      {
+        "value": "3.2×",
+        "meaning": "How much privately handled household waste grew.",
+        "source": "Seoul Economic Daily, Oct 13, 2026",
+        "confidence": "solid",
+        "note": "Say \"more than three times as much.\" The dossier doesn't give the starting number, so don't work one out."
+      },
+      {
+        "value": "+80 t (1,921 to 2,001 t)",
+        "meaning": "How much public incineration went up.",
+        "source": "Seoul Economic Daily, Oct 13, 2026",
+        "confidence": "hedge",
+        "note": "The report gives no time period for these figures. Don't do math between them and the 457 t a day. If asked, say the report doesn't give a period."
+      },
+      {
+        "value": "About 130 km",
+        "meaning": "How far some of Seoul's trash now travels by road, as reported.",
+        "source": "Seoul Economic Daily, Oct 19, 2026 (Seoul's Trash Travels 130 Kilometers)",
+        "confidence": "varies",
+        "note": "This is the reported road distance. The map on the slide shows shorter straight-line distances."
+      },
+      {
+        "value": "About 85, 110 and 125 km",
+        "meaning": "Straight-line distances on the map from central Seoul to Cheonan, Cheongju and Sejong.",
+        "source": "Measured on the map from city coordinates (the dossier names the cities and gives only the 130 km figure)",
+        "confidence": "varies",
+        "note": "Say \"in a straight line\" when you point at the map."
+      },
+      {
+        "value": "500 t/day",
+        "meaning": "Capacity of the replacement incinerator Seongnam is building.",
+        "source": "Seoul Economic Daily, Oct 7, 2026",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "About 63%",
+        "meaning": "Share of buildings covered by LL97 that are projected to go over their 2030 caps without further action.",
+        "source": "Dossier §8.2 (NYC DOB; Building Energy Exchange LL97 FAQ)",
+        "confidence": "solid",
+        "note": "It's a projection. Always say \"projected\" and \"without further action.\" About 11% are over the current 2024 to 2029 caps."
+      },
+      {
+        "value": "$268 per ton",
+        "meaning": "LL97's fine for each ton of CO₂e a building emits over its cap.",
+        "source": "NYC DOB, LL97",
+        "confidence": "solid",
+        "note": "Only needed if someone asks how LL97 fines work."
+      }
+    ],
+    "explainSimply": "Imagine a landlord who announces that the building's trash chute closes on a set date, but the new compactor isn't installed by then. The trash doesn't go away. People carry it down the block to someone else's bins. Seoul set its closing date in 2021 and didn't finish the replacement in time.",
+    "sayThis": [
+      "So far I've mostly shown you things that worked. This one started in January, and it's not going well.",
+      "Seoul banned burying trash before it had enough incinerators. Can New York's retrofit workers and supply chain keep up with LL97?"
+    ],
+    "questions": [
+      {
+        "q": "Why didn't Seoul just delay the ban?",
+        "a": "My sources say it started on schedule with no emergency delay, but they don't explain why officials chose not to push it back. They do say the law gave five years to prepare, and local governments mostly didn't add incinerator capacity in that time."
+      },
+      {
+        "q": "Isn't burning trash bad for the climate too?",
+        "a": "Burning trash does release greenhouse gases, and one of my sources is a study of emissions from Seoul's incinerators. The ban is aimed at burying raw trash, which rots and gives off methane the way Nanjido did. My point on this slide is about timing. The replacement wasn't ready when the ban started."
+      },
+      {
+        "q": "457 tons a day went to private companies, but public incineration only rose 80 tons. Do those numbers add up?",
+        "a": "I don't do math between them. The 457 is tons a day for January to June 2026. The report gives the 80-ton rise (1,921 to 2,001 tons) without saying over what period, so the two can't be compared directly. Both point the same way. Public incinerators took on very little, and private handling jumped."
+      },
+      {
+        "q": "Is 130 km the actual distance?",
+        "a": "130 km is what Seoul Economic Daily reported, and it's the distance by road. The map on my slide shows straight-line distances from central Seoul, about 85 km to Cheonan, 110 to Cheongju and 125 to Sejong, so the map numbers are shorter than the headline."
+      },
+      {
+        "q": "What does a trash problem in Seoul have to do with LL97?",
+        "a": "Both are hard rules with a deadline. LL97 fines buildings $268 for each ton over their cap, and about 63% of covered buildings are projected to miss their 2030 caps without further action. Seoul's rule came before its incinerators did. If New York's retrofit workers and supply chain can't keep up, LL97 could hit a similar wall, and that's the question I want the class to discuss."
+      }
+    ],
+    "dontSay": [
+      "Don't say all of Seoul's trash travels 130 km. Some of it does, and 130 km is the reported road distance.",
+      "Don't do math between the 457 t a day and the 1,921 to 2,001 t figures. The second pair has no time period.",
+      "Don't say all 457 t a day leaves the region. That's privately handled waste, and only some of it goes to other cities.",
+      "Don't say Seoul has no plan. Amendments to the Wastes Control Act are pending, and Seongnam is building a 500 t a day incinerator.",
+      "Don't blame a particular mayor or party. The sources say capital-region governments in general didn't expand capacity.",
+      "Don't say 63% of all New York buildings will be fined. It's about 63% of buildings covered by LL97, projected to go over their 2030 caps if nothing more is done.",
+      "Don't turn \"the end of next year\" into a specific year. Say it the way the report does.",
+      "Don't bring back the old closing slogan about a ban being only a deadline. Ask the question on the slide instead."
+    ],
+    "terms": [
+      {
+        "term": "Direct landfilling",
+        "meaning": "Burying raw household trash without burning or processing it first."
+      },
+      {
+        "term": "Capital region",
+        "meaning": "Seoul, Incheon and Gyeonggi Province together."
+      },
+      {
+        "term": "Incinerator",
+        "meaning": "A plant that burns trash. Seoul calls its incinerators resource recovery facilities."
+      },
+      {
+        "term": "Grace period",
+        "meaning": "Time given before a rule starts, so people can get ready."
+      },
+      {
+        "term": "Privately handled waste",
+        "meaning": "Trash that private companies take and process under contract, instead of city-run facilities."
+      },
+      {
+        "term": "Environmental justice",
+        "meaning": "The idea that pollution and its burdens shouldn't be pushed onto communities that didn't create them."
+      },
+      {
+        "term": "Wastes Control Act",
+        "meaning": "Korea's national waste law. The pending changes would push each area to deal with the trash it makes."
+      },
+      {
+        "term": "Local Law 97 (LL97)",
+        "meaning": "New York's 2019 law that sets carbon limits for buildings over 25,000 sq ft and fines owners $268 for each ton of CO₂e over the limit."
+      },
+      {
+        "term": "Supply chain",
+        "meaning": "Everything needed to get the work done, from equipment like heat pumps to the companies that make and install it."
+      },
+      {
+        "term": "t/day",
+        "meaning": "Metric tons per day."
+      }
+    ],
+    "nycLink": "This is the main discussion point of the talk. Seoul made a hard rule with a deadline before the infrastructure was ready. New York's LL97 is also a hard rule with fines, and most covered buildings are projected to miss their 2030 caps without more action. Seoul's cheap retrofit loans (slide 8) are the kind of support that could help New York owners meet the rule, which ties into the recommendations on slide 19."
+  },
+  {
+    "key": "i15",
+    "title": "Two Trash Facilities",
+    "seoul": "The Mapo Resource Recovery Facility, one of Seoul's four public incinerators. The others are in Gangnam, Nowon and Yangcheon, and most of the four are 20 or more years old.",
+    "nyc": "A DSNY transfer station or waste export barge (the photo credit says which). A transfer station is where garbage trucks unload and the trash is packed into containers to be hauled away by barge or train.",
+    "why": "Both photos show where a city's trash goes after pickup. Seoul burns part of its trash inside the city, and New York loads its trash up to be hauled away, which links to Seoul's new habit of sending trash to other cities."
+  },
+  {
+    "key": "s16",
+    "title": "Restoring Cheonggyecheon",
+    "inOneSentence": "Seoul removed an elevated highway and uncovered the stream buried under it, and the area gained wildlife, cleaner air and cooler temperatures without the traffic jams people expected.",
+    "background": [
+      "Cheonggyecheon (chung-gyeh-chun) is a stream in central Seoul. It had been buried under a road, with an elevated highway on top that carried about 168,000 vehicles a day. From 2003 to 2005, Seoul took the highway down and opened the stream back up. Uncovering a buried stream like this is called daylighting. The project cost about US$281 million and restored about 5.8 km (3.6 miles) of corridor.",
+      "Wildlife came back. Between 2003 and 2008, the Landscape Architecture Foundation counted plant species going from 62 to 308, insects from 15 to 192, birds from 6 to 36 and fish from 4 to 25. You'll often see a \"639% increase in biodiversity\" quoted. That figure comes from an overall index and doesn't count species, so the counts for each group are safer to give. Plants alone went up about 397%, so there were about five times as many plant species.",
+      "The air got cleaner and the area got cooler. Small-particle air pollution fell from 74 to 48 micrograms per cubic meter, about 35% less. The highest cooling estimate says the corridor is 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. Other sources find a smaller effect. WWF says 3 to 4°C cooler than areas 400 m away. Metropolis says the area went from 2.2°C above the Seoul average to 1.3°C above. A peer-reviewed review of many studies, the most careful source, found lower daily average temperatures within about 300 m of the stream.",
+      "Many people expected traffic chaos when the highway closed, and it didn't happen. In general, when road space is taken away, some car trips stop happening, because people change routes, switch to transit or skip the trip. This is called reduced demand, and it's the opposite of induced demand, where new roads fill up with new traffic. Bus ridership in the corridor rose 15.1% from 2003 to 2008, but Seoul's big 2004 bus reform happened at the same time, so the stream shouldn't get all the credit.",
+      "For New York, this is evidence for the debates over the Brooklyn-Queens Expressway (BQE), the Cross Bronx Expressway and the Gowanus Expressway. The High Line reused an old rail line, so no drivers lost a road. Cheonggyecheon removed a busy road that drivers used every day, and the gridlock people predicted did not happen."
+    ],
+    "numbers": [
+      {
+        "value": "2003 to 2005",
+        "meaning": "When the highway was removed and the stream restored.",
+        "source": "Dossier §5.1 (Landscape Performance Series; Metropolis)",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "About US$281 million",
+        "meaning": "What the project cost.",
+        "source": "Dossier §5.1",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "5.8 km (3.6 miles)",
+        "meaning": "Length of the restored stream corridor.",
+        "source": "Dossier §5.1",
+        "confidence": "solid",
+        "note": "Give miles for this audience."
+      },
+      {
+        "value": "About 168,000 vehicles a day",
+        "meaning": "Traffic on the elevated highway before it came down.",
+        "source": "Dossier §5.1",
+        "confidence": "solid",
+        "note": "Say \"vehicles.\" The old headline said cars, but the sources count vehicles. Say it at the start, because it only appears on screen at the last beat."
+      },
+      {
+        "value": "Plants 62 to 308 · Insects 15 to 192 · Birds 6 to 36 · Fish 4 to 25",
+        "meaning": "Number of species counted along the stream in 2003 and again in 2008.",
+        "source": "Landscape Architecture Foundation (Landscape Performance Series case study)",
+        "confidence": "solid",
+        "note": ""
+      },
+      {
+        "value": "639%",
+        "meaning": "A widely quoted rise in an overall biodiversity index.",
+        "source": "Landscape Performance Series; flagged in the dossier's list of figures to avoid",
+        "confidence": "hedge",
+        "note": "It doesn't count species. If someone brings it up, say it's an overall index and give the counts for each group instead."
+      },
+      {
+        "value": "About 397%",
+        "meaning": "How much the number of plant species went up (62 to 308).",
+        "source": "Landscape Performance Series (dossier §5.1)",
+        "confidence": "solid",
+        "note": "Plants only. In plain words, about five times as many plant species."
+      },
+      {
+        "value": "74 to 48 µg/m³ (35% less)",
+        "meaning": "Small-particle air pollution along the corridor, in micrograms of particles per cubic meter of air.",
+        "source": "Dossier §5.1",
+        "confidence": "solid",
+        "note": "The dossier doesn't say which particle size, so just say small-particle pollution."
+      },
+      {
+        "value": "3.3 to 5.9°C",
+        "meaning": "How much cooler the corridor is than a parallel road 4 to 7 blocks away. This is the highest estimate.",
+        "source": "Landscape Architecture Foundation (Landscape Performance Series)",
+        "confidence": "varies",
+        "note": "Say it's the highest estimate, then mention the smaller ones."
+      },
+      {
+        "value": "3 to 4°C",
+        "meaning": "WWF's estimate of how much cooler the stream is than areas 400 m away.",
+        "source": "WWF Urban Solutions",
+        "confidence": "varies",
+        "note": "A smaller estimate than the one on the slide."
+      },
+      {
+        "value": "2.2°C to 1.3°C above average",
+        "meaning": "How much warmer the area was than the Seoul average before the project (2.2°C) and after it (1.3°C).",
+        "source": "Metropolis",
+        "confidence": "varies",
+        "note": "Another way of measuring the cooling. Use it only if asked."
+      },
+      {
+        "value": "About 300 m",
+        "meaning": "The distance from the stream within which daily average temperatures were lower, according to a peer-reviewed review of many studies.",
+        "source": "Is Cheonggyecheon Sustainable? A Systematic Literature Review",
+        "confidence": "solid",
+        "note": "The most careful source. The dossier gives the distance only, with no number of degrees."
+      },
+      {
+        "value": "15.1%",
+        "meaning": "Rise in bus ridership in the corridor, 2003 to 2008.",
+        "source": "Dossier §5.1",
+        "confidence": "hedge",
+        "note": "The 2004 bus reform happened at the same time, so the stream shares the credit."
+      }
+    ],
+    "explainSimply": "Picture a highway on stilts over a creek that was covered up. Seoul took the highway down, took the lid off the creek and planted the banks. Now it's a long, cool, green strip through downtown where people walk by the water. The traffic people worried about mostly found other routes or went away.",
+    "sayThis": [
+      "The 3.3 to 5.9 degree number is the highest estimate. Other studies find a smaller effect."
+    ],
+    "questions": [
+      {
+        "q": "Where did all the cars go?",
+        "a": "In general, when road space is removed, some drivers take other routes, some switch to buses or the subway, and some trips just stop happening. Planners call this reduced demand. Bus ridership in the corridor rose 15.1% from 2003 to 2008, but the 2004 bus reform happened at the same time and deserves part of the credit."
+      },
+      {
+        "q": "Is the stream natural? Where does the water come from, and what does it cost to keep up?",
+        "a": "My sources don't cover where the water comes from or what upkeep costs, so I'd want to check before answering. One of my sources is a peer-reviewed review that asks whether the project is sustainable overall, so it's a fair question to raise."
+      },
+      {
+        "q": "Why not use the 639% figure? It sounds impressive.",
+        "a": "It comes from an overall index and doesn't count species, so it's easy to misread. The counts for each group are clearer. Plants went from 62 to 308 species, about 397% more, and fish went from 4 to 25."
+      },
+      {
+        "q": "How much cooler is it really?",
+        "a": "It depends on what you compare it with. The highest estimate says 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. WWF says 3 to 4°C cooler than areas 400 m away. A peer-reviewed review, the most careful source, found lower daily average temperatures within about 300 m of the stream."
+      },
+      {
+        "q": "Could New York take down the BQE or the Cross Bronx?",
+        "a": "Those are live debates, and there are proposals to cap parts of the Cross Bronx. Cheonggyecheon shows that removing a busy elevated highway didn't cause the gridlock people predicted. Every city's road network is different, so it's evidence to weigh, and it doesn't promise the same result here."
+      }
+    ],
+    "dontSay": [
+      "Don't present the 639% as a species count. It's an overall index.",
+      "Don't give 3.3 to 5.9°C as the only cooling number. It's the highest estimate, so give the range.",
+      "Don't give the stream all the credit for the 15.1% bus rise. The 2004 bus reform happened at the same time.",
+      "Don't say traffic got better everywhere. The sources say the predicted gridlock didn't happen.",
+      "Don't call the pollution PM10 or PM2.5. The dossier only says small-particle pollution.",
+      "Don't add history the dossier doesn't cover, like when the stream was first covered or who led the project, unless you check it first.",
+      "Don't call the 168,000 \"cars.\" The sources count vehicles."
+    ],
+    "terms": [
+      {
+        "term": "Daylighting",
+        "meaning": "Uncovering a stream that had been buried in a pipe or under a road, so it runs in the open again."
+      },
+      {
+        "term": "Culvert",
+        "meaning": "A pipe or covered channel that carries a stream under a road."
+      },
+      {
+        "term": "Elevated highway",
+        "meaning": "A highway raised on columns above the street."
+      },
+      {
+        "term": "µg/m³",
+        "meaning": "Micrograms per cubic meter: how many millionths of a gram of particles float in one cubic meter of air."
+      },
+      {
+        "term": "Small-particle pollution",
+        "meaning": "Tiny bits of dust, soot and smoke in the air, much of it from traffic, that can get deep into your lungs."
+      },
+      {
+        "term": "Reduced demand",
+        "meaning": "When road space is taken away, some car trips stop happening, so traffic doesn't simply move onto nearby streets."
+      },
+      {
+        "term": "Induced demand",
+        "meaning": "The opposite effect. New or wider roads attract new traffic and fill up again."
+      },
+      {
+        "term": "Systematic review",
+        "meaning": "A study that collects and compares all the research on a topic, which makes it more careful than any single study."
+      }
+    ],
+    "nycLink": "New York's High Line reused an old rail line, which was the easy case because no drivers lost a road. Seoul removed a highway in heavy daily use, and the gridlock people predicted didn't happen. That's useful evidence for New York's debates over the BQE, the Cross Bronx and the Gowanus, and it becomes the fifth idea on slide 19."
+  },
+  {
+    "key": "i16",
+    "title": "A Stream and a Highway",
+    "seoul": "Cheonggyecheon today, an open stream with planted banks and walkways in central Seoul. From 2003 to 2005, an elevated highway carrying about 168,000 vehicles a day was taken down to uncover it.",
+    "nyc": "The Cross Bronx Expressway, still open to traffic. There are proposals to cap parts of it, which means building a deck over the highway, often with a park on top.",
+    "why": "Seoul removed its highway and got a stream back. The Cross Bronx is still there, so the pair shows the choice New York is still debating."
+  }
+]

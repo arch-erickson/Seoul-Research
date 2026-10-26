@@ -1,0 +1,746 @@
+[
+  {
+    "key": "s17",
+    "headline": "Green Space Close to Home",
+    "elements": [
+      {
+        "id": "14:5",
+        "group": "B1 · headline",
+        "old": "A garden within five minutes.",
+        "action": "rewrite",
+        "new": "Green Space Close to Home"
+      },
+      {
+        "id": "14:9",
+        "group": "B2 · the equity gap",
+        "old": "17.74",
+        "action": "keep",
+        "new": "17.74"
+      },
+      {
+        "id": "14:10",
+        "group": "B2 · the equity gap",
+        "old": "CITYWIDE",
+        "action": "keep",
+        "new": "CITYWIDE"
+      },
+      {
+        "id": "14:12",
+        "group": "B2 · the equity gap",
+        "old": "5.65",
+        "action": "keep",
+        "new": "5.65"
+      },
+      {
+        "id": "14:13",
+        "group": "B2 · the equity gap",
+        "old": "WITHIN A 5-MIN WALK",
+        "action": "keep",
+        "new": "WITHIN A 5-MIN WALK"
+      },
+      {
+        "id": "14:15",
+        "group": "B2 · the equity gap",
+        "old": "Park area per person, m² — the same city, measured two ways",
+        "action": "rewrite",
+        "new": "Park area per person, in m²"
+      },
+      {
+        "id": "14:18",
+        "group": "B3 · the programme",
+        "old": "THE PROGRAMME",
+        "action": "rewrite",
+        "new": "PARKS AND GARDENS"
+      },
+      {
+        "id": "14:19",
+        "group": "B3 · the programme",
+        "old": "536 → 1,036",
+        "action": "keep",
+        "new": "536 → 1,036"
+      },
+      {
+        "id": "14:20",
+        "group": "B3 · the programme",
+        "old": "municipal gardens, 2024 to end of 2025",
+        "action": "rewrite",
+        "new": "gardens built in 2024 → goal for end of 2025"
+      },
+      {
+        "id": "14:21",
+        "group": "B3 · the programme",
+        "old": "Four keywords: emptiness, connection,\necology, sensibility",
+        "action": "rewrite",
+        "new": "Garden City Seoul (2023): a garden\nwithin a 5-minute walk of home"
+      },
+      {
+        "id": "14:23",
+        "group": "B3 · the programme",
+        "old": "Seoullo 7017",
+        "action": "keep",
+        "new": "Seoullo 7017"
+      },
+      {
+        "id": "14:24",
+        "group": "B3 · the programme",
+        "old": "A 1970 car viaduct turned skypark, 2017.\nThe High Line reused a rail viaduct — Seoul\nconverted active road capacity.",
+        "action": "rewrite",
+        "new": "Built in 1970 as a road overpass\nReopened in 2017 as a walking park, about 1 km\nCompare: New York's High Line, an old elevated railway"
+      },
+      {
+        "id": "14:26",
+        "group": "B4 · rooftops",
+        "old": "ROOFTOPS",
+        "action": "keep",
+        "new": "ROOFTOPS"
+      },
+      {
+        "id": "14:27",
+        "group": "B4 · rooftops",
+        "old": "70%",
+        "action": "rewrite",
+        "new": "Up to 70%"
+      },
+      {
+        "id": "14:28",
+        "group": "B4 · rooftops",
+        "old": "of construction cost subsidised for private\nrooftop gardens",
+        "action": "rewrite",
+        "new": "of construction cost subsidized for private\nrooftop gardens"
+      },
+      {
+        "id": "14:29",
+        "group": "B4 · rooftops",
+        "old": "12–15%",
+        "action": "rewrite",
+        "new": "12 to 15%"
+      },
+      {
+        "id": "14:30",
+        "group": "B4 · rooftops",
+        "old": "average cut in heating and cooling energy",
+        "action": "keep",
+        "new": "average cut in heating and cooling energy"
+      },
+      {
+        "id": "14:32",
+        "group": "B4 · rooftops",
+        "old": "31,204 m²",
+        "action": "keep",
+        "new": "31,204 m²"
+      },
+      {
+        "id": "14:33",
+        "group": "B4 · rooftops",
+        "old": "heat-reflective cool-roof paint across 152 sites,\ntargeted at vulnerable households (2026)",
+        "action": "rewrite",
+        "new": "of heat-reflecting roof paint on 152 sites for\nvulnerable households (2026 pilot)"
+      },
+      {
+        "id": "14:35",
+        "group": "B5 · the lesson",
+        "old": "Stop measuring total acres. Measure what is within a five-minute walk, and the investment map changes completely.",
+        "action": "remove",
+        "new": null
+      }
+    ],
+    "removedBeats": [
+      "B5"
+    ],
+    "movedToNotes": [
+      "If asked: the four keywords are emptiness, connection, ecology and sensibility.",
+      "Both park numbers are for Seoul: 17.74 m² per person citywide (2022) but only 5.65 m² within a five-minute walk. The walking number is about a third of the average.",
+      "If asked whether they hit 1,036: \"I couldn't find a final count.\"",
+      "Seoullo came first (2017). It is separate from Garden City Seoul (2023).",
+      "Seoullo 7017: built 1970, reopened 2017, about 1 km, cost about US$52 million. The name: 70 for 1970, 17 for 2017 and for its 17 walkways.",
+      "Rooftop subsidy went from 50% to up to 70% of construction cost. The program is small and the totals are scattered, so do not oversell it, and never cite the 400+ hectares figure (weak source).",
+      "At 1:20 (no click), say: \"If you count only the parks people can walk to, it changes where a city decides to put new ones.\""
+    ],
+    "layoutRisks": [
+      "14:27: \"Up to 70%\" is longer than \"70%\" (about 280 px at 54 px Black in a 470 px box); it fits but the red figure gets wider.",
+      "14:21: now 2 lines with a set break, about 34 and 30 characters at 18 px (about 310 px and 290 px in a 500 px box); same height as the old 2-line box. Without the break the text is about 600 px and would wrap on its own.",
+      "14:20: \"gardens built in 2024 → goal for end of 2025\" is about 44 characters at 18 px (about 390 px in a 500 px box); one line. The arrow no longer sits right under the arrow in 14:19.",
+      "14:24: still 3 lines; line 3 is now the longest at about 54 characters (about 460 px at 17 px in a 500 px box); fits but close to the edge.",
+      "14:33: line 1 is about 46 characters at 17 px (about 395 px in a 470 px box); still 2 lines.",
+      "14:18: the heading is now the neutral \"PARKS AND GARDENS\" (about 180 px at 14 px with 8% tracking), so it covers both Garden City Seoul (named with its year in 14:21) and Seoullo 7017 (2017). Keep the divider rect 14:22 between them.",
+      "14:9, 14:10, 14:12, 14:13, 14:15: group \"B2 · the equity gap\" is replaced by the s17-parks diagram (timing.json), so these only matter as fallback text. 14:15 was rewritten to drop the dash.",
+      "14:35 removed: the bottom band at y 900 is now empty.",
+      "BUILDER, timing: B5 now has no elements, but timing.json still has a s17 B5 click at cue 80 (1:20). Drop B5 from s17 timing; the notes say \"At 1:20 (no click)\". If B5 stays, change the start of that note to \"1:20 click, nothing new appears.\""
+    ]
+  },
+  {
+    "key": "s18",
+    "headline": "Buses and the Climate Card",
+    "elements": [
+      {
+        "id": "14:46",
+        "group": "B1 · headline",
+        "old": "₩65,000. Everything.",
+        "action": "rewrite",
+        "new": "Buses and the Climate Card"
+      },
+      {
+        "id": "14:49",
+        "group": "B2 · the bus reform",
+        "old": "THE 2004 BUS REFORM",
+        "action": "keep",
+        "new": "THE 2004 BUS REFORM"
+      },
+      {
+        "id": "14:51",
+        "group": "B2 · the bus reform",
+        "old": "Trunk routes",
+        "action": "rewrite",
+        "new": "Main routes"
+      },
+      {
+        "id": "14:53",
+        "group": "B2 · the bus reform",
+        "old": "Neighbourhood feeders",
+        "action": "rewrite",
+        "new": "Local routes"
+      },
+      {
+        "id": "14:55",
+        "group": "B2 · the bus reform",
+        "old": "Express / suburban",
+        "action": "rewrite",
+        "new": "Express routes"
+      },
+      {
+        "id": "14:57",
+        "group": "B2 · the bus reform",
+        "old": "Downtown circulator",
+        "action": "rewrite",
+        "new": "Downtown loop"
+      },
+      {
+        "id": "14:58",
+        "group": "B2 · the bus reform",
+        "old": "A graphic-design decision doing policy work — it made a complex network legible at a glance.",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "14:60",
+        "group": "B2 · the bus reform",
+        "old": "+11 km/h",
+        "action": "keep",
+        "new": "+11 km/h"
+      },
+      {
+        "id": "14:61",
+        "group": "B2 · the bus reform",
+        "old": "peak gain in bus travel speed",
+        "action": "rewrite",
+        "new": "biggest gain in bus speed"
+      },
+      {
+        "id": "14:62",
+        "group": "B2 · the bus reform",
+        "old": "−24%",
+        "action": "rewrite",
+        "new": "24%"
+      },
+      {
+        "id": "14:63",
+        "group": "B2 · the bus reform",
+        "old": "bus traffic accidents, year one",
+        "action": "rewrite",
+        "new": "fewer bus accidents in the first year"
+      },
+      {
+        "id": "14:64",
+        "group": "B2 · the bus reform",
+        "old": "July 2004: distance-based fares with free transfers across modes — buses and subway\nunified for the first time. Ridership estimates range +9% to +21% depending on baseline.",
+        "action": "rewrite",
+        "new": "July 2004: fares by distance, free transfers between bus and subway\nRidership up 9% to 21%, depending on the years compared"
+      },
+      {
+        "id": "14:67",
+        "group": "B3 · the Climate Card",
+        "old": "THE CLIMATE CARD · 2024",
+        "action": "keep",
+        "new": "THE CLIMATE CARD · 2024"
+      },
+      {
+        "id": "14:69",
+        "group": "B3 · the Climate Card",
+        "old": "CLIMATE CARD",
+        "action": "keep",
+        "new": "CLIMATE CARD"
+      },
+      {
+        "id": "14:70",
+        "group": "B3 · the Climate Card",
+        "old": "₩65,000",
+        "action": "keep",
+        "new": "₩65,000"
+      },
+      {
+        "id": "14:71",
+        "group": "B3 · the Climate Card",
+        "old": "per month, unlimited",
+        "action": "keep",
+        "new": "per month, unlimited"
+      },
+      {
+        "id": "14:73",
+        "group": "B3 · the Climate Card",
+        "old": "Seoul metro lines",
+        "action": "keep",
+        "new": "Seoul metro lines"
+      },
+      {
+        "id": "14:75",
+        "group": "B3 · the Climate Card",
+        "old": "City and town buses, including late-night",
+        "action": "rewrite",
+        "new": "Seoul-licensed buses, including late-night"
+      },
+      {
+        "id": "14:77",
+        "group": "B3 · the Climate Card",
+        "old": "Ttareungi public bike share",
+        "action": "keep",
+        "new": "Ttareungi public bike share"
+      },
+      {
+        "id": "14:79",
+        "group": "B3 · the Climate Card",
+        "old": "Hangang River Bus · autonomous buses (planned)",
+        "action": "rewrite",
+        "new": "Planned: Hangang River Bus, self-driving buses"
+      },
+      {
+        "id": "14:81",
+        "group": "B3 · the Climate Card",
+        "old": "10 million",
+        "action": "keep",
+        "new": "10 million"
+      },
+      {
+        "id": "14:82",
+        "group": "B3 · the Climate Card",
+        "old": "total reloads by April 2025",
+        "action": "keep",
+        "new": "total reloads by April 2025"
+      },
+      {
+        "id": "14:83",
+        "group": "B3 · the Climate Card",
+        "old": "Break-even is about four rides a day — set deliberately so the\nmarginal trip is free, removing the per-trip calculation that\nsuppresses transit use.",
+        "action": "rewrite",
+        "new": "Pilot January 2024 · full launch July 2024\n₩62,000 without bikes · youth: ₩58,000 with bikes"
+      },
+      {
+        "id": "14:85",
+        "group": "B4 · the naming lesson",
+        "old": "Same mechanism as OMNY fare capping. Completely different meaning — riding becomes a civic act, not a transaction.",
+        "action": "rewrite",
+        "new": "New York today: OMNY fare capping · Citi Bike sold separately"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "The whole bus network switched over in one night in July 2004. The fare system later spread to Gyeonggi (2007) and Incheon (2009).",
+      "Main road speeds rose 33 to 50% (December 2004). Research linked to UN-Habitat calls the 24% drop in bus accidents the reform's biggest success.",
+      "Ridership estimates run from about 9% to 21% depending on the years compared. Never add them together; UN-Habitat's cautious figure is about 9% (406,000 more daily riders).",
+      "UN-Habitat said the reform \"considerably increased overall service quality.\" The city still paid high subsidies in the first few years.",
+      "The four colors (blue, green, red, yellow) made a complicated network easy to read. A graphic design choice helped the policy work.",
+      "Climate Card was announced in September 2023; ₩65,000 a month includes Ttareungi bikes. Not covered: Shinbundang Line, buses licensed outside Seoul, metropolitan express buses.",
+      "If asked: the River Bus is an add-on at ₩67,000. It is not in the base ₩65,000 card.",
+      "Each reload is one top-up of the pass (usually 30 days), so the same person is counted many times. Seoul hasn't released user counts or how much driving it replaced.",
+      "Fare capping: once you pay for a set number of rides in any 7 days, the rest of your rides in those 7 days are free.",
+      "New York has a similar idea in OMNY fare capping. Seoul named its pass for the climate and added bike share, so the city presents riding as part of its climate plan.",
+      "If asked about break-even: \"₩65,000 is about the price of 42 subway rides at ₩1,550.\""
+    ],
+    "layoutRisks": [
+      "14:49: \"THE 2004 BUS REFORM\" sits at y 340, inside the s18-buslane diagram region (y 330 to 630); the builder should confirm it does not collide with the diagram.",
+      "14:51, 14:53, 14:55, 14:57: the legend is replaced by the s18-buslane diagram; rewritten only as fallback so it matches the diagram key (main routes, local, express, downtown loop).",
+      "14:58 removed: it was the legend caption inside the diagram region.",
+      "14:62: the minus sign was dropped (\"24%\" plus a \"fewer ...\" label), so the figure is narrower than before.",
+      "14:64: line 1 is now about 67 characters at 17 px (about 580 px in a 760 px box); one line.",
+      "14:75: \"Seoul-licensed buses, including late-night\" is about 42 characters at 18 px (about 375 px in a 390 px box); one line but close to the edge.",
+      "14:79: about 46 characters at 18 px in a 390 px box; wraps to 2 lines, same as the old text.",
+      "14:83: now 2 lines instead of 3; line 2 is about 49 characters at 17 px (about 440 px in a 790 px box).",
+      "14:85: about 61 characters at 26 px Light in a 1680 px box; one line, much shorter than before."
+    ],
+    "factFlags": [
+      "Climate Card break-even: the dossier says \"about 4 rides a day at the ₩1,550 subway fare\", but its own numbers give ₩65,000 / ₩1,550 = about 42 rides a month, so \"4 rides a day\" is wrong. Do not swap in \"2 rides a day\" either; that assumes every ride is a full-price subway trip with no free transfers. Keep any break-even figure off the slide, out of the notes and out of the study guide. If asked, the only line to use is \"₩65,000 is about the price of 42 subway rides at ₩1,550.\""
+    ]
+  },
+  {
+    "key": "s19",
+    "headline": "Five Ideas for New York",
+    "elements": [
+      {
+        "id": "14:96",
+        "group": "B1 · headline",
+        "old": "Five things New York should take.",
+        "action": "rewrite",
+        "new": "Five Ideas for New York"
+      },
+      {
+        "id": "14:98",
+        "group": "B2 · transfer 01",
+        "old": "01",
+        "action": "keep",
+        "new": "01"
+      },
+      {
+        "id": "14:99",
+        "group": "B2 · transfer 01",
+        "old": "RFID weight-based food-waste charging",
+        "action": "rewrite",
+        "new": "Food waste charged by weight"
+      },
+      {
+        "id": "14:100",
+        "group": "B2 · transfer 01",
+        "old": "Seoul's bin tells you what you threw out",
+        "action": "rewrite",
+        "new": "Smart bins (RFID) · 9 to 31% less food waste"
+      },
+      {
+        "id": "14:102",
+        "group": "B2 · transfer 01",
+        "old": "NYC composting: 2.4% of residential waste",
+        "action": "rewrite",
+        "new": "NYC composting: 2.4% of residential waste (2025)"
+      },
+      {
+        "id": "14:103",
+        "group": "B2 · transfer 01",
+        "old": "Put metered organics bins in the building code",
+        "action": "rewrite",
+        "new": "Building code: require bins that weigh food waste"
+      },
+      {
+        "id": "14:104",
+        "group": "B2 · transfer 01",
+        "old": "2.4%",
+        "action": "keep",
+        "new": "2.4%"
+      },
+      {
+        "id": "14:107",
+        "group": "B3 · transfer 02",
+        "old": "02",
+        "action": "keep",
+        "new": "02"
+      },
+      {
+        "id": "14:108",
+        "group": "B3 · transfer 02",
+        "old": "BRP-style municipal retrofit lending",
+        "action": "rewrite",
+        "new": "City loans for building retrofits"
+      },
+      {
+        "id": "14:109",
+        "group": "B3 · transfer 02",
+        "old": "100% of cost at 1.75% interest",
+        "action": "rewrite",
+        "new": "Up to 100% of cost at 1.75% interest"
+      },
+      {
+        "id": "14:111",
+        "group": "B3 · transfer 02",
+        "old": "LL97 sets the penalty, not the capital stack",
+        "action": "rewrite",
+        "new": "LL97 fines $268 per ton over the limit",
+        "color": "#0047A0"
+      },
+      {
+        "id": "14:112",
+        "group": "B3 · transfer 02",
+        "old": "~63% of buildings miss their 2030 caps",
+        "action": "rewrite",
+        "new": "About 63% would miss the 2030 limits if nothing changes"
+      },
+      {
+        "id": "14:113",
+        "group": "B3 · transfer 02",
+        "old": "1.75%",
+        "action": "keep",
+        "new": "1.75%"
+      },
+      {
+        "id": "14:116",
+        "group": "B4 · transfer 03",
+        "old": "03",
+        "action": "keep",
+        "new": "03"
+      },
+      {
+        "id": "14:117",
+        "group": "B4 · transfer 03",
+        "old": "Balcony mini-PV as a municipal product",
+        "action": "rewrite",
+        "new": "Balcony solar kits"
+      },
+      {
+        "id": "14:118",
+        "group": "B4 · transfer 03",
+        "old": "Standardised, subsidised, renter-installable",
+        "action": "rewrite",
+        "new": "Goal: 540,000 balconies · kits renters can install"
+      },
+      {
+        "id": "14:119",
+        "group": "B4 · transfer 03",
+        "old": "→",
+        "action": "keep",
+        "new": "→"
+      },
+      {
+        "id": "14:120",
+        "group": "B4 · transfer 03",
+        "old": "NYC's apartment envelope generates nothing",
+        "action": "rewrite",
+        "new": "NYC: no city program for balcony solar"
+      },
+      {
+        "id": "14:121",
+        "group": "B4 · transfer 03",
+        "old": "Needs an approved-kit list and a DOB pathway",
+        "action": "rewrite",
+        "new": "Needs an approved-kit list and an easy DOB permit"
+      },
+      {
+        "id": "14:122",
+        "group": "B4 · transfer 03",
+        "old": "540,000",
+        "action": "keep",
+        "new": "540,000"
+      },
+      {
+        "id": "14:125",
+        "group": "B5 · transfer 04",
+        "old": "04",
+        "action": "keep",
+        "new": "04"
+      },
+      {
+        "id": "14:126",
+        "group": "B5 · transfer 04",
+        "old": "Fare policy branded as climate policy",
+        "action": "rewrite",
+        "new": "A transit pass named for the climate"
+      },
+      {
+        "id": "14:127",
+        "group": "B5 · transfer 04",
+        "old": "₩65,000, with bike share bundled in",
+        "action": "rewrite",
+        "new": "₩65,000 a month, bike share included"
+      },
+      {
+        "id": "14:128",
+        "group": "B5 · transfer 04",
+        "old": "→",
+        "action": "keep",
+        "new": "→"
+      },
+      {
+        "id": "14:129",
+        "group": "B5 · transfer 04",
+        "old": "OMNY capping is the same mechanism",
+        "action": "rewrite",
+        "new": "NYC: OMNY fare capping · Citi Bike separate"
+      },
+      {
+        "id": "14:130",
+        "group": "B5 · transfer 04",
+        "old": "Bundle Citi Bike; name it for the climate",
+        "action": "rewrite",
+        "new": "Add Citi Bike and name it for the climate"
+      },
+      {
+        "id": "14:131",
+        "group": "B5 · transfer 04",
+        "old": "₩65,000",
+        "action": "keep",
+        "new": "₩65,000"
+      },
+      {
+        "id": "14:134",
+        "group": "B6 · transfer 05",
+        "old": "05",
+        "action": "keep",
+        "new": "05"
+      },
+      {
+        "id": "14:135",
+        "group": "B6 · transfer 05",
+        "old": "Cheonggyecheon's evidence on road removal",
+        "action": "rewrite",
+        "new": "Cheonggyecheon road removal"
+      },
+      {
+        "id": "14:136",
+        "group": "B6 · transfer 05",
+        "old": "No traffic collapse followed",
+        "action": "rewrite",
+        "new": "168,000 vehicles a day · predicted gridlock did not happen"
+      },
+      {
+        "id": "14:137",
+        "group": "B6 · transfer 05",
+        "old": "→",
+        "action": "keep",
+        "new": "→"
+      },
+      {
+        "id": "14:138",
+        "group": "B6 · transfer 05",
+        "old": "BQE, Cross Bronx, Gowanus all stall on this",
+        "action": "rewrite",
+        "new": "NYC candidates: BQE, Cross Bronx, Gowanus"
+      },
+      {
+        "id": "14:139",
+        "group": "B6 · transfer 05",
+        "old": "Reduced demand is documented, not theoretical",
+        "action": "rewrite",
+        "new": "Use Seoul's traffic data in NYC highway debates"
+      },
+      {
+        "id": "14:140",
+        "group": "B6 · transfer 05",
+        "old": "168,000",
+        "action": "keep",
+        "new": "168,000"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Row 01: organics (food and yard waste) were 1.4% of residential waste in 2024 and 2.4% in 2025.",
+      "Row 01: only about 17% of NYC trash is recycled, composted or reused. DSNY says up to 75% is possible.",
+      "Row 01: Fines April 2025, paused in 3 weeks, back January 1, 2026.",
+      "Row 01: the Independent Budget Office (IBO) found that food waste pickup nearly tripled while fines were on, then fell about 43% after they stopped.",
+      "Row 01: NYC bins don't show you what you threw out, and there's no reward for cutting back.",
+      "Row 01: Refuse rooms are already required, so bins that weigh food waste belong in the building code.",
+      "Row 02: my main recommendation. Slow down here. LL97 sets the target and the fine but leaves the financing to owners. About 11% of buildings are over the 2024 to 2029 limits, and about 63% would be over the 2030 limits if nothing changes.",
+      "Row 02: LL97 covers buildings over 25,000 sq ft. The 63% is a projection if owners do nothing more.",
+      "Row 03: the problems are code, permitting and landlord consent. The technology is ready.",
+      "Row 03, three asks: an approved-kit list, an easy permit, and a renter's right to install.",
+      "Row 03: Department of Buildings (DOB) should let you plug one in without filing for a full alteration permit.",
+      "Row 03: Germany's balcony solar boom shows it scales once permits are simple.",
+      "Row 04, two asks: add Citi Bike to one OMNY pass, and name it for the climate.",
+      "Row 04: OMNY fare capping is a similar idea (explained on slide 18).",
+      "Row 05: High Line was an old rail line. Cheonggyecheon and Seoullo were roads people drove on.",
+      "Row 05: Cross Bronx plans would build a deck with parks over the sunken highway (called a cap). BQE is the Brooklyn-Queens Expressway.",
+      "Row 05: the gridlock opponents predicted did not happen.",
+      "At 2:55, hold all five rows on screen and move to the close."
+    ],
+    "layoutRisks": [
+      "14:102: about 48 characters at 21 px (about 525 px in a 600 px box); one line but close to the edge.",
+      "14:112: about 55 characters at 16 px (about 460 px in a 600 px box); one line. It now says \"limits\", like s08 and s20.",
+      "14:118: about 50 characters at 16 px (about 390 px in a 480 px box); one line. It now labels the 14:122 big number (540,000 is a goal).",
+      "14:136: about 58 characters at 16 px (about 465 px in a 480 px box); one line, about 15 px to spare. It labels the 14:140 big number. If it wraps, use \"168,000 vehicles a day · feared gridlock never came\" (about 410 px).",
+      "14:120: about 38 characters at 21 px (about 410 px in a 600 px box); shorter than before.",
+      "14:129: about 43 characters at 21 px (about 470 px in a 600 px box); one line.",
+      "14:138: about 41 characters at 21 px (about 475 px in a 600 px box); one line.",
+      "14:135: now one line instead of a 2-line wrap, which also removes the old overlap with 14:136 at y 850.",
+      "14:111: color changes from Seoul red #CD2E3A to New York blue #0047A0 (new \"color\" field on the element), because it is a New York fact like 14:102, 14:120, 14:129 and 14:138. Row 02 keeps its red accent through \"02\" (14:107) and \"1.75%\" (14:113). New text is about 38 characters at 21 px (about 395 px in a 600 px box).",
+      "14:103: about 49 characters at 16 px (about 400 px in a 600 px box); one line."
+    ]
+  },
+  {
+    "key": "s20",
+    "headline": "Carrot and Stick Compared",
+    "elements": [
+      {
+        "id": "14:155",
+        "group": "B1 · the question",
+        "old": "Carrot or stick?",
+        "action": "rewrite",
+        "new": "Carrot and Stick Compared"
+      },
+      {
+        "id": "14:159",
+        "group": "B2 · the three findings",
+        "old": "Seoul proved the carrot works at scale.",
+        "action": "rewrite",
+        "new": "What Worked in Seoul"
+      },
+      {
+        "id": "14:160",
+        "group": "B2 · the three findings",
+        "old": "2 million TOE six months early. 1.68 million people enrolled voluntarily. Retrofits financed at 1.75%.",
+        "action": "rewrite",
+        "new": "2 million TOE goal met six months early · 1.68 million Eco-Mileage participants · retrofit loans at 1.75%"
+      },
+      {
+        "id": "14:161",
+        "group": "B2 · the three findings",
+        "old": "Seoul also proved the carrot has a ceiling.",
+        "action": "rewrite",
+        "new": "Where Seoul Fell Short"
+      },
+      {
+        "id": "14:162",
+        "group": "B2 · the three findings",
+        "old": "It banned landfilling, failed to build the replacement, and the waste went 130 km to communities that didn't make it.",
+        "action": "rewrite",
+        "new": "Direct landfill ban from January 2026 · not enough incinerators · some trash sent about 130 km by road"
+      },
+      {
+        "id": "14:163",
+        "group": "B2 · the three findings",
+        "old": "New York is running the opposite experiment.",
+        "action": "rewrite",
+        "new": "Where New York Stands"
+      },
+      {
+        "id": "14:164",
+        "group": "B2 · the three findings",
+        "old": "The stick without the carrot — and about 63% of its buildings are projected to miss their 2030 caps.",
+        "action": "rewrite",
+        "new": "LL97 fines $268 per ton over the limit · financing left to owners · about 63% would miss 2030 limits if nothing changes"
+      },
+      {
+        "id": "14:165",
+        "group": "B2 · the three findings",
+        "old": "Mandates set the date. Money decides whether anyone can meet it.\nSeoul and New York each built one half.",
+        "action": "rewrite",
+        "new": "Questions and Discussion"
+      },
+      {
+        "id": "14:166",
+        "group": "B2 · the three findings",
+        "old": "Full reference list in the submitted PDF.",
+        "action": "keep",
+        "new": "Full reference list in the submitted PDF."
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Seoul showed that incentives can work across a whole city.",
+      "Seoul also showed the limit. The landfill ban started before there were enough incinerators, so some trash now goes to private incinerators in Cheonan and Sejong, and Gangnam planned to send some to Cheongju.",
+      "New York is doing the reverse, with fines and no city loans.",
+      "Closing line, say as written: \"If I had to pick one idea for New York, it would be the retrofit loans. LL97 already has the fines, and owners still need a way to pay for the work.\"",
+      "Distances, if asked: Cheonan about 85 km, Cheongju about 110 km, Sejong about 125 km in a straight line. The 130 km on the slide is the road distance reported by Seoul Economic Daily (October 2026).",
+      "Q&A: \"Would you rather design under Seoul's loans or New York's fines?\"",
+      "Q&A: \"Seoul banned landfilling before it had enough incinerators. Is LL97 asking for retrofits faster than New York's workers and suppliers can do them?\"",
+      "Q&A: \"Lotte World Tower is LEED Gold at 123 floors. Nowon was designed for zero energy at 121 units. Which one does more for the climate?\"",
+      "If asked about Nowon: it targets net-zero energy and reports about 75 to 80% self-sufficiency. Avoid the 100% energy cost claim; use up to 61% lower.",
+      "Q&A: \"Composting nearly tripled under fines and fell about 43% after the fines stopped. How do you add a reward so fines don't hit low-income families hardest?\"",
+      "Q&A: \"Should we count all park space, or only park space within a five-minute walk?\"",
+      "Q&A: \"Cheonggyecheon took out a highway that carried 168,000 vehicles a day and the predicted gridlock never came. Why is that hard to act on here?\"",
+      "Mention the full source list is in the submitted PDF."
+    ],
+    "layoutRisks": [
+      "14:155: \"Carrot and Stick Compared\" is about 1,650 px at 120 px Black, wider than the 1400 px box. A second line would hit the rects at y 540 and 14:159 at y 596, so keep it on one line: widen the box to 1680 px (nothing else sits at y 356 to 460), or drop the size to 96 px (about 1,320 px). It keeps the callback to the talk title; Erickson can still ask \"carrot or stick?\" aloud.",
+      "14:160: about 104 characters at 18 px (about 880 px in a 1000 px box); one line but close to the edge. If it wraps, drop \"goal\".",
+      "14:162: now about 102 characters at 18 px (about 880 px in a 1000 px box); probably one line, and 2 lines at most like the old text.",
+      "14:164: about 119 characters at 18 px (about 1,055 px in a 1000 px box); wraps to 2 lines (y 862 to about 908), the same as 14:162 used to. Nothing sits below it in the left column.",
+      "14:165: much shorter than the old 3-line pull quote, so the right column at x 1240 becomes mostly empty above the reference line."
+    ],
+    "factFlags": [
+      "ORCHESTRATOR, cross-slide fix needed: this slide says \"1.68 million Eco-Mileage participants\" (dossier 2.1 and 7.3), but the s06 diagram label says \"1.68 million households plus building retrofits\", which the dossier does not support. Change the s06 label to \"1.68 million Eco-Mileage participants\" (keep \"plus building retrofits\" after it if that line stays) so the two slides agree."
+    ]
+  }
+]

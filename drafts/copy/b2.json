@@ -1,0 +1,615 @@
+[
+  {
+    "key": "s05",
+    "headline": "Seoul's Climate Targets",
+    "elements": [
+      {
+        "id": "8:30",
+        "group": "B1 · headline",
+        "old": "Half by 2033. Zero by 2050.",
+        "action": "rewrite",
+        "new": "Seoul's Climate Targets"
+      },
+      {
+        "id": "8:33",
+        "group": "B2 · trajectory",
+        "old": "EMISSIONS TRAJECTORY · Mt CO₂e",
+        "action": "rewrite",
+        "new": "CITY EMISSIONS · Mt CO₂e"
+      },
+      {
+        "id": "8:81",
+        "group": "B2 · trajectory",
+        "old": "2005",
+        "action": "keep",
+        "new": "2005"
+      },
+      {
+        "id": "8:82",
+        "group": "B2 · trajectory",
+        "old": "2033",
+        "action": "keep",
+        "new": "2033"
+      },
+      {
+        "id": "8:83",
+        "group": "B2 · trajectory",
+        "old": "2050",
+        "action": "keep",
+        "new": "2050"
+      },
+      {
+        "id": "8:84",
+        "group": "B2 · trajectory",
+        "old": "52.34",
+        "action": "keep",
+        "new": "52.34"
+      },
+      {
+        "id": "8:85",
+        "group": "B2 · trajectory",
+        "old": "−50%",
+        "action": "rewrite",
+        "new": "Half"
+      },
+      {
+        "id": "8:88",
+        "group": "B3 · ban ladder",
+        "old": "THE CAR PHASE-OUT",
+        "action": "rewrite",
+        "new": "CAR BANS BY YEAR"
+      },
+      {
+        "id": "8:90",
+        "group": "B3 · ban ladder",
+        "old": "2025",
+        "action": "keep",
+        "new": "2025"
+      },
+      {
+        "id": "8:91",
+        "group": "B3 · ban ladder",
+        "old": "Grade 4 diesel banned from\ncentral green transport zones",
+        "action": "rewrite",
+        "new": "Grade 4 diesel vehicles banned from\ncentral Seoul's green transport zones"
+      },
+      {
+        "id": "8:94",
+        "group": "B3 · ban ladder",
+        "old": "2030",
+        "action": "keep",
+        "new": "2030"
+      },
+      {
+        "id": "8:95",
+        "group": "B3 · ban ladder",
+        "old": "Grade 4 banned citywide",
+        "action": "rewrite",
+        "new": "Grade 4 vehicles banned citywide"
+      },
+      {
+        "id": "8:98",
+        "group": "B3 · ban ladder",
+        "old": "2035",
+        "action": "keep",
+        "new": "2035"
+      },
+      {
+        "id": "8:99",
+        "group": "B3 · ban ladder",
+        "old": "Internal combustion engines\nbanned in central Seoul",
+        "action": "rewrite",
+        "new": "Combustion engine vehicles\nbanned in central Seoul"
+      },
+      {
+        "id": "8:102",
+        "group": "B3 · ban ladder",
+        "old": "2050",
+        "action": "keep",
+        "new": "2050"
+      },
+      {
+        "id": "8:103",
+        "group": "B3 · ban ladder",
+        "old": "ICE vehicles banned citywide",
+        "action": "rewrite",
+        "new": "Combustion engine vehicles banned citywide"
+      },
+      {
+        "id": "8:105",
+        "group": "B4 · EV target",
+        "old": "279,000 EVs by 2033",
+        "action": "rewrite",
+        "new": "279,000 electric vehicles by 2033"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Plan: Basic Plan for Carbon Neutrality and Green Growth in Seoul (10 years)",
+      "2005 baseline: 52.34 Mt CO₂e (million tons of all greenhouse gases, converted into the amount of CO₂ that warms the same)",
+      "Half by 2033, net zero by 2050",
+      "New public buildings: ZEB (zero energy building) Grade 5 now, Grade 4 by 2030, Grade 3 by 2050",
+      "If asked: the bars drop in a straight line only for the picture; the plan sets the 2033 and 2050 targets",
+      "If asked about Seoul's emissions today: there is no recent city total in English sources, so stick to the 52.34 Mt baseline and the targets.",
+      "Already in force: Grade 5 diesel banned citywide December to March, and all year in central Seoul",
+      "Vehicle grades 1 to 5: Korea's emission grades, 5 pollutes most",
+      "Green transport zones = central Seoul areas where the city limits polluting cars",
+      "Combustion engine = any gas or diesel engine",
+      "Slow down on 2035. Say: \"By 2035, Seoul plans to ban gas and diesel cars from central Seoul.\"",
+      "Next: Seoul's big push on energy"
+    ],
+    "layoutRisks": [
+      "8:33, 8:81 to 8:85: these sit in group 'B2 · trajectory', which the s05-trajectory diagram replaces; the rewrites only matter if that group is ever shown as a fallback",
+      "8:85: fallback only (group 'B2 · trajectory'); \"Half\" now matches the diagram label \"Half by 2033\", with 8:82 \"2033\" beside it",
+      "8:91: both lines get longer (35 and 37 characters, about 395 px each at 21 px weight 400) in the 560 px box; still two lines, and \"vehicles\" now matches 8:95"
+    ],
+    "flags": [
+      "timing.json \"title\" for s05 still holds the old slogan headline \"Half by 2033. Zero by 2050.\" Use \"Seoul's Climate Targets\" wherever titles show (presenter view title and the \"next slide:\" line)."
+    ]
+  },
+  {
+    "key": "s06",
+    "headline": "One Less Nuclear Power Plant",
+    "elements": [
+      {
+        "id": "8:115",
+        "group": "B1 · headline",
+        "old": "Seoul decided not to need",
+        "action": "rewrite",
+        "new": "One Less Nuclear Power Plant"
+      },
+      {
+        "id": "8:116",
+        "group": "B1 · headline",
+        "old": "a power plant.",
+        "action": "remove",
+        "new": null
+      },
+      {
+        "id": "8:120",
+        "group": "B2 · reactor",
+        "old": "2M",
+        "action": "keep",
+        "new": "2M"
+      },
+      {
+        "id": "8:121",
+        "group": "B2 · reactor",
+        "old": "TOE",
+        "action": "keep",
+        "new": "TOE"
+      },
+      {
+        "id": "8:122",
+        "group": "B2 · reactor",
+        "old": "One nuclear reactor",
+        "action": "keep",
+        "new": "One nuclear reactor"
+      },
+      {
+        "id": "8:123",
+        "group": "B2 · reactor",
+        "old": "annual output",
+        "action": "rewrite",
+        "new": "output per year"
+      },
+      {
+        "id": "8:125",
+        "group": "B3 · mosaic",
+        "old": "=",
+        "action": "keep",
+        "new": "="
+      },
+      {
+        "id": "8:366",
+        "group": "B3 · mosaic",
+        "old": "1.68 million participating households, plus retrofits",
+        "action": "rewrite",
+        "new": "Energy saved, plus new renewables"
+      },
+      {
+        "id": "8:367",
+        "group": "B3 · mosaic",
+        "old": "Eco-Mileage — voluntary, rewarded, and the single most effective measure",
+        "action": "rewrite",
+        "new": "Eco-Mileage rewards · 1.68 million participants · 190,000 TOE saved"
+      },
+      {
+        "id": "8:370",
+        "group": "B4 · result panel",
+        "old": "PHASE 1 RESULT",
+        "action": "keep",
+        "new": "PHASE 1 RESULT"
+      },
+      {
+        "id": "8:371",
+        "group": "B4 · result panel",
+        "old": "2.04M TOE",
+        "action": "keep",
+        "new": "2.04M TOE"
+      },
+      {
+        "id": "8:372",
+        "group": "B4 · result panel",
+        "old": "Target met June 2014 — six months early",
+        "action": "rewrite",
+        "new": "Goal reached June 2014 · six months early"
+      },
+      {
+        "id": "8:374",
+        "group": "B4 · result panel",
+        "old": "79%",
+        "action": "keep",
+        "new": "79%"
+      },
+      {
+        "id": "8:375",
+        "group": "B4 · result panel",
+        "old": "from using less",
+        "action": "rewrite",
+        "new": "of the goal from using less energy"
+      },
+      {
+        "id": "8:376",
+        "group": "B4 · result panel",
+        "old": "21%",
+        "action": "keep",
+        "new": "21%"
+      },
+      {
+        "id": "8:377",
+        "group": "B4 · result panel",
+        "old": "from new renewables",
+        "action": "rewrite",
+        "new": "of the goal from new renewable energy"
+      },
+      {
+        "id": "8:381",
+        "group": "B5 · closing line",
+        "old": "“A city government decided its job was to reduce demand. Utilities get paid to sell more.”",
+        "action": "rewrite",
+        "new": "Electricity made in Seoul: from under 3% in 2011 to about 5% in Phase 2"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Why it started: launched 2012 after Fukushima (2011) and a 2011 Seoul blackout",
+      "Goal: save or produce 2 million TOE, about one nuclear reactor's yearly output",
+      "TOE = ton of oil equivalent, a unit for comparing kinds of energy",
+      "Eco-Mileage: 1.68 million participants by June 2014, saved 190,000 TOE. It was the most effective single measure in Phase 1. People could see and compare their energy use and earned small rewards. Say the 1.68 million out loud, because it comes back on the last slide.",
+      "79/21 is the planned split of the 2M goal: 1.59 million TOE from saving energy, 410,000 TOE from new renewables (exactly 79.5 and 20.5%). Sources give no split for the final 2.04M.",
+      "Phase 2: 4.65 million TOE saved 2012 to 2017 (C40, a network of big cities on climate)",
+      "Electricity made in Seoul: 2.9% in 2011 to 5% (C40) or 5.5% by 2015 (city figure), so say about 5%",
+      "Legacy: Seoul Energy Corporation was set up to carry the work forward",
+      "Say: \"Seoul decided its job was to cut how much energy the city uses.\"",
+      "Next: making power, with solar"
+    ],
+    "layoutRisks": [
+      "8:116: headline drops to one line, leaving about 90 px of extra white space above the reactor diagram and result panel",
+      "8:120 to 8:125, 8:366, 8:367: these sit in groups 'B2 · reactor' and 'B3 · mosaic', which the s06-reactor diagram replaces; the rewrites only matter if those groups are ever shown as a fallback",
+      "8:367: fallback only; 67 characters, about 555 px at 16 px weight 400, so it wraps to two lines in the 520 px box, as the old text did",
+      "8:381: plain fact line with no quotation marks; 71 characters, about 900 px at 26 px weight 300 in the 1,500 px box, one line; it now starts with the topic and ends \"in Phase 2\", so the 2011 start point no longer sits under a Phase 2 tag",
+      "8:375, 8:377: now read \"79% of the goal from using less energy\" and \"21% of the goal from new renewable energy\" (about 345 and 405 px at 20 px in the 442 px boxes), so the split under PHASE 1 RESULT reads as the planned split of the 2M TOE goal"
+    ],
+    "flags": [
+      "timing.json \"title\" for s06 still holds the old slogan headline \"Seoul decided not to need a power plant.\" Use \"One Less Nuclear Power Plant\" wherever titles show (presenter view title and the \"next slide:\" line).",
+      "DIAGRAM BUILDER, s06-reactor state 2 label: replace \"1.68 million households plus building retrofits\" with \"1.59M TOE from saving energy + 0.41M TOE from new renewables\". This is the planned split of the 2M TOE goal (dossier 2.1, composition of the goal) and matches the 79% red / 21% muted colouring. The agreed label does not match the dossier: the dossier counts 1.68 million Eco-Mileage participants (not households), and Eco-Mileage saved only 190,000 of the 2M TOE, so it cannot stand for the whole goal. Use this label and drop the b5 s20 flag's \"1.68 million Eco-Mileage participants\" version for this label. With the diagram in place, 8:367 (group 'B3 · mosaic') is not shown, so the s06 notes now carry 1.68 million participants and 190,000 TOE and tell Erickson to say the 1.68 million out loud. That keeps s06 in line with the s20 recap of 1.68 million Eco-Mileage participants.",
+      "If the builder can add an element to the B4 result panel, a small caption \"How the 2M TOE goal was split\" between the rule 8:373 (y 626) and the 79% line (y 650) would make the split clearer still. The copy format has no add action, so 8:375 and 8:377 now say \"of the goal\" instead."
+    ]
+  },
+  {
+    "key": "s07",
+    "headline": "Solar Panels on Balconies",
+    "elements": [
+      {
+        "id": "8:391",
+        "group": "B1 · headline",
+        "old": "The balcony as power plant.",
+        "action": "rewrite",
+        "new": "Solar Panels on Balconies"
+      },
+      {
+        "id": "8:491",
+        "group": "B2 · facade",
+        "old": "Typical Seoul apartment slab — mini-PV mounted on every balcony railing",
+        "action": "rewrite",
+        "new": "Seoul apartment block · small solar panels on balcony railings"
+      },
+      {
+        "id": "8:493",
+        "group": "B3 · scale + progress",
+        "old": "540,000",
+        "action": "keep",
+        "new": "540,000"
+      },
+      {
+        "id": "8:494",
+        "group": "B3 · scale + progress",
+        "old": "apartment balconies targeted",
+        "action": "keep",
+        "new": "apartment balconies targeted"
+      },
+      {
+        "id": "8:495",
+        "group": "B3 · scale + progress",
+        "old": "plus 90,000 rental homes and 370,000 buildings",
+        "action": "keep",
+        "new": "plus 90,000 rental homes and 370,000 buildings"
+      },
+      {
+        "id": "8:497",
+        "group": "B3 · scale + progress",
+        "old": "PROGRESS TOWARD THE 1 GW TARGET",
+        "action": "rewrite",
+        "new": "SOLAR CITY SEOUL · PROGRESS TOWARD 1 GW"
+      },
+      {
+        "id": "8:500",
+        "group": "B3 · scale + progress",
+        "old": "357.1 MW",
+        "action": "keep",
+        "new": "357.1 MW"
+      },
+      {
+        "id": "8:501",
+        "group": "B3 · scale + progress",
+        "old": "by 2019, across 285,000 households",
+        "action": "keep",
+        "new": "by 2019, across 285,000 households"
+      },
+      {
+        "id": "8:502",
+        "group": "B3 · scale + progress",
+        "old": "1 GW target · 2022",
+        "action": "keep",
+        "new": "1 GW target · 2022"
+      },
+      {
+        "id": "8:505",
+        "group": "B4 · cost + barrier",
+        "old": "US$1.46 billion",
+        "action": "rewrite",
+        "new": "About US$1.46 billion"
+      },
+      {
+        "id": "8:506",
+        "group": "B4 · cost + barrier",
+        "old": "largely public investment",
+        "action": "rewrite",
+        "new": "mostly public money"
+      },
+      {
+        "id": "8:507",
+        "group": "B4 · cost + barrier",
+        "old": "The barrier Seoul named itself",
+        "action": "rewrite",
+        "new": "Known barrier"
+      },
+      {
+        "id": "8:508",
+        "group": "B4 · cost + barrier",
+        "old": "Not enough installable surface area. The same wall NYC hits.",
+        "action": "rewrite",
+        "new": "Not enough space for panels on buildings and public facilities"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Seoul treats the balcony railing as a place to make electricity",
+      "Solar City Seoul started in 2017. Goals: 1 GW more solar by 2022 and solar for 1 million households. Budget about ₩1.7 trillion (the US$1.46 billion on the slide).",
+      "Kits: standard, subsidized, renters can install them, with published design and safety standards",
+      "In 2019 the program was reported as ahead of schedule.",
+      "MW = megawatt, GW = gigawatt. 1 GW = 1,000 MW, so 357.1 MW is about a third of the goal.",
+      "Seoul was the first Korean city to pay small solar plants (50 kW and under) for each kWh they make, for five years (a 2013 measure)",
+      "In New York the barriers are the building code, permits and landlord consent.",
+      "Next: a dense, tall city has little roof per apartment, so saving energy in existing buildings matters too"
+    ],
+    "layoutRisks": [
+      "8:491: sits in group 'B2 · facade', which the s07-balcony diagram replaces; the rewrite only matters if that group is ever shown as a fallback",
+      "8:497: 39 characters, about 425 px at 16 px weight 500 in the 880 px box",
+      "8:505: 21 characters, about 230 px at 22 px weight 700 in the 880 px box"
+    ],
+    "flags": [
+      "timing.json \"title\" for s07 still holds the old slogan headline \"The balcony as power plant.\" Use \"Solar Panels on Balconies\" wherever titles show (presenter view title and the \"next slide:\" line)."
+    ]
+  },
+  {
+    "key": "s08",
+    "headline": "Paying for Building Retrofits",
+    "elements": [
+      {
+        "id": "8:518",
+        "group": "B1 · headline",
+        "old": "Retrofit by loan, not by fine.",
+        "action": "rewrite",
+        "new": "Paying for Building Retrofits"
+      },
+      {
+        "id": "8:523",
+        "group": "B2 · Seoul panel",
+        "old": "SEOUL · BRP",
+        "action": "keep",
+        "new": "SEOUL · BRP"
+      },
+      {
+        "id": "8:524",
+        "group": "B2 · Seoul panel",
+        "old": "Building Retrofit Project, from 2008",
+        "action": "keep",
+        "new": "Building Retrofit Project, from 2008"
+      },
+      {
+        "id": "8:525",
+        "group": "B2 · Seoul panel",
+        "old": "MECHANISM",
+        "action": "rewrite",
+        "new": "HOW IT WORKS"
+      },
+      {
+        "id": "8:526",
+        "group": "B2 · Seoul panel",
+        "old": "Municipal lending",
+        "action": "rewrite",
+        "new": "Low-interest city loans"
+      },
+      {
+        "id": "8:527",
+        "group": "B2 · Seoul panel",
+        "old": "The city hands you the money.",
+        "action": "rewrite",
+        "new": "Open to homes, hospitals and universities"
+      },
+      {
+        "id": "8:528",
+        "group": "B2 · Seoul panel",
+        "old": "THE NUMBER",
+        "action": "rewrite",
+        "new": "INTEREST RATE"
+      },
+      {
+        "id": "8:529",
+        "group": "B2 · Seoul panel",
+        "old": "1.75%",
+        "action": "keep",
+        "new": "1.75%"
+      },
+      {
+        "id": "8:530",
+        "group": "B2 · Seoul panel",
+        "old": "interest, up to 100% of facility cost",
+        "action": "rewrite",
+        "new": "a year · loans up to 100% of eligible cost"
+      },
+      {
+        "id": "8:531",
+        "group": "B2 · Seoul panel",
+        "old": "REACH",
+        "action": "rewrite",
+        "new": "TARGET"
+      },
+      {
+        "id": "8:532",
+        "group": "B2 · Seoul panel",
+        "old": "90,000 buildings",
+        "action": "keep",
+        "new": "90,000 buildings"
+      },
+      {
+        "id": "8:533",
+        "group": "B2 · Seoul panel",
+        "old": "target — 20% of stock over 20 years old",
+        "action": "rewrite",
+        "new": "20% of Seoul's buildings that are over 20 years old"
+      },
+      {
+        "id": "8:537",
+        "group": "B3 · NYC panel",
+        "old": "NEW YORK · LL97",
+        "action": "keep",
+        "new": "NEW YORK · LL97"
+      },
+      {
+        "id": "8:538",
+        "group": "B3 · NYC panel",
+        "old": "Local Law 97, from 2019",
+        "action": "keep",
+        "new": "Local Law 97, from 2019"
+      },
+      {
+        "id": "8:539",
+        "group": "B3 · NYC panel",
+        "old": "MECHANISM",
+        "action": "rewrite",
+        "new": "HOW IT WORKS"
+      },
+      {
+        "id": "8:540",
+        "group": "B3 · NYC panel",
+        "old": "Emissions cap + penalty",
+        "action": "rewrite",
+        "new": "Emissions limits and fines"
+      },
+      {
+        "id": "8:541",
+        "group": "B3 · NYC panel",
+        "old": "Hit the cap or pay.",
+        "action": "rewrite",
+        "new": "Upgrades paid for by owners"
+      },
+      {
+        "id": "8:542",
+        "group": "B3 · NYC panel",
+        "old": "THE NUMBER",
+        "action": "rewrite",
+        "new": "FINE"
+      },
+      {
+        "id": "8:543",
+        "group": "B3 · NYC panel",
+        "old": "$268",
+        "action": "keep",
+        "new": "$268"
+      },
+      {
+        "id": "8:544",
+        "group": "B3 · NYC panel",
+        "old": "per ton over the cap, per year",
+        "action": "rewrite",
+        "new": "per ton of CO₂e over the limit, each year"
+      },
+      {
+        "id": "8:545",
+        "group": "B3 · NYC panel",
+        "old": "REACH",
+        "action": "rewrite",
+        "new": "WHO IT COVERS"
+      },
+      {
+        "id": "8:546",
+        "group": "B3 · NYC panel",
+        "old": "Buildings >25,000 sq ft",
+        "action": "rewrite",
+        "new": "Buildings over 25,000 sq ft"
+      },
+      {
+        "id": "8:547",
+        "group": "B3 · NYC panel",
+        "old": "−40% by 2030 · −80% by 2050",
+        "action": "rewrite",
+        "new": "Goal: 40% cut by 2030 · 80% by 2050, from 2005 levels"
+      },
+      {
+        "id": "8:549",
+        "group": "B4 · the verdict",
+        "old": "Seoul has the carrot and a weak stick. New York has the stick and no carrot. Neither half works alone.",
+        "action": "rewrite",
+        "new": "LL97 buildings over the limit: about 11% (2024 to 2029 limits) · about 63% (2030 limits, if nothing changes)"
+      }
+    ],
+    "removedBeats": [],
+    "movedToNotes": [
+      "Seoul: low-interest city loans for upgrades · New York: limits and fines, owners find the money",
+      "BRP history: started 2008. In 2012 it grew under One Less Nuclear Power Plant and opened to private universities, hospitals, then homes.",
+      "2013 changes: interest cut from 2.5% to 1.75% a year, and loans raised from 80% to 100% of the eligible cost",
+      "Results differ by source, so name the source",
+      "C40: 25,841 tons of CO₂ saved, about 4,200 projects, 2012 to 2015",
+      "Other C40 reporting: 72,000 buildings improved",
+      "SMG (Seoul city government): 20,000 buildings and houses, 192,234 TOE saved",
+      "100-building sample (2012 to 2013): homes used 10% less energy, other buildings 6.5% less",
+      "59 welfare facilities (social service buildings) retrofitted: about 15% less energy",
+      "Buildings = 56% of Seoul's energy use (emissions share is about two-thirds)",
+      "LL97 targets are counted from 2005 levels, and the limits tighten a lot in 2030: offices by 64.5% and multifamily by 50.4% compared with 2024 to 2029",
+      "Say: \"My second recommendation at the end is a city loan fund for LL97 upgrades, on terms like Seoul's.\""
+    ],
+    "layoutRisks": [
+      "8:549: 108 characters (not 85), about 1,355 px at 26 px weight 300 in the 1,500 px box; fits on one line with little room to spare, so do not lengthen it",
+      "8:530: sits under the 1.75% (8:529) so it reads \"1.75% a year\"; 42 characters, about 365 px at 18 px in the 698 px box",
+      "8:547: 53 characters, about 515 px at 18 px in the 698 px box; WHO IT COVERS (8:545) now pairs with 8:546, and 8:547 is labelled \"Goal:\"",
+      "8:527 and 8:541: both sub-lines under HOW IT WORKS are now about the money (who can borrow, who pays); 8:527 no longer repeats \"loans\" from 8:526",
+      "8:533: 51 characters, about 450 px at 18 px in the 698 px box, one line; now reads as 20% of the buildings that are over 20 years old"
+    ],
+    "flags": [
+      "timing.json \"title\" for s08 still holds the old headline \"Retrofit by loan, not by fine.\", an \"X, not Y\" line. Use \"Paying for Building Retrofits\" wherever titles show (presenter view title and the \"next slide:\" line)."
+    ]
+  }
+]
