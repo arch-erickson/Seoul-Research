@@ -121,6 +121,7 @@ export default defineDiagram({
     shadows: !DBG.includes('nosh'),
   },
   build(S) {
+    S.view.at = S.view.at.slice();          // the stage copies view shallowly: give this instance its own array
     const plant = S.part('Nuclear plant');
 
     // ---------- plinth (unfolds from its centre) ----------
@@ -151,8 +152,8 @@ export default defineDiagram({
     // (the dome keeps its true shape instead of being squashed by a scale)
     const clipBase = new THREE.Plane(new THREE.Vector3(0, 1, 0), -(Y0 - 0.02));
     const CLIP = [clipSolid, clipBase];
-    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: THREE.DoubleSide });
-    mat.clipShadows = true;
+    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: DBG.includes('front') ? THREE.FrontSide : THREE.DoubleSide });
+    mat.clipShadows = !DBG.includes('noclipsh');
     const eClip = { clippingPlanes: CLIP };
     const solids = new THREE.Group();
     plant.add(solids);

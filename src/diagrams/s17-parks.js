@@ -2,9 +2,9 @@
 // Two square plates drawn to the same scale, with the same 1.7 m scale figure on each, like an architect's
 // scale comparison. Citywide park area per person (2022) is 17.74 m², a square of side sqrt(17.74) = 4.21 m;
 // park area within a five-minute walk is 5.65 m², a square of side sqrt(5.65) = 2.38 m (dossier).
-// A 1 m hairline grid on each plate shows the square metres. Citywide plate: neutral white model;
-// five-minute plate: red (the focal fact).
-// States: 0 empty · 1 the plates open out from their back corners, the figures settle onto them, captions.
+// A 1 m hairline grid on each plate shows the square metres (whole squares counted from the front corner).
+// Citywide plate: neutral white model; five-minute plate: red (the focal fact).
+// States: 0 empty · 1 the two figures appear, then each one's park area opens out under it, captions.
 import { defineDiagram, THREE, C, LW, ease, sub, labelProp, setOpacity, boxGeo } from '../kit3d/index.js';
 
 const DEG = Math.PI / 180;
@@ -13,8 +13,6 @@ const DEG = Math.PI / 180;
 const S1 = Math.sqrt(17.74);   // 4.21 m: citywide
 const S2 = Math.sqrt(5.65);    // 2.38 m: within a five-minute walk
 const T = 0.2;                 // plate thickness (top face at y = 0)
-const FIG_H = 1.7;             // scale figure height
-const DROP = 0.45;             // the figures settle onto the plates from this height
 
 // ---- view ----
 const AZ = 45, EL = 30, SCALE = 75;
@@ -55,15 +53,14 @@ export default defineDiagram({
   region: { x: 120, y: 330, w: 560, h: 600 },
   stage: {
     view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: SCALE, at: AT },
-    shadowBox: { min: [-2.6, -T, -2.6], max: [C2.x + 1.6, FIG_H + 0.1, C2.z + 1.6] },
-    ground: { y: -T, opacity: 0.14 },
+    // no cast shadows: under VSM every receiver is also drawn into the shadow map, which left a grey streak
+    // beside each flat figure and a soft nub past each plate corner; the ink edges carry the form instead
+    shadows: false,
   },
   build(S) {
-    const clip = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.001);   // nothing of a figure ever shows below the plate top
     // a flat cut-out (one face, so the outline is a single clean line)
     const figGeo = new THREE.ShapeGeometry(figureShape(), 20);
-    const figMat = S.material(C.model, { unique: true, side: THREE.DoubleSide, clippingPlanes: [clip] });
-    figMat.clipShadows = true;
+    const figMat = S.material(C.model, { unique: true, side: THREE.DoubleSide });
 
     // one plate: grows from its back corner; grid of 1 m squares on the top face
     function plate(name, side, center, red) {
@@ -71,13 +68,15 @@ export default defineDiagram({
       const grow = new THREE.Group();
       grow.position.set(center.x - side / 2, 0, center.z - side / 2);   // back corner
       root.add(grow);
-      const geo = boxGeo(side, T, side).translate(side / 2, -T, side / 2);
+      const geo = boxGeo(side, T, side).translate(side / 2, -T, side / 2);   // y from -T to 0
       S.solid(geo, red ? { color: C.red, edges: { color: C.redDeep, color2: C.redDeep } } : {}, grow);
       const seg = [];
       const y = 0.002;
+      // whole metres counted from the FRONT corner, so the remainder strip sits on the back edges
       for (let k = 1; k < side; k++) {
-        seg.push(k, y, 0.0, k, y, side);
-        seg.push(0.0, y, k, side, y, k);
+        const g = side - k;
+        seg.push(g, y, 0.0, g, y, side);
+        seg.push(0.0, y, g, side, y, g);
       }
       const grid = S.lines(seg, red ? { width: LW.hair, color: C.redDeep, opacity: 0.55 } : { width: LW.hair, color: C.hair }, grow);
       return { root, grow, grid, gridOpacity: red ? 0.55 : 1 };
@@ -85,24 +84,22 @@ export default defineDiagram({
 
     function figure(name, pos) {
       const root = S.part(name);
-      const lift = new THREE.Group();
-      lift.position.set(pos.x, 0, pos.z);
-      root.add(lift);
       const face = new THREE.Group();
+      face.position.set(pos.x, 0, pos.z);
       face.rotation.y = az;          // the cut-out faces the viewer
-      lift.add(face);
+      root.add(face);
       S.solid(figGeo, {
-        material: figMat,
-        edges: { color: C.edge, color2: C.edge, width: 1.15, width2: 1.15, clippingPlanes: [clip] },
+        material: figMat, castShadow: false, receiveShadow: false,
+        edges: { color: C.edge, color2: C.edge, width: 1.15, width2: 1.15 },
       }, face);
-      return { root, lift };
+      return { root };
     }
 
     const city = plate('Citywide plate', S1, new THREE.Vector3(0, 0, 0), false);
     const walk = plate('Five-minute plate', S2, C2, true);
     const at = (r, d, c = new THREE.Vector3()) => c.clone().addScaledVector(RIGHT, r).addScaledVector(DOWN, d);
     const fig1 = figure('Citywide figure', at(-0.35, 0.9));
-    const fig2 = figure('Five-minute figure', at(-0.3, 0.1, C2));
+    const fig2 = figure('Five-minute figure', at(-0.3, 0.4, C2));
 
     // captions centred under each plate's front corner
     const lab1 = S.label({
@@ -117,39 +114,39 @@ export default defineDiagram({
     });
 
     // ---- one progress prop for the beat ----
+    // k = footprint growth, g = grid fade. The thickness grows downward over the first 20% of the
+    // footprint (top stays at y 0), so the seed reads as a thin plate opening out, not a small cube.
     const setPlate = (p, k, g) => {
       const s = Math.max(1e-3, k);
-      p.grow.scale.set(s, 1, s);
+      p.grow.scale.set(s, Math.max(1e-3, Math.min(1, k / 0.2)), s);
       p.root.visible = k > 0.002;
       p.grid.material.setOpacity(p.gridOpacity * g);
       p.grid.visible = g > 0.002;
     };
-    // u = linear progress of the figure's own sub-range: it drops a short way onto the plate (ease-out)
-    // while it fades in over the first 55% (a single flat face, so no hidden edges show while it is faint)
-    const setFig = (f, u) => {
-      f.lift.position.y = DROP * (1 - ease.out(u));
-      setOpacity(f.root, sub(u, 0, 0.55));
-    };
-    // the five-minute track runs 80 ms (0.05 of 1600 ms) behind the citywide track
+    // the figures appear first (one flat face each, over empty ground), fully opaque before any plate
+    // reaches them; then each person's park area opens out under them
+    const setFig = (f, u) => setOpacity(f.root, ease.out(u));
+    const BUILD = 1430;
+    const ms = (a, b) => [a / BUILD, b / BUILD];
     S.anim.prop('build', 0, v => {
-      setPlate(city, sub(v, 0.00, 0.46, ease.out), sub(v, 0.36, 0.70, ease.out));
-      setPlate(walk, sub(v, 0.05, 0.51, ease.out), sub(v, 0.41, 0.75, ease.out));
-      setFig(fig1, sub(v, 0.32, 0.70));
-      setFig(fig2, sub(v, 0.37, 0.75));
-    }, { kind: 'reveal', dur: 1600 });
-    labelProp(S, 'lab1', lab1, { delay: 1050 });
-    labelProp(S, 'lab2', lab2, { delay: 1130 });
+      setFig(fig1, sub(v, ...ms(0, 450)));
+      setFig(fig2, sub(v, ...ms(80, 530)));
+      setPlate(city, sub(v, ...ms(450, 1130), ease.out), sub(v, ...ms(900, 1350), ease.out));
+      setPlate(walk, sub(v, ...ms(530, 1210), ease.out), sub(v, ...ms(980, 1430), ease.out));
+    }, { kind: 'reveal', dur: BUILD });
+    labelProp(S, 'lab1', lab1, { delay: 1250 });
+    labelProp(S, 'lab2', lab2, { delay: 1330 });
 
     return {
       targets: n => ({ build: n >= 1 ? 1 : 0, lab1: n >= 1 ? 1 : 0, lab2: n >= 1 ? 1 : 0 }),
       plan: (name, from, to, dir) => {
-        // forward: the sub-ranges inside 'build' carry their own ease-out, so the beat runs on a linear clock
-        if (dir >= 0) return name === 'build' ? { delay: 0, dur: 1600, ease: ease.linear } : null;
-        // backwards: captions leave first (lab2, then lab1), then the build plays in reverse on a linear
-        // clock, so each sub-range's ease-out runs backwards as a natural ease-in departure
+        // forward: the sub-ranges inside 'build' carry their own easing, so the beat runs on a linear clock
+        if (dir >= 0) return name === 'build' ? { delay: 0, dur: BUILD, ease: ease.linear } : null;
+        // backwards: captions leave first (lab2, then lab1, gone by 430 ms), then the build plays in reverse
+        // on a linear clock: plates shrink with an ease-in from 400 and 473 ms, figures fade last, end 1500 ms
         if (name === 'lab2') return { delay: 0, dur: 360, ease: ease.in };
         if (name === 'lab1') return { delay: 70, dur: 360, ease: ease.in };
-        if (name === 'build') return { delay: 200, dur: 1000, ease: ease.linear };
+        if (name === 'build') return { delay: 200, dur: 1300, ease: ease.linear };
         return null;
       },
     };

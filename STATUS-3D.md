@@ -21,7 +21,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 9 | s15-export | DONE | 0–1 | 0 / 0 | s15-export-0.png, s15-export-1.png, s15-export-1-preview.png, s15-export-1-t1900.png, s15-export-sheet.png |
 | 10 | s06-reactor | IN PROGRESS (builder finishing its draft) | | | |
 | 11 | s09-zeb | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s09-zeb-sheet.png, s09-zeb-*.png  |
-| 12 | s17-parks | IN PROGRESS (restored: user wants all diagrams; review + fix pending) | | | |
+| 12 | s17-parks | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s17-parks-sheet.png, s17-parks-*.png  |
 | 13 | s05-trajectory | IN PROGRESS (wave 1b: review + fix) | | | |
 | 14 | s18-buslane | QUEUED (draft in dev/cut/, wave 2) | | | |
 | 15 | s04-timeline | QUEUED (wave 2) | | | |

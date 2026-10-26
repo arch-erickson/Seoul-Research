@@ -46271,6 +46271,13 @@ void main() {
 
   // src/diagrams/s06-reactor.js
   var DEG2 = Math.PI / 180;
+  var DBG = (() => {
+    try {
+      return new URLSearchParams(location.search).get("s06dbg") || "";
+    } catch (e) {
+      return "";
+    }
+  })();
   var AZ = 55;
   var EL = 28;
   var az = AZ * DEG2;
@@ -46382,9 +46389,11 @@ void main() {
     region: { x: 100, y: 420, w: 1080, h: 420 },
     stage: {
       view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: S1, at: AT1.slice() },
-      shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] }
+      shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] },
+      shadows: !DBG.includes("nosh")
     },
     build(S) {
+      S.view.at = S.view.at.slice();
       const plant = S.part("Nuclear plant");
       const plinth = new three_module_exports.Group();
       plinth.position.set((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2);
@@ -46563,7 +46572,7 @@ void main() {
       });
       const hg = houseGeo();
       const mkInst = (list, color) => {
-        const m = new three_module_exports.InstancedMesh(hg, S.material(color), list.length);
+        const m = new three_module_exports.InstancedMesh(hg, S.material(color), DBG.includes("noinst") ? 0 : list.length);
         m.frustumCulled = false;
         m.castShadow = false;
         m.receiveShadow = false;
@@ -46575,7 +46584,7 @@ void main() {
       const imGrey = mkInst(greys, GREY);
       const hpos = hg.toNonIndexed().attributes.position.array;
       const outlines = [];
-      for (const [key, land] of groupLand) {
+      for (const [key, land] of DBG.includes("noout") ? [] : groupLand) {
         const list = houses.filter((h) => h.key === key);
         const red = key % 2 === 0;
         const arr = new Float32Array(hpos.length * list.length);
@@ -46595,6 +46604,7 @@ void main() {
       }
       const _p = new three_module_exports.Vector3();
       function placeHouses(list, im, ms) {
+        if (!im.count) return;
         const a = im.instanceMatrix.array;
         for (let k = 0; k < list.length; k++) {
           const h = list[k];

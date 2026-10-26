@@ -46285,8 +46285,6 @@ void main() {
   var S1 = Math.sqrt(17.74);
   var S2 = Math.sqrt(5.65);
   var T = 0.2;
-  var FIG_H = 1.7;
-  var DROP = 0.45;
   var AZ = 45;
   var EL = 30;
   var SCALE = 75;
@@ -46346,14 +46344,13 @@ void main() {
     region: { x: 120, y: 330, w: 560, h: 600 },
     stage: {
       view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: SCALE, at: AT },
-      shadowBox: { min: [-2.6, -T, -2.6], max: [C2.x + 1.6, FIG_H + 0.1, C2.z + 1.6] },
-      ground: { y: -T, opacity: 0.14 }
+      // no cast shadows: under VSM every receiver is also drawn into the shadow map, which left a grey streak
+      // beside each flat figure and a soft nub past each plate corner; the ink edges carry the form instead
+      shadows: false
     },
     build(S) {
-      const clip = new three_module_exports.Plane(new three_module_exports.Vector3(0, 1, 0), 1e-3);
       const figGeo = new three_module_exports.ShapeGeometry(figureShape(), 20);
-      const figMat = S.material(C.model, { unique: true, side: three_module_exports.DoubleSide, clippingPlanes: [clip] });
-      figMat.clipShadows = true;
+      const figMat = S.material(C.model, { unique: true, side: three_module_exports.DoubleSide });
       function plate(name, side, center, red) {
         const root = S.part(name);
         const grow = new three_module_exports.Group();
@@ -46364,31 +46361,32 @@ void main() {
         const seg = [];
         const y = 2e-3;
         for (let k = 1; k < side; k++) {
-          seg.push(k, y, 0, k, y, side);
-          seg.push(0, y, k, side, y, k);
+          const g = side - k;
+          seg.push(g, y, 0, g, y, side);
+          seg.push(0, y, g, side, y, g);
         }
         const grid = S.lines(seg, red ? { width: LW.hair, color: C.redDeep, opacity: 0.55 } : { width: LW.hair, color: C.hair }, grow);
         return { root, grow, grid, gridOpacity: red ? 0.55 : 1 };
       }
       function figure(name, pos) {
         const root = S.part(name);
-        const lift = new three_module_exports.Group();
-        lift.position.set(pos.x, 0, pos.z);
-        root.add(lift);
         const face = new three_module_exports.Group();
+        face.position.set(pos.x, 0, pos.z);
         face.rotation.y = az;
-        lift.add(face);
+        root.add(face);
         S.solid(figGeo, {
           material: figMat,
-          edges: { color: C.edge, color2: C.edge, width: 1.15, width2: 1.15, clippingPlanes: [clip] }
+          castShadow: false,
+          receiveShadow: false,
+          edges: { color: C.edge, color2: C.edge, width: 1.15, width2: 1.15 }
         }, face);
-        return { root, lift };
+        return { root };
       }
       const city = plate("Citywide plate", S1, new three_module_exports.Vector3(0, 0, 0), false);
       const walk = plate("Five-minute plate", S2, C2, true);
       const at = (r, d, c = new three_module_exports.Vector3()) => c.clone().addScaledVector(RIGHT, r).addScaledVector(DOWN, d);
       const fig1 = figure("Citywide figure", at(-0.35, 0.9));
-      const fig2 = figure("Five-minute figure", at(-0.3, 0.1, C2));
+      const fig2 = figure("Five-minute figure", at(-0.3, 0.4, C2));
       const lab1 = S.label({
         text: "Citywide: 17.74 m\xB2 per person",
         anchor: new three_module_exports.Vector3(S1 / 2, -T, S1 / 2),
@@ -46403,30 +46401,29 @@ void main() {
       });
       const setPlate = (p, k, g) => {
         const s = Math.max(1e-3, k);
-        p.grow.scale.set(s, 1, s);
+        p.grow.scale.set(s, Math.max(1e-3, Math.min(1, k / 0.2)), s);
         p.root.visible = k > 2e-3;
         p.grid.material.setOpacity(p.gridOpacity * g);
         p.grid.visible = g > 2e-3;
       };
-      const setFig = (f, u) => {
-        f.lift.position.y = DROP * (1 - ease.out(u));
-        setOpacity(f.root, sub(u, 0, 0.55));
-      };
+      const setFig = (f, u) => setOpacity(f.root, ease.out(u));
+      const BUILD = 1430;
+      const ms = (a, b) => [a / BUILD, b / BUILD];
       S.anim.prop("build", 0, (v) => {
-        setPlate(city, sub(v, 0, 0.46, ease.out), sub(v, 0.36, 0.7, ease.out));
-        setPlate(walk, sub(v, 0.05, 0.51, ease.out), sub(v, 0.41, 0.75, ease.out));
-        setFig(fig1, sub(v, 0.32, 0.7));
-        setFig(fig2, sub(v, 0.37, 0.75));
-      }, { kind: "reveal", dur: 1600 });
-      labelProp(S, "lab1", lab1, { delay: 1050 });
-      labelProp(S, "lab2", lab2, { delay: 1130 });
+        setFig(fig1, sub(v, ...ms(0, 450)));
+        setFig(fig2, sub(v, ...ms(80, 530)));
+        setPlate(city, sub(v, ...ms(450, 1130), ease.out), sub(v, ...ms(900, 1350), ease.out));
+        setPlate(walk, sub(v, ...ms(530, 1210), ease.out), sub(v, ...ms(980, 1430), ease.out));
+      }, { kind: "reveal", dur: BUILD });
+      labelProp(S, "lab1", lab1, { delay: 1250 });
+      labelProp(S, "lab2", lab2, { delay: 1330 });
       return {
         targets: (n) => ({ build: n >= 1 ? 1 : 0, lab1: n >= 1 ? 1 : 0, lab2: n >= 1 ? 1 : 0 }),
         plan: (name, from, to, dir) => {
-          if (dir >= 0) return name === "build" ? { delay: 0, dur: 1600, ease: ease.linear } : null;
+          if (dir >= 0) return name === "build" ? { delay: 0, dur: BUILD, ease: ease.linear } : null;
           if (name === "lab2") return { delay: 0, dur: 360, ease: ease.in };
           if (name === "lab1") return { delay: 70, dur: 360, ease: ease.in };
-          if (name === "build") return { delay: 200, dur: 1e3, ease: ease.linear };
+          if (name === "build") return { delay: 200, dur: 1300, ease: ease.linear };
           return null;
         }
       };
