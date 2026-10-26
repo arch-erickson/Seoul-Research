@@ -139,6 +139,9 @@ async function checkDiagram(id, file, tmpDir) {
   return { ok: true, notes, bytes: code.length };
 }
 
+// --exclude-diagrams a,b (or SEOUL_EXCLUDE_DIAGRAMS): keep unfinished 3D modules out of a build so their 2D fallback shows.
+const EXCLUDE_DIAGRAMS = new Set((optv('--exclude-diagrams') || process.env.SEOUL_EXCLUDE_DIAGRAMS || '').split(',').map((x) => x.trim()).filter(Boolean));
+
 async function generateDiagrams() {
   const dir = P('src/diagrams');
   const files = exists(dir) ? fs.readdirSync(dir).filter((f) => /\.js$/.test(f)).sort() : [];
@@ -150,6 +153,7 @@ async function generateDiagrams() {
       const id = f.replace(/\.js$/, '');
       if (/^s00-/.test(id)) continue;
       if (!timingDiagrams.has(id)) { log(`skip: ${id} (not in spec/timing.json)`); continue; }
+      if (EXCLUDE_DIAGRAMS.has(id)) { fallback.push(id); log(`fallback: ${id} (excluded with --exclude-diagrams: not finished)`); continue; }
       ids.push(id);
     }
     const results = await Promise.all(ids.map((id) => checkDiagram(id, path.join(dir, id + '.js'), tmpDir).catch((e) => ({ ok: false, reason: shortErr(e) }))));

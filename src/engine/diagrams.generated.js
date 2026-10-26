@@ -2,35 +2,33 @@
 // Every other diagram id falls back to its Figma 2D elements on the slide.
 import d0 from '../diagrams/s01-map.js';
 import d1 from '../diagrams/s03-map.js';
-import d2 from '../diagrams/s04-timeline.js';
-import d3 from '../diagrams/s05-trajectory.js';
-import d4 from '../diagrams/s06-reactor.js';
-import d5 from '../diagrams/s07-balcony.js';
-import d6 from '../diagrams/s09-zeb.js';
-import d7 from '../diagrams/s10-edc.js';
-import d8 from '../diagrams/s11-nowon.js';
-import d9 from '../diagrams/s12-towers.js';
-import d10 from '../diagrams/s13-rfid.js';
-import d11 from '../diagrams/s14-nanjido.js';
-import d12 from '../diagrams/s15-export.js';
-import d13 from '../diagrams/s16-cheonggye.js';
-import d14 from '../diagrams/s17-parks.js';
-import d15 from '../diagrams/s18-buslane.js';
+import d2 from '../diagrams/s05-trajectory.js';
+import d3 from '../diagrams/s06-reactor.js';
+import d4 from '../diagrams/s07-balcony.js';
+import d5 from '../diagrams/s09-zeb.js';
+import d6 from '../diagrams/s10-edc.js';
+import d7 from '../diagrams/s11-nowon.js';
+import d8 from '../diagrams/s12-towers.js';
+import d9 from '../diagrams/s13-rfid.js';
+import d10 from '../diagrams/s14-nanjido.js';
+import d11 from '../diagrams/s15-export.js';
+import d12 from '../diagrams/s16-cheonggye.js';
+import d13 from '../diagrams/s17-parks.js';
+import d14 from '../diagrams/s18-buslane.js';
 export default {
   's01-map': d0,
   's03-map': d1,
-  's04-timeline': d2,
-  's05-trajectory': d3,
-  's06-reactor': d4,
-  's07-balcony': d5,
-  's09-zeb': d6,
-  's10-edc': d7,
-  's11-nowon': d8,
-  's12-towers': d9,
-  's13-rfid': d10,
-  's14-nanjido': d11,
-  's15-export': d12,
-  's16-cheonggye': d13,
-  's17-parks': d14,
-  's18-buslane': d15,
+  's05-trajectory': d2,
+  's06-reactor': d3,
+  's07-balcony': d4,
+  's09-zeb': d5,
+  's10-edc': d6,
+  's11-nowon': d7,
+  's12-towers': d8,
+  's13-rfid': d9,
+  's14-nanjido': d10,
+  's15-export': d11,
+  's16-cheonggye': d12,
+  's17-parks': d13,
+  's18-buslane': d14,
 };
