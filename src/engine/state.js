@@ -20,17 +20,19 @@
  * nextAutoBeatInMs (null when no auto-beat will fire), nextBeatInMs (live-slide cue countdown even
  * while paused), plannedStartMs, plannedDurMs, plannedTotalMs, black, white, overlay,
  * next {kind:'beat'|'slide', index, key, beat, beatsVisible} | null  (what a plain `next` would show),
- * nav {seq, type:'init'|'beat'|'unbuild'|'slide'|'jump'|'restore', dir, auto, instant}
+ * nav {seq, type:'init'|'beat'|'unbuild'|'slide'|'reset'|'jump'|'restore', dir, auto, instant}
  *   (seq increments on every slide/beat change; instant = render without build animation).
  *
  * Actions ({ type, ...payload }):
  *   next             forward: resume-after-back, else reveal next beat, else next slide
  *   prev             back: un-build on the live slide, else previous slide fully built + pause
+ *                    (landing on slide 1, or pressing back ON slide 1, is a full reset instead, see below)
  *   nextSlide        skip remaining beats and advance (Shift+Right, N)
- *   prevSlide        previous slide fully built + pause, even mid-build (Shift+Left)
- *   goto {index|key} backward = like prev (pause, fully built); forward = like next (timer runs)
- *   gotoNumber {n}   goto by content-slide number (1-20)
- *   first / last     Home / End
+ *   prevSlide        previous slide fully built + pause, even mid-build (Shift+Left); slide 1 = full reset
+ *   goto {index|key} backward = like prev (pause, fully built); forward = like next (timer runs);
+ *                    goto slide 1 (index 0) = full reset, also when already there
+ *   gotoNumber {n}   goto by content-slide number (1-20); n = 1 = full reset
+ *   first / last     Home (always a full reset) / End
  *   start            presentation mode started: start the timer if it is not running (P)
  *   toggleTimer      T: pause/resume (clears pausedByBack)
  *   resetTimer       Shift+T: zero every timer, stop, and make the current slide the live slide
@@ -52,6 +54,14 @@
  *   - While black/white is on, next/prev only clear it.
  *   - Going back before the timer has ever started (fresh load, or after Shift+T) pauses
  *     nothing and rewinds: the target slide becomes the live slide at beat 0.
+ *   - FULL RESET (user: "going to the first screen resets all the timers"): whenever prev, prevSlide,
+ *     goto, gotoNumber or first lands on slide 1 (index 0), and when back (prev / prevSlide) or Home is
+ *     pressed while already on slide 1, the store returns to exactly the fresh-load state: globalMs 0,
+ *     every slideMs 0 (the Questions? countdown too), running / pausedByBack / started false, furthest,
+ *     furthestBeat and beat 0, black / white off, auto-beat anchor 0, nav {type:'reset', instant:true}
+ *     (seq bumped). Auto-beats on/off and the overlay flag are settings and stay. The timer then starts
+ *     again exactly as on a fresh load (start / P, toggleTimer / T, or the first forward press).
+ *     While black/white is on, back still only clears it. jump and restore never reset.
  */
 
 export const DEFAULT_AUTO_GRACE_MS = 700;
@@ -207,7 +217,25 @@ export function createStore({
     setNav('slide', 1, { instant: b > 0 });
   }
 
+  /** Back to the fresh-load state (see "FULL RESET" above). Settings (autoBeats, overlay) are kept. */
+  function fullReset() {
+    S.cur = 0;
+    S.beat = 0;
+    S.furthest = 0;
+    S.furthestBeat = 0;
+    S.started = false;
+    S.timer = { running: false, pausedByBack: false, globalMs: 0, slideMs: new Array(N).fill(0) };
+    clearBlank();
+    anchor(); // slideMs 0, cue 0: offset 0
+    lastAutoAt = -Infinity;
+    setNav('reset', -1, { instant: true });
+  }
+
   function enterBackward(i) {
+    if (i === 0) {
+      fullReset();
+      return;
+    }
     S.cur = i;
     clearBlank();
     if (!S.started) {
@@ -275,6 +303,10 @@ export function createStore({
       clearBlank();
       return;
     }
+    if (S.cur === 0) {
+      fullReset(); // back on slide 1 = start over
+      return;
+    }
     if (isLive() && S.beat > 0) {
       S.beat -= 1; // un-reveal; the timer keeps running
       anchor();
@@ -290,10 +322,14 @@ export function createStore({
       clearBlank();
       return;
     }
-    if (S.cur > 0) enterBackward(S.cur - 1);
+    enterBackward(Math.max(0, S.cur - 1)); // on slide 1 itself: full reset
   }
 
   function goto(i) {
+    if (i === 0) {
+      fullReset(); // slide 1, from anywhere (also from slide 1 itself)
+      return;
+    }
     if (i < 0 || i >= N || i === S.cur) return;
     if (i < S.cur) enterBackward(i);
     else enterForward(i); // starts / resumes the timer, clears pausedByBack
@@ -400,7 +436,7 @@ export function createStore({
       const i = deck.findIndex((s) => s.n === n);
       if (i >= 0) goto(i);
     },
-    first: () => goto(0),
+    first: fullReset, // Home
     last: () => goto(N - 1),
     start: () => {
       if (!S.timer.running) startTimer();

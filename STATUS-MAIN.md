@@ -24,7 +24,7 @@ Updated 2026-10-26 10:15 (integration pass). Every check ran headless, `--strict
 | Layout fixes for the new text: s09 strikethrough 9:32 shortened to 244 px; s18 14:79 set line break (new `afterCopy` override hook in slides.js); s20 14:162 / 14:165 one line (wrap check) | DONE |
 | Credit lines in notes.js no longer use em dashes (": " separators; credit text from images.json is undashed) | DONE |
 | s01 to s20 each: fully built render + `audit=1&beat=last` (strict, offline): 0 violations, fonts ok, 0 errors, 0 wrap mismatches; 0 em/en dashes in slide text and in all 39 notes; checkpoint per slide | DONE |
-| Live site not republished in this pass (checkpoints used --no-site) | open |
+| Live site republished (see Final publish below) | DONE |
 
 ## Notes
 - Photos: the user will provide the missing ones. Pairs without a usable file show the neutral panel with caption; nothing else needed.
@@ -35,9 +35,9 @@ Updated 2026-10-26 10:15 (integration pass). Every check ran headless, `--strict
 - Figma slide text still contains em dashes (e.g. s15 banner and stat captions); the copy-v2 pass replaces it. The engine adds none.
 - Red count is information only; several Figma slides exceed 2 red elements (s05, s06, s09, s15, s18 and others).
 
-## Contract-change requests (ARCHITECTURE.md, not mine to edit)
-- §0 ownership row for MAIN still lists `index.html`, `presenter.html`, `Present.cmd`, `server.mjs`; §4 says `window.open('presenter.html', ...)`
-  and "Audience view (`index.html`)". The real model is one page with `?view=presenter`, opened from the same file.
+## Contract-change requests (ARCHITECTURE.md)
+- DONE (2026-10-26 16:05): §0 MAIN row and §4 now describe the one-file model (`?view=audience|presenter|print`, presenter opened with
+  `window.open(<this same file>?view=presenter)`); no presenter.html, print.html, server.mjs or Present.cmd references remain.
 
 ## 2D motion wired (Codex motion.js)
 - DONE: one motion system. slides.js builds a `.beat` wrapper per beat (display: contents, Figma z order kept with z-index, diagram slots z 10000); revealBeat / hideBeat replace the CSS `.off` reveal (CSS transitions removed); forward slide changes crossfade 440 ms (leaveSlide + enterSlide, token-guarded) then play the first beat; image panels push in with startPhoto (Seoul ends at New York's cue, New York at the slide end); finishAll before every instant show, on dispose and on beforeprint. Instant for back, revisits, jumps, static, audit, presenter and print.
@@ -49,3 +49,13 @@ Updated 2026-10-26 10:15 (integration pass). Every check ran headless, `--strict
 ## Closing slides (spec/qa-slide.md)
 - DONE: `qa` (kind qa, bold "Questions?" + 5:00 countdown from the slide's own timer: pauses with Tab / T, red in the last 30 s, stops at 0:00, no sound, no auto-advance) and `thanks` (kind closing, "Thank You" + "instagram: erickson_architecture") after `refs`. timing.json entries have dur 0 (+ `countdown: 300` on qa): plan stays 38:30; the presenter's total and ahead/behind leave out all untimed slide time. Presenter: same countdown on the live preview and the THIS SLIDE tile. Print: 41 pages, no countdown. Notes in src/slides/notes.js; the refs note's "Next" now points to Questions.
 - Verified (strict, offline): qa and thanks renders, audit ok (0 violations, fonts ok, 0 errors); CDP test `.tmp/main/countdown-test.mjs`: 4:58 after entry, frozen while paused, resumes, 0:28 red, 0:00 at the end, then Thank You. state tests 82/82.
+
+## Final publish and delivery (2026-10-26 16:05)
+| Item | State |
+|---|---|
+| `node scripts/publish-pages.mjs --message "Publish final wording, notes, 2D motion, closing slides"`: build + checks passed, pushed 50717f5 | DONE |
+| Live checks: `/`, `/index.html`, `/index.html?view=presenter`, `/Seoul-Presentation.html`, `assets/img/i01..i03 nyc+seoul` all 200 | DONE |
+| Build sizes: `dist/index.html` 2,246,342 bytes, `dist/Seoul-Presentation.html` 15,611,723 bytes | DONE |
+| Course folder: `Seoul-Presentation.html` (15,611,723 bytes, copy of dist) | DONE |
+| Course folder: `Seoul-Presentation (draft).pdf` from `?view=print` (headless Chrome, fresh profile, no header/footer, virtual time 20 s): 41 pages, 1440 x 810 pt, 11,759,704 bytes | DONE |
+| Not re-verified in this pass (budget): per-slide audit of the newest 3D diagrams; the 3D session is still finishing diagrams, so republish after it marks them DONE | open |

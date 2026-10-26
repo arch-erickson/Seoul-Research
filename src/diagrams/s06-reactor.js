@@ -18,7 +18,7 @@ const UPV = new THREE.Vector3().crossVectors(VIEW, RG).normalize();             
 // ---- plant (m) ----
 const Y0 = 1.5;                       // plinth top
 const RC = 22, HC = 40;               // containment radius, wall height (dome on top)
-const AUX = { x0: -24, x1: 24, z0: 12, z1: 44, h: 26 };
+const AUX = { x0: -20, x1: 20, z0: 12, z1: 44, h: 26 };
 const TURB = { x0: -20, x1: 20, z0: 44, z1: 128, h: 34 };
 const ANNEX = { x0: 20, x1: 28, z0: 44, z1: 128, h: 14 };
 const PLINTH = { x0: -32, x1: 36, z0: -29, z1: 136 };
@@ -51,8 +51,8 @@ const WIPE = [650, 2050];              // slanted cut sweeps the plant
 const FLY = 850, FLY_J = 60, POP = 170;
 const OUT_DUR = 300;
 const L1B_DELAY = 2150;                // ghost label, once the cut has passed
-const L2_DELAY = 3050;                 // households label, once the mosaic has settled
-const BACK2 = 1900;                    // rewind of beat 2
+const L2_DELAY = 3300;                 // households label, once the last row and its outlines have settled
+const BACK2 = 2400;                    // rewind of beat 2 (slow enough for a calm camera push-in)
 
 function houseGeo() {
   const w = 1.6, d = 1.8, h = 0.9, r = 1.5;
@@ -120,18 +120,12 @@ export default defineDiagram({
   stage: {
     view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: S1, at: AT1.slice() },
     shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] },
+    ground: { opacity: 0.06 },            // the containment shadow falls past the plinth: keep it as faint as on the plinth
   },
   build(S) {
     S.view.at = S.view.at.slice();          // the stage copies view shallowly: give this instance its own array
     const SH0 = S.key.shadow.intensity;
     const plant = S.part('Nuclear plant');
-
-    // ---------- plinth (unfolds from its centre) ----------
-    const plinth = new THREE.Group();
-    plinth.position.set((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2);
-    plant.add(plinth);
-    S.solid(boxGeo(PLINTH.x1 - PLINTH.x0, Y0, PLINTH.z1 - PLINTH.z0), {}, plinth);
-    const plinthInk = inkUnder(plinth);
 
     // ---------- the slanted cut that turns the plant into dwellings ----------
     const NS = RG.clone().add(new THREE.Vector3(0, 0.75, 0)).normalize();
@@ -149,12 +143,36 @@ export default defineDiagram({
     const cutAt = (p2ms) => lerp(dMax, dMin, sub(p2ms, WIPE[0], WIPE[1]));
     const releaseMs = (p) => lerp(WIPE[0], WIPE[1], (dMax - NS.dot(p)) / (dMax - dMin));
 
+    // ---------- plinth (unfolds from its centre) ----------
+    const plinth = new THREE.Group();
+    plinth.position.set((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2);
+    plant.add(plinth);
+    S.solid(boxGeo(PLINTH.x1 - PLINTH.x0, Y0, PLINTH.z1 - PLINTH.z0), {}, plinth);
+    const plinthInk = inkUnder(plinth);
+    // footprint slots: a contact line where each volume meets the plinth, so a rising volume never floats as a white
+    // bubble on white (in state 1 they sit exactly under the silhouette bottom edges; the cut removes them with the
+    // plant). World space, so they always match the volumes; trimmed to the plinth while it unfolds.
+    const PCX = (PLINTH.x0 + PLINTH.x1) / 2, PCZ = (PLINTH.z0 + PLINTH.z1) / 2;
+    const PHX = (PLINTH.x1 - PLINTH.x0) / 2, PHZ = (PLINTH.z1 - PLINTH.z0) / 2;
+    const clipPl = [new THREE.Plane(new THREE.Vector3(1, 0, 0), 0), new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0),
+                    new THREE.Plane(new THREE.Vector3(0, 0, 1), 0), new THREE.Plane(new THREE.Vector3(0, 0, -1), 0)];
+    const ringPts = [];
+    for (let i = 0; i <= 96; i++) { const a = i / 96 * 2 * Math.PI; ringPts.push(new THREE.Vector3(RC * Math.cos(a), Y0 + 0.03, RC * Math.sin(a))); }
+    const rect = b => [[b.x0, b.z0], [b.x1, b.z0], [b.x1, b.z1], [b.x0, b.z1], [b.x0, b.z0]].map(([x, z]) => new THREE.Vector3(x, Y0 + 0.03, z));
+    const fp = [ringPts, rect(AUX), rect(TURB), rect(ANNEX)].map(pts =>
+      S.lines(polySeg(pts, []), { width: LW.crease, color: C.edge, clippingPlanes: [clipSolid, ...clipPl] }, plant));
+
     // ---------- buildings ----------
     // clipBase keeps everything above the plinth top, so in beat 1 each volume rises out of the plinth whole
     // (the dome keeps its true shape instead of being squashed by a scale)
     const clipBase = new THREE.Plane(new THREE.Vector3(0, 1, 0), -(Y0 - 0.02));
     const CLIP = [clipSolid, clipBase];
-    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: THREE.DoubleSide });
+    // outside faces white; the inside faces carry the section tone, so the cut reads as a cut, not a melt. The inside
+    // gets a larger polygon offset: where two volumes touch (turbine/aux at z 44, annex/turbine at x 20) the outside
+    // face must win.
+    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP });
+    mat.shadowSide = THREE.DoubleSide;     // same shadow map as before (clipping is not applied to the shadow pass)
+    const backMat = S.material(C.modelCut, { unique: true, clippingPlanes: CLIP, side: THREE.BackSide, offsetFactor: 2, offsetUnits: 4 });
     const eClip = { clippingPlanes: CLIP };
     const solids = new THREE.Group();
     plant.add(solids);
@@ -163,6 +181,9 @@ export default defineDiagram({
       g.position.y = Y0;
       solids.add(g);
       S.solid(geo, { material: mat, edges: eClip }, g);
+      const bm = new THREE.Mesh(geo, backMat);
+      bm.castShadow = false; bm.receiveShadow = false;
+      g.add(bm);
       return g;
     };
     const gCont = mk(containmentGeo());
@@ -194,6 +215,98 @@ export default defineDiagram({
     }
     S.lines(bays, hair, gTurb);
     const volumes = [[gCont, HC + RC], [gAux, AUX.h], [gTurb, TURB.h], [gAnnex, ANNEX.h]].map(([g, h]) => ({ g, h: h + 0.5 }));
+
+    // ---------- section line: the ink outline of the cut, on the cut plane, for the union of the volumes ----------
+    // (the plane faces the camera and everything kept lies behind it, so the whole outline is visible)
+    const SEC_MAX = 4000;                                     // segment capacity, written in place (no per-frame buffers)
+    const secBuf = new Float32Array(SEC_MAX * 6);
+    const sec = S.lines(secBuf, { width: LW.silhouette, color: C.edge }, plant);
+    sec.frustumCulled = false;
+    sec.visible = false;
+    const E1 = new THREE.Vector3().crossVectors(NS, new THREE.Vector3(0, 1, 0)).normalize();
+    const E2 = new THREE.Vector3().crossVectors(NS, E1);
+    const BOXES = [AUX, TURB, ANNEX];
+    const EPS = 1e-4;
+    const inBox = (b, x, y, z) => x > b.x0 + EPS && x < b.x1 - EPS && z > b.z0 + EPS && z < b.z1 - EPS && y > Y0 + EPS && y < Y0 + b.h - EPS;
+    const inCont = (x, y, z) => y > Y0 + EPS && (y <= Y0 + HC
+      ? x * x + z * z < RC * RC - EPS
+      : x * x + (y - Y0 - HC) * (y - Y0 - HC) + z * z < RC * RC - EPS);
+    const inAny = (x, y, z) => inCont(x, y, z) || BOXES.some(b => inBox(b, x, y, z));
+    const boxCorners = BOXES.map(b => {
+      const v = [];
+      for (const x of [b.x0, b.x1]) for (const y of [Y0, Y0 + b.h]) for (const z of [b.z0, b.z1]) v.push(new THREE.Vector3(x, y, z));
+      return v;
+    });
+    const boxEdges = [];
+    for (let i = 0; i < 8; i++) for (let j = i + 1; j < 8; j++) { const x = i ^ j; if (x === 1 || x === 2 || x === 4) boxEdges.push([i, j]); }
+    const segs = [];
+    const _a = new THREE.Vector3(), _b = new THREE.Vector3(), _m = new THREE.Vector3(), _n = new THREE.Vector3();
+    function addSeg(p, q) {            // keep only the pieces of p-q that lie on the outline of the union
+      const len = p.distanceTo(q);
+      if (len < 1e-6) return;
+      const n = Math.max(1, Math.ceil(len / 1.2));
+      _n.subVectors(q, p).normalize();
+      _n.crossVectors(NS, _n).multiplyScalar(0.08);   // across the outline, inside the cut plane
+      for (let i = 0; i < n; i++) {
+        _a.lerpVectors(p, q, i / n); _b.lerpVectors(p, q, (i + 1) / n);
+        _m.addVectors(_a, _b).multiplyScalar(0.5);
+        if (inAny(_m.x + _n.x, _m.y + _n.y, _m.z + _n.z) !== inAny(_m.x - _n.x, _m.y - _n.y, _m.z - _n.z)) {
+          segs.push(_a.x, _a.y, _a.z, _b.x, _b.y, _b.z);
+        }
+      }
+    }
+    function curve(fn, K, lo, hi) {    // sampled curve, trimmed exactly to lo <= y <= hi
+      const ok = p => p.y >= lo && p.y <= hi;
+      let u0 = 0, p0 = fn(0), in0 = ok(p0);
+      for (let i = 1; i <= K; i++) {
+        const u1 = i / K, p1 = fn(u1), in1 = ok(p1);
+        if (in0 && in1) addSeg(p0, p1);
+        else if (in0 !== in1) {
+          let a = u0, b = u1;
+          for (let k = 0; k < 12; k++) { const m = (a + b) / 2; if (ok(fn(m)) === in0) a = m; else b = m; }
+          if (in0) addSeg(p0, fn(a)); else addSeg(fn(b), p1);
+        }
+        u0 = u1; p0 = p1; in0 = in1;
+      }
+    }
+    const HN = Math.hypot(NS.x, NS.z);
+    function buildSection(c) {
+      segs.length = 0;
+      // boxes: the plane meets the 12 edges; order the points around their centroid
+      boxCorners.forEach(V => {
+        const pts = [];
+        for (const [i, j] of boxEdges) {
+          const dp = NS.dot(V[i]) - c, dq = NS.dot(V[j]) - c;
+          if ((dp > 0) !== (dq > 0)) pts.push(V[i].clone().lerp(V[j], dp / (dp - dq)));
+        }
+        if (pts.length < 3) return;
+        const cen = pts.reduce((s, p) => s.add(p), new THREE.Vector3()).multiplyScalar(1 / pts.length);
+        const ang = p => { const d = p.clone().sub(cen); return Math.atan2(d.dot(E2), d.dot(E1)); };
+        pts.sort((p, q) => ang(p) - ang(q));
+        pts.forEach((p, k) => addSeg(p, pts[(k + 1) % pts.length]));
+      });
+      // containment wall
+      curve(u => {
+        const a = u * 2 * Math.PI, ca = Math.cos(a), sa = Math.sin(a);
+        return new THREE.Vector3(RC * ca, (c - NS.x * RC * ca - NS.z * RC * sa) / NS.y, RC * sa);
+      }, 128, Y0, Y0 + HC);
+      // containment floor (a chord on the plinth)
+      const k = (c - NS.y * Y0) / HN;
+      if (Math.abs(k) < RC) {
+        const t = Math.sqrt(RC * RC - k * k), nx = NS.x / HN, nz = NS.z / HN;
+        addSeg(new THREE.Vector3(nx * k - nz * t, Y0, nz * k + nx * t), new THREE.Vector3(nx * k + nz * t, Y0, nz * k - nx * t));
+      }
+      // dome
+      const d = c - NS.dot(Cd);
+      if (Math.abs(d) < RC) {
+        const r = Math.sqrt(RC * RC - d * d), cc = Cd.clone().addScaledVector(NS, d);
+        curve(u => {
+          const a = u * 2 * Math.PI;
+          return cc.clone().addScaledVector(E1, r * Math.cos(a)).addScaledVector(E2, r * Math.sin(a));
+        }, 128, Y0 + HC, Infinity);
+      }
+      return segs.length > 0;
+    }
 
     // ---------- dashed outline of the plant (drawn behind the cut) + depth-only occluder ----------
     const phantom = new THREE.Group();
@@ -373,12 +486,17 @@ export default defineDiagram({
     function update() {
       // beat 1: the plinth unfolds, then the volumes rise out of it one after another (80 ms apart)
       const t1 = P1 * T1;
-      const pk = ease.out(sub(t1, 0, 600));
+      const pk = ease.out(sub(t1, 0, 520));
       plinth.scale.set(Math.max(1e-3, pk), 1, Math.max(1e-3, pk));
       plinth.visible = pk > 0.001;
       for (const l of plinthInk) l.material.setOpacity(sub(t1, 0, 200));
+      const hx = PHX * pk + 0.05, hz = PHZ * pk + 0.05;
+      clipPl[0].constant = -(PCX - hx); clipPl[1].constant = PCX + hx;
+      clipPl[2].constant = -(PCZ - hz); clipPl[3].constant = PCZ + hz;
+      fp.forEach((l, i) => { const v = sub(t1, 120 + i * 80, 260 + i * 80); l.material.setOpacity(v); l.visible = v > 0.002; });
+      // each volume starts to rise once the unfolding plinth is fully under it (pk > 0.92 at 300 ms)
       volumes.forEach(({ g, h }, i) => {
-        const lt = sub(t1, 160 + i * 80, 160 + i * 80 + 820);
+        const lt = sub(t1, 300 + i * 80, 300 + i * 80 + 760);
         g.position.y = Y0 - h * (1 - ease.out(lt));
         g.visible = lt > 0.001;
       });
@@ -388,6 +506,15 @@ export default defineDiagram({
       clipSolid.constant = c;
       clipGhost.constant = -c;
       solids.visible = P1 > 0.001 && ms < lastRelease + 60;
+      // section outline of the cut (rebuilt while the plane is inside the plant)
+      let cutting = solids.visible && P1 > 0.999 && c > dMin && c < dMax && buildSection(c);
+      if (cutting) {
+        const n = Math.min(SEC_MAX, segs.length / 6);
+        secBuf.set(n * 6 < segs.length ? segs.slice(0, n * 6) : segs);
+        sec.geometry.attributes.instanceStart.data.needsUpdate = true;
+        sec.geometry.instanceCount = n;
+      }
+      sec.visible = !!cutting;
       // soft shadows fade out while the camera pulls back, before the cut starts (the cut is not applied to the
       // shadow pass: clipShadows hangs SwiftShader renders); state 2 has nothing tall left to cast one anyway
       S.key.shadow.intensity = SH0 * (1 - ease.inOut(sub(ms, SHF[0], SHF[1])));

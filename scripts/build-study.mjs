@@ -214,7 +214,7 @@ function bootStudy() {
   document.addEventListener('click', event => {
     const anchor = event.target.closest('a[href^="#"]');
     if (!anchor || !$(anchor.hash.slice(1))?.hasAttribute('data-study-key')) return;
-    event.preventDefault(); history.replaceState(null, '', anchor.hash); jumpTo(anchor.hash.slice(1));
+    event.preventDefault(); history.replaceState(null, '', location.href.split('#')[0] + anchor.hash); jumpTo(anchor.hash.slice(1));
   });
   window.addEventListener('hashchange', () => jumpTo(location.hash.slice(1)));
 
@@ -308,7 +308,7 @@ function bootStudy() {
     check('Q&A shuffle retains every question', new Set(qaOrder).size === DATA.counts.questions && qaOrder.join(',') !== oldQaOrder);
     const sourceKey = DATA.questions[qaOrder[qaIndex]].key; $('qa-source').click();
     check('Q&A source link returns to its slide', mode === 'study' && location.hash === '#' + sourceKey);
-    history.replaceState(null,'',location.pathname + location.search);
+    history.replaceState(null,'',location.href.split('#')[0]);
     tabs.find(tab => tab.dataset.mode === 'glossary').click(); check('complete glossary', $('glossary-panel').querySelectorAll('dt').length === DATA.counts.glossary);
     tabs.find(tab => tab.dataset.mode === 'day').click(); check('N27 table and checklist', document.querySelectorAll('.clicker-table tbody tr').length === 8 && document.querySelectorAll('[data-check]').length === 3);
     const checkbox = document.querySelector('[data-check]'), oldChecked = checkbox.checked; checkbox.click(); check('checklist is interactive', checkbox.checked !== oldChecked); checkbox.click();
@@ -322,15 +322,23 @@ function bootStudy() {
     check('no prohibited dashes in page text', !/[\u2013\u2014]/.test(document.body.textContent));
     check('Montserrat font faces loaded', [...document.fonts].every(font => font.status === 'loaded'));
     check('no runtime or resource errors', errors.length === 0);
-    const report = { ok:checks.every(item => item.ok), viewport:{ width:innerWidth, height:innerHeight }, counts:DATA.counts, checks, errors };
+    const report = { ok:checks.every(item => item.ok), viewport:{ width:innerWidth, height:innerHeight }, capture:{ mode, slide:query.get('slide'), scrollY, height:document.documentElement.scrollHeight, target:query.get('slide') ? $(query.get('slide'))?.getBoundingClientRect().toJSON() : null }, counts:DATA.counts, checks, errors };
     const node = document.createElement('script'); node.type = 'application/json'; node.id = 'audit-result'; node.textContent = JSON.stringify(report); document.body.appendChild(node);
     window.__studyAudit = report;
+    if (window.parent !== window) window.parent.postMessage({ type:'seoul-study-audit', report }, '*');
   }
   Promise.resolve(document.fonts.ready).then(() => {
     document.documentElement.dataset.studyReady = '1';
-    if (query.has('audit')) audit();
+    if (query.has('audit')) return audit();
     else if (query.get('slide') || location.hash) jumpTo(query.get('slide') || location.hash.slice(1));
-  }).catch(error => { errors.push(String(error)); });
+  }).catch(error => {
+    errors.push(String(error));
+    if (query.has('audit')) {
+      const report = { ok:false, errors };
+      const node = document.createElement('script'); node.id = 'audit-result'; node.type = 'application/json'; node.textContent = JSON.stringify(report); document.body.appendChild(node);
+      if (window.parent !== window) window.parent.postMessage({ type:'seoul-study-audit', report }, '*');
+    }
+  });
 }
 
 const css = `

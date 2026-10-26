@@ -1,0 +1,351 @@
+{
+  "output": "C:\\Users\\erick\\AppData\\Local\\Temp\\claude\\seoul-deck\\codex\\study\\Seoul-Study-Guide.html",
+  "bytes": 815582,
+  "counts": {
+    "sections": 41,
+    "study": 39,
+    "copy": 327,
+    "flashcards": 60,
+    "questions": 100,
+    "glossary": 25,
+    "total": 2310
+  },
+  "sourceKeys": [
+    "s01",
+    "i01",
+    "s02",
+    "i02",
+    "s03",
+    "i03",
+    "s04",
+    "i04",
+    "s05",
+    "i05",
+    "s06",
+    "i06",
+    "s07",
+    "i07",
+    "s08",
+    "i08",
+    "s09",
+    "i09",
+    "s10",
+    "i10",
+    "s11",
+    "i11",
+    "s12",
+    "i12",
+    "s13",
+    "i13",
+    "s14",
+    "i14",
+    "s15",
+    "i15",
+    "s16",
+    "i16",
+    "s17",
+    "i17",
+    "s18",
+    "i18",
+    "s19",
+    "s20",
+    "refs"
+  ],
+  "order": [
+    {
+      "key": "s01",
+      "title": "Seoul: The Carrot and the Stick",
+      "start": 0,
+      "end": 45,
+      "duration": 45
+    },
+    {
+      "key": "i01",
+      "title": "Two Vertical Cities",
+      "start": 45,
+      "end": 55,
+      "duration": 10
+    },
+    {
+      "key": "s02",
+      "title": "Comparing the Two Cities",
+      "start": 55,
+      "end": 145,
+      "duration": 90
+    },
+    {
+      "key": "i02",
+      "title": "Housing from Above",
+      "start": 145,
+      "end": 155,
+      "duration": 10
+    },
+    {
+      "key": "s03",
+      "title": "Emissions by Sector",
+      "start": 155,
+      "end": 215,
+      "duration": 60
+    },
+    {
+      "key": "i03",
+      "title": "Older Apartment Blocks",
+      "start": 215,
+      "end": 225,
+      "duration": 10
+    },
+    {
+      "key": "s04",
+      "title": "Seoul's Two Emergencies",
+      "start": 225,
+      "end": 300,
+      "duration": 75
+    },
+    {
+      "key": "i04",
+      "title": "Two Landfills in Use",
+      "start": 300,
+      "end": 310,
+      "duration": 10
+    },
+    {
+      "key": "s05",
+      "title": "Climate Targets and Car Bans",
+      "start": 310,
+      "end": 400,
+      "duration": 90
+    },
+    {
+      "key": "i05",
+      "title": "Downtown Traffic",
+      "start": 400,
+      "end": 410,
+      "duration": 10
+    },
+    {
+      "key": "s06",
+      "title": "One Less Nuclear Power Plant",
+      "start": 410,
+      "end": 530,
+      "duration": 120
+    },
+    {
+      "key": "i06",
+      "title": "Solar Roof and Nuclear Plant",
+      "start": 530,
+      "end": 540,
+      "duration": 10
+    },
+    {
+      "key": "s07",
+      "title": "Solar Panels on Balconies",
+      "start": 540,
+      "end": 630,
+      "duration": 90
+    },
+    {
+      "key": "i07",
+      "title": "Balconies in Both Cities",
+      "start": 630,
+      "end": 640,
+      "duration": 10
+    },
+    {
+      "key": "s08",
+      "title": "Paying for Building Retrofits",
+      "start": 640,
+      "end": 760,
+      "duration": 120
+    },
+    {
+      "key": "i08",
+      "title": "Two Older Buildings",
+      "start": 760,
+      "end": 770,
+      "duration": 10
+    },
+    {
+      "key": "s09",
+      "title": "Zero-Energy Building Rules",
+      "start": 770,
+      "end": 845,
+      "duration": 75
+    },
+    {
+      "key": "i09",
+      "title": "Two Public Buildings",
+      "start": 845,
+      "end": 855,
+      "duration": 10
+    },
+    {
+      "key": "s10",
+      "title": "Seoul Energy Dream Center",
+      "start": 855,
+      "end": 1020,
+      "duration": 165
+    },
+    {
+      "key": "i10",
+      "title": "Two Teaching Buildings",
+      "start": 1020,
+      "end": 1030,
+      "duration": 10
+    },
+    {
+      "key": "s11",
+      "title": "Nowon Energy Zero House",
+      "start": 1030,
+      "end": 1165,
+      "duration": 135
+    },
+    {
+      "key": "i11",
+      "title": "Two New Housing Complexes",
+      "start": 1165,
+      "end": 1175,
+      "duration": 10
+    },
+    {
+      "key": "s12",
+      "title": "Two LEED Gold Buildings",
+      "start": 1175,
+      "end": 1295,
+      "duration": 120
+    },
+    {
+      "key": "i12",
+      "title": "Two Supertalls",
+      "start": 1295,
+      "end": 1305,
+      "duration": 10
+    },
+    {
+      "key": "s13",
+      "title": "Trash Fees and Smart Bins",
+      "start": 1305,
+      "end": 1410,
+      "duration": 105
+    },
+    {
+      "key": "i13",
+      "title": "Two Food Waste Bins",
+      "start": 1410,
+      "end": 1420,
+      "duration": 10
+    },
+    {
+      "key": "s14",
+      "title": "From Landfill to Park",
+      "start": 1420,
+      "end": 1510,
+      "duration": 90
+    },
+    {
+      "key": "i14",
+      "title": "Two Landfill Parks",
+      "start": 1510,
+      "end": 1520,
+      "duration": 10
+    },
+    {
+      "key": "s15",
+      "title": "The 2026 Landfill Ban",
+      "start": 1520,
+      "end": 1700,
+      "duration": 180
+    },
+    {
+      "key": "i15",
+      "title": "Two Trash Facilities",
+      "start": 1700,
+      "end": 1710,
+      "duration": 10
+    },
+    {
+      "key": "s16",
+      "title": "Restoring Cheonggyecheon",
+      "start": 1710,
+      "end": 1830,
+      "duration": 120
+    },
+    {
+      "key": "i16",
+      "title": "A Stream and a Highway",
+      "start": 1830,
+      "end": 1840,
+      "duration": 10
+    },
+    {
+      "key": "s17",
+      "title": "Green Space Close to Home",
+      "start": 1840,
+      "end": 1930,
+      "duration": 90
+    },
+    {
+      "key": "i17",
+      "title": "Two Elevated Parks",
+      "start": 1930,
+      "end": 1940,
+      "duration": 10
+    },
+    {
+      "key": "s18",
+      "title": "Buses and the Climate Card",
+      "start": 1940,
+      "end": 2045,
+      "duration": 105
+    },
+    {
+      "key": "i18",
+      "title": "Two Bus Lanes",
+      "start": 2045,
+      "end": 2055,
+      "duration": 10
+    },
+    {
+      "key": "s19",
+      "title": "Five Ideas for New York",
+      "start": 2055,
+      "end": 2250,
+      "duration": 195
+    },
+    {
+      "key": "s20",
+      "title": "Three Findings",
+      "start": 2250,
+      "end": 2310,
+      "duration": 60
+    },
+    {
+      "key": "refs",
+      "title": "References and Image Credits",
+      "start": 2310,
+      "end": 2310,
+      "duration": 0
+    },
+    {
+      "key": "qa",
+      "title": "Questions",
+      "start": 2310,
+      "end": 2310,
+      "duration": 0
+    },
+    {
+      "key": "thanks",
+      "title": "Thank You",
+      "start": 2310,
+      "end": 2310,
+      "duration": 0
+    }
+  ],
+  "inputHashes": {
+    "spec/study-v2.json": "f3634bbbf4f8df17030a89c7e8e73908013ad1fceb01752c3fa3f864eb8edf06",
+    "spec/study-v2-extras.json": "b759fd0ec001868485febeea2c312ce50f2da0d77ac6a9ff6ee0f616dc39b6a3",
+    "spec/timing.json": "8b1ebec4a55d5d9f7c0f4eefbcf386e9efc4095678ecc926ab4d895f42f72d7f",
+    "spec/copy-v2.json": "bfc1397cac5b365d3af8f893679234780f3e0ceb3deb288fa3a34a7b4ea58540",
+    "spec/notes-v2.json": "a6a20089cd856d6b60092014c1b98e4e44a1f7510995c5f82e6558e670b3953b",
+    "ARCHITECTURE.md": "d10e26b1c31dc0a7c0751ace1e216ca0ae6da4d22e8a39631ec1a05567bcb295"
+  }
+}
