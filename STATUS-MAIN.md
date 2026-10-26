@@ -38,3 +38,10 @@ Updated 2026-10-26 10:15 (integration pass). Every check ran headless, `--strict
 ## Contract-change requests (ARCHITECTURE.md, not mine to edit)
 - §0 ownership row for MAIN still lists `index.html`, `presenter.html`, `Present.cmd`, `server.mjs`; §4 says `window.open('presenter.html', ...)`
   and "Audience view (`index.html`)". The real model is one page with `?view=presenter`, opened from the same file.
+
+## 2D motion wired (Codex motion.js)
+- DONE: one motion system. slides.js builds a `.beat` wrapper per beat (display: contents, Figma z order kept with z-index, diagram slots z 10000); revealBeat / hideBeat replace the CSS `.off` reveal (CSS transitions removed); forward slide changes crossfade 440 ms (leaveSlide + enterSlide, token-guarded) then play the first beat; image panels push in with startPhoto (Seoul ends at New York's cue, New York at the slide end); finishAll before every instant show, on dispose and on beforeprint. Instant for back, revisits, jumps, static, audit, presenter and print.
+- Markup: `src/slides/motion-marks.js` (count + draw lists from codex/MOTION-NOTES.md); fallbacks of live 3D diagrams are skipped; s03 5:65 counts only "52.34".
+- motion.js integration fix (MAIN): `data-motion-step` (row stagger) and `data-motion-rise="0"` (photo panels do not rise). 36 motion tests pass.
+- Test param `?play=1`: the first slide plays its entry (timer frames, reduced-motion answered as "no preference", 3D instant) for headless mid-motion shots.
+- NOTE: this PC reports prefers-reduced-motion: reduce (Windows animation effects off), so the deck is instant here by design (ARCHITECTURE section 1).
