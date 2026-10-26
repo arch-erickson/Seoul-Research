@@ -2,23 +2,31 @@
 // Every other diagram id falls back to its Figma 2D elements on the slide.
 import d0 from '../diagrams/s01-map.js';
 import d1 from '../diagrams/s03-map.js';
-import d2 from '../diagrams/s07-balcony.js';
-import d3 from '../diagrams/s10-edc.js';
-import d4 from '../diagrams/s11-nowon.js';
-import d5 from '../diagrams/s12-towers.js';
-import d6 from '../diagrams/s13-rfid.js';
-import d7 from '../diagrams/s14-nanjido.js';
-import d8 from '../diagrams/s15-export.js';
-import d9 from '../diagrams/s16-cheonggye.js';
+import d2 from '../diagrams/s05-trajectory.js';
+import d3 from '../diagrams/s06-reactor.js';
+import d4 from '../diagrams/s07-balcony.js';
+import d5 from '../diagrams/s09-zeb.js';
+import d6 from '../diagrams/s10-edc.js';
+import d7 from '../diagrams/s11-nowon.js';
+import d8 from '../diagrams/s12-towers.js';
+import d9 from '../diagrams/s13-rfid.js';
+import d10 from '../diagrams/s14-nanjido.js';
+import d11 from '../diagrams/s15-export.js';
+import d12 from '../diagrams/s16-cheonggye.js';
+import d13 from '../diagrams/s17-parks.js';
 export default {
   's01-map': d0,
   's03-map': d1,
-  's07-balcony': d2,
-  's10-edc': d3,
-  's11-nowon': d4,
-  's12-towers': d5,
-  's13-rfid': d6,
-  's14-nanjido': d7,
-  's15-export': d8,
-  's16-cheonggye': d9,
+  's05-trajectory': d2,
+  's06-reactor': d3,
+  's07-balcony': d4,
+  's09-zeb': d5,
+  's10-edc': d6,
+  's11-nowon': d7,
+  's12-towers': d8,
+  's13-rfid': d9,
+  's14-nanjido': d10,
+  's15-export': d11,
+  's16-cheonggye': d12,
+  's17-parks': d13,
 };

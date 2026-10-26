@@ -67,6 +67,17 @@ function existsExact(abs) {
 const files = walk(DIST);
 const problems = [];
 const isExternal = (u) => /^(https?:|data:|blob:|mailto:|tel:|javascript:|#|\/\/)/i.test(u);
+// Photos the user is still supplying (status "user-supply" in spec/images.json) are expected to be missing:
+// the deck shows a neutral panel for them. Their references are allowed; every other missing file still fails.
+const expectedMissing = new Set();
+try {
+  const imgs = JSON.parse(fs.readFileSync(path.join(WS, 'spec', 'images.json'), 'utf8'));
+  for (const p of imgs.pairs || []) for (const side of ['seoul', 'nyc']) {
+    const x = p[side];
+    if (x && x.status === 'user-supply' && x.file && !fs.existsSync(path.join(DIST, x.file))) expectedMissing.add(x.file.replace(/^\.\//, ''));
+  }
+} catch { /* no image list yet */ }
+if (expectedMissing.size) console.log(expectedMissing.size + ' photo(s) still to be supplied by the user (allowed to be missing).');
 for (const f of files) {
   const ext = path.extname(f).toLowerCase();
   if (!['.html', '.css', '.js'].includes(ext)) continue;
@@ -87,6 +98,7 @@ for (const f of files) {
     if (!clean) continue;
     if (clean.startsWith('/')) { problems.push(path.relative(DIST, f) + ': absolute path "' + r + '" breaks under /Seoul-Research/; use a relative path'); continue; }
     const base = ext === '.js' ? DIST : path.dirname(f); // asset paths resolve against the page, which sits at the dist root
+    if (expectedMissing.has(clean.replace(/^\.\//, ''))) continue;
     if (!existsExact(path.resolve(base, clean))) problems.push(path.relative(DIST, f) + ': "' + r + '" not found with this exact letter case');
   }
 }
