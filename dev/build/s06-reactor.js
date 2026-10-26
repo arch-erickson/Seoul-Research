@@ -46300,19 +46300,22 @@ void main() {
   var FPAD = 3;
   var GREY = "#C3C2BE";
   var GREY_EDGE = "#94959A";
-  var SCALE = 2.7;
-  var AT1 = [655, 262];
+  var S1 = 3.4;
+  var AT1 = [530, 227];
+  var S2 = 2.7;
   var AT2 = [384, 262];
   var T1 = 1300;
-  var T2 = 3560;
-  var PAN = [0, 1e3];
-  var FPL = [350, 1e3];
-  var WIPE = [600, 2200];
+  var T2 = 3700;
+  var CAM = [0, 1150];
+  var FPL = [450, 1150];
+  var WIPE = [800, 2400];
   var FLY = 900;
   var FLY_J = 60;
   var POP = 170;
   var OUT_DUR = 300;
-  var L2_DELAY = 3300;
+  var L1B_DELAY = 2550;
+  var L2_DELAY = 3420;
+  var BACK2 = 2400;
   function houseGeo() {
     const w = 1.6, d = 1.8, h = 0.9, r = 1.5;
     const s = new three_module_exports.Shape([
@@ -46378,7 +46381,7 @@ void main() {
     states: 2,
     region: { x: 100, y: 420, w: 1080, h: 420 },
     stage: {
-      view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: SCALE, at: AT1.slice() },
+      view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: S1, at: AT1.slice() },
       shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] }
     },
     build(S) {
@@ -46656,15 +46659,21 @@ void main() {
           o.l.material.setOpacity(v);
           o.l.visible = v > 2e-3;
         }
-        const k = ease.inOut(sub(ms, PAN[0], PAN[1]));
+        setView(ease.inOut(sub(ms, CAM[0], CAM[1])));
+        if (L1a) L1a.o.place.x = S.project(domeSide).x + 44;
+        if (L1b) L1b.o.place.x = S.project(domeTop).x;
+        if (L2) L2.o.place.x = S.project(fAnchor).x;
+      }
+      function setView(k) {
+        S.view.scale = lerp2(S1, S2, k);
         S.view.at[0] = lerp2(AT1[0], AT2[0], k);
         S.view.at[1] = lerp2(AT1[1], AT2[1], k);
         S.applyView();
-        if (L1) L1.o.place.x = S.project(domeTop).x;
-        if (L2) L2.o.place.x = S.project(fAnchor).x;
       }
-      let L1 = null, L2 = null;
+      let L1a = null, L1b = null, L2 = null;
       const domeTop = new three_module_exports.Vector3(0, Y0 + HC, 0).addScaledVector(UPV, RC);
+      const A20 = 20 * DEG2;
+      const domeSide = new three_module_exports.Vector3(0, Y0 + HC, 0).addScaledVector(RG, RC * Math.cos(A20)).addScaledVector(UPV, RC * Math.sin(A20));
       let fAnchor = null;
       S.anim.prop("p1", 0, (v) => {
         P1 = v;
@@ -46674,18 +46683,25 @@ void main() {
         P2 = v;
         update();
       }, { kind: "move", dur: T2 });
-      const dTop = S.project(domeTop);
-      L1 = S.label({
-        text: "Output of one nuclear reactor: 2 million TOE a year",
+      const L1_TEXT = "Output of one nuclear reactor: 2 million TOE a year";
+      const L1_LINES = ["Output of one nuclear reactor:", "2 million TOE a year"];
+      setView(0);
+      L1a = S.label({
+        text: L1_TEXT,
+        anchor: domeSide,
+        anchorObj: plant,
+        place: { mode: "column", x: S.project(domeSide).x + 44 }
+      });
+      breakLines(L1a, L1_LINES);
+      setView(1);
+      L1b = S.label({
+        text: L1_TEXT,
         anchor: domeTop,
         anchorObj: plant,
-        place: { mode: "fixed", x: dTop.x, y: 24, ax: "center", ay: "top" },
+        place: { mode: "fixed", x: S.project(domeTop).x, y: 24, ax: "center", ay: "top" },
         leader: "v"
       });
-      breakLines(L1, ["Output of one nuclear reactor:", "2 million TOE a year"]);
-      S.view.at[0] = AT2[0];
-      S.view.at[1] = AT2[1];
-      S.applyView();
+      breakLines(L1b, L1_LINES);
       let best = null, bestY = 1e9;
       for (const t of targets) {
         const q = S.project(new three_module_exports.Vector3(t.p.x, FY + 1.4, t.p.z));
@@ -46695,37 +46711,38 @@ void main() {
         }
       }
       fAnchor = new three_module_exports.Vector3(best.x, FY + 1.4, best.z);
-      const fTop = S.project(fAnchor);
-      update();
       L2 = S.label({
         text: "1.68 million households plus building retrofits",
         anchor: fAnchor,
         anchorObj: field,
-        place: { mode: "fixed", x: fTop.x, y: 24, ax: "center", ay: "top" },
+        place: { mode: "fixed", x: S.project(fAnchor).x, y: 24, ax: "center", ay: "top" },
         leader: "v"
       });
       breakLines(L2, ["1.68 million households", "plus building retrofits"]);
-      labelProp(S, "L1", L1);
+      labelProp(S, "L1a", L1a);
+      labelProp(S, "L1b", L1b);
       labelProp(S, "L2", L2);
       update();
       return {
-        targets: (n) => ({ p1: n >= 1 ? 1 : 0, p2: n >= 2 ? 1 : 0, L1: n >= 1 ? 1 : 0, L2: n >= 2 ? 1 : 0 }),
+        targets: (n) => ({ p1: n >= 1 ? 1 : 0, p2: n >= 2 ? 1 : 0, L1a: n === 1 ? 1 : 0, L1b: n >= 2 ? 1 : 0, L2: n >= 2 ? 1 : 0 }),
         plan(name, from, to, dir, n, prev) {
           if (dir > 0) {
             const d1 = prev < 1 ? T1 : 0;
             return {
               p1: { dur: T1, ease: ease.linear },
-              L1: { delay: 1150, dur: 520 },
+              L1a: to > from ? { delay: 1150, dur: 520 } : { delay: 0, dur: 380, ease: ease.in },
               p2: { dur: T2, delay: d1, ease: ease.linear },
+              L1b: { delay: d1 + L1B_DELAY, dur: 520 },
               L2: { delay: d1 + L2_DELAY, dur: 520 }
             }[name] || null;
           }
-          const d2 = prev >= 2 && n < 1 ? 1900 + 150 : 0;
+          const r2 = prev >= 2 ? 200 + BACK2 : 0;
           return {
-            p1: { dur: 900, delay: 150 + d2, ease: ease.linear },
-            p2: { dur: 1900, delay: 150, ease: ease.linear },
-            L1: { dur: 320, delay: d2 },
-            L2: { dur: 320 }
+            L2: { dur: 320, ease: ease.in },
+            L1b: { dur: 320, ease: ease.in },
+            p2: { dur: BACK2, delay: 200, ease: ease.linear },
+            L1a: to > from ? { delay: r2 + 60, dur: 520, ease: ease.out } : { dur: 320, ease: ease.in },
+            p1: { dur: 900, delay: r2 + (prev >= 2 ? 0 : 150), ease: ease.linear }
           }[name] || null;
         }
       };

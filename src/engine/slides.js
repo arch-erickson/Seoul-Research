@@ -124,7 +124,7 @@ export function prepareSlide(entry, slidesByKey, copyMap = null) {
     const e = { ...src };
     if (patch) {
       for (const [k, v] of Object.entries(patch)) {
-        if (k === 'remove') continue;
+        if (k === 'remove' || k === 'afterCopy') continue;
         e[k] = typeof v === 'function' ? v(src[k], src) : v;
       }
       if (patch.lines && e.kind === 'text') e.textH = patch.lines * lineHeightPx(e);
@@ -134,6 +134,13 @@ export function prepareSlide(entry, slidesByKey, copyMap = null) {
       e.copied = true;
       // Explicit line breaks set the height; a wrapping box keeps its Figma line count as a minimum.
       const hard = cp.text.split('\n').length;
+      e.lines = e.wraps ? Math.max(hard, e.lines || 1) : hard;
+      e.textH = e.lines * lineHeightPx(e);
+    }
+    // OVERRIDES may adjust copy-v2 text after it is applied (e.g. a set line break): { afterCopy: (text) => text }
+    if (patch && typeof patch.afterCopy === 'function' && e.copied) {
+      e.chars = patch.afterCopy(e.chars, e);
+      const hard = e.chars.split('\n').length;
       e.lines = e.wraps ? Math.max(hard, e.lines || 1) : hard;
       e.textH = e.lines * lineHeightPx(e);
     }

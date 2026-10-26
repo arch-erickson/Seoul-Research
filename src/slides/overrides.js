@@ -53,6 +53,11 @@ export const OVERRIDES = {
     // the lesson line at y 900. One line at 640 px clears it.
     '14:15': { fixedWidth: 640, wraps: false, lines: 1 },
   },
+  s18: {
+    // copy-v2 14:79 wrapped as "Planned: Hangang River Bus, self-driving / buses" (one orphan word) in its 390 px box,
+    // which already reaches the right margin. A set break balances the two lines; same height.
+    '14:79': { afterCopy: (t) => t.replace('River Bus, self-driving buses', 'River Bus,\nself-driving buses') },
+  },
   s19: {
     // "Cheonggyecheon's evidence on road removal" wrapped at 480 px onto "No traffic collapse followed" (y 850).
     // Widened so it sits on one line like rows 01-04; the arrow column starts at x 706.
