@@ -3,7 +3,7 @@
 // Between those milestones the heights are drawn linear, for illustration only (no extra numbers).
 // 2005 to 2033 red (the cut Seoul has committed to), 2034 to 2049 muted white, 2050 = a footprint on the base.
 // States: 0 the base with 46 hairline footprints · 1 the bars rise in sequence, then the three labels.
-import { defineDiagram, THREE, C, LW, ease, sub, labelProp, boxGeo } from '../kit3d/index.js';
+import { defineDiagram, THREE, C, LW, ease, sub, boxGeo } from '../kit3d/index.js';
 
 // ---- data ----
 const Y0 = 2005, Y_HALF = 2033, Y1 = 2050;
@@ -15,7 +15,7 @@ const mt = y => (y <= Y_HALF ? MT0 + (MT0 / 2 - MT0) * (y - Y0) / (Y_HALF - Y0)
 // ---- model dimensions (m); 1 m of height = 1 Mt ----
 const PITCH = 2.0;                        // one year
 const BT = 0.72;                          // bar width along the row
-const BD = 1.7;                           // bar depth
+const BD = 1.4;                           // bar depth
 const BASE_H = 0.7;                       // model base
 const BASE_X0 = -1.6, BASE_X1 = (N - 1) * PITCH + 1.6;
 const BASE_Z = 2.3;                       // base half depth
@@ -26,7 +26,7 @@ export default defineDiagram({
   states: 1,
   region: { x: 100, y: 320, w: 840, h: 620 },
   stage: {
-    view: { azimuth: -16, elevation: 27, target: [45, 0, 0], scale: 8.45, at: [420, 488] },
+    view: { azimuth: -26, elevation: 27, target: [45, 0, 0], scale: 9.0, at: [400, 471] },
     shadowBox: { min: [BASE_X0, 0, -BASE_Z], max: [BASE_X1, MT0 + BASE_H, BASE_Z] },
     ground: false,
   },
@@ -85,7 +85,7 @@ export default defineDiagram({
     const pFront = S.project(new THREE.Vector3(xOf(N - 1), 0, BASE_Z));
     const lab50 = S.label({
       text: 'Net zero by 2050', anchor: foot50, anchorObj: base,
-      place: { mode: 'fixed', x: p50.x + 2, y: pFront.y + 34, ax: 'right', ay: 'top' }, leader: 'v', dot: false,
+      place: { mode: 'fixed', x: p50.x + 2, y: pFront.y + 62, ax: 'right', ay: 'top' }, leader: 'v', dot: false,
     });
 
     // ---- motion: one progress prop, bars rise in a wave from 2005 to 2049 ----
@@ -99,15 +99,21 @@ export default defineDiagram({
       });
     }, { kind: 'reveal', dur: 2300 });
     // labels follow their bars: 2005 settles at ~LEN, 2033 at ~(28/44·SPREAD + LEN), the row ends at 1
-    labelProp(S, 'l05', lab05, { delay: 2300 * LEN * 0.9 });
-    labelProp(S, 'l33', lab33, { delay: 2300 * ((Y_HALF - Y0) / (N - 2) * SPREAD + LEN) * 0.92 });
-    labelProp(S, 'l50', lab50, { delay: 2300 * 0.96 });
+    // each label fades in while settling 8 px along its own vertical leader, toward its anchor
+    const settle = (name, lab, delay, dy) => {
+      const y0 = lab.o.place.y;
+      S.anim.prop(name, 0, v => { lab.o.place.y = y0 - (1 - v) * dy; lab.setOpacity(v, 0); },
+        { kind: 'fade', dur: 520, delay });
+    };
+    settle('l05', lab05, 2300 * LEN * 0.9, 8);
+    settle('l33', lab33, 2300 * ((Y_HALF - Y0) / (N - 2) * SPREAD + LEN) * 0.92, 8);
+    settle('l50', lab50, 2300 * 0.96, -8);
 
     return {
       targets: n => ({ rise: n >= 1 ? 1 : 0, l05: n >= 1 ? 1 : 0, l33: n >= 1 ? 1 : 0, l50: n >= 1 ? 1 : 0 }),
       plan: (name, from, to, dir) => {
-        if (name === 'rise') return dir > 0 ? { delay: 0, dur: 2300, ease: ease.linear } : { delay: 160, dur: 900, ease: ease.linear };
-        if (dir < 0) return { delay: 0, dur: 280, ease: ease.in };
+        if (name === 'rise') return dir > 0 ? { delay: 0, dur: 2300, ease: ease.linear } : { delay: 120, dur: 1200, ease: ease.linear };
+        if (dir < 0) return { delay: 0, dur: 360, ease: ease.in };
         return null;
       },
     };

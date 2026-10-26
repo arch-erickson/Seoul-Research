@@ -43970,6 +43970,10 @@ void main() {
     capsTracking: "0.12em"
   };
   var MOTION = {
+    // Global 3D time scale, matched to the deck's approved 2D timing (codex/MOTION-NOTES.md "Latest timing policy":
+    // arrivals 900 ms ease-out, 140 ms sibling stagger, rules drawing in over 1400 ms). Applied by the Animator to every
+    // prop duration and delay, so internal staggers derived from progress scale with it. Instant / reduced motion unaffected.
+    timeScale: 1.35,
     short: 450,
     base: 800,
     long: 1100,
@@ -44263,7 +44267,8 @@ void main() {
           continue;
         }
         const d = Object.assign(defaultPlan(p, p.value, target, dir), plan ? plan(name, p.value, target, dir) || {} : {});
-        jobs.push({ p, from: p.value, to: target, delay: d.delay || 0, dur: Math.max(1, d.dur), ease: d.ease, t0: null });
+        const ts = MOTION.timeScale || 1;
+        jobs.push({ p, from: p.value, to: target, delay: (d.delay || 0) * ts, dur: Math.max(1, d.dur * ts), ease: d.ease, t0: null });
       }
       this.stage.requestRender();
       if (!jobs.length) return Promise.resolve();
@@ -46203,14 +46208,6 @@ void main() {
   }
 
   // src/kit3d/index.js
-  function labelProp(stage, name, label, o = {}) {
-    return stage.anim.prop(
-      name,
-      0,
-      (v) => label.setOpacity(v, (1 - v) * (o.slide ?? -8)),
-      { kind: "fade", dur: o.dur ?? 520, delay: o.delay ?? 0 }
-    );
-  }
   function defineDiagram({ id, states, region, stage: stageOpts = {}, build }) {
     return {
       id,
@@ -46267,7 +46264,7 @@ void main() {
   var mt = (y) => y <= Y_HALF ? MT0 + (MT0 / 2 - MT0) * (y - Y0) / (Y_HALF - Y0) : MT0 / 2 * (1 - (y - Y_HALF) / (Y1 - Y_HALF));
   var PITCH = 2;
   var BT = 0.72;
-  var BD = 1.7;
+  var BD = 1.4;
   var BASE_H = 0.7;
   var BASE_X0 = -1.6;
   var BASE_X1 = (N - 1) * PITCH + 1.6;
@@ -46278,7 +46275,7 @@ void main() {
     states: 1,
     region: { x: 100, y: 320, w: 840, h: 620 },
     stage: {
-      view: { azimuth: -16, elevation: 27, target: [45, 0, 0], scale: 8.45, at: [420, 488] },
+      view: { azimuth: -26, elevation: 27, target: [45, 0, 0], scale: 9, at: [400, 471] },
       shadowBox: { min: [BASE_X0, 0, -BASE_Z], max: [BASE_X1, MT0 + BASE_H, BASE_Z] },
       ground: false
     },
@@ -46339,7 +46336,7 @@ void main() {
         text: "Net zero by 2050",
         anchor: foot50,
         anchorObj: base,
-        place: { mode: "fixed", x: p50.x + 2, y: pFront.y + 34, ax: "right", ay: "top" },
+        place: { mode: "fixed", x: p50.x + 2, y: pFront.y + 62, ax: "right", ay: "top" },
         leader: "v",
         dot: false
       });
@@ -46352,14 +46349,26 @@ void main() {
           b.pivot.visible = s > 2e-3;
         });
       }, { kind: "reveal", dur: 2300 });
-      labelProp(S, "l05", lab05, { delay: 2300 * LEN * 0.9 });
-      labelProp(S, "l33", lab33, { delay: 2300 * ((Y_HALF - Y0) / (N - 2) * SPREAD + LEN) * 0.92 });
-      labelProp(S, "l50", lab50, { delay: 2300 * 0.96 });
+      const settle = (name, lab, delay, dy) => {
+        const y0 = lab.o.place.y;
+        S.anim.prop(
+          name,
+          0,
+          (v) => {
+            lab.o.place.y = y0 - (1 - v) * dy;
+            lab.setOpacity(v, 0);
+          },
+          { kind: "fade", dur: 520, delay }
+        );
+      };
+      settle("l05", lab05, 2300 * LEN * 0.9, 8);
+      settle("l33", lab33, 2300 * ((Y_HALF - Y0) / (N - 2) * SPREAD + LEN) * 0.92, 8);
+      settle("l50", lab50, 2300 * 0.96, -8);
       return {
         targets: (n) => ({ rise: n >= 1 ? 1 : 0, l05: n >= 1 ? 1 : 0, l33: n >= 1 ? 1 : 0, l50: n >= 1 ? 1 : 0 }),
         plan: (name, from, to, dir) => {
-          if (name === "rise") return dir > 0 ? { delay: 0, dur: 2300, ease: ease.linear } : { delay: 160, dur: 900, ease: ease.linear };
-          if (dir < 0) return { delay: 0, dur: 280, ease: ease.in };
+          if (name === "rise") return dir > 0 ? { delay: 0, dur: 2300, ease: ease.linear } : { delay: 120, dur: 1200, ease: ease.linear };
+          if (dir < 0) return { delay: 0, dur: 360, ease: ease.in };
           return null;
         }
       };
