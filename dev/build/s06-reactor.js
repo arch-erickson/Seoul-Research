@@ -46271,13 +46271,6 @@ void main() {
 
   // src/diagrams/s06-reactor.js
   var DEG2 = Math.PI / 180;
-  var DBG = (() => {
-    try {
-      return new URLSearchParams(location.search).get("s06dbg") || "";
-    } catch (e) {
-      return "";
-    }
-  })();
   var AZ = 55;
   var EL = 28;
   var az = AZ * DEG2;
@@ -46314,7 +46307,8 @@ void main() {
   var T1 = 1300;
   var T2 = 3700;
   var CAM = [0, 1150];
-  var FPL = [450, 1150];
+  var SHF = [80, 760];
+  var FPL = [600, 1300];
   var WIPE = [800, 2400];
   var FLY = 900;
   var FLY_J = 60;
@@ -46389,11 +46383,11 @@ void main() {
     region: { x: 100, y: 420, w: 1080, h: 420 },
     stage: {
       view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: S1, at: AT1.slice() },
-      shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] },
-      shadows: !DBG.includes("nosh")
+      shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] }
     },
     build(S) {
       S.view.at = S.view.at.slice();
+      const SH0 = S.key.shadow.intensity;
       const plant = S.part("Nuclear plant");
       const plinth = new three_module_exports.Group();
       plinth.position.set((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2);
@@ -46417,7 +46411,6 @@ void main() {
       const clipBase = new three_module_exports.Plane(new three_module_exports.Vector3(0, 1, 0), -(Y0 - 0.02));
       const CLIP = [clipSolid, clipBase];
       const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: three_module_exports.DoubleSide });
-      mat.clipShadows = true;
       const eClip = { clippingPlanes: CLIP };
       const solids = new three_module_exports.Group();
       plant.add(solids);
@@ -46572,7 +46565,7 @@ void main() {
       });
       const hg = houseGeo();
       const mkInst = (list, color) => {
-        const m = new three_module_exports.InstancedMesh(hg, S.material(color), DBG.includes("noinst") ? 0 : list.length);
+        const m = new three_module_exports.InstancedMesh(hg, S.material(color), list.length);
         m.frustumCulled = false;
         m.castShadow = false;
         m.receiveShadow = false;
@@ -46584,7 +46577,7 @@ void main() {
       const imGrey = mkInst(greys, GREY);
       const hpos = hg.toNonIndexed().attributes.position.array;
       const outlines = [];
-      for (const [key, land] of DBG.includes("noout") ? [] : groupLand) {
+      for (const [key, land] of groupLand) {
         const list = houses.filter((h) => h.key === key);
         const red = key % 2 === 0;
         const arr = new Float32Array(hpos.length * list.length);
@@ -46604,7 +46597,6 @@ void main() {
       }
       const _p = new three_module_exports.Vector3();
       function placeHouses(list, im, ms) {
-        if (!im.count) return;
         const a = im.instanceMatrix.array;
         for (let k = 0; k < list.length; k++) {
           const h = list[k];
@@ -46658,6 +46650,7 @@ void main() {
         clipSolid.constant = c;
         clipGhost.constant = -c;
         solids.visible = P1 > 1e-3 && ms < lastRelease + 60;
+        S.key.shadow.intensity = SH0 * (1 - ease.inOut(sub(ms, SHF[0], SHF[1])));
         phantom.visible = ms > WIPE[0] - 50;
         const fk = ease.out(sub(ms, FPL[0], FPL[1]));
         fPlinth.scale.set(Math.max(1e-3, fk), 1, Math.max(1e-3, fk));

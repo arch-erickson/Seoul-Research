@@ -53,6 +53,9 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 - Test module moved to `dev/s00-test.js`; `src/diagrams/` holds only real ids.
 - Kit change 09:13: default polygon offset reduced (factor 0.75, units 1.5) so thin slabs no longer show edges beneath them.
 
+- **Motion timing (14:25):** kit3d `MOTION.timeScale = 1.35` stretches every 3D duration/delay (and the staggers derived from
+  them) to match the approved 2D policy (arrivals ~900–1400 ms, ~140 ms staggers). Instant/reduced motion stay instant.
+
 ## Checkpoints (ARCHITECTURE §12)
 
 - 780b6c2: s10-edc, s01-map, s03-map, s15-export, s11-nowon, s13-rfid (`checkpoint.mjs --no-site`). 

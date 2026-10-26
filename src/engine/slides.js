@@ -16,14 +16,21 @@
 //
 // show(index, beatsVisible): beat k (0-based, k = state.beat) is visible iff k < beatsVisible, i.e. pass
 // state.beat + 1. Infinity (or any number >= beatsOf(index)) = fully built. instant: no animation.
-// Reveal = opacity + 16 px rise, 450 ms ease-out, 70 ms stagger per row; un-reveal = ease-in, 260 ms.
+// Motion: one 2D system, src/engine/motion.js (Codex; wiring per codex/MOTION-NOTES.md). Each beat is a
+// <div class="beat"> wrapper (display: contents) holding that beat's elements; revealBeat / hideBeat own their inline
+// opacity and transform. A forward slide change crossfades (leaveSlide + enterSlide, 440 ms) and then reveals the
+// first beat; photos push in with startPhoto; counters (data-motion="count") and rules (data-motion="draw") play
+// inside their beat. instant (back, revisits, jumps, static, previews, print) = final state at once, no frames.
+// The presenter view's decks are always instant. 3D diagrams keep their own motion (diagram host).
 
 import { BEATMAP, OVERRIDES, COLOR_MAP } from '../slides/overrides.js';
+import { motionMark } from '../slides/motion-marks.js';
 import { buildImageSlide } from './images.js';
 import { createDiagramHost } from './diagrams.js';
+import { enterSlide, leaveSlide, revealBeat, hideBeat, startPhoto, finishAll } from './motion.js';
 
-const STAGGER_MS = 70;
 const MAX_STAGGER_STEPS = 8;
+const NUM_TOKEN = /[+\-−]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?/;
 const ROW_TOLERANCE = 14;
 
 // ---------------------------------------------------------------- spec preparation (no DOM)
@@ -224,12 +231,25 @@ function arcPath(w, h, arc) {
   return d;
 }
 
+// data-motion="count": a plain text element counts as a whole; in rich text (inline SVG glyphs, CO2 subscript) only
+// its number is wrapped, so the unit markup stays intact.
+function markCount(d, e) {
+  const chars = String(e.chars ?? '');
+  if (!/[→≥₂]/.test(chars)) { d.dataset.motion = 'count'; return; }
+  const m = chars.match(NUM_TOKEN);
+  if (!m) return;
+  d.innerHTML = richText(chars.slice(0, m.index), e.weight) + `<span data-motion="count">${esc(m[0])}</span>` +
+    richText(chars.slice(m.index + m[0].length), e.weight);
+}
+
 function makeElement(e) {
   const d = document.createElement('div');
   d.dataset.id = e.id;
   d.dataset.kind = e.kind;
   d.dataset.beat = String(e.beat);
   if (e.fallbackOf) d.dataset.fb = e.fallbackOf;
+  if (e.motion === 'draw') d.dataset.motion = 'draw';
+  d.dataset.motionStep = String(Math.min(MAX_STAGGER_STEPS, e.row || 0)); // one stagger step per visual row
   const st = d.style;
   st.left = e.x + 'px';
   st.top = e.y + 'px';
@@ -247,6 +267,7 @@ function makeElement(e) {
     st.color = e.color || 'var(--ink)';
     st.textAlign = (e.align || 'LEFT').toLowerCase() === 'justified' ? 'justify' : (e.align || 'LEFT').toLowerCase();
     d.innerHTML = richText(e.chars, e.weight);
+    if (e.motion === 'count') markCount(d, e);
     return d;
   }
 
@@ -385,6 +406,7 @@ export function buildDeck(stageEl, opts = {}) {
     slidesSpec, timing, images = null, imageBriefs = null, references = null, diagrams = {}, copy = null,
     view = 'audience', getScale = () => 1, reducedMotion = (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches),
     prefetch = view === 'audience' ? 1 : 0, manageDiagrams = 'window',
+    motion = view === 'audience' && !reducedMotion, // 2D motion (motion.js); false = always instant
   } = opts;
   if (!slidesSpec || !timing) throw new Error('buildDeck: slidesSpec and timing are required');
 
@@ -418,15 +440,19 @@ export function buildDeck(stageEl, opts = {}) {
     let items = [];
     const slots = [];
     if (entry.kind === 'content') {
-      for (const e of prep.elements) {
+      prep.elements.forEach((e, rank) => {
+        // A 2D fallback of a diagram with a live 3D module is hidden: the diagram owns its motion.
+        const mark = motionMark(entry.key, e.id);
+        e.motion = mark && !(e.fallbackOf && diagrams && diagrams[e.fallbackOf]) ? mark : null;
         const el = makeElement(e);
+        el.style.zIndex = String(rank + 1); // the Figma stacking order survives the per-beat wrappers
         section.appendChild(el);
         items.push({ el, beat: e.beat, row: e.row || 0, spec: e });
         if (e.fallbackOf) {
           if (!fbIndex.has(e.fallbackOf)) fbIndex.set(e.fallbackOf, []);
           fbIndex.get(e.fallbackOf).push(el);
         }
-      }
+      });
     } else if (entry.kind === 'image') {
       const pair = pairById.get(entry.key) || { id: entry.key };
       items = buildImageSlide(section, pair, { view }).map((it) => ({ ...it, row: 0 }));
@@ -442,40 +468,64 @@ export function buildDeck(stageEl, opts = {}) {
       section.appendChild(slot);
       slots.push({ ...d, slot });
     }
-    // Initial state: nothing revealed.
-    for (const it of items) it.el.classList.add('off');
+    // One wrapper per beat, in place of the elements (so the photo gutter stays on top), elements keep their order.
+    // display: contents keeps the section as the containing block of the absolutely positioned elements.
+    const groups = prep.beats.map((b, k) => {
+      const g = document.createElement('div');
+      g.className = 'beat';
+      g.dataset.beatGroup = String(k);
+      return g;
+    });
+    const first = items.length ? items[0].el : null;
+    for (const g of groups) section.insertBefore(g, first && first.parentNode === section ? first : null);
+    for (const it of items) groups[Math.max(0, Math.min(groups.length - 1, it.beat))].appendChild(it.el);
     root.appendChild(section);
-    return { index, key: entry.key, kind: entry.kind, entry, prep, section, items, slots, visible: 0 };
+    // Initial state: nothing revealed. Motion captures each element's authored opacity and transform here.
+    for (const g of groups) hideBeat(g, { instant: true });
+    return { index, key: entry.key, kind: entry.kind, entry, prep, section, items, slots, groups, on: groups.map(() => false), target: 0, enteredAt: 0, visible: 0 };
   });
 
+  // 2D motion plays in the audience view only; the presenter previews and print are always instant.
+  const motionOn = view === 'audience' && !!motion;
   let cur = -1;
   let prefetchTimer = null;
+  let fade = null; // the crossfade in progress: { token, from }
+  let fadeSeq = 0;
 
   function clampIndex(i) { return Math.max(0, Math.min(slides.length - 1, i | 0)); }
 
-  function setVisible(S, n, animate) {
-    // rows of the elements revealed by this call, for the stagger
-    const revealing = [];
-    for (const it of S.items) {
-      const on = it.beat < n;
-      const isOff = it.el.classList.contains('off');
-      if (on && isOff) revealing.push(it);
-      else if (!on && !isOff) { it.el.style.setProperty('--d', '0ms'); it.el.classList.add('off'); }
-    }
-    if (!revealing.length) return;
-    const rows = [...new Set(revealing.map((it) => it.beat * 1000 + it.row))].sort((a, b) => a - b);
-    for (const it of revealing) {
-      const step = animate ? Math.min(MAX_STAGGER_STEPS, rows.indexOf(it.beat * 1000 + it.row)) : 0;
-      it.el.style.setProperty('--d', `${step * STAGGER_MS}ms`);
-      it.el.classList.remove('off');
-    }
+  function endFade() {
+    if (fade && fade.from) fade.from.section.classList.remove('is-leaving');
+    fade = null;
   }
 
-  function withInstant(section, fn) {
-    section.classList.add('instant');
-    fn();
-    void section.offsetWidth; // commit styles with transitions disabled
-    section.classList.remove('instant');
+  // Photo push-in fitted to the 10 s interstitial: Seoul's ends at New York's cue, New York's at the slide's end.
+  function photoMs(S, k) {
+    const beats = S.prep.beats;
+    const endSec = k + 1 < beats.length ? beats[k + 1].cue : (S.entry.dur || timing.imageSlideSeconds || 10);
+    return Math.max(1500, endSec * 1000 - (performance.now() - S.enteredAt));
+  }
+
+  // Beats [0, n) visible. Of the newly visible beats only the last one with elements plays (animate); the others
+  // appear at once. Beats past n are hidden at once.
+  function reveal(S, n, animate) {
+    for (let k = S.groups.length - 1; k >= n; k--) {
+      if (!S.on[k]) continue;
+      S.on[k] = false;
+      if (S.groups[k].children.length) hideBeat(S.groups[k], { instant: true });
+    }
+    const fresh = [];
+    for (let k = 0; k < n; k++) if (!S.on[k]) fresh.push(k);
+    const play = animate ? fresh.filter((k) => S.groups[k].children.length).pop() : -1;
+    for (const k of fresh) {
+      S.on[k] = true;
+      const g = S.groups[k];
+      if (!g.children.length) continue; // a beat that only moves a diagram: nothing to reveal, nothing interrupted
+      const instant = k !== play;
+      revealBeat(g, { instant });
+      for (const panel of g.querySelectorAll('.img-panel')) startPhoto(panel, { durationMs: instant ? 0 : photoMs(S, k) });
+    }
+    S.visible = n;
   }
 
   function stateFor(d, n) {
@@ -530,20 +580,42 @@ export function buildDeck(stageEl, opts = {}) {
     index = clampIndex(index);
     const S = slides[index];
     let n = beatsVisible === Infinity ? S.prep.beatCount : Math.max(0, Math.min(S.prep.beatCount, Math.floor(beatsVisible)));
-    const anim = !instant && !reducedMotion;
+    const anim = !instant && motionOn;
+    if (!anim) finishAll(); // jumps, back, revisits: anything still playing ends at its final state first
     if (index !== cur) {
       const P = slides[cur];
+      endFade();
+      reveal(S, 0, false); // entered from nothing; a revisit is rebuilt below
       if (P) P.section.classList.remove('is-current');
-      withInstant(S.section, () => {
-        setVisible(S, anim ? 0 : n, false);
-        S.section.classList.add('is-current');
-      });
+      S.section.classList.add('is-current');
       cur = index;
+      S.enteredAt = performance.now();
+      S.target = n;
       if (manageDiagrams === 'window') ensureMounted(S);
       if (S.kind === 'appendix') fitAppendix(S.section);
+      if (anim) {
+        // Crossfade: both sections stay displayed for 440 ms, then the first beat plays. The token drops a stale
+        // continuation after rapid clicks; a beat change during the fade only updates S.target.
+        const token = ++fadeSeq;
+        fade = { token, from: P || null };
+        const ps = [];
+        if (P) { P.section.classList.add('is-leaving'); ps.push(leaveSlide(P.section)); }
+        ps.push(enterSlide(S.section));
+        Promise.all(ps).then(() => {
+          if (!fade || fade.token !== token) return;
+          endFade();
+          if (cur === index) reveal(S, S.target, true);
+        });
+      } else {
+        enterSlide(S.section, { instant: true });
+        reveal(S, n, false);
+      }
+    } else if (fade) {
+      S.target = n;
+      if (!anim) { endFade(); reveal(S, n, false); }
+    } else {
+      reveal(S, n, anim);
     }
-    if (anim) setVisible(S, n, true);
-    else withInstant(S.section, () => setVisible(S, n, false));
     S.visible = n;
     const p = applyDiagrams(S, n, !anim);
     manageWindow(index);
@@ -575,6 +647,8 @@ export function buildDeck(stageEl, opts = {}) {
     stateFor,
     fitAppendix: () => { for (const s of slides) if (s.kind === 'appendix') fitAppendix(s.section); },
     dispose() {
+      finishAll();
+      endFade();
       clearTimeout(prefetchTimer);
       host.disposeAll();
       root.remove();

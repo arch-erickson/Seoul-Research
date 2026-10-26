@@ -54,9 +54,11 @@ export function buildImageSlide(section, pair, { view = 'audience' } = {}) {
     panel.dataset.role = 'container';
     panel.style.left = s.x + 'px';
     panel.style.setProperty('--o', '1');
+    panel.dataset.motionRise = '0'; // full-bleed panel: fades in without the 16 px rise (motion.js)
 
     if (imageUsable(entry)) {
       const img = document.createElement('img');
+      img.dataset.motion = 'photo'; // slow push-in from motion.js startPhoto(panel), toward the focal point
       img.alt = `${entry.place || s.fallbackPlace} · ${entry.subject || ''}`.trim();
       img.decoding = view === 'print' ? 'sync' : 'async';
       img.loading = view === 'presenter' ? 'lazy' : 'eager';
@@ -64,6 +66,7 @@ export function buildImageSlide(section, pair, { view = 'audience' } = {}) {
       const f = entry.focal || { x: 0.5, y: 0.5 };
       const fx = Number.isFinite(f.x) ? f.x : 0.5, fy = Number.isFinite(f.y) ? f.y : 0.5;
       img.style.objectPosition = `${(fx * 100).toFixed(1)}% ${(fy * 100).toFixed(1)}%`;
+      img.style.transformOrigin = img.style.objectPosition;
       img.addEventListener('error', () => { img.remove(); panel.classList.add('is-missing'); }, { once: true });
       img.src = resolveImage(entry.file);
       panel.appendChild(img);

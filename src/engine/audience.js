@@ -19,10 +19,13 @@
 // timer stays hidden unless &timer=1), ?audit=1|all (+ auditSlides, overlay=1: the overlap audit; the on-slide timer
 // is shown as in a single-screen talk and audited with every slide), ?simulateScreens=2 (+ simulateWM=0) for tests.
 // Runtime errors are captured by errors.js (imported first by main.js) and reported by the audit.
+// ?play=1 (test only, headless motion checks): the first slide shown after load plays its entry and builds instead of
+// appearing at once (frames.js then drives the animation frames with timers, so a short --wait catches mid-motion).
 // No text added here uses em or en dashes.
 
 import { createStage } from './stage.js';
 import { buildDeck, fontsReady } from './slides.js';
+import { finishAll } from './motion.js';
 import { createStore, slidesFromTiming } from './state.js';
 import { bindKeys, bindWheel } from './input.js';
 import { createSync, createCommandRouter, shouldRestore, saveSnapshot, loadSnapshot, clearSnapshot } from './sync.js';
@@ -106,7 +109,10 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   document.body.appendChild(root);
   const stage = createStage(root);
   await fontsReady(); // measure and lay out with Montserrat (inlined as base64, so this is quick)
-  const deck = buildDeck(stage.el, { ...data, view: 'audience', getScale: stage.getScale, reducedMotion: isStatic || undefined });
+  // play=1 (headless check): 2D motion on, 3D diagrams instant (their continuous frames would stall virtual time).
+  const playMode = params.get('play') === '1' && !isStatic;
+  const deck = buildDeck(stage.el, { ...data, view: 'audience', getScale: stage.getScale, reducedMotion: isStatic || playMode || undefined,
+    ...(playMode ? { motion: true } : {}) });
   stage.onResize(() => deck.host.refreshPixelRatio());
   const overlay = createOverlayTimer(stage.el);
   if (auditMode) overlay.setVisible(true); // audited as in a single-screen talk
@@ -141,6 +147,9 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   // ---------------- render
   let shownSeq = -1;
   let showing = Promise.resolve();
+  let playFirst = params.get('play') === '1' && !isStatic;
+  // Printing from the audience window: every running 2D motion jumps to its final state first.
+  window.addEventListener('beforeprint', () => finishAll());
   let blankMode = null;
   let savedAt = 0;
   let savedSig = '';
@@ -169,7 +178,8 @@ export async function bootAudience({ data, params = new URLSearchParams(location
     if (!st) return;
     if (st.nav.seq !== shownSeq) {
       shownSeq = st.nav.seq;
-      showing = deck.show(st.cur, st.beatsVisible, { instant: isStatic || !!st.nav.instant });
+      showing = deck.show(st.cur, st.beatsVisible, { instant: isStatic || (!!st.nav.instant && !playFirst) });
+      playFirst = false;
     }
     overlay.update(st, data.timing, { presenterConnected: peers > 0 });
     setBlank(st.black ? 'black' : st.white ? 'white' : null);

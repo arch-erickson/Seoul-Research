@@ -299,7 +299,7 @@ function drawOverlay(deck, index, res) {
     if (!r) continue;
     const b = document.createElement('div');
     b.className = 'audit-box';
-    b.style.cssText = `position:absolute;left:${r.x}px;top:${r.y}px;width:${Math.max(2, r.w)}px;height:${Math.max(2, r.h)}px;outline:2px solid #ff00aa;background:rgba(255,0,170,.15);z-index:99;pointer-events:none`;
+    b.style.cssText = `position:absolute;left:${r.x}px;top:${r.y}px;width:${Math.max(2, r.w)}px;height:${Math.max(2, r.h)}px;outline:2px solid #ff00aa;background:rgba(255,0,170,.15);z-index:100001;pointer-events:none`;
     section.appendChild(b);
   }
 }

@@ -17,23 +17,15 @@ body { background: #000; overflow: hidden; font-family: var(--font); color: var(
 .deck { position: absolute; inset: 0; }
 
 /* ---------- slides ---------- */
-.slide { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: var(--paper); overflow: hidden; display: none; }
-.slide.is-current { display: block; }
+.slide { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: var(--paper); overflow: hidden; display: none; isolation: isolate; }
+/* is-leaving: the outgoing slide stays displayed during the 440 ms crossfade (src/engine/motion.js) */
+.slide.is-current, .slide.is-leaving { display: block; }
 
 /* ---------- elements ---------- */
-.el {
-  position: absolute; margin: 0; box-sizing: border-box;
-  opacity: var(--o, 1); translate: 0 0;
-  transition: opacity var(--reveal-ms) var(--ease-out) var(--d, 0ms), translate var(--reveal-ms) var(--ease-out) var(--d, 0ms);
-}
-.el.off {
-  opacity: 0; translate: 0 var(--rise);
-  transition-duration: var(--hide-ms); transition-timing-function: var(--ease-in); transition-delay: 0ms;
-}
-.el.norise.off { translate: 0 0; }
+/* All reveal motion (opacity, transform) is inline, owned by src/engine/motion.js: no CSS transitions here. */
+.beat { display: contents; }
+.el { position: absolute; margin: 0; box-sizing: border-box; opacity: var(--o, 1); translate: none; }
 .el.fb-off { display: none !important; }
-.slide.instant .el { transition: none !important; }
-@media (prefers-reduced-motion: reduce) { .el { transition: none !important; } }
 
 /* text: fixed-width boxes; glyphs spill downward exactly like the Figma boxes */
 .t { white-space: pre; overflow-wrap: normal; word-break: normal; font-family: var(--font); font-style: normal; font-feature-settings: normal; }
@@ -47,7 +39,7 @@ body { background: #000; overflow: hidden; font-family: var(--font); color: var(
 .e svg, .v svg { display: block; overflow: visible; }
 
 /* diagram slots: always above the Figma elements; the 3D module owns everything inside */
-.diagram-slot { position: absolute; pointer-events: none; overflow: visible; }
+.diagram-slot { position: absolute; pointer-events: none; overflow: visible; z-index: 10000; /* above every element's z rank */ }
 .diagram-slot > canvas { display: block; }
 
 /* ---------- image interstitials ---------- */

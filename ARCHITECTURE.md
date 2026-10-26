@@ -232,3 +232,15 @@ It commits a snapshot (src, scripts, spec, assets/img, drafts, STATUS files) to 
 ## 10. The PDF (made last, when the user asks)
 
 The user's words: "the pdf should simply be for sending via email as a static preview which should look good without the animations." It comes from `?view=print`: every slide fully built (all beats), 3D diagrams captured at their final state, photo slides included, references appendix last, no timer overlay, one 16:9 page per slide. MAIN renders it with headless Chrome `--print-to-pdf` once everything is final and delivers it to the course folder. The presenter start screen reminds the user to submit it.
+
+---
+
+## 13. Approved 2D motion (user + Codex) and the tests it needs
+
+The user approved Codex's motion library in `src/engine/motion.js` with the timing in `codex/MOTION-NOTES.md` ("Latest timing policy"). That timing **supersedes** the durations in section 1: half speed (crossfade 440 ms, arrivals 900 ms with 140 ms stagger, draws 1400 ms) and size-based counters (67% = 1.8 s ... 10 million = 6 s, US$1.46 billion = 8 s). Keep it; don't "correct" it back to the old numbers. 3D diagram transitions are tuned to match.
+
+Every verification of the deck must also test, on `dist/Seoul-Presentation.html` with `--strict --offline`:
+- **rapid clicking**: several next presses within a second never skip content or leave a half-finished reveal (running animations jump to their end state first);
+- **back navigation**: going back shows earlier slides fully built and the timer rule from section 3 still holds;
+- **reduced motion**: with `prefers-reduced-motion`, everything appears instantly and nothing counts or slides;
+- **offline playback**: no network requests, no runtime errors, Montserrat loaded.

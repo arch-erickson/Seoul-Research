@@ -20,8 +20,22 @@ export function installTimerFrames() {
 export function wantsTimerFrames(search = (typeof location !== 'undefined' ? location.search : '')) {
   try {
     const p = new URLSearchParams(search);
-    return p.has('audit') || p.get('view') === 'print';
+    return p.has('audit') || p.get('view') === 'print' || p.get('play') === '1'; // play=1: headless motion checks
   } catch { return false; }
 }
 
 if (wantsTimerFrames()) installTimerFrames();
+
+// ?play=1 (headless motion checks only): this machine may report prefers-reduced-motion, which makes every 2D motion
+// instant (motion.js reads it once on import, after this module). Like the Codex demo's preview adapter, play=1
+// answers "no preference" so the check sees the real interpolation. Normal views keep the native preference.
+try {
+  if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && new URLSearchParams(location.search).get('play') === '1') {
+    const native = window.matchMedia.bind(window);
+    window.matchMedia = (q) => {
+      const m = native(q);
+      if (!/prefers-reduced-motion/.test(String(q))) return m;
+      return { matches: false, media: m.media, onchange: null, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent() { return false; } };
+    };
+  }
+} catch { /* keep the native preference */ }

@@ -1,13 +1,14 @@
 // s06-reactor: One Less Nuclear Power Plant (OLNPP Phase 1).
-// State 1: a Korean nuclear plant as a white study model: containment (cylinder + hemispherical dome), auxiliary
-// building, long turbine hall with its lower side annex. Coastal and seawater-cooled, so NO cooling tower.
-// State 2: a slanted cut sweeps the plant from right to left and every piece it passes becomes a tiny dwelling that
-// flies right and settles into a 10 x 10 mosaic of blocks (16 dwellings each, 1,600 in all): 79 blocks red
-// (efficiency), 21 grey (renewables). The plant stays behind as a dashed outline: the plant Seoul did not need.
+// State 1: a Korean nuclear plant as a white study model, close and centred: containment (cylinder + hemispherical
+// dome), auxiliary building, long turbine hall with its lower side annex. Coastal and seawater-cooled, so NO cooling
+// tower. The plinth unfolds, then each volume rises out of it whole (clipped at the plinth top, no squashing).
+// State 2: the camera pulls back and left; a slanted cut sweeps the plant from right to left and every piece it passes
+// becomes a tiny dwelling that flies right and settles into a 10 x 10 mosaic of blocks (16 dwellings each, 1,600 in
+// all): 79 blocks red (efficiency), 21 grey (renewables). The plant stays behind as a dashed outline: the plant Seoul
+// did not need. Going back replays the same motion in reverse.
 import { defineDiagram, THREE, C, LW, ease, sub, lerp, labelProp, boxGeo, rng, edgeLinesFromGeometry } from '../kit3d/index.js';
 
 const DEG = Math.PI / 180;
-const DBG = (() => { try { return new URLSearchParams(location.search).get('s06dbg') || ''; } catch (e) { return ''; } })(); // TEMP
 const AZ = 55, EL = 28;
 const az = AZ * DEG, el = EL * DEG;
 const RG = new THREE.Vector3(Math.cos(az), 0, -Math.sin(az));                                   // screen-right on the ground
@@ -44,7 +45,8 @@ const S2 = 2.7, AT2 = [384, 262];
 const T1 = 1300;                       // build the plant
 const T2 = 3700;                       // dissolve, fly, settle
 const CAM = [0, 1150];                 // camera pull-back (ease-in-out)
-const FPL = [450, 1150];               // field plinth unfolds from its near corner
+const SHF = [80, 760];                 // shadows fade out (ease-in-out)
+const FPL = [600, 1300];               // field plinth unfolds from its near corner
 const WIPE = [800, 2400];              // slanted cut sweeps the plant
 const FLY = 900, FLY_J = 60, POP = 170;
 const OUT_DUR = 300;
@@ -118,10 +120,10 @@ export default defineDiagram({
   stage: {
     view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: S1, at: AT1.slice() },
     shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] },
-    shadows: !DBG.includes('nosh'),
   },
   build(S) {
     S.view.at = S.view.at.slice();          // the stage copies view shallowly: give this instance its own array
+    const SH0 = S.key.shadow.intensity;
     const plant = S.part('Nuclear plant');
 
     // ---------- plinth (unfolds from its centre) ----------
@@ -152,8 +154,7 @@ export default defineDiagram({
     // (the dome keeps its true shape instead of being squashed by a scale)
     const clipBase = new THREE.Plane(new THREE.Vector3(0, 1, 0), -(Y0 - 0.02));
     const CLIP = [clipSolid, clipBase];
-    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: DBG.includes('front') ? THREE.FrontSide : THREE.DoubleSide });
-    mat.clipShadows = !DBG.includes('noclipsh');
+    const mat = S.material(C.model, { unique: true, clippingPlanes: CLIP, side: THREE.DoubleSide });
     const eClip = { clippingPlanes: CLIP };
     const solids = new THREE.Group();
     plant.add(solids);
@@ -308,7 +309,7 @@ export default defineDiagram({
     });
     const hg = houseGeo();
     const mkInst = (list, color) => {
-      const m = new THREE.InstancedMesh(hg, S.material(color), DBG.includes('noinst') ? 0 : list.length);
+      const m = new THREE.InstancedMesh(hg, S.material(color), list.length);
       m.frustumCulled = false;
       m.castShadow = false;            // flying specks must not smudge the ground
       m.receiveShadow = false;         // (with VSM shadows, receivers are drawn into the shadow map too)
@@ -322,7 +323,7 @@ export default defineDiagram({
     // ink outlines of the settled dwellings: one merged set per block row and colour, each fades in once its row has landed
     const hpos = hg.toNonIndexed().attributes.position.array;
     const outlines = [];
-    for (const [key, land] of (DBG.includes('noout') ? [] : groupLand)) {
+    for (const [key, land] of groupLand) {
       const list = houses.filter(h => h.key === key);
       const red = key % 2 === 0;
       const arr = new Float32Array(hpos.length * list.length);
@@ -343,7 +344,6 @@ export default defineDiagram({
 
     const _p = new THREE.Vector3();
     function placeHouses(list, im, ms) {
-      if (!im.count) return;
       const a = im.instanceMatrix.array;
       for (let k = 0; k < list.length; k++) {
         const h = list[k];
@@ -388,6 +388,9 @@ export default defineDiagram({
       clipSolid.constant = c;
       clipGhost.constant = -c;
       solids.visible = P1 > 0.001 && ms < lastRelease + 60;
+      // soft shadows fade out while the camera pulls back, before the cut starts (the cut is not applied to the
+      // shadow pass: clipShadows hangs SwiftShader renders); state 2 has nothing tall left to cast one anyway
+      S.key.shadow.intensity = SH0 * (1 - ease.inOut(sub(ms, SHF[0], SHF[1])));
       phantom.visible = ms > WIPE[0] - 50;
       const fk = ease.out(sub(ms, FPL[0], FPL[1]));
       fPlinth.scale.set(Math.max(1e-3, fk), 1, Math.max(1e-3, fk));

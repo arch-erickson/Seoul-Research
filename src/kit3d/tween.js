@@ -54,7 +54,8 @@ export class Animator {
       if (instant || this.reduced) { this.set(name, target); continue; }
       if (Math.abs(p.value - target) < 1e-6) { this.active.delete(name); continue; }
       const d = Object.assign(defaultPlan(p, p.value, target, dir), plan ? plan(name, p.value, target, dir) || {} : {});
-      jobs.push({ p, from: p.value, to: target, delay: d.delay || 0, dur: Math.max(1, d.dur), ease: d.ease, t0: null });
+      const ts = MOTION.timeScale || 1;
+      jobs.push({ p, from: p.value, to: target, delay: (d.delay || 0) * ts, dur: Math.max(1, d.dur * ts), ease: d.ease, t0: null });
     }
     this.stage.requestRender();
     if (!jobs.length) return Promise.resolve();

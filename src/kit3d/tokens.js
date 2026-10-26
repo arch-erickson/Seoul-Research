@@ -38,6 +38,10 @@ export const FONT = {
 
 // Motion language: arrivals ease-out, departures ease-in, internal ease-in-out; 400–1200 ms; stagger 60–90 ms.
 export const MOTION = {
+  // Global 3D time scale, matched to the deck's approved 2D timing (codex/MOTION-NOTES.md "Latest timing policy":
+  // arrivals 900 ms ease-out, 140 ms sibling stagger, rules drawing in over 1400 ms). Applied by the Animator to every
+  // prop duration and delay, so internal staggers derived from progress scale with it. Instant / reduced motion unaffected.
+  timeScale: 1.35,
   short: 450,
   base: 800,
   long: 1100,

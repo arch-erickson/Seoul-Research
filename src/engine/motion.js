@@ -137,6 +137,13 @@ function marked(root) {
   return [...(root.matches('[data-motion]') ? [root] : []), ...root.querySelectorAll('[data-motion]')];
 }
 function children(group) { return [...group.children]; }
+// Deck integration (MAIN): the renderer keeps flat absolutely positioned elements, so siblings in one visual row share
+// a stagger step (data-motion-step), and full-bleed photo panels arrive without the 16 px rise (data-motion-rise="0").
+function stepOf(el, index) {
+  const s = el.dataset?.motionStep;
+  return s != null && s !== '' && Number.isFinite(Number(s)) ? Number(s) : index;
+}
+const riseOf = el => (el.dataset?.motionRise === '0' ? 0 : 16);
 
 export function revealBeat(groupEl, { instant = false } = {}) {
   finishAll();
@@ -147,7 +154,7 @@ export function revealBeat(groupEl, { instant = false } = {}) {
   const items = children(groupEl);
   const tasks = [];
   for (const [index, el] of items.entries()) {
-    const b = base(el), delay = index * STAGGER_MS;
+    const b = base(el), delay = stepOf(el, index) * STAGGER_MS, rise = riseOf(el);
     const specials = marked(el).map(node => {
       base(node);
       if (node.dataset.motion === 'count' && !instant && !reducedMotion) {
@@ -163,7 +170,7 @@ export function revealBeat(groupEl, { instant = false } = {}) {
       }
       return { node, duration: 0 };
     });
-    tasks.push({ el, b, delay, specials });
+    tasks.push({ el, b, delay, rise, specials });
   }
   const rows = tasks.filter(t => t.el);
   const duration = Math.max(0, ...rows.map(r => r.delay + Math.max(ARRIVAL_MS, ...r.specials.map(s => s.duration))));
@@ -171,12 +178,12 @@ export function revealBeat(groupEl, { instant = false } = {}) {
     for (const r of rows) {
       const p = out(clamp((time - r.delay) / ARRIVAL_MS));
       r.el.style.opacity = String(r.b.opacity * p);
-      transform(r.el, p < 1 ? `translateY(${16 * (1 - p)}px)` : '');
+      transform(r.el, p < 1 && r.rise ? `translateY(${r.rise * (1 - p)}px)` : '');
       for (const s of r.specials) {
         const q = clamp((time - r.delay) / s.duration);
         s.c?.update(q);
         if (s.axis) {
-          const rise = s.node === r.el && p < 1 ? `translateY(${16 * (1 - p)}px) ` : '';
+          const rise = s.node === r.el && p < 1 && r.rise ? `translateY(${r.rise * (1 - p)}px) ` : '';
           transform(s.node, rise + (q < 1 ? `scale${s.axis}(${out(q)})` : ''));
         }
       }
@@ -193,7 +200,7 @@ export function hideBeat(groupEl, { instant = false } = {}) {
   for (const el of children(groupEl)) {
     base(el);
     el.style.opacity = '0';
-    transform(el, instant || reducedMotion ? '' : 'translateY(16px)');
+    transform(el, instant || reducedMotion || !riseOf(el) ? '' : `translateY(${riseOf(el)}px)`);
   }
 }
 
