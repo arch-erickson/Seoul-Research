@@ -22,7 +22,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 10 | s06-reactor | IN PROGRESS (builder finishing its draft) | | | |
 | 11 | s09-zeb | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s09-zeb-sheet.png, s09-zeb-*.png  |
 | 12 | s17-parks | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s17-parks-sheet.png, s17-parks-*.png  |
-| 13 | s05-trajectory | IN PROGRESS (wave 1b: review + fix) | | | |
+| 13 | s05-trajectory | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s05-trajectory-sheet.png, s05-trajectory-*.png  |
 | 14 | s18-buslane | QUEUED (draft in dev/cut/, wave 2) | | | |
 | 15 | s04-timeline | QUEUED (wave 2) | | | |
 | 16 | s03-donut | QUEUED (wave 3) | | | |

@@ -41,18 +41,18 @@ const GREY_EDGE = '#94959A';
 const S1 = 3.4, AT1 = [530, 227];
 const S2 = 2.7, AT2 = [384, 262];
 
-// ---- beat timing (ms) ----
+// ---- beat timing (ms, before the kit's global MOTION.timeScale, 1.35 at the time of writing) ----
 const T1 = 1300;                       // build the plant
-const T2 = 3700;                       // dissolve, fly, settle
-const CAM = [0, 1150];                 // camera pull-back (ease-in-out)
-const SHF = [80, 760];                 // shadows fade out (ease-in-out)
-const FPL = [600, 1300];               // field plinth unfolds from its near corner
-const WIPE = [800, 2400];              // slanted cut sweeps the plant
-const FLY = 900, FLY_J = 60, POP = 170;
+const T2 = 3300;                       // dissolve, fly, settle
+const CAM = [0, 900];                  // camera pull-back (ease-in-out)
+const SHF = [60, 600];                 // shadows fade out (ease-in-out)
+const FPL = [450, 1000];               // field plinth unfolds from its near corner
+const WIPE = [650, 2050];              // slanted cut sweeps the plant
+const FLY = 850, FLY_J = 60, POP = 170;
 const OUT_DUR = 300;
-const L1B_DELAY = 2550;                // ghost label, once the cut has passed
-const L2_DELAY = 3420;                 // households label, once the mosaic has settled
-const BACK2 = 2400;                    // rewind of beat 2
+const L1B_DELAY = 2150;                // ghost label, once the cut has passed
+const L2_DELAY = 3050;                 // households label, once the mosaic has settled
+const BACK2 = 1900;                    // rewind of beat 2
 
 function houseGeo() {
   const w = 1.6, d = 1.8, h = 0.9, r = 1.5;
@@ -456,6 +456,13 @@ export default defineDiagram({
     labelProp(S, 'L1a', L1a);
     labelProp(S, 'L1b', L1b);
     labelProp(S, 'L2', L2);
+
+    // compile every program the beats will use now (dwellings, outlines, dashed ghost are hidden at load), so the
+    // first frames of a beat never stall on shader compiles
+    const hidden = [];
+    S.scene.traverse(o => { if (!o.visible) { hidden.push(o); o.visible = true; } });
+    try { S.renderer.compile(S.scene, S.camera); } catch (e) { /* only a warm-up */ }
+    for (const o of hidden) o.visible = false;
     update();
 
     return {

@@ -43970,6 +43970,10 @@ void main() {
     capsTracking: "0.12em"
   };
   var MOTION = {
+    // Global 3D time scale, matched to the deck's approved 2D timing (codex/MOTION-NOTES.md "Latest timing policy":
+    // arrivals 900 ms ease-out, 140 ms sibling stagger, rules drawing in over 1400 ms). Applied by the Animator to every
+    // prop duration and delay, so internal staggers derived from progress scale with it. Instant / reduced motion unaffected.
+    timeScale: 1.35,
     short: 450,
     base: 800,
     long: 1100,
@@ -44264,7 +44268,8 @@ void main() {
           continue;
         }
         const d = Object.assign(defaultPlan(p, p.value, target, dir), plan ? plan(name, p.value, target, dir) || {} : {});
-        jobs.push({ p, from: p.value, to: target, delay: d.delay || 0, dur: Math.max(1, d.dur), ease: d.ease, t0: null });
+        const ts = MOTION.timeScale || 1;
+        jobs.push({ p, from: p.value, to: target, delay: (d.delay || 0) * ts, dur: Math.max(1, d.dur * ts), ease: d.ease, t0: null });
       }
       this.stage.requestRender();
       if (!jobs.length) return Promise.resolve();
@@ -46305,18 +46310,18 @@ void main() {
   var S2 = 2.7;
   var AT2 = [384, 262];
   var T1 = 1300;
-  var T2 = 3700;
-  var CAM = [0, 1150];
-  var SHF = [80, 760];
-  var FPL = [600, 1300];
-  var WIPE = [800, 2400];
-  var FLY = 900;
+  var T2 = 3300;
+  var CAM = [0, 900];
+  var SHF = [60, 600];
+  var FPL = [450, 1e3];
+  var WIPE = [650, 2050];
+  var FLY = 850;
   var FLY_J = 60;
   var POP = 170;
   var OUT_DUR = 300;
-  var L1B_DELAY = 2550;
-  var L2_DELAY = 3420;
-  var BACK2 = 2400;
+  var L1B_DELAY = 2150;
+  var L2_DELAY = 3050;
+  var BACK2 = 1900;
   function houseGeo() {
     const w = 1.6, d = 1.8, h = 0.9, r = 1.5;
     const s = new three_module_exports.Shape([
@@ -46726,6 +46731,18 @@ void main() {
       labelProp(S, "L1a", L1a);
       labelProp(S, "L1b", L1b);
       labelProp(S, "L2", L2);
+      const hidden = [];
+      S.scene.traverse((o) => {
+        if (!o.visible) {
+          hidden.push(o);
+          o.visible = true;
+        }
+      });
+      try {
+        S.renderer.compile(S.scene, S.camera);
+      } catch (e) {
+      }
+      for (const o of hidden) o.visible = false;
       update();
       return {
         targets: (n) => ({ p1: n >= 1 ? 1 : 0, p2: n >= 2 ? 1 : 0, L1a: n === 1 ? 1 : 0, L1b: n >= 2 ? 1 : 0, L2: n >= 2 ? 1 : 0 }),

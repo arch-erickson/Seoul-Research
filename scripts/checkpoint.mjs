@@ -65,7 +65,9 @@ try {
     } else {
       const s = spawnSync(process.execPath, ['scripts/shot.mjs', single, '--dom', '--strict', '--offline', '--query', 'audit=1', '--wait', '12000'], { cwd: WS, encoding: 'utf8', timeout: 240000 });
       let audit = null;
-      try { audit = JSON.parse((s.stdout || '').trim().split('\n').pop()); } catch {}
+      // the audit JSON is pretty-printed over many lines: take everything from the first { to the last }
+      const out = (s.stdout || '').trim();
+      try { audit = JSON.parse(out.slice(out.indexOf('{'), out.lastIndexOf('}') + 1)); } catch {}
       const errs = audit && Array.isArray(audit.runtimeErrors) ? audit.runtimeErrors.length : null;
       const fontsOk = audit ? audit.fontsOk !== false : false;
       if (!audit) siteNote = 'site unchanged: smoke test produced no audit result';
