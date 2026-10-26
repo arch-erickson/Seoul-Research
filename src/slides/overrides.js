@@ -35,6 +35,11 @@ export const BEATMAP = {
 // Element patches. { remove: true } drops the element; { remove: 'fallback' } drops it only from the 2D fallback
 // (it is inside a diagram region anyway); other keys overwrite spec fields; `chars` may be a function.
 export const OVERRIDES = {
+  s09: {
+    // copy-v2 shortened 9:31 to "Private rule planned" (about 217 px, was 273 px). The red strikethrough keeps
+    // the Figma overhang of about 27 px past the text end.
+    '9:32': { w: 244 },
+  },
   s12: {
     // Typo in the Figma text; the speaker notes say "urban openings".
     '10:67': { chars: (s) => s.replace('“hurban openings”', '“urban openings”').replace('hurban openings', 'urban openings') },
