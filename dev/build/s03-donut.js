@@ -46251,11 +46251,11 @@ void main() {
   var H1 = 3.2;
   var GAP = 0.3;
   var START = -12 * DEG2;
-  var STEP = 1.2 * DEG2;
+  var STEP = 2.5 * DEG2;
   var SEGS = [
     { name: "Buildings 67%", share: 0.67, color: C.red, edges: { color: C.redDeep, color2: C.redDeep }, h: H1 },
     { name: "Transportation 18%", share: 0.18, color: C.model, h: H0 },
-    { name: "Waste and other 15%", share: 0.15, color: "#E2E1DD", h: H0 }
+    { name: "Other sectors 15%", share: 0.15, color: "#E2E1DD", h: H0 }
   ];
   var SWEEP = 1100;
   var RISE_DELAY = 1e3;
@@ -46443,14 +46443,22 @@ void main() {
           return { sweep: on, rise: on, lab67: on, labCap: on };
         },
         plan: (name, from, to, dir) => {
+          const g = (k) => S.anim.get(k);
           if (dir > 0) {
-            if (name === "sweep" || name === "rise") return { ease: ease.linear };
+            const riseDelay = Math.max(0, Math.round(SWEEP * (1 - g("sweep")) - 100));
+            if (name === "sweep") return { ease: ease.linear };
+            if (name === "rise") return { delay: riseDelay, ease: ease.linear };
+            const labDelay = riseDelay + Math.round((LAB_DELAY - RISE_DELAY) * (1 - g("rise")));
+            if (name === "lab67") return { delay: labDelay };
+            if (name === "labCap") return { delay: labDelay + LAB_STEP };
             return null;
           }
           if (name === "labCap") return { delay: 0, dur: 360, ease: ease.in };
           if (name === "lab67") return { delay: 60, dur: 360, ease: ease.in };
-          if (name === "rise") return { delay: 220, dur: 520, ease: ease.linear };
-          if (name === "sweep") return { delay: 560, dur: 850, ease: ease.linear };
+          if (name === "rise") return { delay: Math.round(220 * g("lab67")), dur: 520, ease: ease.linear };
+          if (name === "sweep") {
+            return { delay: Math.round(560 * Math.max(g("lab67"), g("rise"))), dur: Math.round(850 * Math.max(0.4, from)), ease: ease.linear };
+          }
           return null;
         }
       };

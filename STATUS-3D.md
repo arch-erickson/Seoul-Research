@@ -25,7 +25,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 13 | s05-trajectory | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s05-trajectory-sheet.png, s05-trajectory-*.png  |
 | 14 | s18-buslane | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s18-buslane-sheet.png, s18-buslane-*.png  |
 | 15 | s04-timeline | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s04-timeline-sheet.png, s04-timeline-*.png  |
-| 16 | s03-donut | QUEUED (wave 2, starts when a slot frees) | | | |
+| 16 | s03-donut | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s03-donut-sheet.png, s03-donut-*.png  |
 
 ## Notes for MAIN
 

@@ -1,9 +1,9 @@
 // s03-donut: Seoul's greenhouse gas by sector as a thick ring chart at an axonometric tilt.
-// Dossier: buildings = 67% of city GHG; buildings + transportation = 85%, so transportation 18% and waste
-// and other 15%. Buildings is the red segment and stands slightly taller than the two light segments.
+// Dossier: buildings = 67% of city GHG; buildings + transportation = 85%, so transportation 18% and other
+// sectors 15%. Buildings is the red segment and stands slightly taller than the two light segments.
 // The slide's HTML legend (right of the region) names the three sectors; the diagram only carries "67%" and
 // "BUILDINGS" inside the ring's opening (on the ground, in clear space).
-// States: 0 empty · 1 the ring sweeps in clockwise from 12 o'clock (buildings, transportation, waste and other),
+// States: 0 empty · 1 the ring sweeps in clockwise from 12 o'clock (buildings, transportation, other sectors),
 // then the buildings segment rises; "67%" and "BUILDINGS" settle in the opening.
 import { defineDiagram, THREE, C, ease, sub, extractEdges } from '../kit3d/index.js';
 import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js';
@@ -17,11 +17,11 @@ const H0 = 2.2;            // extrusion of the two light segments
 const H1 = 3.2;            // buildings: slightly raised
 const GAP = 0.3;           // parallel slot between segments
 const START = -12 * DEG;   // angles run clockwise seen from above, 0 = 12 o'clock (the back)
-const STEP = 1.2 * DEG;    // arc sampling
+const STEP = 2.5 * DEG;    // arc sampling (chord sag at RO: 0.05 px)
 const SEGS = [
   { name: 'Buildings 67%', share: 0.67, color: C.red, edges: { color: C.redDeep, color2: C.redDeep }, h: H1 },
   { name: 'Transportation 18%', share: 0.18, color: C.model, h: H0 },
-  { name: 'Waste and other 15%', share: 0.15, color: '#E2E1DD', h: H0 },
+  { name: 'Other sectors 15%', share: 0.15, color: '#E2E1DD', h: H0 },
 ];
 
 // ---- motion (ms, before the kit's global time scale). The masters run linear; easing lives inside apply(),
@@ -197,15 +197,25 @@ export default defineDiagram({
         return { sweep: on, rise: on, lab67: on, labCap: on };
       },
       plan: (name, from, to, dir) => {
+        const g = k => S.anim.get(k);
         if (dir > 0) {
-          if (name === 'sweep' || name === 'rise') return { ease: ease.linear };
+          // delays shrink with what is already drawn, so a resumed sweep never stalls (from rest: unchanged)
+          const riseDelay = Math.max(0, Math.round(SWEEP * (1 - g('sweep')) - 100));
+          if (name === 'sweep') return { ease: ease.linear };
+          if (name === 'rise') return { delay: riseDelay, ease: ease.linear };
+          const labDelay = riseDelay + Math.round((LAB_DELAY - RISE_DELAY) * (1 - g('rise')));
+          if (name === 'lab67') return { delay: labDelay };
+          if (name === 'labCap') return { delay: labDelay + LAB_STEP };
           return null;
         }
-        // backwards: the words leave first, the red segment sinks, then the ring unwinds to 12 o'clock
+        // backwards: the words leave first, the red segment sinks, then the ring unwinds to 12 o'clock.
+        // Waits scale with what is still showing, so an interrupted sweep unwinds at once.
         if (name === 'labCap') return { delay: 0, dur: 360, ease: ease.in };
         if (name === 'lab67') return { delay: 60, dur: 360, ease: ease.in };
-        if (name === 'rise') return { delay: 220, dur: 520, ease: ease.linear };
-        if (name === 'sweep') return { delay: 560, dur: 850, ease: ease.linear };
+        if (name === 'rise') return { delay: Math.round(220 * g('lab67')), dur: 520, ease: ease.linear };
+        if (name === 'sweep') {
+          return { delay: Math.round(560 * Math.max(g('lab67'), g('rise'))), dur: Math.round(850 * Math.max(0.4, from)), ease: ease.linear };
+        }
         return null;
       },
     };
