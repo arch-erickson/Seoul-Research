@@ -66,6 +66,9 @@ export const OVERRIDES = {
   s20: {
     // "Full reference list in the submitted PDF." is a citation line; locked rule: no source lines on slides.
     '14:166': { remove: true },
+    // copy-v2 text is shorter than the Figma text: one line each now (the audit's wrap check expects the real count).
+    '14:162': { lines: 1 },
+    '14:165': { lines: 1 },
   },
 };
 
