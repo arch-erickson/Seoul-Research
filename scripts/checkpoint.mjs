@@ -84,7 +84,7 @@ try {
     const rel = path.relative(WS, src).split(path.sep).join('/');
     return rel.includes('node_modules') || /(^|\/)s00-[^/]*$/.test(rel) || /\.log$/.test(rel);
   };
-  for (const d of ['src', 'scripts', 'spec', 'dev']) {
+  for (const d of ['src', 'scripts', 'spec', 'dev', 'codex']) {
     fs.rmSync(path.join(SITE, d), { recursive: true, force: true });
     if (fs.existsSync(path.join(WS, d))) fs.cpSync(path.join(WS, d), path.join(SITE, d), { recursive: true, filter: (x) => !skip(x) });
   }

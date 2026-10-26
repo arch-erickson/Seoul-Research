@@ -30,6 +30,7 @@ Original Figma Slides deck (design reference, 20 slides): https://www.figma.com/
 |---|---|---|
 | **MAIN** (deck engine) | `src/engine/**`, `src/slides/**`, `src/styles/**`, `assets/fonts/**`, `scripts/build.mjs`, `scripts/shot.mjs`, `spec/slides.json`, `spec/timing.json`, `dist/**`, `index.html`, `presenter.html`, `Present.cmd`, `server.mjs`, `STATUS-MAIN.md` | other sessions' files |
 | **3D** (diagrams) | `src/kit3d/**`, `src/diagrams/**`, `src/data/**`, `dev/**`, `scripts/build-diagram.mjs`, `.tmp/3d/**`, `STATUS-3D.md` | everything else |
+| **CODEX** (local, on the user's request) | `src/engine/motion.js`, `src/engine/motion.test.mjs`, `scripts/build-study.mjs`, `codex/**` | everything else |
 | **IMAGES** | `assets/img/**`, `spec/images.json`, `.tmp/img/**`, `STATUS-IMAGES.md` | everything else |
 
 Shared read-only inputs: this file, `spec/timing.json`, `spec/diagram-briefs.md`, `spec/image-pairs.md`, `scripts/shot.mjs`, `node_modules/`.
