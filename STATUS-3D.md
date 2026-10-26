@@ -24,7 +24,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 12 | s17-parks | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s17-parks-sheet.png, s17-parks-*.png  |
 | 13 | s05-trajectory | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s05-trajectory-sheet.png, s05-trajectory-*.png  |
 | 14 | s18-buslane | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s18-buslane-sheet.png, s18-buslane-*.png  |
-| 15 | s04-timeline | IN PROGRESS (wave 2) | | | |
+| 15 | s04-timeline | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s04-timeline-sheet.png, s04-timeline-*.png  |
 | 16 | s03-donut | QUEUED (wave 2, starts when a slot frees) | | | |
 
 ## Notes for MAIN
@@ -58,6 +58,8 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 
 - **Publishing (16:30):** user asked for live-site updates. Full checkpoint (no --no-site) only after
   `node --test src/engine/state.test.mjs src/engine/input.test.mjs src/engine/motion.test.mjs` passes; else --no-site.
+- Unfinished modules are excluded from live builds: `SEOUL_EXCLUDE_DIAGRAMS=<ids> node scripts/checkpoint.mjs ...`
+  (MAIN published f7c4d4f with 15 diagrams; s03-donut and s04-timeline excluded until DONE).
 - **Prewarm-safe:** no module animates at mount; container size falls back to the region size; labels self-remeasure.
 
 ## Checkpoints (ARCHITECTURE §12)

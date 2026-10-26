@@ -46259,10 +46259,10 @@ void main() {
   var W = 1720;
   var Y_START = 1975;
   var Y_END = 2026;
-  var EDGE = 2;
+  var EDGE = 20;
   var K = (W - 2 * EDGE) / (Y_END - Y_START);
   var EL = 30;
-  var AY = 224;
+  var AY = 246;
   var D = 1.7;
   var T = 0.36;
   var PR = 0.5;
@@ -46287,7 +46287,7 @@ void main() {
     { year: 2002, text: "Reopens as World Cup Park", up: true, tone: "blue" },
     { year: 2011, text: "Fukushima and a Seoul blackout", up: false, tone: "red" }
   ];
-  var BEAT = [0, 0, 1, 1];
+  var BEAT = [0, 1, 0, 1];
   var quadOut = (t) => 1 - (1 - t) * (1 - t);
   var s04_timeline_default = defineDiagram({
     id: "s04-timeline",
@@ -46307,20 +46307,19 @@ void main() {
       axis.add(pivot);
       const bar = S.solid(boxGeo(L, T, D), { castShadow: false }, pivot);
       bar.position.set(L / 2, 0, 0);
-      const wipe = new three_module_exports.Plane(new three_module_exports.Vector3(-1, 0, 0), X0);
       const ty = T + 3e-3, zf = D / 2;
-      const tk = [], tk10 = [];
+      const ticks = [];
       for (let y = Y_START + 1; y < Y_END; y++) {
         const len = y % 10 === 0 ? 0.62 * D : y % 5 === 0 ? 0.42 * D : 0.24 * D;
-        (y % 10 === 0 ? tk10 : tk).push(xw(y), ty, zf, xw(y), ty, zf - len);
+        const o = y % 10 === 0 ? { width: 0.8, color: C.crease } : { width: LW.hair, color: C.hair };
+        ticks.push({ x: xw(y), obj: S.lines([xw(y), ty, zf, xw(y), ty, zf - len], o, axis) });
       }
-      const ticks = S.lines(tk, { width: LW.hair, color: C.hair, clippingPlanes: [wipe] }, axis);
-      const ticks10 = S.lines(tk10, { width: 0.8, color: C.crease, clippingPlanes: [wipe] }, axis);
       S.anim.prop("axis", 0, (v) => {
         const s = Math.max(1e-4, v);
         pivot.scale.x = s;
         axis.visible = v > 5e-4;
-        wipe.constant = X0 + L * s;
+        const end = X0 + L * s;
+        for (const t of ticks) t.obj.visible = t.x < end - 0.02;
       }, { kind: "reveal", dur: 1050 });
       const items = EVENTS.map((e, i) => {
         const part = S.part(`${e.year} marker`);
@@ -46345,19 +46344,31 @@ void main() {
         }
         const len = Math.abs(yEnd - S.project(foot).y) / pxPerY;
         const E = 6e-3;
-        const pts = e.up ? [x, T + PH, 0, x, T + PH + len, 0] : [x, T + E, 0, x, T + E, D / 2 + E, x, T + E, D / 2 + E, x, -len, D / 2 + E];
-        const clip = new three_module_exports.Plane(new three_module_exports.Vector3(), 0);
         const strong = e.tone !== "ink";
-        const stem = S.lines(pts, { width: strong ? 1.5 : 1.1, color: tone.stem, clippingPlanes: [clip] }, part);
-        const U = new three_module_exports.Vector3(0, Math.cos(EL * DEG2), -Math.sin(EL * DEG2));
-        const u0 = e.up ? new three_module_exports.Vector3(x, T + PH, 0).dot(U) : new three_module_exports.Vector3(x, T, PR).dot(U);
-        const u1 = e.up ? new three_module_exports.Vector3(x, T + PH + len, 0).dot(U) : new three_module_exports.Vector3(x, -len, D / 2).dot(U);
-        if (e.up) clip.normal.copy(U).negate();
-        else clip.normal.copy(U);
+        const lo = { width: strong ? 1.5 : 1.1, color: tone.stem };
+        const pieces = [];
+        const piece = (pos, seg, ax, px3) => {
+          const g = new three_module_exports.Group();
+          g.position.set(...pos);
+          part.add(g);
+          S.lines([0, 0, 0, ...seg], lo, g);
+          pieces.push({ g, ax, px: px3 });
+        };
+        if (e.up) piece([x, T + PH, 0], [0, len, 0], "y", len * pxPerY);
+        else {
+          piece([x, T + E, PR], [0, 0, D / 2 + E - PR], "z", (D / 2 - PR) * K * Math.sin(EL * DEG2));
+          piece([x, T + E, D / 2 + E], [0, -T - E, 0], "y", T * pxPerY);
+          piece([x, 0, D / 2 + E], [0, -len, 0], "y", len * pxPerY);
+        }
+        const total = pieces.reduce((a, p) => a + p.px, 0);
         const setStem = (k) => {
-          const c = u0 + (u1 - u0) * k;
-          clip.constant = e.up ? c : -c;
-          stem.visible = k > 1e-3;
+          let d = k * total;
+          for (const p of pieces) {
+            const f = Math.max(0, Math.min(1, d / p.px));
+            d -= p.px;
+            p.g.scale[p.ax] = Math.max(1e-4, f);
+            p.g.visible = f > 1e-3;
+          }
         };
         const lab = S.label({
           text: String(e.year),
