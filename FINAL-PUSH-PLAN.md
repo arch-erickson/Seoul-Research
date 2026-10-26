@@ -19,23 +19,27 @@ Written Oct 26, 2026, about 4 hours before the next usage reset. A copy is saved
 - 28 of 36 photos, verified and licensed
 - New plain-voice slide text and reminder-style notes for every slide (final review pass running)
 
-## Cut to save budget
+## Priority (your call): diagrams and animations stay top quality
 
-- **Seven 3D diagrams stay 2D**: slides 4 (timeline), 5 (emissions), 6 (reactor), 9 (ZEB grades), 17 (parks), 18 (bus lanes), and the slide 3 donut. These were the best of the old 2D diagrams, which is why the worst-to-best order put them last.
+All 11 remaining 3D diagrams still get built, in worst-to-best order, with one thorough review each that covers every animation state and the transitions between them. The savings come from elsewhere:
+
 - **Photo searching has stopped.** You're providing the last 8.
 - **One verification pass at the end** instead of repeated rounds.
+- **The study guide is assembled from content already written and fact-checked**, with no new research.
+- **3D builds run 2 to 3 at a time** instead of 6, so the budget lasts.
 
 ## The plan, in order
 
 | Phase | What | Rough budget (weekly %) |
 |---|---|---|
-| A, running now | Engine wiring; writing workflow's final review; 3D finishes slides 12, 14, 7, 16 | 76 → ~82 |
-| B | One final build: apply the new text and notes slide by slide, add the photos and finished diagrams, refresh safety for the clicker, one check like the college PC, one fix round, **publish the live site, put the offline file and a first PDF in this folder**. GitHub save after every slide | ~82 → ~91 |
-| C | Study guide page (every slide, background, numbers, likely questions) | ~91 → ~94 |
-| D | Add your 8 photos, final PDF, final save and publish | ~94 → ~96 |
-| Reserve | Problems only | ~96 → ~98 |
+| A, running now | Engine wiring; writing workflow's final review | 76 → ~80 |
+| 3D, running alongside everything | Slides 12, 14, 7, 16, then 6, 9, 17, 5, 18, 4 and the 3 donut, each saved to GitHub when done. **No new diagram starts after 93% weekly** | ~80 → ~89 |
+| B | One final build: apply the new text and notes slide by slide, add the photos and every finished diagram, refresh safety for the clicker, one check like the college PC, one fix round, **publish the live site, put the offline file and a first PDF in this folder**. GitHub save after every slide | ~89 → ~95 |
+| C | Study guide page | ~95 → ~96.5 |
+| D | Rebuild with the last finished diagrams and your 8 photos, final PDF, final save and publish | ~96.5 → ~97.5 |
+| Reserve | Problems only | ~97.5 → ~99 |
 
-Phase B delivers a complete, working presentation and PDF **early**, so even if usage runs out during C or D you still have everything you need to present and submit. Phase A will probably use up the current 5-hour window before 2:10 PM. Work pauses, then resumes after the reset.
+Phase B delivers a complete, working presentation and PDF **early**. Any diagram that isn't finished in time uses its 2D version, so the deck is always complete. Phase A and the 3D work will probably use up the current 5-hour window before 2:10 PM. Work pauses, then resumes after the reset.
 
 ## Your tasks (these use no Claude usage)
 
