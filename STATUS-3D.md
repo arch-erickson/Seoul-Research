@@ -23,7 +23,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 11 | s09-zeb | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s09-zeb-sheet.png, s09-zeb-*.png  |
 | 12 | s17-parks | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s17-parks-sheet.png, s17-parks-*.png  |
 | 13 | s05-trajectory | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s05-trajectory-sheet.png, s05-trajectory-*.png  |
-| 14 | s18-buslane | IN PROGRESS (wave 2, builder finishing its draft) | | | |
+| 14 | s18-buslane | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s18-buslane-sheet.png, s18-buslane-*.png  |
 | 15 | s04-timeline | IN PROGRESS (wave 2) | | | |
 | 16 | s03-donut | QUEUED (wave 2, starts when a slot frees) | | | |
 

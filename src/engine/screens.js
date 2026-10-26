@@ -362,7 +362,7 @@ function ensureStyle() {
 .sd-hint.is-in{opacity:1}
 .sd-hint small{display:block;margin-top:10px;font-weight:500;font-size:.62em;color:#C9CACC}
 .sd-hint kbd{font-size:.8em}
-@media (prefers-reduced-motion:reduce){.sd-toast,.sd-toast.is-out,.sd-hint{transition:none}}
+html[data-deck-motion="off"] .sd-toast,html[data-deck-motion="off"] .sd-toast.is-out,html[data-deck-motion="off"] .sd-hint{transition:none}
 @media print{.sd-toasts,.sd-hint{display:none!important}}`;
   document.head.appendChild(st);
 }

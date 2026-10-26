@@ -36,6 +36,7 @@ import { createScreenController } from './screens.js';
 import { createOverlayTimer } from './overlay-timer.js';
 import { runAudit } from './audit.js';
 import { mountAssetRing } from './preload.js';
+import { motionOff } from './motion-pref.js';
 
 export const TICK_MS = 100;
 const SAVE_EVERY_MS = 1000;
@@ -74,7 +75,7 @@ const KEYS_HELP = [
   ['<kbd>Shift</kbd>+<kbd>P</kbd>', 'Open the presenter view (notes and timers)'],
   ['<kbd>F</kbd>', 'Fullscreen on or off'],
   ['<kbd>T</kbd> / <kbd>Shift</kbd>+<kbd>T</kbd>', 'Pause or resume the timer / reset it'],
-  ['<kbd>A</kbd>', 'Auto-beats on or off'],
+  ['<kbd>A</kbd>', 'Timed auto-beats on or off (off at the start: every point waits for a press)'],
   ['<kbd>B</kbd> <kbd>W</kbd>', 'Black or white screen'],
   ['<kbd>O</kbd>', 'On-slide timer on or off'],
   ['<kbd>G</kbd> number <kbd>Enter</kbd>', 'Go to slide number'],
@@ -115,9 +116,11 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   document.body.appendChild(root);
   const stage = createStage(root);
   await fontsReady(); // measure and lay out with Montserrat (inlined as base64, so this is quick)
-  // play=1 (headless check): 2D motion on, 3D diagrams instant (their continuous frames would stall virtual time).
+  // Motion is ON by default, also when Windows "Animation effects" is off (motion-pref.js; ?motion=os follows the OS,
+  // ?motion=off forces instant). play=1 (headless check): 2D motion on, 3D diagrams instant (their continuous frames
+  // would stall virtual time).
   const playMode = params.get('play') === '1' && !isStatic;
-  const deck = buildDeck(stage.el, { ...data, view: 'audience', getScale: stage.getScale, reducedMotion: isStatic || playMode || undefined,
+  const deck = buildDeck(stage.el, { ...data, view: 'audience', getScale: stage.getScale, reducedMotion: isStatic || playMode || motionOff(),
     ...(playMode ? { motion: true } : {}) });
   stage.onResize(() => deck.host.refreshPixelRatio());
   const overlay = createOverlayTimer(stage.el);
@@ -127,7 +130,9 @@ export async function bootAudience({ data, params = new URLSearchParams(location
 
   // ---------------- store
   const slides = slidesFromTiming(data.timing);
-  const store = createStore({ slides });
+  // Click-only beats (the user's choice): every point waits for a forward press. A switches the timed auto-beats on;
+  // ?auto=1 starts with them on.
+  const store = createStore({ slides, autoBeats: params.get('auto') === '1' });
   let restoredFrom = null; // 'session' (reload) | 'presenter' (hand-over from a presenter window) | null
   const jumpIndex = slideIndexFromParam(slides, jumpIndexParam);
   if (jumpIndex >= 0) {
@@ -140,6 +145,12 @@ export async function bootAudience({ data, params = new URLSearchParams(location
       if (st.nav.type === 'restore') restoredFrom = 'session';
     }
   }
+
+  // Hand-over (sync.shouldRestore) is only for a FRESH slides window that never ran a talk. Once this window has
+  // started, been reset to slide 1 (back / Home, state.js full reset) or restored its own session snapshot, a
+  // pristine state is deliberate: a presenter's stale 'hello' must not bring the old talk back.
+  let handoverOpen = restoredFrom !== 'session';
+  store.subscribe((st) => { if (st.started || st.nav.type === 'reset') handoverOpen = false; });
 
   // ---------------- ui extras broadcast to the presenter
   let keySeq = 0;
@@ -230,7 +241,7 @@ export async function bootAudience({ data, params = new URLSearchParams(location
       getSnapshot: () => ({ state: store.getState(), ui: uiExtras() }),
       onPeers: (n) => { peers = n; render(store.getState()); },
       onHello: (body, meta) => {
-        if (shouldRestore(store.getState(), body && body.lastState)) {
+        if (handoverOpen && shouldRestore(store.getState(), body && body.lastState)) {
           // the time since the old leader took that snapshot keeps counting (lastAt; else the hello time)
           const since = Number.isFinite(body.lastAt) ? body.lastAt : (meta && meta.sentAt) || Date.now();
           store.dispatch({ type: 'restore', state: body.lastState, gapMs: Math.max(0, Date.now() - since) });
@@ -315,12 +326,15 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   if (auditMode) {
     // The on-slide timer is audited with every slide it would sit on (content slides only, see overlay-timer.js).
     const base = store.getState();
-    const timerTexts = () => (overlay.isVisible() ? [...overlay.el.children].filter((c) => (c.textContent || '').trim()).map((el) => ({ el, name: 'overlay-timer' })) : []);
+    const timerTexts = () => (overlay.isVisible() ? [
+      ...[...overlay.el.children].filter((c) => (c.textContent || '').trim()).map((el) => ({ el, name: 'overlay-timer' })),
+      ...(overlay.dotsEl && overlay.dotsEl.childElementCount ? [{ el: overlay.dotsEl, name: 'beat-dots', box: true }] : []),
+    ] : []);
     await runAudit({
       deck,
       all: auditMode === 'all',
       overlay: params.get('overlay') === '1',
-      onShow: (i) => overlay.update({ ...base, cur: i, black: false, white: false }, data.timing, { presenterConnected: false }),
+      onShow: (i, n) => overlay.update({ ...base, cur: i, beat: Math.max(0, (n | 0) - 1), beatsVisible: n, black: false, white: false }, data.timing, { presenterConnected: false }),
       chrome: timerTexts,
     });
   }

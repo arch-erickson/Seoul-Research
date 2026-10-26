@@ -187,7 +187,8 @@ function auditCurrent(deck, index, cache = new Map(), chrome = []) {
   // against the slide like any other text. The caller passes only chrome that is visible on this slide.
   for (const c of chrome || []) {
     if (!c || !c.el || !c.el.isConnected) continue;
-    const lines = textLines(c.el, map);
+    // box: true = a mark without text (the beat dots): its whole box is checked like a text line
+    const lines = c.box ? [map(c.el.getBoundingClientRect())].filter((b) => b.w > 0 && b.h > 0) : textLines(c.el, map);
     if (!lines.length) continue;
     texts.push({ el: c.el, lines, box: union(lines), name: `${c.name || 'chrome'} "${(c.el.textContent || '').trim().slice(0, 24)}"`, id: c.name || null, chrome: true });
   }

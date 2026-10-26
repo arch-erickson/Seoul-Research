@@ -5,12 +5,17 @@
 //   ====|##|---------      <- 290 x 2 px deck track: elapsed part in rule grey, this slide's planned
 //                             segment as a 5 px red bar
 //
+// Above it, right-aligned: the click dots (beat-dots.js), one per press left on this slide, red until shown, blue
+// once shown (11 px, 8 px apart, 7 px above the timer).
+//
 // Shown only when no presenter window is connected (single screen) or when toggled with O. Never in print
 // (?view=print / body[data-view=print] / the browser's print media). Hidden on image interstitials
 // (full-bleed photos), on the untimed appendix and while the screen is black or white, so it never sits on
 // top of an image or text it does not belong to. Lives inside the 1920x1080 stage (stage px).
 
 const C = { ink: '#111112', muted: '#6B6D70', rule: '#DBDAD7', faint: '#EDEDEA', red: '#CD2E3A' };
+import { createBeatDots, dotCounts } from './beat-dots.js';
+
 const BOX = { right: 100, top: 40, w: 290 }; // stage px; right edge at x = 1820 (100 px margin)
 
 /** True in the PDF / print view: the overlay must never appear there. */
@@ -84,7 +89,8 @@ export function createOverlayTimer(stageEl) {
   const done = el('div', { position: 'absolute', left: '0', top: '0', height: '2px', width: '0px', background: C.rule });
   const seg = el('div', { position: 'absolute', top: '-1.5px', height: '5px', width: '0px', left: '0px', background: C.red });
   track.append(done, seg);
-  root.append(dur, ends, num, track);
+  const dots = createBeatDots({ size: 11, gap: 8, className: 'overlay-timer__dots', style: { position: 'absolute', right: '0', top: '-18px' } });
+  root.append(dur, ends, num, track, dots.el);
   stageEl.appendChild(root);
   ensurePrintRule();
 
@@ -122,6 +128,8 @@ export function createOverlayTimer(stageEl) {
     lastEligible = eligible;
     setShown(eligible && wanted());
     if (!eligible) return;
+    const dc = dotCounts(state, row.cues.length);
+    dots.update(dc.total, dc.shown);
 
     const timer = state.timer || {};
     const slideMs = (timer.slideMs && timer.slideMs[i]) || 0;
@@ -145,6 +153,7 @@ export function createOverlayTimer(stageEl) {
 
   const api = {
     el: root,
+    dotsEl: dots.el,
     update,
     /** O key: flip whatever is showing now (sticks until the presenter window connects/disconnects). */
     toggle() { manual = !wanted(); setShown(lastEligible && wanted()); return manual; },

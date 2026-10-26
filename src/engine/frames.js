@@ -4,6 +4,10 @@
 // freeze the page before it is ready. In these modes requestAnimationFrame becomes a 16 ms timer; everything else
 // (the live audience and presenter views) keeps the real rAF.
 
+// The prefers-reduced-motion answer (motion on by default, ?motion=os / ?motion=off, instant in print / static /
+// audit; ?play=1 = motion on) is decided by motion-pref.js, installed here so it runs before motion.js and src/kit3d.
+import './motion-pref.js';
+
 export function installTimerFrames() {
   if (typeof window === 'undefined' || window.__seoulTimerFrames) return;
   window.__seoulTimerFrames = true;
@@ -25,17 +29,3 @@ export function wantsTimerFrames(search = (typeof location !== 'undefined' ? loc
 }
 
 if (wantsTimerFrames()) installTimerFrames();
-
-// ?play=1 (headless motion checks only): this machine may report prefers-reduced-motion, which makes every 2D motion
-// instant (motion.js reads it once on import, after this module). Like the Codex demo's preview adapter, play=1
-// answers "no preference" so the check sees the real interpolation. Normal views keep the native preference.
-try {
-  if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && new URLSearchParams(location.search).get('play') === '1') {
-    const native = window.matchMedia.bind(window);
-    window.matchMedia = (q) => {
-      const m = native(q);
-      if (!/prefers-reduced-motion/.test(String(q))) return m;
-      return { matches: false, media: m.media, onchange: null, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent() { return false; } };
-    };
-  }
-} catch { /* keep the native preference */ }

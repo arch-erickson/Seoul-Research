@@ -172,6 +172,6 @@ html.cursor-idle, html.cursor-idle * { cursor: none !important; }
 .asset-ring__pct { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); margin-left: 0.5px; font-size: 7.5px; }
 .asset-ring__icon { width: 15px; height: 15px; display: block; }
 .asset-ring__bang { font-weight: 800; font-size: 15px; color: var(--ink); }
-@media (prefers-reduced-motion: reduce) { .asset-ring { transition: none; } }
+html[data-deck-motion="off"] .asset-ring { transition: none; } /* motion-pref.js decides, not the OS */
 @media print { .asset-ring { display: none !important; } }
 body[data-view="print"] .asset-ring { display: none !important; }

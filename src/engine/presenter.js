@@ -5,7 +5,8 @@
 // commands back. Layout: large live current slide; "Next: B3" / "Next slide: <title>" preview; speaker notes
 // (markdown) whose "[m:ss] Bn" cue lines light up as the slide timer passes them and whose "quoted" lines (to be
 // said word for word) stand out; slide timer elapsed / planned (amber in the last 15 s, red when over); total vs
-// plan (ahead / behind); next auto-beat countdown; wall clock; a big PAUSED banner after going back; buttons
+// plan (ahead / behind); next point (its planned time; beats wait for a press unless A turns the timed auto-beats on); click dots above the
+// slide timer (beat-dots.js); wall clock; a big PAUSED banner after going back; buttons
 // Pause/Resume, Reset, Auto-beats, Black screen, Present on projector. Before the talk starts (until the first
 // forward press) a short checklist replaces the next preview, including the PDF reminder the user asked for and a
 // live "Photos and fonts loaded" line (preload.js runs the same asset loader here, without the ring). A full reset
@@ -28,6 +29,7 @@ import { createSync, actionCommand, hookCommand } from './sync.js';
 import { watchScreens, showToast, audienceUrlFor, AUDIENCE_WINDOW, MESSAGES } from './screens.js';
 import { planFromTiming, fmt } from './overlay-timer.js';
 import { createAssetLoader, assetCountText } from './preload.js';
+import { createBeatDots, dotCounts } from './beat-dots.js';
 
 const STAGE_W = 1920;
 const STAGE_H = 1080;
@@ -360,7 +362,7 @@ function buildDom() {
     </div>
     <div class="pv-timers">
       <div class="pv-tile pv-tile--slide" data-state="ok">
-        <div class="pv-k">This slide</div>
+        <div class="pv-k-row"><div class="pv-k">This slide</div></div>
         <div class="pv-big"><span class="pv-big-v">0:00</span><span class="pv-big-of">/ 0:00</span></div>
         <div class="pv-sbar"><div class="pv-sbar-fill"></div><div class="pv-sbar-ticks"></div></div>
       </div>
@@ -370,7 +372,7 @@ function buildDom() {
         <div class="pv-delta" data-state="none">Not started</div>
       </div>
       <div class="pv-tile pv-tile--beat">
-        <div class="pv-k">Next auto-beat</div>
+        <div class="pv-k">Next point</div>
         <div class="pv-mid pv-beat-v">Off</div>
         <div class="pv-beat-sub"></div>
       </div>
@@ -449,6 +451,7 @@ function buildDom() {
     bannerMain: $('.pv-banner-main'), bannerSub: $('.pv-banner-sub'), bannerBtn: $('.pv-banner-btn'),
     slideTile: $('.pv-tile--slide'), slideV: $('.pv-big-v'), slideOf: $('.pv-big-of'), sbarFill: $('.pv-sbar-fill'), sbarTicks: $('.pv-sbar-ticks'),
     totalV: $('.pv-mid-v'), totalOf: $('.pv-mid-of'), delta: $('.pv-delta'),
+    kRow: $('.pv-tile--slide .pv-k-row'),
     beatV: $('.pv-beat-v'), beatSub: $('.pv-beat-sub'), beatTile: $('.pv-tile--beat'),
     start: $('.pv-start'), check: (id) => $(`.pv-check [data-item="${id}"]`),
     nextMain: $('.pv-next-main'), nextSub: $('.pv-next-sub'), nextFrame: $('.pv-frame--next'),
@@ -475,6 +478,9 @@ export function bootPresenter(arg = {}) {
   document.title = 'Presenter: Seoul';
 
   const ui = buildDom();
+  // click dots, right-aligned on the "This slide" label row, directly above the slide timer
+  const dots = createBeatDots({ size: 12, gap: 8, className: 'pv-dots' });
+  if (ui.kRow) ui.kRow.appendChild(dots.el);
   const cur = createPreview(ui.curFrame, data, 'Current slide');
   const nxt = createPreview(ui.nextFrame, data, 'Next preview');
   cur.screen.appendChild(ui.banner); // the banner sits on the slide image itself
@@ -529,7 +535,7 @@ export function bootPresenter(arg = {}) {
       state: {
         ...base, furthest, started: slideSec > 0 || globalSec > 0,
         timer: { running, pausedByBack: paused === 'back', globalMs: globalSec * 1000, slideMs },
-        autoBeats: params.get('auto') !== '0',
+        autoBeats: params.get('auto') === '1', // click-only beats by default, as in the slides window
         black: params.get('black') === '1',
       },
     });
@@ -763,6 +769,7 @@ export function bootPresenter(arg = {}) {
       lastCueMark = '';
     }
     renderBeats(st, r);
+    if (r) { const dc = dotCounts(st, r.beats.length); dots.update(dc.total, dc.shown); }
 
     // buttons
     const running = !!(st.timer && st.timer.running);
@@ -941,18 +948,19 @@ export function bootPresenter(arg = {}) {
     if (ui.delta.dataset.state !== dState) ui.delta.dataset.state = dState;
     setText(ui.delta, dText);
 
-    // next auto-beat
+    // next point: a pacing hint (beats wait for a press), or the auto-beat countdown when A turned them on
     const nb = r.beats[(st.beat | 0) + 1];
     let bText;
     let bSub = '';
     let bState = 'idle';
     const isLive = st.isLive ?? (i === (st.furthest ?? i));
-    if (!nb) bText = 'All beats shown';
-    else if (!isLive) { bText = 'Revisiting'; bSub = 'Auto-beats run on the live slide only'; }
+    if (!nb) bText = 'All points shown';
+    else if (!isLive) { bText = 'Revisiting'; bSub = 'Shown fully built'; }
     else if (!st.autoBeats) {
-      bText = 'Auto-beats off';
+      bText = `Planned at ${fmt(Number(nb.cue) || 0)}`;
       const due = st.nextBeatInMs != null ? st.nextBeatInMs - T.dt : null;
-      bSub = due != null ? (due > 0 ? `${nb.id} cue in ${fmtMs(due + 999)}` : `${nb.id} cue passed, press next`) : '';
+      bSub = due != null && due <= 0 ? 'Press next when ready' : (nb.label || '');
+      bState = due != null && due <= 0 ? 'soon' : 'idle';
     } else if (!T.running) { bText = `${nb.id} waits`; bSub = 'Timer paused'; }
     else {
       const raw = st.nextAutoBeatInMs != null ? st.nextAutoBeatInMs : (st.nextBeatInMs != null ? st.nextBeatInMs : null);
