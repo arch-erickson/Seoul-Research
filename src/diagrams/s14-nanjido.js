@@ -1,4 +1,4 @@
-// s14-nanjido — Nanjido: a cut-away axonometric section of one ~90 m landfill mound.
+// s14-nanjido: Nanjido: a cut-away axonometric section of one ~90 m landfill mound.
 // The mound is built as five 18 m lifts with benches between them (an engineered landfill profile). The front
 // of the mound is cut away along its long axis, so the cut face shows the compacted waste as fine horizontal
 // strata. The second mound stands behind as a quiet light-grey silhouette. State 2 adds the fix: a sealed cap

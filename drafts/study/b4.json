@@ -49,7 +49,7 @@
       {
         "value": "9 to 31%",
         "meaning": "The reported drop in food waste with the RFID bins that charge by weight.",
-        "source": "Comparison table on the same site as the Dec 2013 KIIR / Korea Environment Corporation reporting (dossier §4.2)",
+        "source": "Comparison table on the same site as the Dec 2013 Korea Institute of Industrial Relations / Korea Environment Corporation reporting (dossier §4.2)",
         "confidence": "varies",
         "note": "The Dec 2013 reporting gives 10 to 30%. A comparison table on the same site gives 9 to 31% for the RFID bins specifically. Call it a reported range and don't claim an exact number."
       },
@@ -72,7 +72,7 @@
         "meaning": "New York composting fines: $25, $50 and $100 for buildings with 1 to 8 units, and $100, $200 and $300 for buildings with 9 or more units.",
         "source": "DSNY Compost Enforcement Flyer 2025",
         "confidence": "solid",
-        "note": "Bigger buildings face bigger fines. If asked what makes the amount step up, point to the DSNY flyer."
+        "note": "Bigger buildings face bigger fines. If asked what makes the fine go up within a size group, say \"My sources list the amounts but not what triggers each step.\""
       },
       {
         "value": "2.4%",
@@ -99,7 +99,7 @@
       },
       {
         "q": "Could New York do this?",
-        "a": "New York already has the rule and the fines for composting. What it doesn't have is a bin that tells each household how much it threw out, or a reward for cutting back. New York buildings already have refuse rooms, so weighing bins could go there. This is idea 1 on slide 19."
+        "a": "New York already has the rule and the fines for composting. What it doesn't have is a bin that tells each household how much it threw out, or a reward for cutting back. New York already requires refuse rooms in apartment buildings, so bins that weigh food waste could go there. This is idea 1 on slide 19."
       },
       {
         "q": "How much is ₩490 in US dollars?",
@@ -110,7 +110,7 @@
       "Don't say every household in Seoul uses a weighing bin. The dossier describes shared smart bins but gives no figure for how many homes have them.",
       "Don't present the 4.2 kg on the diagram as a real measurement. It's an example.",
       "Don't lean on the 8% drop for 1995. Seoul Solution itself says it may be too high, so use the 11% for 1996.",
-      "Don't say the 10 to 30% is only the points rule. The 10 to 30% shows up twice in the sources. It is the reported overall drop in food waste, and it is also the cut a household needs to earn points. The slide uses 9 to 31% for the RFID bins and 10 to 30% for the points rule.",
+      "Don't mix up the two ranges. Use 9 to 31% for the RFID bins and 10 to 30% for the points rule.",
       "Don't use the recycling figures (recycling up more than 30%, about 70% of household waste recycled). They come from one source and aren't measured from the same starting point.",
       "Don't say New Yorkers pay for food waste by weight. New York fines buildings that don't separate it, and nobody is charged by weight.",
       "Don't call Korea's system the strictest in the world as if it were a measured fact."
@@ -127,10 +127,6 @@
       {
         "term": "RFID",
         "meaning": "Radio-frequency identification. A chip card the bin reads with a tap, like a building key fob or a contactless transit card."
-      },
-      {
-        "term": "Load cell",
-        "meaning": "The scale sensor inside the bin that weighs what you drop in."
       },
       {
         "term": "Biogas",
@@ -230,7 +226,7 @@
     "questions": [
       {
         "q": "Is it safe to walk on a park built on trash?",
-        "a": "The dump closed in 1993 and work to stabilize the site started then. The landfill gas is now collected and used. My sources don't include health monitoring data, so I can't say more than that."
+        "a": "The city decided to close the dump in 1993 and began stabilizing the site. Some sources say dumping ended in 1992. The landfill gas is now collected and used. My sources don't include health monitoring data, so I can't say more than that."
       },
       {
         "q": "What happens to the gas now?",
@@ -246,7 +242,7 @@
       },
       {
         "q": "How does Freshkills compare with Nanjido?",
-        "a": "Fresh Kills on Staten Island was once the world's largest landfill, and it's becoming a park of about 2,200 acres that opens in phases. Seoul's park opened in 2002, so Seoul finished sooner. The two cities came to the same idea on their own, on roughly the same timeline."
+        "a": "Fresh Kills on Staten Island was once the world's largest landfill, and it's becoming a park of about 2,200 acres. Seoul's park opened in 2002, and Freshkills is still opening in phases. The two cities came to the same idea on their own, on roughly the same timeline."
       }
     ],
     "dontSay": [
@@ -393,7 +389,7 @@
     "explainSimply": "Imagine a landlord who announces that the building's trash chute closes on a set date, but the new compactor isn't installed by then. The trash doesn't go away. People carry it down the block to someone else's bins. Seoul set its closing date in 2021 and didn't finish the replacement in time.",
     "sayThis": [
       "So far I've mostly shown you things that worked. This one started in January, and it's not going well.",
-      "Seoul banned burying trash before it had enough incinerators. Can New York's retrofit workers and supply chain keep up with LL97?"
+      "Seoul banned burying raw trash before it had enough incinerators. Can New York's retrofit workers and supply chain keep up with LL97?"
     ],
     "questions": [
       {
@@ -402,11 +398,11 @@
       },
       {
         "q": "Isn't burning trash bad for the climate too?",
-        "a": "Burning trash does release greenhouse gases, and one of my sources studies emissions from Seoul's incinerators. Buried raw trash also rots and gives off methane, as it did at Nanjido. My sources don't spell out why the ban was passed. My point on this slide is about timing: the replacement wasn't ready when the ban started."
+        "a": "Burning trash does release greenhouse gases, and one of my sources studies emissions from Seoul's incinerators. Buried raw trash also rots and gives off methane, as it did at Nanjido. My sources don't spell out why the ban was passed. My point on this slide is about timing. The replacement wasn't ready when the ban started."
       },
       {
         "q": "457 tons a day went to private companies, but public incineration only rose 80 tons. Do those numbers add up?",
-        "a": "The 457 is tons a day for January to June 2026. My notes don't have a time period for the 80-ton rise (1,921 to 2,001 tons), so I don't compare the two directly. Both point the same way: public incinerators took on very little, and private handling jumped."
+        "a": "The 457 is tons a day for January to June 2026. My source doesn't give a time period for the 80-ton rise (1,921 to 2,001 tons), so I don't compare the two directly. Both numbers show public incinerators took on little while private handling jumped."
       },
       {
         "q": "Is 130 km the actual distance?",
@@ -461,6 +457,10 @@
         "meaning": "New York's 2019 law that sets carbon limits for buildings over 25,000 sq ft and fines owners $268 for each ton of CO₂e over the limit."
       },
       {
+        "term": "CO₂e",
+        "meaning": "Carbon dioxide equivalent, a way to count all greenhouse gases as if they were CO₂."
+      },
+      {
         "term": "Supply chain",
         "meaning": "Everything needed to get the work done, from equipment like heat pumps to the companies that make and install it."
       },
@@ -475,18 +475,18 @@
     "key": "i15",
     "title": "Two Trash Facilities",
     "seoul": "The Mapo Resource Recovery Facility, one of Seoul's four public incinerators. The others are in Gangnam, Nowon and Yangcheon, and most of the four are 20 or more years old.",
-    "nyc": "A DSNY transfer station or waste export barge (the photo credit says which). A transfer station is where garbage trucks unload and the trash is packed into containers to be hauled away by barge or train.",
-    "why": "Both photos show where trash goes after pickup. Seoul burns part of its trash in its own four incinerators. The New York photo shows a transfer station, where trash is loaded to be hauled away. That links to Seoul now sending some trash to other cities."
+    "nyc": "A DSNY marine transfer station in Harlem, where garbage trucks unload and the trash is loaded onto barges.",
+    "why": "Both photos show where trash goes after pickup. Seoul burns part of its trash in its own four incinerators. The New York photo shows a marine transfer station, where trash is loaded to be hauled away. That links to Seoul now sending some trash to other cities."
   },
   {
     "key": "s16",
     "title": "Restoring Cheonggyecheon",
     "inOneSentence": "Seoul removed an elevated highway and uncovered the stream buried under it, and the area gained wildlife, cleaner air and cooler temperatures without the traffic jams people expected.",
     "background": [
-      "Cheonggyecheon (chung-gyeh-chun) is a stream in central Seoul. It had been buried under a road, with an elevated highway on top that carried about 168,000 vehicles a day. From 2003 to 2005, Seoul took the highway down and opened the stream back up. Uncovering a buried stream like this is called daylighting. The project cost about US$281 million and restored about 5.8 km (3.6 miles) of corridor.",
-      "Wildlife came back. A Landscape Architecture Foundation case study reports that between 2003 and 2008 plant species went from 62 to 308, insects from 15 to 192, birds from 6 to 36 and fish from 4 to 25. You'll often see a \"639% increase in biodiversity\" quoted. That figure comes from an overall index and doesn't count species, so the counts for each group are safer to give. Plants alone went up about 397%, so there were about five times as many plant species.",
+      "Cheonggyecheon (chung-gyeh-chun) is a stream in central Seoul. It was buried under an elevated highway that carried about 168,000 vehicles a day. From 2003 to 2005, Seoul took the highway down and opened the stream back up. Uncovering a buried stream like this is called daylighting. The project cost about US$281 million and restored about 5.8 km (3.6 miles) of corridor.",
+      "Wildlife came back. A Landscape Architecture Foundation case study reports that between 2003 and 2008 plant species went from 62 to 308, insects from 15 to 192, birds from 6 to 36 and fish from 4 to 25. You'll often see a \"639% increase in biodiversity\" quoted. It's an overall index, so it can't be read as a species count. The counts for each group are safer to give. Plants alone went up about 397%, so there were about five times as many plant species.",
       "The air got cleaner and the area got cooler. Small-particle air pollution fell from 74 to 48 micrograms per cubic meter, about 35% less. The highest cooling estimate says the corridor is 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. Other sources find a smaller effect. WWF says 3 to 4°C cooler than areas 400 m away. Metropolis says the area went from 2.2°C above the Seoul average to 1.3°C above. A peer-reviewed study that pulled many studies together is the most careful source, and it found lower daily average temperatures within about 300 m of the stream.",
-      "Many people expected traffic chaos when the highway closed, and it didn't happen. In general, when road space is taken away, some car trips stop happening, because people change routes, switch to transit or skip the trip. This is called reduced demand, and it's the opposite of induced demand, where new roads fill up with new traffic. Bus ridership in the corridor rose 15.1% from 2003 to 2008, but Seoul's big 2004 bus reform happened at the same time, so the stream shouldn't get all the credit.",
+      "Many people expected traffic chaos when the highway closed, and it didn't happen. In general, when road space is taken away, some drivers take other routes, some switch to transit, and some trips stop happening. Planners call this reduced demand. It's the opposite of induced demand, where new roads fill up with new traffic. Bus ridership in the corridor rose 15.1% from 2003 to 2008, but Seoul's big 2004 bus reform happened at the same time, so the stream shouldn't get all the credit.",
       "For New York, this is evidence for the debates over the Brooklyn-Queens Expressway (BQE), the Cross Bronx Expressway and the Gowanus Expressway. The High Line reused an old rail line, so no drivers lost a road. Cheonggyecheon removed a busy road that drivers used every day, and the gridlock people predicted did not happen."
     ],
     "numbers": [
@@ -530,7 +530,7 @@
         "meaning": "A widely quoted rise in an overall biodiversity index.",
         "source": "Landscape Performance Series; flagged in the dossier's list of figures to avoid",
         "confidence": "hedge",
-        "note": "It doesn't count species. If someone brings it up, say it's an overall index and give the counts for each group instead."
+        "note": "It's an overall index, so it can't be read as a species count. If someone brings it up, give the counts for each group instead (plants 62 to 308, fish 4 to 25, birds 6 to 36, insects 15 to 192)."
       },
       {
         "value": "About 397%",
@@ -582,7 +582,7 @@
         "note": "The 2004 bus reform happened at the same time, so the stream shares the credit."
       }
     ],
-    "explainSimply": "Picture a highway on stilts over a creek that was covered up. Seoul took the highway down, took the lid off the creek and planted the banks. Now it's a long, cool, green strip through downtown where people walk by the water. The traffic people worried about mostly found other routes or went away.",
+    "explainSimply": "Picture a highway on stilts over a creek that was covered up. Seoul took the highway down, took the lid off the creek and planted the banks. Now it's a long, cool, green strip through downtown where people walk by the water. The traffic jams people worried about never showed up.",
     "sayThis": [
       "The 3.3 to 5.9 degree number is the highest estimate. Other studies find a smaller effect."
     ],
@@ -597,7 +597,7 @@
       },
       {
         "q": "Why not use the 639% figure? It sounds impressive.",
-        "a": "It comes from an overall index and doesn't count species, so it's easy to misread. The counts for each group are clearer. Plants went from 62 to 308 species, about 397% more, and fish went from 4 to 25."
+        "a": "It's an overall index, so it can't be read as a species count. The counts for each group are clearer. Plants went from 62 to 308 species, about 397% more. Fish went from 4 to 25, birds from 6 to 36 and insects from 15 to 192."
       },
       {
         "q": "How much cooler is it really?",
@@ -605,7 +605,7 @@
       },
       {
         "q": "Could New York take down the BQE or the Cross Bronx?",
-        "a": "Those are live debates, and there are proposals to cap parts of the Cross Bronx. Cheonggyecheon shows that removing a busy elevated highway didn't cause the gridlock people predicted. Every city's road network is different, so it's evidence to weigh, and it doesn't promise the same result here."
+        "a": "Those are live debates, and there are proposals to cap parts of the Cross Bronx. Cheonggyecheon shows that removing a busy elevated highway didn't cause the gridlock people predicted. Every city's road network is different, so the result here could be different."
       }
     ],
     "dontSay": [
@@ -621,10 +621,6 @@
       {
         "term": "Daylighting",
         "meaning": "Uncovering a stream that had been buried in a pipe or under a road, so it runs in the open again."
-      },
-      {
-        "term": "Culvert",
-        "meaning": "A pipe or covered channel that carries a stream under a road."
       },
       {
         "term": "Elevated highway",

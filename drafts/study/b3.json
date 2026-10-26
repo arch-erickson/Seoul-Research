@@ -4,7 +4,7 @@
     "title": "Zero-Energy Building Rules",
     "inOneSentence": "Korea's national rules grade new buildings by how much of their own energy they make, and the rules started with public buildings in 2020 and reached private buildings in 2025.",
     "background": [
-      "Korea has a national system for zero-energy buildings, called ZEB for short. It is run by MOLIT, the national Ministry of Land, Infrastructure and Transport. Seoul's climate plan builds on this national system. So the rules on this slide apply across all of Korea, and Seoul's plan adds its own targets for new public buildings.",
+      "Korea has a national system for zero-energy buildings, called ZEB for short. MOLIT, the national Ministry of Land, Infrastructure and Transport, sets the rules. Seoul's climate plan builds on this national system. So the rules on this slide apply across all of Korea, and Seoul's plan adds its own targets for new public buildings.",
       "The system grades a building by its energy self-sufficiency rate. That is the share of the energy a building uses that it also makes itself, mostly with renewable systems such as solar panels. There are five grades. Grade 5 is the entry level, at 20 to 40%. Grade 1 is the top, at over 100%, which means the building makes more energy than it uses over a year. Your sources don't give confirmed percentages for Grades 4, 3 and 2. You only need to know that they sit between the two ends.",
       "The rules came in steps, starting with the government's own buildings. In 2020, new public buildings over 1,000 m² had to meet ZEB status, and the size limit was later lowered to 500 m². In 2023, the public sector moved to Grade 5. The rule for private buildings was planned for 2024. It was pushed back one year after the construction industry objected, and talks with the industry ran into mid-2025. From 2025, private apartment complexes of 30 or more units and buildings over 1,000 m² in general have to meet Grade 5. Some sources also report a goal of making all new buildings in Korea zero-energy by 2030, but that date is less certain. Sources give slightly different dates for these steps, and you should say so on stage.",
       "Seoul's climate plan sets its own targets for new public buildings: Grade 5 now, Grade 4 by 2030 and Grade 3 by 2050. So the plan raises the grade for new public buildings step by step over time.",
@@ -57,15 +57,15 @@
         "value": "30 or more apartments · over 1,000 m²",
         "meaning": "Which private buildings the 2025 rule covers: apartment complexes of 30 or more units, and buildings over 1,000 m² in general.",
         "source": "Dossier §3.2",
-        "confidence": "solid",
-        "note": "1,000 m² is about 10,800 sq ft."
+        "confidence": "varies",
+        "note": "The dossier warns that sources conflict on the rollout, and this is the rule the 13% and 40% figures are about, so give it with the same caution as the dates. 1,000 m² is about 10,800 sq ft."
       },
       {
         "value": "13% or 40%",
         "meaning": "Two different figures for how much of their own energy new private apartments must make.",
         "source": "Dossier §3.2 (one source says at least 13%; another says 40% for complexes of 30 or more units)",
         "confidence": "hedge",
-        "note": "They seem to be different measures, or one is a later change to the rule. Don't give either one on stage. If asked, say the sources disagree."
+        "note": "They seem to be different measures, or one is a later change to the rule. Don't give either one on stage. If asked, say the rule is Grade 5, which is 20 to 40%, and that one source gives a separate 13% figure that seems to measure something else."
       },
       {
         "value": "Grade 5 now, Grade 4 by 2030, Grade 3 by 2050",
@@ -97,11 +97,11 @@
       },
       {
         "q": "Grade 5 only needs 20 to 40%. Can you really call that a zero-energy building?",
-        "a": "That's a fair point. A Grade 5 building still gets most of its energy from the grid, and only Grade 1 makes all of its own. The name covers the whole ladder, and Grade 5 is the first step. Seoul's plan moves new public buildings up to Grade 4 by 2030 and Grade 3 by 2050."
+        "a": "That's a fair point. A Grade 5 building still gets most of its energy from outside sources such as the grid or gas, and only Grade 1 makes all of its own. The name covers the whole ladder, and Grade 5 is the first step. Seoul's plan moves new public buildings up to Grade 4 by 2030 and Grade 3 by 2050."
       },
       {
         "q": "Why was the private rule delayed, and what exactly do private apartments have to reach?",
-        "a": "It was planned for 2024 and delayed one year after the construction industry pushed back, with talks running into mid-2025. On the exact requirement my sources disagree. One says new private apartments must make at least 13% of their own energy, and another says 40% for complexes of 30 or more units, so I don't give one number."
+        "a": "It was planned for 2024 and pushed back a year after the building industry objected, with talks running into mid-2025. The rule is Grade 5, which is 20 to 40%. One source gives a separate 13% figure for private apartments that seems to measure something else, so I stick with Grade 5."
       },
       {
         "q": "How does this compare with New York's rules?",
@@ -110,10 +110,10 @@
     ],
     "dontSay": [
       "Don't give percentages for Grades 4, 3 and 2. Your sources don't confirm them.",
-      "Don't give one figure for what private apartments must reach. Sources say 13% or 40%, and they seem to be different measures.",
+      "Don't quote the 13% figure for private apartments. It seems to measure something different from the Grade 5 range, so stick with Grade 5, 20 to 40%.",
       "Don't present 2030 as a fixed deadline for all new buildings. It is reported in some sources and less certain.",
       "Don't treat the rollout dates as exact. Sources give slightly different dates, so say that out loud.",
-      "Don't call the ZEB system a Seoul law. It is national and run by MOLIT. Seoul's plan builds on it.",
+      "Don't call the ZEB system a Seoul law. It is a national system, and the rules come from MOLIT. Seoul's plan builds on it.",
       "Don't say every zero-energy building makes all of its own energy. Only Grade 1 does. Grade 5 makes 20 to 40%.",
       "Don't give the Energy Dream Center a ZEB grade or call it Grade 1. No source gives it one."
     ],
@@ -128,7 +128,7 @@
       },
       {
         "term": "MOLIT",
-        "meaning": "Korea's Ministry of Land, Infrastructure and Transport. It is the national ministry in charge of buildings, land and transport, and it runs the ZEB system."
+        "meaning": "Korea's Ministry of Land, Infrastructure and Transport. It is the national ministry in charge of buildings, land and transport, and it sets the ZEB rules."
       },
       {
         "term": "Hong Seongjun",
@@ -162,7 +162,7 @@
     "inOneSentence": "The Energy Dream Center, opened in 2012 on the old Nanjido landfill, is Korea's first zero-energy public building and covers its own yearly energy use.",
     "background": [
       "The Seoul Energy Dream Center opened in 2012 in World Cup Park, in the Mapo-gu district. It is Korea's first zero-energy public building. It is about 3,500 m² and works as a public exhibition and education center about renewable energy. The Seoul city government commissioned it. The design was led by Fraunhofer ISE, a German research institute for solar energy, which ran a German and Korean team that designed the building and oversaw construction.",
-      "The site is the old Nanjido landfill from slide 4. Nanjido was an island in the Han River that became Seoul's official dump in 1978. Trash piled up about 90 m high in two mounds, and there was no modern system to treat the gas or the polluted liquid coming out of it. The city decided to close the dump in 1993, and the site reopened as World Cup Park for the 2002 World Cup. Landfill gas is now captured and used. Trash can't carry the weight of a building, so the Energy Dream Center stands on piles that go down through the waste to solid ground, with a reinforced concrete base plate on top.",
+      "The site is the old Nanjido landfill from slide 4. Nanjido was an island in the Han River that became Seoul's official dump in 1978. Trash piled up about 90 m high in two mounds, and there was no modern system to treat the gas or the polluted liquid coming out of it. The city decided to close the dump in 1993, and the site reopened as World Cup Park for the 2002 World Cup. Landfill gas is now captured and used. Trash can't carry the weight of a building, so the Energy Dream Center stands on piles that go down through the waste to solid ground, with a reinforced concrete base plate on top. The dossier says only that the building sits on piles on a reinforced concrete base plate. Reaching solid ground is how piles usually work, and the dossier gives no depth for them.",
       "The shape is the first energy strategy. The plan is square. The building widens as it rises over its three floors and turns 45°, with a square roof on top. From outside it looks a bit like a pinwheel with slanted walls, and it was shaped this way to cut how much energy the building needs. Wedge-shaped roof edges, called wings, stick out along the sides. They shade the windows, give cover at the entrance and hold solar panels. The white marble outside walls reflect sunlight, and one source says they reflect about 60% of it.",
       "The envelope, meaning the walls, roof and windows, was designed to Passive House standards, so it is very well insulated and airtight. Geothermal heat pumps handle heating and cooling. Solar panels on the roof, on the wings and on a small patch of ground supply about 280,000 kWh a year, which covers the building's full yearly demand. The building stays connected to the power grid. It can send extra power out on sunny days and draw power when the panels make less than it needs. It is reported to use over 70% less energy than a similar ordinary building, and it holds Korea's KGBC green building certification and the Building Energy Efficiency Label.",
       "The building connects the landfill story and the zero-energy story. It sits on the landfill Seoul turned into a park, and it shows the zero-energy idea from slide 9 working on a real public building in 2012, years before the national rule for public buildings began in 2020. New York has its own landfill that is becoming a park, Freshkills Park on Staten Island, so this is a place where the two cities line up closely."
@@ -225,7 +225,7 @@
         "note": "Only one source gives it. If you use it, say \"one source says about 60%.\""
       }
     ],
-    "explainSimply": "Think of the building as having an energy savings account. On sunny days its solar panels make more power than it needs and send the extra to the grid. At night and on cloudy days it takes power back from the grid. Over a full year the two even out. And because it stands on old trash, it rests on long concrete legs that go down through the garbage to firm ground, the way a table could stand on long legs that reach through a pile of loose sand.",
+    "explainSimply": "Think of the building as having an energy savings account. On sunny days its solar panels make more power than it needs and send the extra to the grid. At night and on cloudy days it takes power back from the grid. Over a full year the two even out. And because it stands on old trash, it rests on long legs, called piles, that go down through the garbage to firm ground, the way a table could stand on long legs that reach through a pile of loose sand.",
     "sayThis": [
       "Remember Nanjido from earlier? This building sits right on top of it."
     ],
@@ -314,11 +314,11 @@
   {
     "key": "s11",
     "title": "Nowon Energy Zero House",
-    "inOneSentence": "Nowon Energy Zero House, finished in 2017 with 121 homes in Nowon-gu, is Korea's first zero-energy apartment complex, and it raises the question of what New York could build for its own apartments under Local Law 97.",
+    "inOneSentence": "Nowon Energy Zero House, finished in 2017 in Nowon-gu, is Korea's first zero-energy apartment complex, with 121 homes.",
     "background": [
       "Nowon Energy Zero House, often called EZ House, is in Nowon-gu, a district of Seoul. It is Korea's first zero-energy apartment complex, with 121 apartments. It was finished in September 2017, and residents moved in from November 2017. Of all the Seoul buildings in the talk, this one matters most for New York, because New York has a huge number of apartment buildings and apartments are much harder to get to zero energy than a showcase building like the Energy Dream Center.",
       "The goal is net zero over a year, counted in primary energy. That means the complex aims to make as much energy as it uses over a full year. The reported result is that it makes about 75 to 80% of its own energy, so say it aims for net zero and makes most of its own energy. Residents' energy costs are reported to be up to 61% lower than in similar ordinary apartments.",
-      "The dossier sums up the design as a passive envelope plus renewables. These are known building parts used together. From the bottom up, the diagram shows a geothermal field with about 130 heat pumps, the structure, a Passive House envelope, heat recovery ventilation and, last, the solar panels. A Passive House envelope generally means thick insulation, an airtight layer and very good windows. Heat recovery ventilation brings in fresh air all the time and uses the stale air going out to warm or cool it, so little heat is lost. Heat recovery is shown on the diagram, but the dossier lists only a passive envelope plus renewables, so describe it in general terms if asked. Sources count the solar panels differently, 1,284 in one and 1,800 in another, so say about 1,300 to 1,800 panels.",
+      "The dossier sums up the design as a passive envelope plus renewables. These are standard building parts, used together carefully. From the bottom up, the diagram shows a geothermal field with about 130 heat pumps, the structure, a Passive House envelope, heat recovery ventilation and, last, the solar panels. A Passive House envelope generally means thick insulation, an airtight layer and very good windows. Heat recovery ventilation brings in fresh air all the time and uses the stale air going out to warm or cool it, so little heat is lost. Heat recovery is shown on the diagram, but the dossier lists only a passive envelope plus renewables, so describe it in general terms if asked. Sources count the solar panels differently, 1,284 in one and 1,800 in another, so say about 1,300 to 1,800 panels.",
       "It was built through a national research program run by MOLIT, working with the city of Seoul and the Nowon-gu district, with companies and universities as partners. So the national government, the city and the district all had a role. In August 2018, Building 102 became the first housing in Korea to earn German Passive House certification. In December 2017, President Moon Jae-in visited, called it Korea's first zero-energy apartment complex, and used it to start a national push to build more like it.",
       "The New York link is Local Law 97. For large apartment buildings over 25,000 sq ft, the yearly carbon limit drops by about half in 2030. The exact figures are 0.00675 t CO₂e per sq ft a year for 2024 to 2029 and about 0.00335 (0.003346640) for 2030 to 2034, a 50.4% cut. About 63% of the buildings LL97 covers are projected to go over their 2030 limits if nothing changes. Your question to the room asks what a NYCHA version of Nowon would look like. To answer it, the class has to think about who pays and who builds, along with the design."
     ],
@@ -401,7 +401,7 @@
         "note": "Don't use any of them. If asked, say the published figures don't agree."
       }
     ],
-    "explainSimply": "Think of each apartment as a well-sealed thermos. The thick walls and the airtight layer keep heat in during winter and out during summer, so it takes very little energy to stay comfortable. Fresh air comes in through a system that passes it by the stale air going out, so the warmth stays inside. The small amount of energy that is still needed comes mostly from the solar panels and the geothermal heat pumps in the ground.",
+    "explainSimply": "Think of each apartment as a well-sealed thermos. The thick walls and the airtight layer keep heat in during winter and out during summer, so it takes very little energy to stay comfortable. Passive House buildings usually also bring in fresh air through a system that passes it by the stale air going out, so the warmth stays inside, but your sources don't list this for Nowon. The solar panels make most of the power that is still needed, and the geothermal heat pumps use the ground's steady temperature to heat and cool efficiently.",
     "sayThis": [
       "What would a NYCHA version of this building look like?"
     ],
@@ -412,11 +412,11 @@
       },
       {
         "q": "How much did it cost to build?",
-        "a": "The published figures don't agree. Different sources give about US$4.5 million, US$18 million and US$49 million, so I don't use any of them."
+        "a": "The published cost figures don't agree. They differ by about ten times, so I don't use any of them."
       },
       {
         "q": "What makes it zero-energy?",
-        "a": "It aims for net zero, and it gets most of the way there with several known parts working together. A very well insulated, airtight Passive House envelope cuts how much heating and cooling the apartments need, and heat recovery ventilation keeps fresh air coming in without losing much heat. Then the geothermal heat pumps and about 1,300 to 1,800 solar panels supply most of the small amount of energy that is left."
+        "a": "It aims for net zero, and it gets most of the way there with standard building parts used together carefully. A very well insulated, airtight Passive House envelope cuts how much heating and cooling the apartments need. Heat recovery ventilation, shown on my diagram, is standard in Passive House buildings, but my sources don't list it for Nowon. Then about 1,300 to 1,800 solar panels make most of the power that is left, and the geothermal heat pumps use the ground's steady temperature to heat and cool efficiently."
       },
       {
         "q": "Does NYCHA actually have to meet the LL97 limit you showed?",
@@ -482,18 +482,18 @@
     "title": "Zero-Energy Housing",
     "seoul": "Nowon Energy Zero House in Nowon-gu, Seoul, Korea's first zero-energy apartment complex. It has 121 apartments, and in August 2018 its Building 102 became the first housing in Korea to earn German Passive House certification.",
     "nyc": "Sendero Verde in East Harlem, a large new housing complex. The photo plan describes it as large Passive House housing. Your dossier has no figures for it, so don't give unit counts or energy numbers.",
-    "why": "Both are new apartment complexes designed to use very little energy. Nowon is the Seoul building that matters most for New York, because so much of New York's housing is in apartment buildings."
+    "why": "Both are new apartment complexes. Nowon was designed to use very little energy, and the photo plan describes Sendero Verde as Passive House housing. Nowon is the Seoul building that matters most for New York, because so much of New York's housing is in apartment buildings."
   },
   {
     "key": "s12",
     "title": "Two LEED Gold Buildings",
-    "inOneSentence": "Amorepacific HQ and Lotte World Tower, two large Seoul buildings finished in 2017, both earned LEED Gold, but Amorepacific's green design comes mostly from its shape while Lotte relies mostly on added equipment, which raises the question of what LEED really measures.",
+    "inOneSentence": "Amorepacific HQ and Lotte World Tower were both finished in 2017 and both earned LEED Gold, but they got there in very different ways.",
     "background": [
       "LEED is a green building rating from the US Green Building Council. It has four levels, Certified, Silver, Gold and Platinum, so Gold is the second highest. Both buildings on this slide were finished in 2017 and both are LEED Gold, which makes them a good pair to compare.",
       "Amorepacific HQ was designed by David Chipperfield Architects, with Arup as the engineers for the building systems. The design won a competition in 2010, construction started in 2014 and the building was finished in 2017. The company has been on this site since 1956. The building is a large cube around a central courtyard, with its proportions worked out so that natural air flow and daylight work well. Three large openings, called hanging gardens, cut through the outside walls and connect the courtyard to the outside, bringing light and air deep inside. Fins on the facade cut sun and glare. It got LEED Gold in 2018 under Core & Shell, which rates the base building only. It has about 22 floors above ground and roughly 7,000 to 8,000 people working there.",
       "Lotte World Tower was designed by Kohn Pedersen Fox (KPF). It is 555 m tall with 123 floors, one of the tallest buildings in the world, and its form draws on Korean ceramics, porcelain and calligraphy. It relies mostly on added systems. It has 720 geothermal wells about 200 m deep, uses Han River water for heating and cooling, and has wind turbines near the top, solar panels and energy recovery wheels that pass heat from outgoing air to incoming air. It also reuses greywater and collects rainwater. One source reports it as the first building over 100 floors to earn LEED Gold.",
       "Amorepacific also won a CIBSE Building Performance Award. CIBSE is the UK professional body for the engineers who design heating, cooling and lighting, and this award is judged on measured performance, meaning real data from the building in use. So Amorepacific has evidence that it works in practice, in addition to its LEED rating.",
-      "The main point of the slide is what LEED measures. LEED Gold shows that a building is efficient for its type. The dossier says LEED Gold on Lotte certifies relative efficiency. For the energy score, LEED compares the design with a standard version of the same building that just meets a basic energy code (general knowledge). So \"a normal tower like it\" in your quote means that standard version of Lotte. If someone asks which towers, explain that it is a model of the same building. A 555 m tower still has a huge amount of embodied carbon, which is the carbon released to make all that concrete and steel and to build with it, and it uses a lot of energy for each person inside. So the same LEED Gold rating covers two buildings that reach it in very different ways."
+      "The main point of the slide is what LEED measures. LEED Gold shows that a building is efficient for its type. The dossier says LEED Gold on Lotte certifies relative efficiency. For energy, LEED compares the design with a basic version of the same building that just meets a basic energy code (general knowledge). So \"a basic version of the same tower\" in your quote means a computer model of Lotte itself. If someone asks which towers it is compared with, explain that it is a model of the same building and that no other real towers are involved. A 555 m tower still has a huge amount of embodied carbon, which is the carbon released to make all that concrete and steel and to build with it, and it uses a lot of energy for each person inside. So the same LEED Gold rating covers two buildings that reach it in very different ways."
     ],
     "numbers": [
       {
@@ -553,9 +553,9 @@
         "note": "Say \"reported as the first.\" Early project material only said it was \"seeking\" LEED Gold."
       }
     ],
-    "explainSimply": "LEED's energy score works a bit like rating a car's fuel use against a standard car of the same size. A big SUV can score well for an SUV and still burn far more fuel than a small car. Lotte scores well for a supertall, and it is still a 555 m tower full of concrete and steel. Amorepacific is more like a car that was tested on the road, because its CIBSE award was based on real measured data.",
+    "explainSimply": "LEED's energy points work a bit like rating an SUV's fuel use against a basic version of the same SUV. A big SUV can score well that way and still burn far more fuel than a small car. Lotte scores well for a supertall, and it is still a 555 m tower full of concrete and steel. Amorepacific is more like a car that was tested on the road, because its CIBSE award was based on real measured data.",
     "sayThis": [
-      "LEED's energy score compares Lotte to a normal tower like it."
+      "LEED compares Lotte's energy use to a basic version of the same tower."
     ],
     "questions": [
       {
@@ -572,7 +572,7 @@
       },
       {
         "q": "So which building does more for the climate: Lotte, Amorepacific or Nowon?",
-        "a": "LEED can't settle that, because its energy score compares each building with a standard version of its own type. Amorepacific has measured data behind its award, and Nowon is a 121-unit apartment complex that aims for net zero. Lotte is efficient for a supertall, but a 555 m tower carries huge embodied carbon and high energy use per person, so I find it hard to argue it does the most for the climate."
+        "a": "LEED can't answer that. Its energy points compare each building with a basic version of the same building, and Nowon has no LEED rating at all in my sources, so the three can't be ranked by LEED. Amorepacific has measured data behind its award, and Nowon is a 121-unit apartment complex that aims for net zero. Lotte is efficient for a supertall, but a 555 m tower carries huge embodied carbon and high energy use per person, so I find it hard to argue it does the most for the climate."
       },
       {
         "q": "Lotte has geothermal wells, river water heating and cooling, wind turbines and solar panels. Why criticize it?",
@@ -584,7 +584,7 @@
       "Don't name the wind turbine type as certain. Sources disagree. If asked, say \"vertical-axis turbines near the top.\"",
       "Don't say Lotte was definitely the first building over 100 floors with LEED Gold. Say one source reports it.",
       "Don't give 216,000 m² or 30 floors for Amorepacific. Sources conflict, so use about 22 floors above ground.",
-      "Don't say LEED Gold means a building is low carbon. The rating shows a building is efficient for its type, and its energy score compares the building with a standard version of itself.",
+      "Don't say LEED Gold means a building is low carbon. The rating shows a building is efficient for its type, and its energy score compares the building with a basic version of itself.",
       "Don't call Gold the top LEED level. Platinum is higher.",
       "Don't say Amorepacific's interiors were rated. Core & Shell covers the base building only.",
       "Don't give a number for Lotte's embodied carbon. The dossier has none.",

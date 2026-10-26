@@ -95,7 +95,7 @@ try {
     const from = path.join(WS, '.tmp', 'main', d);
     if (fs.existsSync(from)) fs.cpSync(from, path.join(SITE, 'drafts', d), { recursive: true });
   }
-  for (const f of ['package.json', 'ARCHITECTURE.md', 'STATUS-MAIN.md', 'STATUS-3D.md', 'STATUS-IMAGES.md']) {
+  for (const f of ['package.json', 'ARCHITECTURE.md', 'FINAL-PUSH-PLAN.md', 'STATUS-MAIN.md', 'STATUS-3D.md', 'STATUS-IMAGES.md']) {
     if (fs.existsSync(path.join(WS, f))) fs.copyFileSync(path.join(WS, f), path.join(SITE, f));
   }
 
