@@ -20,7 +20,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 8 | s16-cheonggye | DONE (lead-reviewed) | 0–2 | 0 at every state | s16-cheonggye-sheet.png (+ builder per-state PNGs) |
 | 9 | s15-export | DONE | 0–1 | 0 / 0 | s15-export-0.png, s15-export-1.png, s15-export-1-preview.png, s15-export-1-t1900.png, s15-export-sheet.png |
 | 10 | s06-reactor | IN PROGRESS (builder finishing its draft) | | | |
-| 11 | s09-zeb | IN PROGRESS (restored: user wants all diagrams; review + fix pending) | | | |
+| 11 | s09-zeb | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s09-zeb-sheet.png, s09-zeb-*.png  |
 | 12 | s17-parks | IN PROGRESS (restored: user wants all diagrams; review + fix pending) | | | |
 | 13 | s05-trajectory | IN PROGRESS (wave 1b: review + fix) | | | |
 | 14 | s18-buslane | QUEUED (draft in dev/cut/, wave 2) | | | |

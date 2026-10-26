@@ -7,6 +7,7 @@
 import { defineDiagram, THREE, C, LW, ease, sub, lerp, labelProp, boxGeo, rng, edgeLinesFromGeometry } from '../kit3d/index.js';
 
 const DEG = Math.PI / 180;
+const DBG = (() => { try { return new URLSearchParams(location.search).get('s06dbg') || ''; } catch (e) { return ''; } })(); // TEMP
 const AZ = 55, EL = 28;
 const az = AZ * DEG, el = EL * DEG;
 const RG = new THREE.Vector3(Math.cos(az), 0, -Math.sin(az));                                   // screen-right on the ground
@@ -117,6 +118,7 @@ export default defineDiagram({
   stage: {
     view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: S1, at: AT1.slice() },
     shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] },
+    shadows: !DBG.includes('nosh'),
   },
   build(S) {
     const plant = S.part('Nuclear plant');
@@ -305,7 +307,7 @@ export default defineDiagram({
     });
     const hg = houseGeo();
     const mkInst = (list, color) => {
-      const m = new THREE.InstancedMesh(hg, S.material(color), list.length);
+      const m = new THREE.InstancedMesh(hg, S.material(color), DBG.includes('noinst') ? 0 : list.length);
       m.frustumCulled = false;
       m.castShadow = false;            // flying specks must not smudge the ground
       m.receiveShadow = false;         // (with VSM shadows, receivers are drawn into the shadow map too)
@@ -319,7 +321,7 @@ export default defineDiagram({
     // ink outlines of the settled dwellings: one merged set per block row and colour, each fades in once its row has landed
     const hpos = hg.toNonIndexed().attributes.position.array;
     const outlines = [];
-    for (const [key, land] of groupLand) {
+    for (const [key, land] of (DBG.includes('noout') ? [] : groupLand)) {
       const list = houses.filter(h => h.key === key);
       const red = key % 2 === 0;
       const arr = new Float32Array(hpos.length * list.length);
@@ -340,6 +342,7 @@ export default defineDiagram({
 
     const _p = new THREE.Vector3();
     function placeHouses(list, im, ms) {
+      if (!im.count) return;
       const a = im.instanceMatrix.array;
       for (let k = 0; k < list.length; k++) {
         const h = list[k];
