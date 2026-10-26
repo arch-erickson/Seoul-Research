@@ -72,6 +72,18 @@ export const OVERRIDES = {
   },
 };
 
+// Elements missing from the extraction, added as copies of an existing element: { from, id, ...fields }.
+// A changed x / y moves the copy's ink box with it. The copy then goes through OVERRIDES / copy-v2 like any element.
+export const ADDITIONS = {
+  s19: [
+    // The grey arrows between the Seoul and New York columns of rows 01 and 02 (Figma 14:101, 14:110) are not in
+    // spec/slides.json; rows 03 to 05 have theirs (14:119 at y 538 = row title y 536 + 2). Same style, same x,
+    // same offset to the row: row 01 title y 252, row 02 title y 394.
+    { from: '14:119', id: '14:101', y: 254, z: 3.5, group: 'B2 · transfer 01' },
+    { from: '14:119', id: '14:110', y: 396, z: 10.5, group: 'B3 · transfer 02' },
+  ],
+};
+
 // Colour normalisation: the Figma file uses #EDECEA one step off the faint token #EDEDEA.
 export const COLOR_MAP = { '#EDECEA': '#EDEDEA' };
 

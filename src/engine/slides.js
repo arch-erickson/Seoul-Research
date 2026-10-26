@@ -23,7 +23,7 @@
 // inside their beat. instant (back, revisits, jumps, static, previews, print) = final state at once, no frames.
 // The presenter view's decks are always instant. 3D diagrams keep their own motion (diagram host).
 
-import { BEATMAP, OVERRIDES, COLOR_MAP } from '../slides/overrides.js';
+import { BEATMAP, OVERRIDES, COLOR_MAP, ADDITIONS } from '../slides/overrides.js';
 import { motionMark } from '../slides/motion-marks.js';
 import { buildImageSlide } from './images.js';
 import { createDiagramHost } from './diagrams.js';
@@ -98,6 +98,21 @@ export function normalizeCopy(copy) {
   return out;
 }
 
+/** ADDITIONS (overrides.js): copies of existing elements for elements missing from the extraction. */
+function additionsFor(key, elements) {
+  const out = [];
+  for (const add of ADDITIONS[key] || []) {
+    const src = elements.find((e) => e.id === add.from);
+    if (!src || elements.some((e) => e.id === add.id)) continue; // the extraction has it now: keep the real one
+    const { from, ...fields } = add;
+    const e = { ...src, ...fields };
+    const dx = (e.x ?? 0) - (src.x ?? 0), dy = (e.y ?? 0) - (src.y ?? 0);
+    if (src.ink && !fields.ink) e.ink = { ...src.ink, x: src.ink.x + dx, y: src.ink.y + dy };
+    out.push(e);
+  }
+  return out;
+}
+
 /** Prepare one timing entry for rendering. Pure: no DOM. copyMap = normalizeCopy(copy) (optional). */
 export function prepareSlide(entry, slidesByKey, copyMap = null) {
   const beats = entry.beats && entry.beats.length ? entry.beats : [{ id: 'B1', cue: 0, show: [] }];
@@ -122,7 +137,7 @@ export function prepareSlide(entry, slidesByKey, copyMap = null) {
   const beatmap = BEATMAP[entry.key];
   const copyOf = (copyMap && copyMap.get(entry.key)) || null;
 
-  const els = [...spec.elements].sort((a, b) => (a.z ?? 0) - (b.z ?? 0));
+  const els = [...spec.elements, ...additionsFor(entry.key, spec.elements)].sort((a, b) => (a.z ?? 0) - (b.z ?? 0));
   for (const src of els) {
     const patch = ov[src.id];
     if (patch && patch.remove) continue;

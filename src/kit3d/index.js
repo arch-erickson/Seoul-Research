@@ -30,8 +30,10 @@ export function setOpacity(obj, v) {
       if (m.transparent !== t) { m.transparent = t; m.needsUpdate = true; }
       m.opacity = v;
       m.depthWrite = v > 0.6;
-      o.castShadow = o.userData.castShadow0 ?? (o.userData.castShadow0 = o.castShadow, o.castShadow);
-      if (v < 0.5) o.castShadow = false;
+      // VSM draws receivers into the shadow map too, so a fading part must drop both flags
+      if (o.userData.castShadow0 === undefined) { o.userData.castShadow0 = o.castShadow; o.userData.receiveShadow0 = o.receiveShadow; }
+      o.castShadow = v < 0.5 ? false : o.userData.castShadow0;
+      o.receiveShadow = v < 0.5 ? false : o.userData.receiveShadow0;
     }
   });
   obj.visible = v > 0.002;
