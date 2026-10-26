@@ -43970,6 +43970,10 @@ void main() {
     capsTracking: "0.12em"
   };
   var MOTION = {
+    // Global 3D time scale, matched to the deck's approved 2D timing (codex/MOTION-NOTES.md "Latest timing policy":
+    // arrivals 900 ms ease-out, 140 ms sibling stagger, rules drawing in over 1400 ms). Applied by the Animator to every
+    // prop duration and delay, so internal staggers derived from progress scale with it. Instant / reduced motion unaffected.
+    timeScale: 1.35,
     short: 450,
     base: 800,
     long: 1100,
@@ -44264,7 +44268,8 @@ void main() {
           continue;
         }
         const d = Object.assign(defaultPlan(p, p.value, target, dir), plan ? plan(name, p.value, target, dir) || {} : {});
-        jobs.push({ p, from: p.value, to: target, delay: d.delay || 0, dur: Math.max(1, d.dur), ease: d.ease, t0: null });
+        const ts = MOTION.timeScale || 1;
+        jobs.push({ p, from: p.value, to: target, delay: (d.delay || 0) * ts, dur: Math.max(1, d.dur * ts), ease: d.ease, t0: null });
       }
       this.stage.requestRender();
       if (!jobs.length) return Promise.resolve();

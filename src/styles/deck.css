@@ -167,7 +167,9 @@ html.cursor-idle, html.cursor-idle * { cursor: none !important; }
   font-weight: 600; font-size: 11px; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
   font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1;
 }
-.asset-ring__pct { font-size: 7.5px; margin-left: 0.5px; align-self: center; }
+/* the number itself is centred; the small % hangs to its right */
+.asset-ring__val { position: relative; display: block; }
+.asset-ring__pct { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); margin-left: 0.5px; font-size: 7.5px; }
 .asset-ring__icon { width: 15px; height: 15px; display: block; }
 .asset-ring__bang { font-weight: 800; font-size: 15px; color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .asset-ring { transition: none; } }

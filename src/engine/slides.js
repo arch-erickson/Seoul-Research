@@ -592,18 +592,21 @@ export function buildDeck(stageEl, opts = {}) {
   // but invisible (visibility: hidden, never display: none, so the canvas and its DOM labels measure their real size)
   // for the synchronous mount, then the GL work is flushed to the GPU (host.warm) so entering the slide later costs
   // nothing. Only the current and next slides' diagrams are ever alive.
-  const PREWARM_MS = 900, PREWARM_IDLE_MS = 800;
-  let prefetchIdle = null, prefetchFor = -1;
+  const PREWARM_MS = 900, PREWARM_IDLE_MS = 800, PREWARM_POLL_MS = 400;
+  let prefetchIdle = null, prefetchPoll = null, prefetchFor = -1;
   const ric = typeof requestIdleCallback === 'function' ? requestIdleCallback : null;
   function cancelPrefetch() {
     clearTimeout(prefetchTimer);
     prefetchTimer = null;
+    clearInterval(prefetchPoll);
+    prefetchPoll = null;
     if (prefetchIdle !== null && typeof cancelIdleCallback === 'function') cancelIdleCallback(prefetchIdle);
     prefetchIdle = null;
     prefetchFor = -1;
   }
   function prewarm(index) {
     if (cur !== index) return;
+    const warmed = [];
     for (let i = index + 1; i <= Math.min(slides.length - 1, index + prefetch); i++) {
       const N = slides[i];
       const todo = N.slots.filter((d) => host.has(d.id) && !host.isLive(d.id));
@@ -616,12 +619,17 @@ export function buildDeck(stageEl, opts = {}) {
         for (const d of todo) {
           host.mount(d.slot, d.id);
           host.setState(d.id, stateFor(d, N.visible), { instant: true });
-          host.warm(d.id);
+          if (host.warm(d.id)) warmed.push(d.id);
         }
       } finally {
         if (keep) { st.display = keep.display; st.visibility = keep.visibility; }
       }
     }
+    if (!warmed.length) return;
+    // A waiting instance may render again (fonts ready, label re-measure): keep those frames warm too, until this
+    // slide is left (cancelPrefetch). Cheap: warm() does nothing unless the instance rendered since the last warm.
+    clearInterval(prefetchPoll);
+    prefetchPoll = setInterval(() => { for (const id of warmed) host.warm(id, { ifDirty: true }); }, PREWARM_POLL_MS);
   }
   function manageWindow(index) {
     if (manageDiagrams !== 'window') return;

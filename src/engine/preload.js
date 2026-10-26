@@ -168,7 +168,7 @@ export function mountAssetRing({ loader = null, images = null, params = null, vi
   <path class="asset-ring__arc asset-ring__arc--red" d="${ARC_TOP}" pathLength="1"/>
   <path class="asset-ring__arc asset-ring__arc--blue" d="${ARC_BOTTOM}" pathLength="1"/>
 </svg>
-<span class="asset-ring__label" aria-hidden="true"><span class="asset-ring__num">0</span><span class="asset-ring__pct">%</span></span>`;
+<span class="asset-ring__label" aria-hidden="true"><span class="asset-ring__val"><span class="asset-ring__num">0</span><span class="asset-ring__pct">%</span></span></span>`;
   const red = el.querySelector('.asset-ring__arc--red');
   const blue = el.querySelector('.asset-ring__arc--blue');
   const label = el.querySelector('.asset-ring__label');

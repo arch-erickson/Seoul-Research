@@ -95,16 +95,29 @@ export function createDiagramHost({ registry = {}, view = 'audience', getScale =
   }
 
   // Prewarm: WebGL commands of an instance created inside a hidden (display: none) slide are only queued; Chrome
-  // executes them (shader compile + link + first draw) when the canvas is first composited, i.e. during the slide
-  // crossfade, which then freezes for seconds on a slow GPU. flush() hands that work to the GPU now, without blocking
-  // this thread, so it is done long before the slide is shown. kit3d instances expose their renderer as inst.stage.renderer.
-  function warm(id) {
+  // executes them (shader compile + link, draws, the antialias resolve of the drawing buffer) when the canvas is first
+  // composited, i.e. during the slide crossfade, which then freezes for seconds on a slow GPU. warm() makes the GPU do
+  // that work now without blocking this thread: a 1-pixel readPixels of the drawing buffer into a pixel-pack buffer
+  // (asynchronous in WebGL2: it forces the resolve, nothing is read back) and a flush.
+  // kit3d instances expose their renderer as inst.stage.renderer. ifDirty: only when it rendered since the last warm.
+  function warm(id, { ifDirty = false } = {}) {
     const rec = live.get(id);
     if (!rec) return false;
     try {
       const r = rec.inst.stage && rec.inst.stage.renderer;
       const gl = r && typeof r.getContext === 'function' ? r.getContext() : null;
       if (!gl || typeof gl.flush !== 'function' || (gl.isContextLost && gl.isContextLost())) return false;
+      const frame = r.info && r.info.render ? r.info.render.frame : null;
+      if (ifDirty && frame !== null && frame === rec.warmFrame) return true;
+      rec.warmFrame = frame;
+      if (gl.PIXEL_PACK_BUFFER && gl.getParameter(gl.READ_FRAMEBUFFER_BINDING) === null) {
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, buf);
+        gl.bufferData(gl.PIXEL_PACK_BUFFER, 4, gl.STREAM_READ);
+        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, 0);
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+        gl.deleteBuffer(buf); // freed once the queued read is done
+      }
       gl.flush();
       return true;
     } catch (e) {

@@ -19,13 +19,13 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 7 | s13-rfid | DONE (lead-reviewed; shadows lightened) | 0–3 | 0 at every state | s13-rfid-0..3.png, s13-rfid-3-preview.png, s13-rfid-sheet.png |
 | 8 | s16-cheonggye | DONE (lead-reviewed) | 0–2 | 0 at every state | s16-cheonggye-sheet.png (+ builder per-state PNGs) |
 | 9 | s15-export | DONE | 0–1 | 0 / 0 | s15-export-0.png, s15-export-1.png, s15-export-1-preview.png, s15-export-1-t1900.png, s15-export-sheet.png |
-| 10 | s06-reactor | IN PROGRESS (builder finishing its draft) | | | |
+| 10 | s06-reactor | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s06-reactor-sheet.png, s06-reactor-*.png  |
 | 11 | s09-zeb | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s09-zeb-sheet.png, s09-zeb-*.png  |
 | 12 | s17-parks | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s17-parks-sheet.png, s17-parks-*.png  |
 | 13 | s05-trajectory | DONE (reviewed + fixed) | | 0 at every state (--strict --offline) | s05-trajectory-sheet.png, s05-trajectory-*.png  |
-| 14 | s18-buslane | QUEUED (draft in dev/cut/, wave 2) | | | |
-| 15 | s04-timeline | QUEUED (wave 2) | | | |
-| 16 | s03-donut | QUEUED (wave 3) | | | |
+| 14 | s18-buslane | IN PROGRESS (wave 2, builder finishing its draft) | | | |
+| 15 | s04-timeline | IN PROGRESS (wave 2) | | | |
+| 16 | s03-donut | QUEUED (wave 2, starts when a slot frees) | | | |
 
 ## Notes for MAIN
 
@@ -56,6 +56,10 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 - **Motion timing (14:25):** kit3d `MOTION.timeScale = 1.35` stretches every 3D duration/delay (and the staggers derived from
   them) to match the approved 2D policy (arrivals ~900–1400 ms, ~140 ms staggers). Instant/reduced motion stay instant.
 
+- **Publishing (16:30):** user asked for live-site updates. Full checkpoint (no --no-site) only after
+  `node --test src/engine/state.test.mjs src/engine/input.test.mjs src/engine/motion.test.mjs` passes; else --no-site.
+- **Prewarm-safe:** no module animates at mount; container size falls back to the region size; labels self-remeasure.
+
 ## Checkpoints (ARCHITECTURE §12)
 
 - 780b6c2: s10-edc, s01-map, s03-map, s15-export, s11-nowon, s13-rfid (`checkpoint.mjs --no-site`). 
@@ -65,6 +69,8 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 
 - s05-trajectory, s09-zeb, s17-parks finished (builder audit clean, not lead-reviewed) before the cut; they sit in `dev/cut/`.
   Restoring one is a single move back to `src/diagrams/` (imports there resolve to `../kit3d/index.js` again) if MAIN wants it.
+
+- 81e0fe0: LIVE SITE published at the user's request (13 diagrams, s10 leaders rerouted).
 
 ## Contract requests
 

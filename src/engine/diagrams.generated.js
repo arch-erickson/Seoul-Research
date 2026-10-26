@@ -14,6 +14,7 @@ import d10 from '../diagrams/s14-nanjido.js';
 import d11 from '../diagrams/s15-export.js';
 import d12 from '../diagrams/s16-cheonggye.js';
 import d13 from '../diagrams/s17-parks.js';
+import d14 from '../diagrams/s18-buslane.js';
 export default {
   's01-map': d0,
   's03-map': d1,
@@ -29,4 +30,5 @@ export default {
   's15-export': d11,
   's16-cheonggye': d12,
   's17-parks': d13,
+  's18-buslane': d14,
 };

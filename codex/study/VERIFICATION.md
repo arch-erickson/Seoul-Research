@@ -53,3 +53,5 @@ Run `node scripts/build-study.mjs` from the deck folder whenever notes or specs 
 The final course-folder copy is made only after the build, browser checks and visual review pass; its file hash is compared to the generated HTML. scripts/build-study.mjs itself writes only inside codex/study and never publishes or edits the source specs.
 
 Final copy confirmed: 815,582 bytes. Generated and course-folder copies have matching SHA-256 87EFD056AB78076F1181E0265A9E275C385CBE91F8B4410CFBA583D703EBF892.
+
+Latest user-approved appearance: white backgrounds throughout. This supersedes the earlier dark-mode requirement and earlier screenshots. Dark styling/control removed, gray panels changed to white, action buttons and timeline backgrounds changed to white with text/borders retaining contrast. Verified by 7 build/content tests and 29 browser checks, including an old theme=dark URL remaining white. Inspected s08-white-desktop.png and qa-white-phone.png. Final course copy refreshed and hash-verified; current generated page is 815,055 bytes.
