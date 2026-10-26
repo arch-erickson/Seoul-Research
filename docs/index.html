@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seoul Research</title>
+<style>
+  :root { --ink: #111112; --muted: #6b6d70; --red: #cd2e3a; --blue: #0047a0; }
+  html, body { height: 100%; margin: 0; background: #fff; color: var(--ink);
+    font-family: Montserrat, "Segoe UI", system-ui, sans-serif; }
+  main { min-height: 100%; display: grid; place-content: center; gap: 18px;
+    padding-inline: max(24px, env(safe-area-inset-left, 0px)); text-align: left; }
+  h1 { margin: 0; font-size: clamp(48px, 10vw, 120px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; }
+  p { margin: 0; font-size: clamp(18px, 2.4vw, 26px); color: var(--muted); }
+  .rule { display: flex; width: min(420px, 70vw); height: 4px; }
+  .rule span { flex: 1; } .rule span:first-child { background: var(--red); } .rule span:last-child { background: var(--blue); }
+</style>
+</head>
+<body>
+<main>
+  <h1>SEOUL</h1>
+  <div class="rule"><span></span><span></span></div>
+  <p>The presentation is being finished and will appear here shortly.</p>
+</main>
+</body>
+</html>
