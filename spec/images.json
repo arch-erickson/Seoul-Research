@@ -1,733 +1,725 @@
 {
-  "pairs": [
-    {
-      "id": "i01",
-      "after": 1,
-      "theme": "Two vertical cities",
-      "seoul": {
-        "file": "assets/img/i01-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Han River and N Seoul Tower",
-        "year": "2019",
-        "credit": "Photo: Matt Kieffer / CC BY-SA 2.0 / Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:N_Seoul_Tower_and_Raemian_Caelitus.jpg",
-        "width": 2560,
-        "height": 1707,
-        "focal": {
-          "x": 0.44,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Matt Kieffer",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
-      },
-      "nyc": {
-        "file": "assets/img/i01-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Midtown Manhattan skyline",
-        "year": "2021",
-        "credit": "Photo: King of Hearts / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midtown_Manhattan_from_Weehawken_September_2021_001.jpg",
-        "width": 2560,
-        "height": 1707,
-        "focal": {
-          "x": 0.6,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "King of Hearts",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
+ "pairs": [
+  {
+   "id": "i01",
+   "after": 1,
+   "theme": "Two vertical cities",
+   "seoul": {
+    "file": "assets/img/i01-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Han River and N Seoul Tower",
+    "year": "2019",
+    "credit": "Photo: Matt Kieffer / CC BY-SA 2.0 / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:N_Seoul_Tower_and_Raemian_Caelitus.jpg",
+    "width": 2560,
+    "height": 1707,
+    "focal": {
+     "x": 0.44,
+     "y": 0.55
     },
-    {
-      "id": "i02",
-      "after": 2,
-      "theme": "Density",
-      "seoul": {
-        "file": "assets/img/i02-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Jamsil apartment towers",
-        "year": "2019",
-        "credit": "Photo: Tristan Surtel / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Westward_view_from_Lotte_World_Tower.jpg",
-        "width": 2560,
-        "height": 1702,
-        "focal": {
-          "x": 0.58,
-          "y": 0.6
-        },
-        "status": "ok",
-        "author": "Tristan Surtel",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i02-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Stuyvesant Town",
-        "year": "2012",
-        "credit": "Photo: Alec Jordan / CC BY-SA 3.0 / Wikimedia Commons",
-        "license": "CC BY-SA 3.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stuyvesant_Town_and_Peter_Cooper_Village.jpg",
-        "width": 2560,
-        "height": 1703,
-        "focal": {
-          "x": 0.56,
-          "y": 0.52
-        },
-        "status": "ok",
-        "author": "Alec Jordan",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
-      }
+    "status": "ok",
+    "author": "Matt Kieffer",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+   },
+   "nyc": {
+    "file": "assets/img/i01-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Midtown Manhattan skyline",
+    "year": "2021",
+    "credit": "Photo: King of Hearts / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midtown_Manhattan_from_Weehawken_September_2021_001.jpg",
+    "width": 2560,
+    "height": 1707,
+    "focal": {
+     "x": 0.6,
+     "y": 0.5
     },
-    {
-      "id": "i03",
-      "after": 3,
-      "theme": "The existing stock",
-      "seoul": {
-        "file": "assets/img/i03-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Hyundai Apartments, Apgujeong",
-        "year": "2020",
-        "credit": "Photo: ZbnKhl / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:East_facade_of_Hyundai_Apartments_31-dong_in_Seoul,_Korea.jpg",
-        "width": 2560,
-        "height": 1920,
-        "focal": {
-          "x": 0.55,
-          "y": 0.6
-        },
-        "status": "ok",
-        "author": "ZbnKhl",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i03-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Apartments on the Grand Concourse",
-        "year": "2011",
-        "credit": "Photo: James Giovan / CC BY-SA 3.0 / Wikimedia Commons",
-        "license": "CC BY-SA 3.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_of_1100_Grand_Concourse.jpg",
-        "width": 2560,
-        "height": 1490,
-        "focal": {
-          "x": 0.72,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "James Giovan",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
-      }
+    "status": "ok",
+    "author": "King of Hearts",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "id": "i02",
+   "after": 2,
+   "theme": "Density",
+   "seoul": {
+    "file": "assets/img/i02-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Jamsil apartment towers",
+    "year": "2019",
+    "credit": "Photo: Tristan Surtel / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Westward_view_from_Lotte_World_Tower.jpg",
+    "width": 2560,
+    "height": 1702,
+    "focal": {
+     "x": 0.58,
+     "y": 0.6
     },
-    {
-      "id": "i04",
-      "after": 4,
-      "theme": "Landfills, then",
-      "seoul": {
-        "file": "assets/img/i04-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Nanjido in 1983",
-        "year": "1983",
-        "credit": "Photo: Seoul Museum of History / KOGL Type 1 / museum.seoul.go.kr archive (H-TRNS-97922-767)",
-        "license": "KOGL Type 1",
-        "sourceUrl": "https://museum.seoul.go.kr/archive/archiveNew/NR_archiveView.do?ctgryId=CTGRY766&type=B&upperNodeId=CTGRY767&fileSn=300&fileId=H-TRNS-97922-767",
-        "width": 2499,
-        "height": 2560,
-        "focal": {
-          "x": 0.5,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Seoul Museum of History (서울역사박물관)",
-        "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do"
-      },
-      "nyc": {
-        "file": "assets/img/i04-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Fresh Kills landfill in 1973",
-        "year": "1973",
-        "credit": "Photo: Chester Higgins Jr. / EPA DOCUMERICA / Public domain / NARA 548350 via Wikimedia Commons",
-        "license": "Public domain",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:DUMPING_AREA_OF_NEW_YORK_CITY%27S_SANITATION_DEPARTMENT_AT_FRESH_KILLS,_STATEN_ISLAND_-_NARA_-_548350.jpg",
-        "width": 2560,
-        "height": 1728,
-        "focal": {
-          "x": 0.58,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Chester Higgins Jr. (EPA DOCUMERICA)",
-        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-USGov-EPA"
-      }
+    "status": "ok",
+    "author": "Tristan Surtel",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i02-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Stuyvesant Town",
+    "year": "2012",
+    "credit": "Photo: Alec Jordan / CC BY-SA 3.0 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stuyvesant_Town_and_Peter_Cooper_Village.jpg",
+    "width": 2560,
+    "height": 1703,
+    "focal": {
+     "x": 0.56,
+     "y": 0.52
     },
-    {
-      "id": "i05",
-      "after": 5,
-      "theme": "Driving into downtown",
-      "seoul": {
-        "file": "assets/img/i05-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Sejong-daero",
-        "year": "2019",
-        "credit": "Photo: Tristan Surtel / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sejong-daero,_Seoul.jpg",
-        "width": 2560,
-        "height": 1702,
-        "focal": {
-          "x": 0.45,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Tristan Surtel",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i05-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Congestion Relief Zone sign",
-        "year": "2025",
-        "credit": "Photo: Kidfly182 / CC BY 4.0 / Wikimedia Commons",
-        "license": "CC BY 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midtown_Manhattan_October_2025_301.jpg",
-        "width": 1441,
-        "height": 2560,
-        "focal": {
-          "x": 0.45,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Kidfly182",
-        "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
-      }
+    "status": "ok",
+    "author": "Alec Jordan",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "id": "i03",
+   "after": 3,
+   "theme": "The existing stock",
+   "seoul": {
+    "file": "assets/img/i03-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Hyundai Apartments, Apgujeong",
+    "year": "2020",
+    "credit": "Photo: ZbnKhl / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:East_facade_of_Hyundai_Apartments_31-dong_in_Seoul,_Korea.jpg",
+    "width": 2560,
+    "height": 1920,
+    "focal": {
+     "x": 0.55,
+     "y": 0.6
     },
-    {
-      "id": "i06",
-      "after": 6,
-      "theme": "Energy supply",
-      "seoul": {
-        "file": "assets/img/i06-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Rooftop solar panels",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Rooftop solar panels on a Seoul apartment or public building, no open licence photo found on Commons or Flickr. Try the Seoul city press office (KOGL Type 1), the Seoul Energy Dream Center or Nowon EZ House sites, or Korea.net."
-      },
-      "nyc": {
-        "file": "assets/img/i06-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Indian Point nuclear plant",
-        "year": "2008",
-        "credit": "Photo: Tony Fischer / CC BY 2.0 / Wikimedia Commons",
-        "license": "CC BY 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indian_Point_Nuclear_Power_Plant.jpg",
-        "width": 2560,
-        "height": 1190,
-        "focal": {
-          "x": 0.43,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Tony Fischer",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
-      }
+    "status": "ok",
+    "author": "ZbnKhl",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i03-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Apartments on the Grand Concourse",
+    "year": "2011",
+    "credit": "Photo: James Giovan / CC BY-SA 3.0 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_of_1100_Grand_Concourse.jpg",
+    "width": 2560,
+    "height": 1490,
+    "focal": {
+     "x": 0.72,
+     "y": 0.5
     },
-    {
-      "id": "i07",
-      "after": 7,
-      "theme": "The apartment facade",
-      "seoul": {
-        "file": "assets/img/i07-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Balcony solar panels",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Seoul apartment balconies with plug in solar panels on the railings. No open licence photo found. Try Seoul city press photos (KOGL Type 1) or Korea.net."
-      },
-      "nyc": {
-        "file": "assets/img/i07-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Fire escapes, the Bronx",
-        "year": "2008",
-        "credit": "Photo: Phillip Capper from Wellington, New Zealand / CC BY 2.0 / Wikimedia Commons",
-        "license": "CC BY 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:143rd._St.,_The_Bronx,_New_York,_Feb._2008_(2299846708).jpg",
-        "width": 1701,
-        "height": 2560,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Phillip Capper from Wellington, New Zealand",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
-      }
+    "status": "ok",
+    "author": "James Giovan",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "id": "i04",
+   "after": 4,
+   "theme": "Landfills, then",
+   "seoul": {
+    "file": "assets/img/i04-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Nanjido in 1983",
+    "year": "1983",
+    "credit": "Photo: Seoul Museum of History / KOGL Type 1 / museum.seoul.go.kr archive (H-TRNS-97922-767)",
+    "license": "KOGL Type 1",
+    "sourceUrl": "https://museum.seoul.go.kr/archive/archiveNew/NR_archiveView.do?ctgryId=CTGRY766&type=B&upperNodeId=CTGRY767&fileSn=300&fileId=H-TRNS-97922-767",
+    "width": 2499,
+    "height": 2560,
+    "focal": {
+     "x": 0.5,
+     "y": 0.55
     },
-    {
-      "id": "i08",
-      "after": 8,
-      "theme": "Deep retrofit",
-      "seoul": {
-        "file": "assets/img/i08-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Sewoon Sangga, an older block",
-        "year": "2022",
-        "credit": "Photo: MaRail / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EC%84%B8%EC%9A%B4%EC%83%81%EA%B0%80.jpg",
-        "width": 2560,
-        "height": 1707,
-        "focal": {
-          "x": 0.49,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "MaRail",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i08-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Empire State Building",
-        "year": "2012",
-        "credit": "Photo: SchMat / CC0 / Wikimedia Commons",
-        "license": "CC0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empire_State_Building_2012.jpg",
-        "width": 1920,
-        "height": 2560,
-        "focal": {
-          "x": 0.48,
-          "y": 0.45
-        },
-        "status": "ok",
-        "author": "SchMat",
-        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
-      }
+    "status": "ok",
+    "author": "Seoul Museum of History (서울역사박물관)",
+    "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do"
+   },
+   "nyc": {
+    "file": "assets/img/i04-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Fresh Kills landfill in 1973",
+    "year": "1973",
+    "credit": "Photo: Chester Higgins Jr. / EPA DOCUMERICA / Public domain / NARA 548350 via Wikimedia Commons",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:DUMPING_AREA_OF_NEW_YORK_CITY%27S_SANITATION_DEPARTMENT_AT_FRESH_KILLS,_STATEN_ISLAND_-_NARA_-_548350.jpg",
+    "width": 2560,
+    "height": 1728,
+    "focal": {
+     "x": 0.58,
+     "y": 0.5
     },
-    {
-      "id": "i09",
-      "after": 9,
-      "theme": "The public sector goes first",
-      "seoul": {
-        "file": "assets/img/i09-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Seoul City Hall",
-        "year": "2018",
-        "credit": "Photo: Richard Mortel / CC BY 2.0 / Wikimedia Commons",
-        "license": "CC BY 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seoul_City_Hall_(39321822950).jpg",
-        "width": 2560,
-        "height": 1698,
-        "focal": {
-          "x": 0.55,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Richard Mortel",
-        "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
-      },
-      "nyc": {
-        "file": "assets/img/i09-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "P.S. 62, net zero school",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "P.S. 62 Kathleen Grimm School exterior with its solar roof, no open licence photo found. Ask SOM or the NYC School Construction Authority for a press photo, or take one yourself on Bloomingdale Road."
-      }
+    "status": "ok",
+    "author": "Chester Higgins Jr. (EPA DOCUMERICA)",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-USGov-EPA"
+   }
+  },
+  {
+   "id": "i05",
+   "after": 5,
+   "theme": "Driving into downtown",
+   "seoul": {
+    "file": "assets/img/i05-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Sejong-daero",
+    "year": "2019",
+    "credit": "Photo: Tristan Surtel / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sejong-daero,_Seoul.jpg",
+    "width": 2560,
+    "height": 1702,
+    "focal": {
+     "x": 0.45,
+     "y": 0.5
     },
-    {
-      "id": "i10",
-      "after": 10,
-      "theme": "Teaching buildings",
-      "seoul": {
-        "file": "assets/img/i10-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Seoul Energy Dream Center",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Seoul Energy Dream Center exterior, no open licence photo found on Commons or Openverse. Try the Seoul Energy Dream Center or SMG press office, Korea.net, or KOGL Type 1 photos."
-      },
-      "nyc": {
-        "file": "assets/img/i10-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Queens Botanical Garden visitor center",
-        "year": "2025",
-        "credit": "Photo: Epicgenius / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queens_Botanical_Garden_Mar_2025_15.jpg",
-        "width": 2560,
-        "height": 1920,
-        "focal": {
-          "x": 0.42,
-          "y": 0.6
-        },
-        "status": "ok",
-        "author": "Epicgenius",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
+    "status": "ok",
+    "author": "Tristan Surtel",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i05-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Congestion Relief Zone sign",
+    "year": "2025",
+    "credit": "Photo: Kidfly182 / CC BY 4.0 / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midtown_Manhattan_October_2025_301.jpg",
+    "width": 1441,
+    "height": 2560,
+    "focal": {
+     "x": 0.45,
+     "y": 0.55
     },
-    {
-      "id": "i11",
-      "after": 11,
-      "theme": "Zero energy housing",
-      "seoul": {
-        "file": "assets/img/i11-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Nowon EZ House",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Nowon EZ House exterior in Hagye-dong, no open licence photo found. Try the Nowon-gu or SMG press office, KOGL Type 1 photos on gongu.copyright.or.kr, or ask the KICT or Myongji University team that built it."
-      },
-      "nyc": {
-        "file": "assets/img/i11-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Sendero Verde, East Harlem",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Sendero Verde in East Harlem, no open licence photo found. Ask Handel Architects or Jonathan Rose Companies for a press photo, or take one at Park Ave and East 111th Street."
-      }
+    "status": "ok",
+    "author": "Kidfly182",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+   }
+  },
+  {
+   "id": "i06",
+   "after": 6,
+   "theme": "Energy supply",
+   "seoul": {
+    "file": "assets/img/i06-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Rooftop solar panels",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 640,
+    "height": 480,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
     },
-    {
-      "id": "i12",
-      "after": 12,
-      "theme": "Supertalls",
-      "seoul": {
-        "file": "assets/img/i12-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Lotte World Tower",
-        "year": "2022",
-        "credit": "Photo: kallerna / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lotte_World_day_view_2.jpg",
-        "width": 2560,
-        "height": 1707,
-        "focal": {
-          "x": 0.48,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "kallerna",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i12-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "One World Trade Center",
-        "year": "2019",
-        "credit": "Photo: Matthew Bellemare / CC BY-SA 2.0 / Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_world_trade_center_august_2019.jpg",
-        "width": 1707,
-        "height": 2560,
-        "focal": {
-          "x": 0.5,
-          "y": 0.53
-        },
-        "status": "ok",
-        "author": "Matthew Bellemare",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
-      }
+    "status": "ok"
+   },
+   "nyc": {
+    "file": "assets/img/i06-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Indian Point nuclear plant",
+    "year": "2008",
+    "credit": "Photo: Tony Fischer / CC BY 2.0 / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indian_Point_Nuclear_Power_Plant.jpg",
+    "width": 2560,
+    "height": 1190,
+    "focal": {
+     "x": 0.43,
+     "y": 0.5
     },
-    {
-      "id": "i13",
-      "after": 13,
-      "theme": "The bin",
-      "seoul": {
-        "file": "assets/img/i13-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "RFID food waste bin",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Seoul apartment RFID food waste bin, close up. Open licence photos exist only from other Korean cities (Hoengseong, Wonju, Hwaseong), so a SEOUL caption would be wrong. Take one or use a Seoul city press photo."
-      },
-      "nyc": {
-        "file": "assets/img/i13-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "DSNY brown compost bin",
-        "year": "2017",
-        "credit": "Photo: Tdorante10 / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSNY_Compost_Bin_03.jpg",
-        "width": 2560,
-        "height": 1920,
-        "focal": {
-          "x": 0.55,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Tdorante10",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
+    "status": "ok",
+    "author": "Tony Fischer",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+   }
+  },
+  {
+   "id": "i07",
+   "after": 7,
+   "theme": "The apartment facade",
+   "seoul": {
+    "file": "assets/img/i07-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Balcony solar panels",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 1920,
+    "height": 1440,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
     },
-    {
-      "id": "i14",
-      "after": 14,
-      "theme": "Landfill to park",
-      "seoul": {
-        "file": "assets/img/i14-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Haneul Park",
-        "year": "2014",
-        "credit": "Photo: Jeon Han, Korea.net / CC BY-SA 2.0 / Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korea_Sky_Park_20141022_01_(15601706561).jpg",
-        "width": 2560,
-        "height": 1437,
-        "focal": {
-          "x": 0.66,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Jeon Han, Korean Culture and Information Service (Korea.net), Republic of Korea Flickr",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
-      },
-      "nyc": {
-        "file": "assets/img/i14-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Freshkills Park",
-        "year": "2025",
-        "credit": "Photo: Jonathan Warren / CC0 / Wikimedia Commons",
-        "license": "CC0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshkills_Park_in_Staten_Island,_New_York.jpg",
-        "width": 2560,
-        "height": 1707,
-        "focal": {
-          "x": 0.45,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Jonathan Warren",
-        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
-      }
+    "status": "ok"
+   },
+   "nyc": {
+    "file": "assets/img/i07-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Fire escapes, the Bronx",
+    "year": "2008",
+    "credit": "Photo: Phillip Capper from Wellington, New Zealand / CC BY 2.0 / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:143rd._St.,_The_Bronx,_New_York,_Feb._2008_(2299846708).jpg",
+    "width": 1701,
+    "height": 2560,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
     },
-    {
-      "id": "i15",
-      "after": 15,
-      "theme": "Where trash goes",
-      "seoul": {
-        "file": "assets/img/i15-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Mapo incinerator",
-        "year": "",
-        "credit": "",
-        "license": "",
-        "sourceUrl": "",
-        "width": 0,
-        "height": 0,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "user-supply",
-        "userSupplyNote": "Mapo Resource Recovery Facility in Sangam-dong. No open licence photo found. Try Seoul city or Mapo-gu press photos (KOGL Type 1)."
-      },
-      "nyc": {
-        "file": "assets/img/i15-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Marine transfer station, Harlem",
-        "year": "2014",
-        "credit": "Photo: MusikAnimal / CC BY-SA 3.0 / Wikimedia Commons",
-        "license": "CC BY-SA 3.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NYC_Department_of_Sanitation_Marine_Transfer_Station.jpg",
-        "width": 2560,
-        "height": 1894,
-        "focal": {
-          "x": 0.4,
-          "y": 0.6
-        },
-        "status": "ok",
-        "author": "MusikAnimal",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
-      }
+    "status": "ok",
+    "author": "Phillip Capper from Wellington, New Zealand",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+   }
+  },
+  {
+   "id": "i08",
+   "after": 8,
+   "theme": "Deep retrofit",
+   "seoul": {
+    "file": "assets/img/i08-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Sewoon Sangga, an older block",
+    "year": "2022",
+    "credit": "Photo: MaRail / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EC%84%B8%EC%9A%B4%EC%83%81%EA%B0%80.jpg",
+    "width": 2560,
+    "height": 1707,
+    "focal": {
+     "x": 0.49,
+     "y": 0.5
     },
-    {
-      "id": "i16",
-      "after": 16,
-      "theme": "Road removed vs road remaining",
-      "seoul": {
-        "file": "assets/img/i16-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Cheonggyecheon stream",
-        "year": "2019",
-        "credit": "Photo: Tristan Surtel / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cheonggyecheon_with_skyscrapers_in_Seoul.jpg",
-        "width": 1702,
-        "height": 2560,
-        "focal": {
-          "x": 0.5,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Tristan Surtel",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i16-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Cross Bronx Expressway",
-        "year": "2008",
-        "credit": "Photo: Jim.henderson / Public domain / Wikimedia Commons",
-        "license": "Public domain",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CBX_Parkchester_6_jeh.JPG",
-        "width": 1920,
-        "height": 2560,
-        "focal": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "Jim.henderson"
-      }
+    "status": "ok",
+    "author": "MaRail",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i08-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Empire State Building",
+    "year": "2012",
+    "credit": "Photo: SchMat / CC0 / Wikimedia Commons",
+    "license": "CC0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empire_State_Building_2012.jpg",
+    "width": 1920,
+    "height": 2560,
+    "focal": {
+     "x": 0.48,
+     "y": 0.45
     },
-    {
-      "id": "i17",
-      "after": 17,
-      "theme": "Viaduct to park",
-      "seoul": {
-        "file": "assets/img/i17-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Seoullo 7017",
-        "year": "2017",
-        "credit": "Photo: 분당선M / CC BY-SA 3.0 / Wikimedia Commons",
-        "license": "CC BY-SA 3.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seoullo_7017_02.jpg",
-        "width": 2560,
-        "height": 1701,
-        "focal": {
-          "x": 0.62,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "분당선M",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
-      },
-      "nyc": {
-        "file": "assets/img/i17-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "The High Line",
-        "year": "2013",
-        "credit": "Photo: Matias Garabedian from Montreal, Canada / CC BY-SA 2.0 / Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:High_Line_(9075262390).jpg",
-        "width": 2560,
-        "height": 1709,
-        "focal": {
-          "x": 0.42,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Matias Garabedian from Montreal, Canada",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
-      }
+    "status": "ok",
+    "author": "SchMat",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "id": "i09",
+   "after": 9,
+   "theme": "The public sector goes first",
+   "seoul": {
+    "file": "assets/img/i09-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Seoul City Hall",
+    "year": "2018",
+    "credit": "Photo: Richard Mortel / CC BY 2.0 / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seoul_City_Hall_(39321822950).jpg",
+    "width": 2560,
+    "height": 1698,
+    "focal": {
+     "x": 0.55,
+     "y": 0.5
     },
-    {
-      "id": "i18",
-      "after": 18,
-      "theme": "Bus lanes",
-      "seoul": {
-        "file": "assets/img/i18-seoul.jpg",
-        "place": "SEOUL",
-        "subject": "Median bus lane, Yeongdeungpo",
-        "year": "2016",
-        "credit": "Photo: hyolee2 / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bus_Lane_Yeongdeungpo_Station_2.JPG",
-        "width": 2560,
-        "height": 1920,
-        "focal": {
-          "x": 0.45,
-          "y": 0.5
-        },
-        "status": "ok",
-        "author": "hyolee2",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "nyc": {
-        "file": "assets/img/i18-nyc.jpg",
-        "place": "NEW YORK",
-        "subject": "Select Bus Service lane",
-        "year": "2021",
-        "credit": "Photo: Kidfly182 / CC BY-SA 4.0 / Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:MTA_Nova_Bus_LFS_Articulated_M34_SBS.jpg",
-        "width": 2560,
-        "height": 1920,
-        "focal": {
-          "x": 0.4,
-          "y": 0.55
-        },
-        "status": "ok",
-        "author": "Kidfly182",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
-    }
-  ]
+    "status": "ok",
+    "author": "Richard Mortel",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+   },
+   "nyc": {
+    "file": "assets/img/i09-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "P.S. 62, net zero school",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 365,
+    "height": 547,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok"
+   }
+  },
+  {
+   "id": "i10",
+   "after": 10,
+   "theme": "Teaching buildings",
+   "seoul": {
+    "file": "assets/img/i10-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Seoul Energy Dream Center",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 1417,
+    "height": 1875,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok"
+   },
+   "nyc": {
+    "file": "assets/img/i10-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Queens Botanical Garden visitor center",
+    "year": "2025",
+    "credit": "Photo: Epicgenius / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queens_Botanical_Garden_Mar_2025_15.jpg",
+    "width": 2560,
+    "height": 1920,
+    "focal": {
+     "x": 0.42,
+     "y": 0.6
+    },
+    "status": "ok",
+    "author": "Epicgenius",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "id": "i11",
+   "after": 11,
+   "theme": "Zero energy housing",
+   "seoul": {
+    "file": "assets/img/i11-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Nowon EZ House",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 800,
+    "height": 600,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok"
+   },
+   "nyc": {
+    "file": "assets/img/i11-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Sendero Verde, East Harlem (rendering)",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 1389,
+    "height": 2000,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok"
+   }
+  },
+  {
+   "id": "i12",
+   "after": 12,
+   "theme": "Supertalls",
+   "seoul": {
+    "file": "assets/img/i12-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Lotte World Tower",
+    "year": "2022",
+    "credit": "Photo: kallerna / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lotte_World_day_view_2.jpg",
+    "width": 2560,
+    "height": 1707,
+    "focal": {
+     "x": 0.48,
+     "y": 0.5
+    },
+    "status": "ok",
+    "author": "kallerna",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i12-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "One World Trade Center",
+    "year": "2019",
+    "credit": "Photo: Matthew Bellemare / CC BY-SA 2.0 / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_world_trade_center_august_2019.jpg",
+    "width": 1707,
+    "height": 2560,
+    "focal": {
+     "x": 0.5,
+     "y": 0.53
+    },
+    "status": "ok",
+    "author": "Matthew Bellemare",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  },
+  {
+   "id": "i13",
+   "after": 13,
+   "theme": "The bin",
+   "seoul": {
+    "file": "assets/img/i13-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "RFID food waste bin",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 480,
+    "height": 638,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok"
+   },
+   "nyc": {
+    "file": "assets/img/i13-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "DSNY brown compost bin",
+    "year": "2017",
+    "credit": "Photo: Tdorante10 / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSNY_Compost_Bin_03.jpg",
+    "width": 2560,
+    "height": 1920,
+    "focal": {
+     "x": 0.55,
+     "y": 0.55
+    },
+    "status": "ok",
+    "author": "Tdorante10",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  },
+  {
+   "id": "i14",
+   "after": 14,
+   "theme": "Landfill to park",
+   "seoul": {
+    "file": "assets/img/i14-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Haneul Park",
+    "year": "2014",
+    "credit": "Photo: Jeon Han, Korea.net / CC BY-SA 2.0 / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korea_Sky_Park_20141022_01_(15601706561).jpg",
+    "width": 2560,
+    "height": 1437,
+    "focal": {
+     "x": 0.66,
+     "y": 0.5
+    },
+    "status": "ok",
+    "author": "Jeon Han, Korean Culture and Information Service (Korea.net), Republic of Korea Flickr",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+   },
+   "nyc": {
+    "file": "assets/img/i14-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Freshkills Park",
+    "year": "2025",
+    "credit": "Photo: Jonathan Warren / CC0 / Wikimedia Commons",
+    "license": "CC0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshkills_Park_in_Staten_Island,_New_York.jpg",
+    "width": 2560,
+    "height": 1707,
+    "focal": {
+     "x": 0.45,
+     "y": 0.5
+    },
+    "status": "ok",
+    "author": "Jonathan Warren",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  },
+  {
+   "id": "i15",
+   "after": 15,
+   "theme": "Where trash goes",
+   "seoul": {
+    "file": "assets/img/i15-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Trash incinerator",
+    "year": "",
+    "credit": "Photo: supplied by the presenter",
+    "license": "",
+    "sourceUrl": "",
+    "width": 647,
+    "height": 474,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok"
+   },
+   "nyc": {
+    "file": "assets/img/i15-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Marine transfer station, Harlem",
+    "year": "2014",
+    "credit": "Photo: MusikAnimal / CC BY-SA 3.0 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NYC_Department_of_Sanitation_Marine_Transfer_Station.jpg",
+    "width": 2560,
+    "height": 1894,
+    "focal": {
+     "x": 0.4,
+     "y": 0.6
+    },
+    "status": "ok",
+    "author": "MusikAnimal",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  },
+  {
+   "id": "i16",
+   "after": 16,
+   "theme": "Road removed vs road remaining",
+   "seoul": {
+    "file": "assets/img/i16-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Cheonggyecheon stream",
+    "year": "2019",
+    "credit": "Photo: Tristan Surtel / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cheonggyecheon_with_skyscrapers_in_Seoul.jpg",
+    "width": 1702,
+    "height": 2560,
+    "focal": {
+     "x": 0.5,
+     "y": 0.55
+    },
+    "status": "ok",
+    "author": "Tristan Surtel",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i16-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Cross Bronx Expressway",
+    "year": "2008",
+    "credit": "Photo: Jim.henderson / Public domain / Wikimedia Commons",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CBX_Parkchester_6_jeh.JPG",
+    "width": 1920,
+    "height": 2560,
+    "focal": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "status": "ok",
+    "author": "Jim.henderson"
+   }
+  },
+  {
+   "id": "i17",
+   "after": 17,
+   "theme": "Viaduct to park",
+   "seoul": {
+    "file": "assets/img/i17-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Seoullo 7017",
+    "year": "2017",
+    "credit": "Photo: 분당선M / CC BY-SA 3.0 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seoullo_7017_02.jpg",
+    "width": 2560,
+    "height": 1701,
+    "focal": {
+     "x": 0.62,
+     "y": 0.55
+    },
+    "status": "ok",
+    "author": "분당선M",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+   },
+   "nyc": {
+    "file": "assets/img/i17-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "The High Line",
+    "year": "2013",
+    "credit": "Photo: Matias Garabedian from Montreal, Canada / CC BY-SA 2.0 / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:High_Line_(9075262390).jpg",
+    "width": 2560,
+    "height": 1709,
+    "focal": {
+     "x": 0.42,
+     "y": 0.55
+    },
+    "status": "ok",
+    "author": "Matias Garabedian from Montreal, Canada",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  },
+  {
+   "id": "i18",
+   "after": 18,
+   "theme": "Bus lanes",
+   "seoul": {
+    "file": "assets/img/i18-seoul.jpg",
+    "place": "SEOUL",
+    "subject": "Median bus lane, Yeongdeungpo",
+    "year": "2016",
+    "credit": "Photo: hyolee2 / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bus_Lane_Yeongdeungpo_Station_2.JPG",
+    "width": 2560,
+    "height": 1920,
+    "focal": {
+     "x": 0.45,
+     "y": 0.5
+    },
+    "status": "ok",
+    "author": "hyolee2",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   "nyc": {
+    "file": "assets/img/i18-nyc.jpg",
+    "place": "NEW YORK",
+    "subject": "Select Bus Service lane",
+    "year": "2021",
+    "credit": "Photo: Kidfly182 / CC BY-SA 4.0 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MTA_Nova_Bus_LFS_Articulated_M34_SBS.jpg",
+    "width": 2560,
+    "height": 1920,
+    "focal": {
+     "x": 0.4,
+     "y": 0.55
+    },
+    "status": "ok",
+    "author": "Kidfly182",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  }
+ ]
 }

@@ -1,6 +1,6 @@
 // s04-timeline: Seoul's two emergencies on one measured axis.
-// A thin extruded rule (an architect's scale, one hairline tick per year) spans the full region, aligned with the
-// headline's left and right edges. Four restrained markers (pucks) stand on it at their true year positions; each
+// A thin extruded rule (an architect's scale, one hairline tick per year) spans the region, aligned with the
+// slide's 120 px side margins. Four restrained markers (pucks) stand on it at their true year positions; each
 // carries a stem that runs beside its label like a flag: years large, events small, alternating above and below.
 // Facts (brief + dossier): 1978 Nanjido becomes the dump · 1993 dump closes · 2002 World Cup Park (blue) ·
 // 2011 Fukushima and the Seoul blackout (red).
@@ -10,10 +10,10 @@ import { defineDiagram, THREE, C, LW, ease, sub, boxGeo } from '../kit3d/index.j
 // ---- layout (region px) and model dimensions (world units: 1 unit = 1 year) ----
 const W = 1720;
 const Y_START = 1975, Y_END = 2026;          // the rule spans the full region width
-const EDGE = 2;                              // px inset so the silhouette is not clipped at the region edge
+const EDGE = 20;                             // px inset: the rule spans stage x 120 to 1800 (the slide margins)
 const K = (W - 2 * EDGE) / (Y_END - Y_START); // px per year (= view scale)
 const EL = 30;                               // camera elevation (deg)
-const AY = 224;                              // screen y of the rule's top-face centreline
+const AY = 246;                              // screen y of the rule's top-face centreline
 const D = 1.7, T = 0.36;                     // rule depth and thickness
 const PR = 0.5, PH = 0.42;                   // puck radius and height
 const X0 = Y_START - 1978;                   // world x of the rule's left end (x = 0 at 1978)
@@ -36,7 +36,7 @@ const EVENTS = [
   { year: 2002, text: 'Reopens as World Cup Park', up: true, tone: 'blue' },
   { year: 2011, text: 'Fukushima and a Seoul blackout', up: false, tone: 'red' },
 ];
-const BEAT = [0, 0, 1, 1];                     // index within its beat (stagger)
+const BEAT = [0, 1, 0, 1];                     // index within its beat (stagger)
 
 const quadOut = t => 1 - (1 - t) * (1 - t);
 

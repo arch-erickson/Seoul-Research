@@ -171,7 +171,13 @@ export default defineDiagram({
       cap.base = INK - total / 2 + big.h + GAPW;     // top of the caption
     };
     layout();
-    S.labels.remeasure = function () { for (const l of this.labels) l.measure(); layout(); this.update(); };
+    // when the embedded face finishes loading, re-centre the block and re-apply the words' current state
+    S.labels.remeasure = function () {
+      for (const l of this.labels) l.measure();
+      layout();
+      for (const k of ['lab67', 'labCap']) { const p = S.anim.props.get(k); if (p) p.apply(p.value); }
+      this.update();
+    };
     const wordProp = (name, l, delay) => S.anim.prop(name, 0, v => {
       l.o.place.dy = l.base + (1 - v) * LAB_DRIFT;
       l.setOpacity(v, 0);
