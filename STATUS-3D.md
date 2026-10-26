@@ -55,7 +55,9 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 
 ## Checkpoints (ARCHITECTURE §12)
 
-- 780b6c2: s10-edc, s01-map, s03-map, s15-export, s11-nowon, s13-rfid (`checkpoint.mjs --no-site`). Each further DONE gets its own checkpoint.
+- 780b6c2: s10-edc, s01-map, s03-map, s15-export, s11-nowon, s13-rfid (`checkpoint.mjs --no-site`). 
+- 8941ed9: s12-towers, s14-nanjido, s07-balcony, s16-cheonggye DONE + the 7 cuts (one commit; the per-diagram runs after it had nothing new).
+- Final: 3D work complete at 10 diagrams; no further work started (budget).
 
 - s05-trajectory, s09-zeb, s17-parks finished (builder audit clean, not lead-reviewed) before the cut; they sit in `dev/cut/`.
   Restoring one is a single move back to `src/diagrams/` (imports there resolve to `../kit3d/index.js` again) if MAIN wants it.
