@@ -45546,7 +45546,7 @@ void main() {
       }
     }
     const cosT = Math.cos(MathUtils.degToRad(creaseAngle));
-    const P = [], NA = [], NB = [], K = [];
+    const P = [], NA = [], NB2 = [], K = [];
     for (const rec of edges.values()) {
       const ns = rec.normals;
       const cnt = ns.length / 3;
@@ -45567,10 +45567,10 @@ void main() {
       }
       P.push(uniq[rec.lo * 3], uniq[rec.lo * 3 + 1], uniq[rec.lo * 3 + 2], uniq[rec.hi * 3], uniq[rec.hi * 3 + 1], uniq[rec.hi * 3 + 2]);
       NA.push(...na);
-      NB.push(...nb);
+      NB2.push(...nb);
       K.push(kind);
     }
-    return { positions: new Float32Array(P), na: new Float32Array(NA), nb: new Float32Array(NB), kind: new Float32Array(K) };
+    return { positions: new Float32Array(P), na: new Float32Array(NA), nb: new Float32Array(NB2), kind: new Float32Array(K) };
   }
   function edgeLinesFromGeometry(geometry, opts = {}) {
     const e = extractEdges(geometry, opts.creaseAngle ?? 28);
@@ -46281,35 +46281,40 @@ void main() {
   var Y0 = 1.5;
   var RC = 22;
   var HC = 40;
-  var DOME_TOP = Y0 + HC + RC;
   var AUX = { x0: -24, x1: 24, z0: 12, z1: 44, h: 26 };
   var TURB = { x0: -20, x1: 20, z0: 44, z1: 128, h: 34 };
   var ANNEX = { x0: 20, x1: 28, z0: 44, z1: 128, h: 14 };
   var PLINTH = { x0: -32, x1: 36, z0: -29, z1: 136 };
-  var NX = 30;
-  var NZ = 56;
-  var N = NX * NZ;
-  var N_RED = Math.round(N * 0.79);
-  var PITCH = 2.6;
-  var BLOCK_X = 10;
-  var BLOCK_Z = 8;
-  var STREET = 1.6;
+  var NB = 10;
+  var NH = 4;
+  var PITCH = 2.3;
+  var STREET = 3.2;
+  var BLK = NH * PITCH;
+  var CELL = BLK + STREET;
+  var FW = NB * BLK + (NB - 1) * STREET;
+  var N = NB * NB * NH * NH;
+  var RED_BLOCKS = 79;
   var FIELD_D = 156;
   var FC = RG.clone().multiplyScalar(FIELD_D);
-  var FY = 1.5;
-  var GREY = "#BDBCB8";
-  var GREY_EDGE = "#8E8F92";
-  var PAN = [0, 0.2];
-  var WIPE0 = 0.12;
-  var WIPE1 = 0.6;
-  var OUTLINE = [0.9, 1];
+  var FY = 1.2;
+  var FPAD = 3;
+  var GREY = "#C3C2BE";
+  var GREY_EDGE = "#94959A";
   var SCALE = 2.7;
   var AT1 = [655, 262];
   var AT2 = [384, 262];
-  var H_TOP = DOME_TOP + 0.6;
-  var H_BOT = Y0 - 0.6;
+  var T1 = 1300;
+  var T2 = 3560;
+  var PAN = [0, 1e3];
+  var FPL = [350, 1e3];
+  var WIPE = [600, 2200];
+  var FLY = 900;
+  var FLY_J = 60;
+  var POP = 170;
+  var OUT_DUR = 300;
+  var L2_DELAY = 3300;
   function houseGeo() {
-    const w = 1.9, d = 1.9, h = 1.2, r = 2.05;
+    const w = 1.6, d = 1.8, h = 0.9, r = 1.5;
     const s = new three_module_exports.Shape([
       new three_module_exports.Vector2(-w / 2, 0),
       new three_module_exports.Vector2(w / 2, 0),
@@ -46361,24 +46366,45 @@ void main() {
     for (let i = 0; i < pts.length - 1; i++) out.push(pts[i].x, pts[i].y, pts[i].z, pts[i + 1].x, pts[i + 1].y, pts[i + 1].z);
     return out;
   }
+  function inkUnder(obj) {
+    const out = [];
+    obj.traverse((o) => {
+      if (o.isInkLines) out.push(o);
+    });
+    return out;
+  }
   var s06_reactor_default = defineDiagram({
     id: "s06-reactor",
     states: 2,
     region: { x: 100, y: 420, w: 1080, h: 420 },
     stage: {
       view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: SCALE, at: AT1.slice() },
-      shadowBox: { min: [-36, 0, -210], max: [138, 66, 140] }
+      shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] }
     },
     build(S) {
       const plant = S.part("Nuclear plant");
       const plinth = new three_module_exports.Group();
+      plinth.position.set((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2);
       plant.add(plinth);
-      S.solid(boxGeo(PLINTH.x1 - PLINTH.x0, Y0, PLINTH.z1 - PLINTH.z0).translate((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2), {}, plinth);
-      const clipDown = new three_module_exports.Plane(new three_module_exports.Vector3(0, -1, 0), 1e4);
-      const clipUp = new three_module_exports.Plane(new three_module_exports.Vector3(0, 1, 0), -1e4);
-      const mat = S.material(C.model, { unique: true, clippingPlanes: [clipDown], side: three_module_exports.DoubleSide });
+      S.solid(boxGeo(PLINTH.x1 - PLINTH.x0, Y0, PLINTH.z1 - PLINTH.z0), {}, plinth);
+      const plinthInk = inkUnder(plinth);
+      const NS = RG.clone().add(new three_module_exports.Vector3(0, 0.75, 0)).normalize();
+      const Cd = new three_module_exports.Vector3(0, Y0 + HC, 0);
+      const probe = [Cd.clone().addScaledVector(NS, RC)];
+      for (let i = 0; i < 72; i++) {
+        const a = i / 72 * Math.PI * 2;
+        probe.push(new three_module_exports.Vector3(RC * Math.cos(a), Y0, RC * Math.sin(a)));
+      }
+      for (const b of [AUX, TURB, ANNEX]) for (const x of [b.x0, b.x1]) for (const z of [b.z0, b.z1]) for (const y of [Y0, Y0 + b.h]) probe.push(new three_module_exports.Vector3(x, y, z));
+      const dMax = Math.max(...probe.map((p) => NS.dot(p))) + 0.6;
+      const dMin = Math.min(...probe.map((p) => NS.dot(p))) - 0.6;
+      const clipSolid = new three_module_exports.Plane(NS.clone().negate(), 1e4);
+      const clipGhost = new three_module_exports.Plane(NS.clone(), -1e4);
+      const cutAt = (p2ms) => lerp2(dMax, dMin, sub(p2ms, WIPE[0], WIPE[1]));
+      const releaseMs = (p) => lerp2(WIPE[0], WIPE[1], (dMax - NS.dot(p)) / (dMax - dMin));
+      const mat = S.material(C.model, { unique: true, clippingPlanes: [clipSolid], side: three_module_exports.DoubleSide });
       mat.clipShadows = true;
-      const eClip = { clippingPlanes: [clipDown] };
+      const eClip = { clippingPlanes: [clipSolid] };
       const solids = new three_module_exports.Group();
       plant.add(solids);
       const mk = (geo) => {
@@ -46392,7 +46418,7 @@ void main() {
       const gAux = mk(boxAt(AUX));
       const gTurb = mk(boxAt(TURB));
       const gAnnex = mk(boxAt(ANNEX));
-      const hair = { width: LW.hair, color: C.hair, clippingPlanes: [clipDown] };
+      const hair = { width: LW.hair, color: C.hair, clippingPlanes: [clipSolid] };
       const vh = new three_module_exports.Vector3(VIEW.x, 0, VIEW.z).normalize();
       const phiV = Math.atan2(vh.z, vh.x);
       const ring = [];
@@ -46407,17 +46433,17 @@ void main() {
         const x = -xa + 2 * xa * i / 32;
         arc.push(new three_module_exports.Vector3(x, AUX.h + 0.02, Math.sqrt(Math.max(0, RC * RC - x * x))));
       }
-      S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: [clipDown] }, gAux);
+      S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: [clipSolid] }, gAux);
       const bays = [];
       for (let k = 1; k < 8; k++) {
         const z = TURB.z0 + k * (TURB.z1 - TURB.z0) / 8;
         bays.push(TURB.x1 + 0.02, ANNEX.h, z, TURB.x1 + 0.02, TURB.h, z);
       }
       S.lines(bays, hair, gTurb);
+      const volumes = [gCont, gAux, gTurb, gAnnex].map((g) => ({ g, ink: inkUnder(g) }));
       const phantom = new three_module_exports.Group();
       plant.add(phantom);
       const ph = [];
-      const Cd = new three_module_exports.Vector3(0, Y0 + HC, 0);
       const gen = [RG.clone().multiplyScalar(RC), RG.clone().multiplyScalar(-RC)];
       for (const g of gen) ph.push(g.x, Y0, g.z, g.x, Y0 + HC, g.z);
       const base = [];
@@ -46433,9 +46459,9 @@ void main() {
       }
       polySeg(domeSil, ph);
       for (const b of [AUX, TURB, ANNEX]) ph.push(...boxPhantom(b, Y0, Y0 + b.h));
-      const phLines = S.lines(ph, { width: 1, color: C.muted, dashed: true, dashSize: 2.2, gapSize: 1.7, clippingPlanes: [clipUp] }, phantom);
+      S.lines(ph, { width: 1, color: C.muted, dashed: true, dashSize: 2.2, gapSize: 1.7, clippingPlanes: [clipGhost] }, phantom);
       const occMat = new three_module_exports.MeshBasicMaterial({ colorWrite: false, polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 4 });
-      occMat.clippingPlanes = [clipUp];
+      occMat.clippingPlanes = [clipGhost];
       for (const geo of [containmentGeo(), boxAt(AUX), boxAt(TURB), boxAt(ANNEX)]) {
         const m = new three_module_exports.Mesh(geo, occMat);
         m.position.y = Y0;
@@ -46446,15 +46472,18 @@ void main() {
       }
       const field = S.part("Households");
       const fPlinth = new three_module_exports.Group();
-      fPlinth.position.set(FC.x, 0, FC.z);
+      const corner = new three_module_exports.Vector3(FC.x - FW / 2 - FPAD, 0, FC.z + FW / 2 + FPAD);
+      fPlinth.position.copy(corner);
       field.add(fPlinth);
-      const FW = NX * PITCH + (NX / BLOCK_X - 1) * STREET, FD = NZ * PITCH + (NZ / BLOCK_Z - 1) * STREET;
-      S.solid(boxGeo(FW + 5, FY, FD + 5), {}, fPlinth);
+      const PW = FW + 2 * FPAD;
+      S.solid(boxGeo(PW, FY, PW).translate(PW / 2, 0, -PW / 2), {}, fPlinth);
+      const fPlinthInk = inkUnder(fPlinth);
       const targets = [];
-      for (let j = 0; j < NZ; j++) for (let i = 0; i < NX; i++) {
-        const x = -FW / 2 + PITCH / 2 + i * PITCH + Math.floor(i / BLOCK_X) * STREET;
-        const z = FD / 2 - PITCH / 2 - j * PITCH - Math.floor(j / BLOCK_Z) * STREET;
-        targets.push(new three_module_exports.Vector3(FC.x + x, FY, FC.z + z));
+      for (let bz = 0; bz < NB; bz++) for (let hz = 0; hz < NH; hz++) for (let bx = 0; bx < NB; bx++) for (let hx = 0; hx < NH; hx++) {
+        const x = -FW / 2 + bx * CELL + PITCH / 2 + hx * PITCH;
+        const z = FW / 2 - bz * CELL - PITCH / 2 - hz * PITCH;
+        const red = bz * NB + bx < RED_BLOCKS;
+        targets.push({ p: new three_module_exports.Vector3(FC.x + x, FY, FC.z + z), bz, red });
       }
       const R = rng(606);
       const surf = [];
@@ -46494,8 +46523,6 @@ void main() {
       addS((ANNEX.z1 - ANNEX.z0) * ANNEX.h, wallX(ANNEX, 0));
       addS((ANNEX.x1 - ANNEX.x0) * ANNEX.h, wallZ(ANNEX, 0));
       const totalA = surf.reduce((s, x) => s + x.area, 0);
-      const hAt = (p2) => H_TOP - (H_TOP - H_BOT) * sub(p2, WIPE0, WIPE1);
-      const releaseAt = (y) => WIPE0 + (WIPE1 - WIPE0) * (H_TOP - y) / (H_TOP - H_BOT);
       const houses = [];
       for (let k = 0; k < N; k++) {
         let r = R() * totalA, s = surf[0];
@@ -46509,35 +46536,43 @@ void main() {
         const { p, n } = s.fn();
         const start = p.clone();
         if (n.y < 0.99) {
-          start.addScaledVector(n, 1.1);
-          start.y -= 1;
+          start.addScaledVector(n, 1);
+          start.y -= 0.7;
         }
-        const t0 = Math.max(0, releaseAt(p.y) + (R() - 0.5) * 0.02);
+        const t0 = Math.max(0, releaseMs(p) + (R() - 0.5) * 40);
         houses.push({ start, t0 });
       }
       houses.sort((a, b) => a.t0 - b.t0);
       const reds = [], greys = [];
+      const groupLand = /* @__PURE__ */ new Map();
       houses.forEach((h, k) => {
-        h.goal = targets[k];
+        const tg = targets[k];
+        h.goal = tg.p;
+        h.dur = FLY + (R() - 0.5) * FLY_J;
+        h.key = tg.bz * 2 + (tg.red ? 0 : 1);
+        groupLand.set(h.key, Math.max(groupLand.get(h.key) || 0, h.t0 + h.dur));
         const dist = h.start.distanceTo(h.goal);
-        h.dur = Math.min(0.3 + 0.08 * R(), OUTLINE[0] + 0.05 - h.t0);
         h.ctrl = h.start.clone().add(h.goal).multiplyScalar(0.5);
-        h.ctrl.y += 5 + 0.05 * dist;
-        (k < N_RED ? reds : greys).push(h);
+        h.ctrl.y += 6 + 0.06 * dist;
+        (tg.red ? reds : greys).push(h);
       });
       const hg = houseGeo();
       const mkInst = (list, color) => {
         const m = new three_module_exports.InstancedMesh(hg, S.material(color), list.length);
         m.frustumCulled = false;
-        m.castShadow = true;
+        m.castShadow = false;
         m.receiveShadow = true;
+        m.renderOrder = -3;
         field.add(m);
         return m;
       };
       const imRed = mkInst(reds, C.red);
       const imGrey = mkInst(greys, GREY);
       const hpos = hg.toNonIndexed().attributes.position.array;
-      const mkOutline = (list, color) => {
+      const outlines = [];
+      for (const [key, land] of groupLand) {
+        const list = houses.filter((h) => h.key === key);
+        const red = key % 2 === 0;
         const arr = new Float32Array(hpos.length * list.length);
         list.forEach((h, k) => {
           for (let i = 0; i < hpos.length; i += 3) {
@@ -46548,24 +46583,20 @@ void main() {
         });
         const g = new three_module_exports.BufferGeometry();
         g.setAttribute("position", new three_module_exports.BufferAttribute(arr, 3));
-        const l = edgeLinesFromGeometry(g, { color, color2: color, width: 0.75, width2: 0.6, creaseAngle: 20 });
+        const col = red ? C.redDeep : GREY_EDGE;
+        const l = edgeLinesFromGeometry(g, { color: col, color2: col, width: 0.75, width2: 0.6, creaseAngle: 20 });
         field.add(l);
-        return l;
-      };
-      const olRed = mkOutline(reds, C.redDeep);
-      const olGrey = mkOutline(greys, GREY_EDGE);
+        outlines.push({ l, t0: land + 40 });
+      }
       const _p = new three_module_exports.Vector3();
-      function placeHouses(list, im, p2) {
+      function placeHouses(list, im, ms) {
         const a = im.instanceMatrix.array;
         for (let k = 0; k < list.length; k++) {
           const h = list[k];
-          let sc, t;
-          if (p2 <= h.t0) {
-            sc = 0;
-            t = 0;
-          } else {
-            sc = sub(p2, h.t0, h.t0 + 0.035, ease.out);
-            t = ease.inOut(sub(p2, h.t0, h.t0 + h.dur));
+          let sc = 0, t = 0;
+          if (ms > h.t0) {
+            sc = ease.out(sub(ms, h.t0, h.t0 + POP));
+            t = ease.inOut(sub(ms, h.t0, h.t0 + h.dur));
           }
           const u = 1 - t;
           _p.set(
@@ -46592,35 +46623,42 @@ void main() {
           a[o + 15] = 1;
         }
         im.instanceMatrix.needsUpdate = true;
-        im.visible = p2 > 5e-4;
+        im.visible = ms > WIPE[0] - 50;
       }
       let P1 = 0, P2 = 0;
-      const grow = (g, v) => {
-        g.scale.y = Math.max(1e-3, v);
-        g.visible = v > 2e-3;
-      };
+      const lastRelease = houses[houses.length - 1].t0;
       function update() {
-        grow(plinth, sub(P1, 0, 0.3, ease.out));
-        grow(gCont, sub(P1, 0.12, 0.62, ease.out));
-        grow(gAux, sub(P1, 0.24, 0.72, ease.out));
-        grow(gTurb, sub(P1, 0.32, 0.86, ease.out));
-        grow(gAnnex, sub(P1, 0.44, 1, ease.out));
-        const h = hAt(P2);
-        clipDown.constant = h;
-        clipUp.constant = -h;
-        solids.visible = P1 > 1e-3 && h > H_BOT + 0.05;
-        phantom.visible = P2 > 5e-4;
-        grow(fPlinth, sub(P2, WIPE0, WIPE0 + 0.22, ease.out));
-        placeHouses(reds, imRed, P2);
-        placeHouses(greys, imGrey, P2);
-        const ol = sub(P2, OUTLINE[0], OUTLINE[1], ease.out);
-        for (const l of [olRed, olGrey]) {
-          l.material.setOpacity(ol);
-          l.visible = ol > 2e-3;
+        const t1 = P1 * T1;
+        const pk = ease.out(sub(t1, 0, 600));
+        plinth.scale.set(Math.max(1e-3, pk), 1, Math.max(1e-3, pk));
+        plinth.visible = pk > 1e-3;
+        for (const l of plinthInk) l.material.setOpacity(sub(t1, 0, 200));
+        volumes.forEach(({ g, ink }, i) => {
+          const lt = sub(t1, 160 + i * 80, 160 + i * 80 + 820);
+          g.scale.y = Math.max(1e-3, ease.out(lt));
+          g.visible = lt > 1e-3;
+          for (const l of ink) l.material.setOpacity(sub(lt, 0, 0.18));
+        });
+        const ms = P2 * T2;
+        const c = P2 > 0 ? cutAt(ms) : 1e4;
+        clipSolid.constant = c;
+        clipGhost.constant = -c;
+        solids.visible = P1 > 1e-3 && ms < lastRelease + 60;
+        phantom.visible = ms > WIPE[0] - 50;
+        const fk = ease.out(sub(ms, FPL[0], FPL[1]));
+        fPlinth.scale.set(Math.max(1e-3, fk), 1, Math.max(1e-3, fk));
+        fPlinth.visible = fk > 1e-3;
+        for (const l of fPlinthInk) l.material.setOpacity(sub(ms, FPL[0], FPL[0] + 150));
+        placeHouses(reds, imRed, ms);
+        placeHouses(greys, imGrey, ms);
+        for (const o of outlines) {
+          const v = ease.out(sub(ms, o.t0, o.t0 + OUT_DUR));
+          o.l.material.setOpacity(v);
+          o.l.visible = v > 2e-3;
         }
-        const c = ease.inOut(sub(P2, PAN[0], PAN[1]));
-        S.view.at[0] = lerp2(AT1[0], AT2[0], c);
-        S.view.at[1] = lerp2(AT1[1], AT2[1], c);
+        const k = ease.inOut(sub(ms, PAN[0], PAN[1]));
+        S.view.at[0] = lerp2(AT1[0], AT2[0], k);
+        S.view.at[1] = lerp2(AT1[1], AT2[1], k);
         S.applyView();
         if (L1) L1.o.place.x = S.project(domeTop).x;
         if (L2) L2.o.place.x = S.project(fAnchor).x;
@@ -46631,11 +46669,11 @@ void main() {
       S.anim.prop("p1", 0, (v) => {
         P1 = v;
         update();
-      }, { kind: "reveal", dur: 1500 });
+      }, { kind: "move", dur: T1 });
       S.anim.prop("p2", 0, (v) => {
         P2 = v;
         update();
-      }, { kind: "move", dur: 3600 });
+      }, { kind: "move", dur: T2 });
       const dTop = S.project(domeTop);
       L1 = S.label({
         text: "Output of one nuclear reactor: 2 million TOE a year",
@@ -46648,18 +46686,15 @@ void main() {
       S.view.at[0] = AT2[0];
       S.view.at[1] = AT2[1];
       S.applyView();
-      const fcx = S.project(new three_module_exports.Vector3(FC.x, FY, FC.z)).x;
-      let best = null, bestD = 1e9;
-      for (let j = 0; j < NZ; j++) {
-        const t = targets[j * NX];
-        const q = S.project(new three_module_exports.Vector3(t.x, FY + 2.05, t.z));
-        const d = Math.abs(q.x - fcx);
-        if (d < bestD) {
-          bestD = d;
-          best = t;
+      let best = null, bestY = 1e9;
+      for (const t of targets) {
+        const q = S.project(new three_module_exports.Vector3(t.p.x, FY + 1.4, t.p.z));
+        if (q.y < bestY) {
+          bestY = q.y;
+          best = t.p;
         }
       }
-      fAnchor = new three_module_exports.Vector3(best.x, FY + 2.05, best.z);
+      fAnchor = new three_module_exports.Vector3(best.x, FY + 1.4, best.z);
       const fTop = S.project(fAnchor);
       update();
       L2 = S.label({
@@ -46677,19 +46712,20 @@ void main() {
         targets: (n) => ({ p1: n >= 1 ? 1 : 0, p2: n >= 2 ? 1 : 0, L1: n >= 1 ? 1 : 0, L2: n >= 2 ? 1 : 0 }),
         plan(name, from, to, dir, n, prev) {
           if (dir > 0) {
-            const d1 = prev < 1 ? 1500 : 0;
+            const d1 = prev < 1 ? T1 : 0;
             return {
-              p1: { dur: 1500, ease: ease.linear },
-              L1: { delay: 1250 },
-              p2: { dur: 3600, delay: d1, ease: ease.linear },
-              L2: { delay: d1 + 3350 }
+              p1: { dur: T1, ease: ease.linear },
+              L1: { delay: 1150, dur: 520 },
+              p2: { dur: T2, delay: d1, ease: ease.linear },
+              L2: { delay: d1 + L2_DELAY, dur: 520 }
             }[name] || null;
           }
+          const d2 = prev >= 2 && n < 1 ? 1900 + 150 : 0;
           return {
-            p1: { dur: 700, delay: 150, ease: ease.linear },
-            p2: { dur: 1400, delay: 150, ease: ease.linear },
-            L1: { dur: 300 },
-            L2: { dur: 300 }
+            p1: { dur: 900, delay: 150 + d2, ease: ease.linear },
+            p2: { dur: 1900, delay: 150, ease: ease.linear },
+            L1: { dur: 320, delay: d2 },
+            L2: { dur: 320 }
           }[name] || null;
         }
       };

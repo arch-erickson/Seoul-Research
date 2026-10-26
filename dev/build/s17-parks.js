@@ -46211,6 +46211,28 @@ void main() {
       { kind: "fade", dur: o.dur ?? 520, delay: o.delay ?? 0 }
     );
   }
+  function setOpacity(obj, v) {
+    obj.traverse((o) => {
+      if (o.isInkLines) o.material.setOpacity(v);
+      else if (o.isMesh && o.material && !o.material.isShadowMaterial) {
+        if (!o.userData.ownMat) {
+          o.material = o.material.clone();
+          o.userData.ownMat = true;
+        }
+        const m = o.material;
+        const t = v < 0.999;
+        if (m.transparent !== t) {
+          m.transparent = t;
+          m.needsUpdate = true;
+        }
+        m.opacity = v;
+        m.depthWrite = v > 0.6;
+        o.castShadow = o.userData.castShadow0 ?? (o.userData.castShadow0 = o.castShadow, o.castShadow);
+        if (v < 0.5) o.castShadow = false;
+      }
+    });
+    obj.visible = v > 2e-3;
+  }
   function defineDiagram({ id, states, region, stage: stageOpts = {}, build }) {
     return {
       id,
@@ -46264,6 +46286,7 @@ void main() {
   var S2 = Math.sqrt(5.65);
   var T = 0.2;
   var FIG_H = 1.7;
+  var DROP = 0.45;
   var AZ = 45;
   var EL = 30;
   var SCALE = 75;
@@ -46385,24 +46408,25 @@ void main() {
         p.grid.material.setOpacity(p.gridOpacity * g);
         p.grid.visible = g > 2e-3;
       };
-      const setFig = (f, k) => {
-        f.lift.position.y = -(FIG_H + 0.05) * (1 - k);
-        f.root.visible = k > 2e-3;
+      const setFig = (f, u) => {
+        f.lift.position.y = DROP * (1 - ease.out(u));
+        setOpacity(f.root, sub(u, 0, 0.55));
       };
       S.anim.prop("build", 0, (v) => {
         setPlate(city, sub(v, 0, 0.46, ease.out), sub(v, 0.36, 0.7, ease.out));
-        setPlate(walk, sub(v, 0.12, 0.58, ease.out), sub(v, 0.48, 0.82, ease.out));
-        setFig(fig1, sub(v, 0.32, 0.7, ease.out));
-        setFig(fig2, sub(v, 0.44, 0.82, ease.out));
+        setPlate(walk, sub(v, 0.05, 0.51, ease.out), sub(v, 0.41, 0.75, ease.out));
+        setFig(fig1, sub(v, 0.32, 0.7));
+        setFig(fig2, sub(v, 0.37, 0.75));
       }, { kind: "reveal", dur: 1600 });
       labelProp(S, "lab1", lab1, { delay: 1050 });
-      labelProp(S, "lab2", lab2, { delay: 1250 });
+      labelProp(S, "lab2", lab2, { delay: 1130 });
       return {
         targets: (n) => ({ build: n >= 1 ? 1 : 0, lab1: n >= 1 ? 1 : 0, lab2: n >= 1 ? 1 : 0 }),
         plan: (name, from, to, dir) => {
           if (dir >= 0) return name === "build" ? { delay: 0, dur: 1600, ease: ease.linear } : null;
-          if (name === "lab1" || name === "lab2") return { delay: 0, dur: 280, ease: ease.in };
-          if (name === "build") return { delay: 160, dur: 750, ease: ease.in };
+          if (name === "lab2") return { delay: 0, dur: 360, ease: ease.in };
+          if (name === "lab1") return { delay: 70, dur: 360, ease: ease.in };
+          if (name === "build") return { delay: 200, dur: 1e3, ease: ease.linear };
           return null;
         }
       };

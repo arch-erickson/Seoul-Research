@@ -4,8 +4,8 @@
 // park area within a five-minute walk is 5.65 m², a square of side sqrt(5.65) = 2.38 m (dossier).
 // A 1 m hairline grid on each plate shows the square metres. Citywide plate: neutral white model;
 // five-minute plate: red (the focal fact).
-// States: 0 empty · 1 the plates open out from their back corners, the figures rise, captions.
-import { defineDiagram, THREE, C, LW, ease, sub, labelProp, boxGeo } from '../kit3d/index.js';
+// States: 0 empty · 1 the plates open out from their back corners, the figures settle onto them, captions.
+import { defineDiagram, THREE, C, LW, ease, sub, labelProp, setOpacity, boxGeo } from '../kit3d/index.js';
 
 const DEG = Math.PI / 180;
 
@@ -14,6 +14,7 @@ const S1 = Math.sqrt(17.74);   // 4.21 m: citywide
 const S2 = Math.sqrt(5.65);    // 2.38 m: within a five-minute walk
 const T = 0.2;                 // plate thickness (top face at y = 0)
 const FIG_H = 1.7;             // scale figure height
+const DROP = 0.45;             // the figures settle onto the plates from this height
 
 // ---- view ----
 const AZ = 45, EL = 30, SCALE = 75;
@@ -58,7 +59,7 @@ export default defineDiagram({
     ground: { y: -T, opacity: 0.14 },
   },
   build(S) {
-    const clip = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.001);   // figures rise out of the plate top
+    const clip = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.001);   // nothing of a figure ever shows below the plate top
     // a flat cut-out (one face, so the outline is a single clean line)
     const figGeo = new THREE.ShapeGeometry(figureShape(), 20);
     const figMat = S.material(C.model, { unique: true, side: THREE.DoubleSide, clippingPlanes: [clip] });
@@ -123,27 +124,32 @@ export default defineDiagram({
       p.grid.material.setOpacity(p.gridOpacity * g);
       p.grid.visible = g > 0.002;
     };
-    const setFig = (f, k) => {
-      f.lift.position.y = -(FIG_H + 0.05) * (1 - k);
-      f.root.visible = k > 0.002;
+    // u = linear progress of the figure's own sub-range: it drops a short way onto the plate (ease-out)
+    // while it fades in over the first 55% (a single flat face, so no hidden edges show while it is faint)
+    const setFig = (f, u) => {
+      f.lift.position.y = DROP * (1 - ease.out(u));
+      setOpacity(f.root, sub(u, 0, 0.55));
     };
+    // the five-minute track runs 80 ms (0.05 of 1600 ms) behind the citywide track
     S.anim.prop('build', 0, v => {
       setPlate(city, sub(v, 0.00, 0.46, ease.out), sub(v, 0.36, 0.70, ease.out));
-      setPlate(walk, sub(v, 0.12, 0.58, ease.out), sub(v, 0.48, 0.82, ease.out));
-      setFig(fig1, sub(v, 0.32, 0.70, ease.out));
-      setFig(fig2, sub(v, 0.44, 0.82, ease.out));
+      setPlate(walk, sub(v, 0.05, 0.51, ease.out), sub(v, 0.41, 0.75, ease.out));
+      setFig(fig1, sub(v, 0.32, 0.70));
+      setFig(fig2, sub(v, 0.37, 0.75));
     }, { kind: 'reveal', dur: 1600 });
     labelProp(S, 'lab1', lab1, { delay: 1050 });
-    labelProp(S, 'lab2', lab2, { delay: 1250 });
+    labelProp(S, 'lab2', lab2, { delay: 1130 });
 
     return {
       targets: n => ({ build: n >= 1 ? 1 : 0, lab1: n >= 1 ? 1 : 0, lab2: n >= 1 ? 1 : 0 }),
       plan: (name, from, to, dir) => {
         // forward: the sub-ranges inside 'build' carry their own ease-out, so the beat runs on a linear clock
         if (dir >= 0) return name === 'build' ? { delay: 0, dur: 1600, ease: ease.linear } : null;
-        // backwards: captions leave first, then the model folds away
-        if (name === 'lab1' || name === 'lab2') return { delay: 0, dur: 280, ease: ease.in };
-        if (name === 'build') return { delay: 160, dur: 750, ease: ease.in };
+        // backwards: captions leave first (lab2, then lab1), then the build plays in reverse on a linear
+        // clock, so each sub-range's ease-out runs backwards as a natural ease-in departure
+        if (name === 'lab2') return { delay: 0, dur: 360, ease: ease.in };
+        if (name === 'lab1') return { delay: 70, dur: 360, ease: ease.in };
+        if (name === 'build') return { delay: 200, dur: 1000, ease: ease.linear };
         return null;
       },
     };

@@ -1,189 +1,1487 @@
 {
   "_doc": "Slide order, durations (s), beats with cue times (s from slide entry). 'show' = Figma group names (or element descriptions for slides 1-4, which have no Figma groups) revealed at that beat. 'diagram' = { diagramId: state } set at that beat. Image interstitials i01-i18 follow content slides 1-18. Totals: content 2130 s + 18 x 10 s = 2310 s (38:30).",
-  "stage": { "w": 1920, "h": 1080 },
+  "stage": {
+    "w": 1920,
+    "h": 1080
+  },
   "imageSlideSeconds": 10,
   "totalSeconds": 2310,
   "order": [
-    { "key": "s01", "kind": "content", "n": 1, "title": "Seoul — The Carrot and the Stick", "figmaId": "2:2", "dur": 45,
-      "diagrams": [ { "id": "s01-map", "region": { "x": 1290, "y": 110, "w": 540, "h": 880 }, "replaces": "the South Korea vector map, the 'SEOUL' red label and the '9.4 million people · 37.57°N 126.98°E' caption" } ],
-      "beats": [ { "id": "B1", "cue": 0, "show": ["taeguk mark", "SEOUL", "The Carrot and the Stick", "red/blue rule", "Erickson Cabrera", "ARCH 3551 line"], "diagram": { "s01-map": 1 } } ] },
-    { "key": "i01", "kind": "image", "after": 1, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s02", "kind": "content", "n": 2, "title": "Same problem. Opposite philosophy.", "figmaId": "3:67", "dur": 90, "diagrams": [],
-      "beats": [
-        { "id": "B1", "cue": 0, "show": ["headline (both lines)"] },
-        { "id": "B2", "cue": 20, "show": ["SEOUL / NEW YORK headers", "header rule", "row POPULATION", "row METRO REGION"] },
-        { "id": "B3", "cue": 45, "show": ["row BUILDINGS' SHARE OF EMISSIONS"] },
-        { "id": "B4", "cue": 65, "show": ["row THE CLIMATE POLICY (LEND AT 1.75% / FINE $268/TON)"] } ] },
-    { "key": "i02", "kind": "image", "after": 2, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s03", "kind": "content", "n": 3, "title": "Two-thirds of the problem is already built.", "figmaId": "3:94", "dur": 60,
+    {
+      "key": "s01",
+      "kind": "content",
+      "n": 1,
+      "title": "Seoul: The Carrot and the Stick",
+      "figmaId": "2:2",
+      "dur": 45,
       "diagrams": [
-        { "id": "s03-donut", "region": { "x": 110, "y": 400, "w": 540, "h": 500 }, "replaces": "the 67% donut (two ellipses + '67%' + 'BUILDINGS')" },
-        { "id": "s03-map", "region": { "x": 1300, "y": 380, "w": 520, "h": 480 }, "replaces": "the small South Korea map" } ],
+        {
+          "id": "s01-map",
+          "region": {
+            "x": 1290,
+            "y": 110,
+            "w": 540,
+            "h": 880
+          },
+          "replaces": "the South Korea vector map, the 'SEOUL' red label and the '9.4 million people · 37.57°N 126.98°E' caption"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["headline (both lines)", "legend (3 rows)"], "diagram": { "s03-donut": 1 } },
-        { "id": "B2", "cue": 35, "show": ["rule", "52.34 Mt CO2e", "baseline caption", "map caption (Seoul is 0.6% of land, 18% of population)"], "diagram": { "s03-map": 1 } } ] },
-    { "key": "i03", "kind": "image", "after": 3, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s04", "kind": "content", "n": 4, "title": "Two emergencies.", "figmaId": "3:162", "dur": 75,
-      "diagrams": [ { "id": "s04-timeline", "region": { "x": 100, "y": 340, "w": 1720, "h": 500 }, "replaces": "the timeline axis, 4 dots, stems, years and event labels (years + labels become diagram labels)" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "taeguk mark",
+            "SEOUL",
+            "The Carrot and the Stick",
+            "red/blue rule",
+            "Erickson Cabrera",
+            "ARCH 3551 line"
+          ],
+          "diagram": {
+            "s01-map": 1
+          }
+        }
+      ]
+    },
+    {
+      "key": "i01",
+      "kind": "image",
+      "after": 1,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["headline"], "diagram": { "s04-timeline": 1 } },
-        { "id": "B2", "cue": 15, "show": [], "diagram": { "s04-timeline": 2 } },
-        { "id": "B3", "cue": 45, "show": ["closing line 'A garbage mountain and a power failure — not a manifesto.'"], "diagram": { "s04-timeline": 3 } } ] },
-    { "key": "i04", "kind": "image", "after": 4, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s05", "kind": "content", "n": 5, "title": "Half by 2033. Zero by 2050.", "figmaId": "4:5", "dur": 90,
-      "diagrams": [ { "id": "s05-trajectory", "region": { "x": 100, "y": 320, "w": 840, "h": 620 }, "replaces": "group 'B2 · trajectory'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s02",
+      "kind": "content",
+      "n": 2,
+      "title": "Same problem. Opposite philosophy.",
+      "figmaId": "3:67",
+      "dur": 90,
+      "diagrams": [],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": [], "diagram": { "s05-trajectory": 1 } },
-        { "id": "B3", "cue": 50, "show": ["B3 · ban ladder"] },
-        { "id": "B4", "cue": 75, "show": ["B4 · EV target"] } ] },
-    { "key": "i05", "kind": "image", "after": 5, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s06", "kind": "content", "n": 6, "title": "Seoul decided not to need a power plant.", "figmaId": "4:87", "dur": 120,
-      "diagrams": [ { "id": "s06-reactor", "region": { "x": 100, "y": 420, "w": 1080, "h": 420 }, "replaces": "groups 'B2 · reactor' and 'B3 · mosaic'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "headline (both lines)"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [
+            "SEOUL / NEW YORK headers",
+            "header rule",
+            "row POPULATION",
+            "row METRO REGION"
+          ]
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [
+            "row BUILDINGS' SHARE OF EMISSIONS"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 65,
+          "show": [
+            "row THE CLIMATE POLICY (LEND AT 1.75% / FINE $268/TON)"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i02",
+      "kind": "image",
+      "after": 2,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": [], "diagram": { "s06-reactor": 1 } },
-        { "id": "B3", "cue": 45, "show": [], "diagram": { "s06-reactor": 2 } },
-        { "id": "B4", "cue": 75, "show": ["B4 · result panel"] },
-        { "id": "B5", "cue": 100, "show": ["B5 · closing line"] } ] },
-    { "key": "i06", "kind": "image", "after": 6, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s07", "kind": "content", "n": 7, "title": "The balcony as power plant.", "figmaId": "4:403", "dur": 90,
-      "diagrams": [ { "id": "s07-balcony", "region": { "x": 100, "y": 330, "w": 760, "h": 640 }, "replaces": "group 'B2 · facade'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s03",
+      "kind": "content",
+      "n": 3,
+      "title": "Two-thirds of the problem is already built.",
+      "figmaId": "3:94",
+      "dur": 60,
+      "diagrams": [
+        {
+          "id": "s03-donut",
+          "region": {
+            "x": 110,
+            "y": 400,
+            "w": 540,
+            "h": 500
+          },
+          "replaces": "the 67% donut (two ellipses + '67%' + 'BUILDINGS')"
+        },
+        {
+          "id": "s03-map",
+          "region": {
+            "x": 1300,
+            "y": 380,
+            "w": 520,
+            "h": 480
+          },
+          "replaces": "the small South Korea map"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 18, "show": [], "diagram": { "s07-balcony": 1 } },
-        { "id": "B3", "cue": 45, "show": ["B3 · scale + progress"], "diagram": { "s07-balcony": 2 } },
-        { "id": "B4", "cue": 70, "show": ["B4 · cost + barrier"] } ] },
-    { "key": "i07", "kind": "image", "after": 7, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s08", "kind": "content", "n": 8, "title": "Retrofit by loan, not by fine.", "figmaId": "4:525", "dur": 120, "diagrams": [],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "headline (both lines)",
+            "legend (3 rows)"
+          ],
+          "diagram": {
+            "s03-donut": 1
+          }
+        },
+        {
+          "id": "B2",
+          "cue": 35,
+          "show": [
+            "rule",
+            "52.34 Mt CO2e",
+            "baseline caption",
+            "map caption (Seoul is 0.6% of land, 18% of population)"
+          ],
+          "diagram": {
+            "s03-map": 1
+          }
+        }
+      ]
+    },
+    {
+      "key": "i03",
+      "kind": "image",
+      "after": 3,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": ["B2 · Seoul panel"] },
-        { "id": "B3", "cue": 50, "show": ["B3 · NYC panel"] },
-        { "id": "B4", "cue": 90, "show": ["B4 · the verdict"] } ] },
-    { "key": "i08", "kind": "image", "after": 8, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s09", "kind": "content", "n": 9, "title": "Grade 5 to Grade 1.", "figmaId": "9:2", "dur": 75,
-      "diagrams": [ { "id": "s09-zeb", "region": { "x": 100, "y": 320, "w": 860, "h": 620 }, "replaces": "group 'B2 · the ladder'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s04",
+      "kind": "content",
+      "n": 4,
+      "title": "Two emergencies.",
+      "figmaId": "3:162",
+      "dur": 75,
+      "diagrams": [
+        {
+          "id": "s04-timeline",
+          "region": {
+            "x": 100,
+            "y": 340,
+            "w": 1720,
+            "h": 500
+          },
+          "replaces": "the timeline axis, 4 dots, stems, years and event labels (years + labels become diagram labels)"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": [], "diagram": { "s09-zeb": 1 } },
-        { "id": "B3", "cue": 45, "show": ["B3 · rollout + the delay"], "diagram": { "s09-zeb": 2 } } ] },
-    { "key": "i09", "kind": "image", "after": 9, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s10", "kind": "content", "n": 10, "title": "Zero energy. Built on a landfill.", "figmaId": "9:51", "dur": 165,
-      "diagrams": [ { "id": "s10-edc", "region": { "x": 100, "y": 300, "w": 1110, "h": 680 }, "replaces": "groups B2-B5 and the three callout labels/leaders (PV + fixed solar shading / 45° pinwheel massing / Piles through the waste). The data column (x>=1240) stays HTML." } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "headline"
+          ],
+          "diagram": {
+            "s04-timeline": 1
+          }
+        },
+        {
+          "id": "B2",
+          "cue": 15,
+          "show": [],
+          "diagram": {
+            "s04-timeline": 2
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [],
+          "diagram": {
+            "s04-timeline": 3
+          }
+        }
+      ]
+    },
+    {
+      "key": "i04",
+      "kind": "image",
+      "after": 4,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 25, "show": [], "diagram": { "s10-edc": 1 } },
-        { "id": "B3", "cue": 50, "show": [], "diagram": { "s10-edc": 2 } },
-        { "id": "B4", "cue": 75, "show": [], "diagram": { "s10-edc": 3 } },
-        { "id": "B5", "cue": 105, "show": [], "diagram": { "s10-edc": 4 } },
-        { "id": "B6", "cue": 140, "show": ["B6 · performance data (data column only)"], "diagram": { "s10-edc": 5 } } ] },
-    { "key": "i10", "kind": "image", "after": 10, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s11", "kind": "content", "n": 11, "title": "121 units. Net zero.", "figmaId": "10:4", "dur": 135,
-      "diagrams": [ { "id": "s11-nowon", "region": { "x": 100, "y": 320, "w": 900, "h": 620 }, "replaces": "group 'B2 · exploded assembly'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s05",
+      "kind": "content",
+      "n": 5,
+      "title": "Half by 2033. Zero by 2050.",
+      "figmaId": "4:5",
+      "dur": 90,
+      "diagrams": [
+        {
+          "id": "s05-trajectory",
+          "region": {
+            "x": 100,
+            "y": 320,
+            "w": 840,
+            "h": 620
+          },
+          "replaces": "group 'B2 · trajectory'"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 25, "show": [], "diagram": { "s11-nowon": 1 } },
-        { "id": "B3", "cue": 55, "show": ["B3 · scale + certification"] },
-        { "id": "B4", "cue": 90, "show": ["B4 · performance"], "diagram": { "s11-nowon": 2 } },
-        { "id": "B5", "cue": 115, "show": ["B5 · the NYC question"] } ] },
-    { "key": "i11", "kind": "image", "after": 11, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s12", "kind": "content", "n": 12, "title": "Two ways to build big.", "figmaId": "10:52", "dur": 120,
-      "diagrams": [ { "id": "s12-towers", "region": { "x": 100, "y": 412, "w": 1720, "h": 420 }, "replaces": "both building drawings, the Lotte callouts, the Amorepacific annotation paragraph, and the two bottom spec lines ('~22 storeys · 7,000–8,000 occupants', '555 m · 123 floors · ...') which become diagram labels. HTML keeps the two column titles + sublines (y 348-404), the LEED GOLD badges (y 856) and the judgment line (y 900)." } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [],
+          "diagram": {
+            "s05-trajectory": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 50,
+          "show": [
+            "B3 · ban ladder"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 75,
+          "show": [
+            "B4 · EV target"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i05",
+      "kind": "image",
+      "after": 5,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": ["AMOREPACIFIC HQ title + subline"], "diagram": { "s12-towers": 1 } },
-        { "id": "B3", "cue": 55, "show": ["LOTTE WORLD TOWER title + subline"], "diagram": { "s12-towers": 2 } },
-        { "id": "B4", "cue": 90, "show": ["B4 · the same badge"] },
-        { "id": "B5", "cue": 105, "show": ["B5 · the judgment"] } ] },
-    { "key": "i12", "kind": "image", "after": 12, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s13", "kind": "content", "n": 13, "title": "Your trash is weighed. And billed.", "figmaId": "12:103", "dur": 105,
-      "diagrams": [ { "id": "s13-rfid", "region": { "x": 100, "y": 410, "w": 1240, "h": 450 }, "replaces": "group 'B2 · the mechanism' (the three panels)" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s06",
+      "kind": "content",
+      "n": 6,
+      "title": "Seoul decided not to need a power plant.",
+      "figmaId": "4:87",
+      "dur": 120,
+      "diagrams": [
+        {
+          "id": "s06-reactor",
+          "region": {
+            "x": 100,
+            "y": 420,
+            "w": 1080,
+            "h": 420
+          },
+          "replaces": "groups 'B2 · reactor' and 'B3 · mosaic'"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": [], "diagram": { "s13-rfid": 1 } },
-        { "id": "B3", "cue": 32, "show": [], "diagram": { "s13-rfid": 2 } },
-        { "id": "B4", "cue": 44, "show": [], "diagram": { "s13-rfid": 3 } },
-        { "id": "B5", "cue": 60, "show": ["B3 · the results"] },
-        { "id": "B6", "cue": 90, "show": ["B4 · the real lesson"] } ] },
-    { "key": "i13", "kind": "image", "after": 13, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s14", "kind": "content", "n": 14, "title": "90 metres of garbage.", "figmaId": "12:151", "dur": 90,
-      "diagrams": [ { "id": "s14-nanjido", "region": { "x": 100, "y": 300, "w": 1000, "h": 660 }, "replaces": "group 'B2 · the capped mound'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [],
+          "diagram": {
+            "s06-reactor": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [],
+          "diagram": {
+            "s06-reactor": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 75,
+          "show": [
+            "B4 · result panel"
+          ]
+        },
+        {
+          "id": "B5",
+          "cue": 100,
+          "show": [
+            "B5 · closing line"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i06",
+      "kind": "image",
+      "after": 6,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 25, "show": [], "diagram": { "s14-nanjido": 1 } },
-        { "id": "B3", "cue": 45, "show": [], "diagram": { "s14-nanjido": 2 } },
-        { "id": "B4", "cue": 65, "show": ["B3 · timeline + Freshkills"] } ] },
-    { "key": "i14", "kind": "image", "after": 14, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s15", "kind": "content", "n": 15, "title": "Seoul's trash now travels 130 kilometres.", "figmaId": "13:4", "dur": 180,
-      "diagrams": [ { "id": "s15-export", "region": { "x": 850, "y": 470, "w": 950, "h": 380 }, "replaces": "group 'B4 · the export' (distance bars + caption)" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s07",
+      "kind": "content",
+      "n": 7,
+      "title": "The balcony as power plant.",
+      "figmaId": "4:403",
+      "dur": 90,
+      "diagrams": [
+        {
+          "id": "s07-balcony",
+          "region": {
+            "x": 100,
+            "y": 330,
+            "w": 760,
+            "h": 640
+          },
+          "replaces": "group 'B2 · facade'"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 25, "show": ["B2 · the ban"] },
-        { "id": "B3", "cue": 55, "show": ["B3 · the capacity gap"] },
-        { "id": "B4", "cue": 90, "show": [], "diagram": { "s15-export": 1 } },
-        { "id": "B5", "cue": 125, "show": ["B5 · the pushback"] },
-        { "id": "B6", "cue": 150, "show": ["B6 · the question"] } ] },
-    { "key": "i15", "kind": "image", "after": 15, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s16", "kind": "content", "n": 16, "title": "168,000 cars a day. Removed.", "figmaId": "13:49", "dur": 120,
-      "diagrams": [ { "id": "s16-cheonggye", "region": { "x": 100, "y": 320, "w": 940, "h": 300 }, "replaces": "group 'B2 · before and after'" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 18,
+          "show": [],
+          "diagram": {
+            "s07-balcony": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [
+            "B3 · scale + progress"
+          ],
+          "diagram": {
+            "s07-balcony": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 70,
+          "show": [
+            "B4 · cost + barrier"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i07",
+      "kind": "image",
+      "after": 7,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 20, "show": [], "diagram": { "s16-cheonggye": 1 } },
-        { "id": "B3", "cue": 35, "show": [], "diagram": { "s16-cheonggye": 2 } },
-        { "id": "B4", "cue": 50, "show": ["B3 · biodiversity"] },
-        { "id": "B5", "cue": 75, "show": ["B4 · cooling and air"] },
-        { "id": "B6", "cue": 100, "show": ["B5 · induced demand"] } ] },
-    { "key": "i16", "kind": "image", "after": 16, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s17", "kind": "content", "n": 17, "title": "A garden within five minutes.", "figmaId": "14:4", "dur": 90,
-      "diagrams": [ { "id": "s17-parks", "region": { "x": 120, "y": 330, "w": 560, "h": 600 }, "replaces": "group 'B2 · the equity gap' (the two bars)" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s08",
+      "kind": "content",
+      "n": 8,
+      "title": "Retrofit by loan, not by fine.",
+      "figmaId": "4:525",
+      "dur": 120,
+      "diagrams": [],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 18, "show": [], "diagram": { "s17-parks": 1 } },
-        { "id": "B3", "cue": 45, "show": ["B3 · the programme"] },
-        { "id": "B4", "cue": 65, "show": ["B4 · rooftops"] },
-        { "id": "B5", "cue": 80, "show": ["B5 · the lesson"] } ] },
-    { "key": "i17", "kind": "image", "after": 17, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s18", "kind": "content", "n": 18, "title": "₩65,000. Everything.", "figmaId": "14:45", "dur": 105,
-      "diagrams": [ { "id": "s18-buslane", "region": { "x": 100, "y": 330, "w": 800, "h": 300 }, "replaces": "the four-colour bus route legend and its caption inside 'B2 · the bus reform' (the stats row at y>=648 stays HTML)" } ],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [
+            "B2 · Seoul panel"
+          ]
+        },
+        {
+          "id": "B3",
+          "cue": 50,
+          "show": [
+            "B3 · NYC panel"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 90,
+          "show": [
+            "B4 · the verdict"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i08",
+      "kind": "image",
+      "after": 8,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 15, "show": ["B2 · the bus reform (stats + caption, minus legend)"], "diagram": { "s18-buslane": 1 } },
-        { "id": "B3", "cue": 55, "show": ["B3 · the Climate Card"] },
-        { "id": "B4", "cue": 90, "show": ["B4 · the naming lesson"] } ] },
-    { "key": "i18", "kind": "image", "after": 18, "dur": 10, "beats": [ { "id": "B1", "cue": 0, "show": ["seoul"] }, { "id": "B2", "cue": 4, "show": ["nyc"] } ] },
-
-    { "key": "s19", "kind": "content", "n": 19, "title": "Five things New York should take.", "figmaId": "14:95", "dur": 195, "diagrams": [],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s09",
+      "kind": "content",
+      "n": 9,
+      "title": "Grade 5 to Grade 1.",
+      "figmaId": "9:2",
+      "dur": 75,
+      "diagrams": [
+        {
+          "id": "s09-zeb",
+          "region": {
+            "x": 100,
+            "y": 320,
+            "w": 860,
+            "h": 620
+          },
+          "replaces": "group 'B2 · the ladder'"
+        }
+      ],
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · headline"] },
-        { "id": "B2", "cue": 15, "show": ["B2 · transfer 01"] },
-        { "id": "B3", "cue": 50, "show": ["B3 · transfer 02"] },
-        { "id": "B4", "cue": 85, "show": ["B4 · transfer 03"] },
-        { "id": "B5", "cue": 115, "show": ["B5 · transfer 04"] },
-        { "id": "B6", "cue": 145, "show": ["B6 · transfer 05"] } ] },
-
-    { "key": "s20", "kind": "content", "n": 20, "title": "Carrot or stick?", "figmaId": "14:150", "dur": 60, "diagrams": [],
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [],
+          "diagram": {
+            "s09-zeb": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [
+            "B3 · rollout + the delay"
+          ],
+          "diagram": {
+            "s09-zeb": 2
+          }
+        }
+      ]
+    },
+    {
+      "key": "i09",
+      "kind": "image",
+      "after": 9,
+      "dur": 10,
       "beats": [
-        { "id": "B1", "cue": 0, "show": ["B1 · the question"] },
-        { "id": "B2", "cue": 15, "show": ["B2 · the three findings"] } ] },
-
-    { "key": "refs", "kind": "appendix", "dur": 0, "title": "References & image credits", "beats": [ { "id": "B1", "cue": 0, "show": ["all"] } ] }
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s10",
+      "kind": "content",
+      "n": 10,
+      "title": "Zero energy. Built on a landfill.",
+      "figmaId": "9:51",
+      "dur": 165,
+      "diagrams": [
+        {
+          "id": "s10-edc",
+          "region": {
+            "x": 100,
+            "y": 300,
+            "w": 1110,
+            "h": 680
+          },
+          "replaces": "groups B2-B5 and the three callout labels/leaders (PV + fixed solar shading / 45° pinwheel massing / Piles through the waste). The data column (x>=1240) stays HTML."
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 25,
+          "show": [],
+          "diagram": {
+            "s10-edc": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 50,
+          "show": [],
+          "diagram": {
+            "s10-edc": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 75,
+          "show": [],
+          "diagram": {
+            "s10-edc": 3
+          }
+        },
+        {
+          "id": "B5",
+          "cue": 105,
+          "show": [],
+          "diagram": {
+            "s10-edc": 4
+          }
+        },
+        {
+          "id": "B6",
+          "cue": 140,
+          "show": [
+            "B6 · performance data (data column only)"
+          ],
+          "diagram": {
+            "s10-edc": 5
+          }
+        }
+      ]
+    },
+    {
+      "key": "i10",
+      "kind": "image",
+      "after": 10,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s11",
+      "kind": "content",
+      "n": 11,
+      "title": "121 units. Net zero.",
+      "figmaId": "10:4",
+      "dur": 135,
+      "diagrams": [
+        {
+          "id": "s11-nowon",
+          "region": {
+            "x": 100,
+            "y": 320,
+            "w": 900,
+            "h": 620
+          },
+          "replaces": "group 'B2 · exploded assembly'"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 25,
+          "show": [],
+          "diagram": {
+            "s11-nowon": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 55,
+          "show": [
+            "B3 · scale + certification"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 90,
+          "show": [
+            "B4 · performance"
+          ],
+          "diagram": {
+            "s11-nowon": 2
+          }
+        },
+        {
+          "id": "B5",
+          "cue": 115,
+          "show": [
+            "B5 · the NYC question"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i11",
+      "kind": "image",
+      "after": 11,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s12",
+      "kind": "content",
+      "n": 12,
+      "title": "Two ways to build big.",
+      "figmaId": "10:52",
+      "dur": 120,
+      "diagrams": [
+        {
+          "id": "s12-towers",
+          "region": {
+            "x": 100,
+            "y": 412,
+            "w": 1720,
+            "h": 420
+          },
+          "replaces": "both building drawings, the Lotte callouts, the Amorepacific annotation paragraph, and the two bottom spec lines ('~22 storeys · 7,000–8,000 occupants', '555 m · 123 floors · ...') which become diagram labels. HTML keeps the two column titles + sublines (y 348-404), the LEED GOLD badges (y 856) and the judgment line (y 900)."
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [
+            "AMOREPACIFIC HQ title + subline"
+          ],
+          "diagram": {
+            "s12-towers": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 55,
+          "show": [
+            "LOTTE WORLD TOWER title + subline"
+          ],
+          "diagram": {
+            "s12-towers": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 90,
+          "show": [
+            "B4 · the same badge"
+          ]
+        },
+        {
+          "id": "B5",
+          "cue": 105,
+          "show": [
+            "B5 · the judgment"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i12",
+      "kind": "image",
+      "after": 12,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s13",
+      "kind": "content",
+      "n": 13,
+      "title": "Your trash is weighed. And billed.",
+      "figmaId": "12:103",
+      "dur": 105,
+      "diagrams": [
+        {
+          "id": "s13-rfid",
+          "region": {
+            "x": 100,
+            "y": 410,
+            "w": 1240,
+            "h": 450
+          },
+          "replaces": "group 'B2 · the mechanism' (the three panels)"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [],
+          "diagram": {
+            "s13-rfid": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 32,
+          "show": [],
+          "diagram": {
+            "s13-rfid": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 44,
+          "show": [],
+          "diagram": {
+            "s13-rfid": 3
+          }
+        },
+        {
+          "id": "B5",
+          "cue": 60,
+          "show": [
+            "B3 · the results"
+          ]
+        },
+        {
+          "id": "B6",
+          "cue": 90,
+          "show": [
+            "B4 · the real lesson"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i13",
+      "kind": "image",
+      "after": 13,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s14",
+      "kind": "content",
+      "n": 14,
+      "title": "90 metres of garbage.",
+      "figmaId": "12:151",
+      "dur": 90,
+      "diagrams": [
+        {
+          "id": "s14-nanjido",
+          "region": {
+            "x": 100,
+            "y": 300,
+            "w": 1000,
+            "h": 660
+          },
+          "replaces": "group 'B2 · the capped mound'"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 25,
+          "show": [],
+          "diagram": {
+            "s14-nanjido": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [],
+          "diagram": {
+            "s14-nanjido": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 65,
+          "show": [
+            "B3 · timeline + Freshkills"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i14",
+      "kind": "image",
+      "after": 14,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s15",
+      "kind": "content",
+      "n": 15,
+      "title": "Seoul's trash now travels 130 kilometres.",
+      "figmaId": "13:4",
+      "dur": 180,
+      "diagrams": [
+        {
+          "id": "s15-export",
+          "region": {
+            "x": 850,
+            "y": 470,
+            "w": 950,
+            "h": 380
+          },
+          "replaces": "group 'B4 · the export' (distance bars + caption)"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 25,
+          "show": [
+            "B2 · the ban"
+          ]
+        },
+        {
+          "id": "B3",
+          "cue": 55,
+          "show": [
+            "B3 · the capacity gap"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 90,
+          "show": [],
+          "diagram": {
+            "s15-export": 1
+          }
+        },
+        {
+          "id": "B5",
+          "cue": 125,
+          "show": [
+            "B5 · the pushback"
+          ]
+        },
+        {
+          "id": "B6",
+          "cue": 150,
+          "show": [
+            "B6 · the question"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i15",
+      "kind": "image",
+      "after": 15,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s16",
+      "kind": "content",
+      "n": 16,
+      "title": "168,000 cars a day. Removed.",
+      "figmaId": "13:49",
+      "dur": 120,
+      "diagrams": [
+        {
+          "id": "s16-cheonggye",
+          "region": {
+            "x": 100,
+            "y": 320,
+            "w": 940,
+            "h": 300
+          },
+          "replaces": "group 'B2 · before and after'"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 20,
+          "show": [],
+          "diagram": {
+            "s16-cheonggye": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 35,
+          "show": [],
+          "diagram": {
+            "s16-cheonggye": 2
+          }
+        },
+        {
+          "id": "B4",
+          "cue": 50,
+          "show": [
+            "B3 · biodiversity"
+          ]
+        },
+        {
+          "id": "B5",
+          "cue": 75,
+          "show": [
+            "B4 · cooling and air"
+          ]
+        },
+        {
+          "id": "B6",
+          "cue": 100,
+          "show": [
+            "B5 · induced demand"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i16",
+      "kind": "image",
+      "after": 16,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s17",
+      "kind": "content",
+      "n": 17,
+      "title": "A garden within five minutes.",
+      "figmaId": "14:4",
+      "dur": 90,
+      "diagrams": [
+        {
+          "id": "s17-parks",
+          "region": {
+            "x": 120,
+            "y": 330,
+            "w": 560,
+            "h": 600
+          },
+          "replaces": "group 'B2 · the equity gap' (the two bars)"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 18,
+          "show": [],
+          "diagram": {
+            "s17-parks": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 45,
+          "show": [
+            "B3 · the programme"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 65,
+          "show": [
+            "B4 · rooftops"
+          ]
+        },
+        {
+          "id": "B5",
+          "cue": 80,
+          "show": []
+        }
+      ]
+    },
+    {
+      "key": "i17",
+      "kind": "image",
+      "after": 17,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s18",
+      "kind": "content",
+      "n": 18,
+      "title": "₩65,000. Everything.",
+      "figmaId": "14:45",
+      "dur": 105,
+      "diagrams": [
+        {
+          "id": "s18-buslane",
+          "region": {
+            "x": 100,
+            "y": 330,
+            "w": 800,
+            "h": 300
+          },
+          "replaces": "the four-colour bus route legend and its caption inside 'B2 · the bus reform' (the stats row at y>=648 stays HTML)"
+        }
+      ],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 15,
+          "show": [
+            "B2 · the bus reform (stats + caption, minus legend)"
+          ],
+          "diagram": {
+            "s18-buslane": 1
+          }
+        },
+        {
+          "id": "B3",
+          "cue": 55,
+          "show": [
+            "B3 · the Climate Card"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 90,
+          "show": [
+            "B4 · the naming lesson"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "i18",
+      "kind": "image",
+      "after": 18,
+      "dur": 10,
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "seoul"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 4,
+          "show": [
+            "nyc"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s19",
+      "kind": "content",
+      "n": 19,
+      "title": "Five things New York should take.",
+      "figmaId": "14:95",
+      "dur": 195,
+      "diagrams": [],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · headline"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 15,
+          "show": [
+            "B2 · transfer 01"
+          ]
+        },
+        {
+          "id": "B3",
+          "cue": 50,
+          "show": [
+            "B3 · transfer 02"
+          ]
+        },
+        {
+          "id": "B4",
+          "cue": 85,
+          "show": [
+            "B4 · transfer 03"
+          ]
+        },
+        {
+          "id": "B5",
+          "cue": 115,
+          "show": [
+            "B5 · transfer 04"
+          ]
+        },
+        {
+          "id": "B6",
+          "cue": 145,
+          "show": [
+            "B6 · transfer 05"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "s20",
+      "kind": "content",
+      "n": 20,
+      "title": "Carrot or stick?",
+      "figmaId": "14:150",
+      "dur": 60,
+      "diagrams": [],
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "B1 · the question"
+          ]
+        },
+        {
+          "id": "B2",
+          "cue": 15,
+          "show": [
+            "B2 · the three findings"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "refs",
+      "kind": "appendix",
+      "dur": 0,
+      "title": "References & image credits",
+      "beats": [
+        {
+          "id": "B1",
+          "cue": 0,
+          "show": [
+            "all"
+          ]
+        }
+      ]
+    }
   ]
 }

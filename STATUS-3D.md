@@ -19,13 +19,13 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 | 7 | s13-rfid | DONE (lead-reviewed; shadows lightened) | 0–3 | 0 at every state | s13-rfid-0..3.png, s13-rfid-3-preview.png, s13-rfid-sheet.png |
 | 8 | s16-cheonggye | DONE (lead-reviewed) | 0–2 | 0 at every state | s16-cheonggye-sheet.png (+ builder per-state PNGs) |
 | 9 | s15-export | DONE | 0–1 | 0 / 0 | s15-export-0.png, s15-export-1.png, s15-export-1-preview.png, s15-export-1-t1900.png, s15-export-sheet.png |
-| 10 | s06-reactor | CUT (budget): 2D fallback (unfinished draft in dev/cut/) | | | |
-| 11 | s09-zeb | CUT (budget): 2D fallback (finished, audit-clean draft kept in dev/cut/) | | | |
-| 12 | s17-parks | CUT (budget): 2D fallback (finished, audit-clean draft kept in dev/cut/) | | | |
-| 13 | s05-trajectory | CUT (budget): 2D fallback (finished, audit-clean draft kept in dev/cut/) | | | |
-| 14 | s18-buslane | CUT (budget): 2D fallback (unfinished draft in dev/cut/) | | | |
-| 15 | s04-timeline | CUT (budget): 2D fallback | | | |
-| 16 | s03-donut | CUT (budget): 2D fallback | | | |
+| 10 | s06-reactor | IN PROGRESS (builder finishing its draft) | | | |
+| 11 | s09-zeb | IN PROGRESS (restored: user wants all diagrams; review + fix pending) | | | |
+| 12 | s17-parks | IN PROGRESS (restored: user wants all diagrams; review + fix pending) | | | |
+| 13 | s05-trajectory | IN PROGRESS (wave 1b: review + fix) | | | |
+| 14 | s18-buslane | QUEUED (draft in dev/cut/, wave 2) | | | |
+| 15 | s04-timeline | QUEUED (wave 2) | | | |
+| 16 | s03-donut | QUEUED (wave 3) | | | |
 
 ## Notes for MAIN
 
@@ -57,7 +57,8 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 
 - 780b6c2: s10-edc, s01-map, s03-map, s15-export, s11-nowon, s13-rfid (`checkpoint.mjs --no-site`). 
 - 8941ed9: s12-towers, s14-nanjido, s07-balcony, s16-cheonggye DONE + the 7 cuts (one commit; the per-diagram runs after it had nothing new).
-- Final: 3D work complete at 10 diagrams; no further work started (budget).
+- 10:15 CORRECTION from the user ("I would prioritize the diagrams and the animations to still be top notch"): the 7 cuts are reversed. They are built in waves of up to 3, with a usage check between waves (stop at 93% weekly).
+- 14:15 usage 81% weekly. Wave 1 was cut by the 5-hour limit after its reviews; resumed with s09, s17 (fix), s06 (build), s05 (review + fix).
 
 - s05-trajectory, s09-zeb, s17-parks finished (builder audit clean, not lead-reviewed) before the cut; they sit in `dev/cut/`.
   Restoring one is a single move back to `src/diagrams/` (imports there resolve to `../kit3d/index.js` again) if MAIN wants it.

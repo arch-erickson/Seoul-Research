@@ -680,10 +680,11 @@ function creditsBlock(pair, id) {
  * Speaker notes for one slide, with photo credits appended where relevant.
  * @param {string} key      timing.json key: 's01'…'s20', 'i01'…'i18', 'refs'
  * @param {object|Array|null} images  parsed spec/images.json ({ pairs: [...] }), a pairs array, or null
+ * @param {string} [override]  notes markdown from spec/notes-v2.json; replaces NOTES[key] when non-empty
  * @returns {string} markdown
  */
-export function notesFor(key, images) {
-  const base = NOTES[key] || '';
+export function notesFor(key, images, override) {
+  const base = typeof override === 'string' && override.trim() ? override : NOTES[key] || '';
   const pairs = pairsOf(images);
   if (/^i\d\d$/.test(key)) {
     const pair = pairs.find((p) => p.id === key);

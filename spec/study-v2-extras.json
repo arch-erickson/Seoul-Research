@@ -1,0 +1,676 @@
+{
+  "thesis": "Seoul and New York face the same problem, because buildings that already stand cause about two-thirds of the emissions in each city. For those buildings, Seoul mostly uses carrots, like cheap city retrofit loans and rewards for saving energy, while New York mostly uses a stick, the limits and fines of Local Law 97. Seoul's record, including its 2026 landfill trouble, suggests New York should keep its fines and add city loans so owners can pay for the work.",
+  "runOfShow": [
+    {
+      "key": "s01",
+      "title": "Seoul: The Carrot and the Stick",
+      "dur": 45,
+      "start": "0:00",
+      "end": "0:45"
+    },
+    {
+      "key": "i01",
+      "title": "Photos: Two Vertical Cities",
+      "dur": 10,
+      "start": "0:45",
+      "end": "0:55"
+    },
+    {
+      "key": "s02",
+      "title": "Comparing the Two Cities",
+      "dur": 90,
+      "start": "0:55",
+      "end": "2:25"
+    },
+    {
+      "key": "i02",
+      "title": "Photos: Housing from Above",
+      "dur": 10,
+      "start": "2:25",
+      "end": "2:35"
+    },
+    {
+      "key": "s03",
+      "title": "Emissions by Sector",
+      "dur": 60,
+      "start": "2:35",
+      "end": "3:35"
+    },
+    {
+      "key": "i03",
+      "title": "Photos: Older Apartment Blocks",
+      "dur": 10,
+      "start": "3:35",
+      "end": "3:45"
+    },
+    {
+      "key": "s04",
+      "title": "Seoul's Two Emergencies",
+      "dur": 75,
+      "start": "3:45",
+      "end": "5:00"
+    },
+    {
+      "key": "i04",
+      "title": "Photos: Two Landfills in Use",
+      "dur": 10,
+      "start": "5:00",
+      "end": "5:10"
+    },
+    {
+      "key": "s05",
+      "title": "Climate Targets and Car Bans",
+      "dur": 90,
+      "start": "5:10",
+      "end": "6:40"
+    },
+    {
+      "key": "i05",
+      "title": "Photos: Downtown Traffic",
+      "dur": 10,
+      "start": "6:40",
+      "end": "6:50"
+    },
+    {
+      "key": "s06",
+      "title": "One Less Nuclear Power Plant",
+      "dur": 120,
+      "start": "6:50",
+      "end": "8:50"
+    },
+    {
+      "key": "i06",
+      "title": "Photos: Solar Roof and Nuclear Plant",
+      "dur": 10,
+      "start": "8:50",
+      "end": "9:00"
+    },
+    {
+      "key": "s07",
+      "title": "Solar Panels on Balconies",
+      "dur": 90,
+      "start": "9:00",
+      "end": "10:30"
+    },
+    {
+      "key": "i07",
+      "title": "Photos: Balconies in Both Cities",
+      "dur": 10,
+      "start": "10:30",
+      "end": "10:40"
+    },
+    {
+      "key": "s08",
+      "title": "Paying for Building Retrofits",
+      "dur": 120,
+      "start": "10:40",
+      "end": "12:40"
+    },
+    {
+      "key": "i08",
+      "title": "Photos: Two Older Buildings",
+      "dur": 10,
+      "start": "12:40",
+      "end": "12:50"
+    },
+    {
+      "key": "s09",
+      "title": "Zero-Energy Building Rules",
+      "dur": 75,
+      "start": "12:50",
+      "end": "14:05"
+    },
+    {
+      "key": "i09",
+      "title": "Photos: Two Public Buildings",
+      "dur": 10,
+      "start": "14:05",
+      "end": "14:15"
+    },
+    {
+      "key": "s10",
+      "title": "Seoul Energy Dream Center",
+      "dur": 165,
+      "start": "14:15",
+      "end": "17:00"
+    },
+    {
+      "key": "i10",
+      "title": "Photos: Two Teaching Buildings",
+      "dur": 10,
+      "start": "17:00",
+      "end": "17:10"
+    },
+    {
+      "key": "s11",
+      "title": "Nowon Energy Zero House",
+      "dur": 135,
+      "start": "17:10",
+      "end": "19:25"
+    },
+    {
+      "key": "i11",
+      "title": "Photos: Two New Housing Complexes",
+      "dur": 10,
+      "start": "19:25",
+      "end": "19:35"
+    },
+    {
+      "key": "s12",
+      "title": "Two LEED Gold Buildings",
+      "dur": 120,
+      "start": "19:35",
+      "end": "21:35"
+    },
+    {
+      "key": "i12",
+      "title": "Photos: Two Supertalls",
+      "dur": 10,
+      "start": "21:35",
+      "end": "21:45"
+    },
+    {
+      "key": "s13",
+      "title": "Trash Fees and Smart Bins",
+      "dur": 105,
+      "start": "21:45",
+      "end": "23:30"
+    },
+    {
+      "key": "i13",
+      "title": "Photos: Two Food Waste Bins",
+      "dur": 10,
+      "start": "23:30",
+      "end": "23:40"
+    },
+    {
+      "key": "s14",
+      "title": "From Landfill to Park",
+      "dur": 90,
+      "start": "23:40",
+      "end": "25:10"
+    },
+    {
+      "key": "i14",
+      "title": "Photos: Two Landfill Parks",
+      "dur": 10,
+      "start": "25:10",
+      "end": "25:20"
+    },
+    {
+      "key": "s15",
+      "title": "The 2026 Landfill Ban",
+      "dur": 180,
+      "start": "25:20",
+      "end": "28:20"
+    },
+    {
+      "key": "i15",
+      "title": "Photos: Two Trash Facilities",
+      "dur": 10,
+      "start": "28:20",
+      "end": "28:30"
+    },
+    {
+      "key": "s16",
+      "title": "Restoring Cheonggyecheon",
+      "dur": 120,
+      "start": "28:30",
+      "end": "30:30"
+    },
+    {
+      "key": "i16",
+      "title": "Photos: A Stream and a Highway",
+      "dur": 10,
+      "start": "30:30",
+      "end": "30:40"
+    },
+    {
+      "key": "s17",
+      "title": "Green Space Close to Home",
+      "dur": 90,
+      "start": "30:40",
+      "end": "32:10"
+    },
+    {
+      "key": "i17",
+      "title": "Photos: Two Elevated Parks",
+      "dur": 10,
+      "start": "32:10",
+      "end": "32:20"
+    },
+    {
+      "key": "s18",
+      "title": "Buses and the Climate Card",
+      "dur": 105,
+      "start": "32:20",
+      "end": "34:05"
+    },
+    {
+      "key": "i18",
+      "title": "Photos: Two Bus Lanes",
+      "dur": 10,
+      "start": "34:05",
+      "end": "34:15"
+    },
+    {
+      "key": "s19",
+      "title": "Five Ideas for New York",
+      "dur": 195,
+      "start": "34:15",
+      "end": "37:30"
+    },
+    {
+      "key": "s20",
+      "title": "Three Findings",
+      "dur": 60,
+      "start": "37:30",
+      "end": "38:30"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "TOE (ton of oil equivalent)",
+      "definition": "A unit of energy equal to the energy in one metric ton of oil, used to add electricity, gas and other fuels into one number."
+    },
+    {
+      "term": "CO₂e (carbon dioxide equivalent)",
+      "definition": "A way to count all greenhouse gases in one number by turning each gas into the amount of CO₂ that would warm the planet as much."
+    },
+    {
+      "term": "Net zero (carbon neutrality)",
+      "definition": "The point where whatever greenhouse gas a place still gives off is balanced by gas taken back out of the air."
+    },
+    {
+      "term": "Retrofit",
+      "definition": "An upgrade to an existing building, such as insulation, new windows or a new heating and cooling system, so it uses less energy."
+    },
+    {
+      "term": "BRP (Building Retrofit Program)",
+      "definition": "Seoul's program, started in 2008, that lends building owners city money at low interest for energy upgrades."
+    },
+    {
+      "term": "LL97 (Local Law 97)",
+      "definition": "New York's 2019 law that sets yearly carbon limits for buildings over 25,000 sq ft and fines owners $268 for each ton of CO₂e over the limit."
+    },
+    {
+      "term": "ZEB (zero-energy building)",
+      "definition": "Korea's national grading system for new buildings, from Grade 5 (the building makes 20 to 40% of its own energy) up to Grade 1 (over 100%)."
+    },
+    {
+      "term": "Energy self-sufficiency",
+      "definition": "The share of the energy a building, city or country uses that it makes for itself."
+    },
+    {
+      "term": "Eco-Mileage",
+      "definition": "Seoul's voluntary program that lets people see and compare their home energy use and earn small rewards for cutting it."
+    },
+    {
+      "term": "Passive House",
+      "definition": "A German building standard for very well insulated, very airtight buildings that need very little energy for heating and cooling."
+    },
+    {
+      "term": "MVHR (heat recovery ventilation)",
+      "definition": "A fan system that brings in fresh air all the time and uses the stale air going out to warm or cool it, so little heat is lost."
+    },
+    {
+      "term": "Geothermal heat pump",
+      "definition": "A machine that moves heat between a building and the ground through buried pipes, using the ground's steady temperature to heat and cool."
+    },
+    {
+      "term": "KGBC certification",
+      "definition": "Korea's green building certification, which the Seoul Energy Dream Center holds along with Korea's Building Energy Efficiency Label."
+    },
+    {
+      "term": "LEED",
+      "definition": "The US Green Building Council's green building rating, with four levels called Certified, Silver, Gold and Platinum."
+    },
+    {
+      "term": "CIBSE Building Performance Award",
+      "definition": "A UK award from the engineers who design heating, cooling and lighting, judged on how a finished building performs in use, which Amorepacific HQ won."
+    },
+    {
+      "term": "Embodied carbon",
+      "definition": "The carbon released to make building materials such as concrete and steel and to build with them, before anyone moves in."
+    },
+    {
+      "term": "Pay as you throw",
+      "definition": "A trash system where you pay for how much you throw out, like the priced trash bags Korea has used since 1995."
+    },
+    {
+      "term": "RFID",
+      "definition": "Radio-frequency identification, the chip card a resident taps on Seoul's food waste bin so the bin knows which household to bill."
+    },
+    {
+      "term": "Landfill gas",
+      "definition": "Gas given off by rotting trash, much of it methane, which at the old Nanjido landfill is now captured and used."
+    },
+    {
+      "term": "Leachate",
+      "definition": "The dirty liquid that drains out of buried trash and can pollute soil and water if it is not collected and treated."
+    },
+    {
+      "term": "Direct landfill ban",
+      "definition": "The rule, in force in Seoul, Incheon and Gyeonggi since January 1, 2026, that household trash must be burned or processed before it can be buried."
+    },
+    {
+      "term": "Environmental justice",
+      "definition": "The idea that pollution and waste should not be pushed onto communities that did not create them."
+    },
+    {
+      "term": "Induced demand",
+      "definition": "The pattern where new or wider roads attract more traffic and soon fill up again."
+    },
+    {
+      "term": "Reduced demand",
+      "definition": "The reverse pattern, where taking away road space makes some car trips disappear, which is why the gridlock predicted at Cheonggyecheon did not happen."
+    },
+    {
+      "term": "Fare capping (OMNY)",
+      "definition": "New York's OMNY rule that once you have paid for a set number of rides in a period, the rest of your rides in that period are free."
+    }
+  ],
+  "fiveThings": [
+    "Same problem in both cities: buildings that already stand cause about two-thirds of emissions (Seoul 67%, New York 66 to 71%).",
+    "Seoul lends and New York fines. From 2013 Seoul's BRP lent up to 100% of the eligible cost at 1.75% a year, and LL97 charges $268 for each ton over the limit on buildings over 25,000 sq ft.",
+    "Seoul's rewards worked at scale. One Less Nuclear Power Plant reached 2.04 million TOE in June 2014, six months early, and Eco-Mileage had 1.68 million participants.",
+    "Seoul's landfill ban started January 1, 2026, before the region had enough incinerators, so some trash now travels about 130 km by road to other cities.",
+    "The five ideas are food waste charged by weight, city retrofit loans, balcony solar kits, a transit pass named for the climate and highway removal. The retrofit loans are the main one, because about 63% of LL97 buildings would miss the 2030 limits if nothing changes."
+  ],
+  "flashcards": [
+    {
+      "front": "What share of Seoul's emissions comes from buildings?",
+      "back": "67% in the current climate plan. Say \"roughly two-thirds,\" because other Seoul sources give 68.2% and 68.8%."
+    },
+    {
+      "front": "What share of New York's emissions comes from buildings?",
+      "back": "66 to 71%, depending on the inventory year."
+    },
+    {
+      "front": "How big are the two cities?",
+      "back": "About 9.4 million people in Seoul and 8.3 million in New York City. Metro areas: about 26 million and 20 million."
+    },
+    {
+      "front": "What is Seoul's 2005 baseline?",
+      "back": "52.34 Mt CO₂e, meaning 52.34 million tons of greenhouse gas in 2005."
+    },
+    {
+      "front": "What are Seoul's two big climate targets?",
+      "back": "Half of the 2005 level by 2033, and net zero by 2050."
+    },
+    {
+      "front": "Where does the 18% for transportation come from?",
+      "back": "The plan says buildings plus transport are 85%. 85 minus 67 is 18. The other 15% has no breakdown in your sources."
+    },
+    {
+      "front": "What are Seoul's car ban steps?",
+      "back": "Planned 2025: Grade 4 diesel out of central green transport zones. 2030: Grade 4 citywide. 2035: combustion engine vehicles out of central Seoul. 2050: citywide. Grade 5 diesel is already banned citywide December to March and all year downtown."
+    },
+    {
+      "front": "What is Seoul's electric vehicle target?",
+      "back": "279,000 electric vehicles by 2033."
+    },
+    {
+      "front": "Is Seoul on track for half by 2033?",
+      "back": "You can't say. There is no recent citywide total in English sources, so stay with the 52.34 Mt baseline and the targets."
+    },
+    {
+      "front": "Key Nanjido dates?",
+      "back": "Main dump from 1978. The city decided to close it in 1993 (some sources say 1992). It opened as World Cup Park in 2002."
+    },
+    {
+      "front": "How high did the Nanjido trash get?",
+      "back": "About 90 m, in two mounds, roughly a 30-story building."
+    },
+    {
+      "front": "What two 2011 events led to One Less Nuclear Power Plant?",
+      "back": "The Fukushima accident in Japan and a blackout in Seoul."
+    },
+    {
+      "front": "How much of its own energy does Korea make?",
+      "back": "22.1% in 2024, 35th of 38 OECD countries."
+    },
+    {
+      "front": "What was the Phase 1 goal of One Less Nuclear Power Plant?",
+      "back": "2 million TOE saved or produced, about one nuclear reactor's output in a year."
+    },
+    {
+      "front": "What did Phase 1 reach, and when?",
+      "back": "2.04 million TOE in June 2014, six months early."
+    },
+    {
+      "front": "How was the 2 million TOE goal split?",
+      "back": "1.59 million TOE from using less energy (79%) and 410,000 TOE from new renewables (21%). This is the planned split of the goal."
+    },
+    {
+      "front": "Eco-Mileage numbers?",
+      "back": "1.68 million participants by June 2014, who saved 190,000 TOE. Say \"participants.\" The sources do not count households."
+    },
+    {
+      "front": "Did Seoul close a nuclear plant?",
+      "back": "Your sources don't say so. The name describes an amount of energy, equal to one reactor's yearly output."
+    },
+    {
+      "front": "How much of its electricity does Seoul make inside the city?",
+      "back": "Under 3% (2.9%) in 2011, rising to about 5% in Phase 2. Say it roughly doubled."
+    },
+    {
+      "front": "Solar City Seoul goals?",
+      "back": "Launched 2017. 1 GW more solar by 2022 and solar for 1 million households. Budget about US$1.46 billion (₩1.7 trillion), mostly public."
+    },
+    {
+      "front": "How many balconies did Seoul target for solar kits?",
+      "back": "540,000 apartment balconies, plus 90,000 rental homes and 370,000 buildings."
+    },
+    {
+      "front": "Solar City Seoul progress by 2019?",
+      "back": "357.1 MW across 285,000 households, about a third of the 1 GW goal."
+    },
+    {
+      "front": "What are Seoul's BRP loan terms?",
+      "back": "From 2013: 1.75% a year (it was 2.5%), for up to 100% of the eligible cost (it was 80%)."
+    },
+    {
+      "front": "Is 1.75% Seoul's loan rate today?",
+      "back": "It is the BRP rate set in 2013. Seoul's newer climate plan mentions long-term interest-free loans, but your sources give no details."
+    },
+    {
+      "front": "When did the BRP start, and what is its target?",
+      "back": "Started in 2008. Target: 90,000 buildings, 20% of Seoul's buildings over 20 years old."
+    },
+    {
+      "front": "What did the BRP achieve?",
+      "back": "It depends on the source. C40: 25,841 t CO₂ saved, 2012 to 2015, about 4,200 projects. Other C40 reporting: 72,000 buildings. City report: 20,000 buildings and houses, 192,234 TOE. Name the source."
+    },
+    {
+      "front": "LL97 basics?",
+      "back": "Passed 2019. Covers buildings over 25,000 sq ft. Fines $268 per ton of CO₂e over the limit, every year."
+    },
+    {
+      "front": "LL97 overall goals?",
+      "back": "40% lower by 2030 and 80% lower by 2050, from 2005 levels."
+    },
+    {
+      "front": "What do 11% and 63% mean for LL97?",
+      "back": "About 11% of covered buildings are over the 2024 to 2029 limits. About 63% would be over the 2030 limits if nothing changes."
+    },
+    {
+      "front": "How much tighter are the 2030 LL97 limits?",
+      "back": "Offices 64.5% lower and multifamily 50.4% lower than the 2024 to 2029 limits."
+    },
+    {
+      "front": "What is the 56% figure?",
+      "back": "Buildings' share of Seoul's energy use. Their share of emissions is about two-thirds (67%)."
+    },
+    {
+      "front": "How do Korea's ZEB grades work?",
+      "back": "By energy self-sufficiency. Grade 5 makes 20 to 40% of its own energy, and Grade 1 makes over 100%."
+    },
+    {
+      "front": "ZEB rollout dates?",
+      "back": "2020 new public buildings (over 1,000 m², later 500 m²). 2023 public sector at Grade 5. 2025 private buildings (30 or more units, over 1,000 m²) after a one-year delay. 2030 all new buildings is reported but less certain."
+    },
+    {
+      "front": "Seoul's targets for new public buildings?",
+      "back": "ZEB Grade 5 now, Grade 4 by 2030, Grade 3 by 2050."
+    },
+    {
+      "front": "Who said \"improving the energy performance of private buildings ... is an essential task\"?",
+      "back": "Hong Seongjun, head of MOLIT's Green Building Division."
+    },
+    {
+      "front": "Seoul Energy Dream Center basics?",
+      "back": "Opened 2012 in World Cup Park on the old Nanjido landfill. Korea's first zero-energy public building. About 3,500 m². Design led by Fraunhofer ISE."
+    },
+    {
+      "front": "Energy Dream Center energy facts?",
+      "back": "Solar covers its yearly demand of about 280,000 kWh. Geothermal heating and cooling. Reported to use over 70% less energy than a similar building. Still on the grid."
+    },
+    {
+      "front": "Why does the Energy Dream Center stand on piles?",
+      "back": "Trash can't carry a building's weight, so piles go down to solid ground under a reinforced concrete base plate."
+    },
+    {
+      "front": "Nowon Energy Zero House basics?",
+      "back": "Korea's first zero-energy apartment complex. 121 apartments. Finished September 2017, move-in November 2017."
+    },
+    {
+      "front": "Nowon performance?",
+      "back": "Makes about 75 to 80% of its own energy, with up to 61% lower energy costs (both reported). It aims for net zero."
+    },
+    {
+      "front": "Nowon systems and certification?",
+      "back": "About 1,300 to 1,800 solar panels, about 130 geothermal heat pumps, a Passive House envelope. Building 102 got German Passive House certification in August 2018, a first for Korean housing."
+    },
+    {
+      "front": "How much did Nowon cost?",
+      "back": "Don't give a number. Published figures run from US$4.5M to about US$49M and don't agree."
+    },
+    {
+      "front": "Lotte World Tower facts?",
+      "back": "KPF, 2017, 555 m, 123 floors, LEED Gold. 720 geothermal wells about 200 m deep, Han River water for heating and cooling, wind turbines near the top, solar panels."
+    },
+    {
+      "front": "Amorepacific HQ facts?",
+      "back": "David Chipperfield Architects with Arup, 2017. LEED Gold in 2018 (Core & Shell). Won a CIBSE Building Performance Award, judged on measured performance. About 22 floors, 7,000 to 8,000 workers."
+    },
+    {
+      "front": "What are the LEED levels?",
+      "back": "Certified, Silver, Gold, Platinum. Gold is the second highest."
+    },
+    {
+      "front": "Korea's trash bag fees?",
+      "back": "Since 1995. About ₩490 a standard bag, fines up to ₩100,000. Trash fell 8% in 1995 and 11% by 1996. Lean on the 11%."
+    },
+    {
+      "front": "What do Seoul's RFID food waste bins achieve?",
+      "back": "9 to 31% less food waste. Households that cut 10 to 30% against last year can earn up to 5,000 points (about ₩5,000)."
+    },
+    {
+      "front": "How is New York's composting doing?",
+      "back": "Mandatory, but organics were 2.4% of residential waste in 2025 (1.4% in 2024). Fines run $25 to $300 by building size."
+    },
+    {
+      "front": "What did the IBO find about composting fines?",
+      "back": "Organics pickup nearly tripled while fines were on in 2025 and fell about 43% after they stopped."
+    },
+    {
+      "front": "When did the landfill ban start, and when was it passed?",
+      "back": "January 1, 2026, in Seoul, Incheon and Gyeonggi. Passed in 2021 with five years to prepare."
+    },
+    {
+      "front": "What happened after the landfill ban?",
+      "back": "Privately handled waste reached 457 t a day, January to June 2026, up 3.2×. Public incineration rose only 80 t (1,921 to 2,001 t). Seoul has only 4 incinerators, most 20 to 30 or more years old."
+    },
+    {
+      "front": "What is the 130 km?",
+      "back": "The reported road distance some Seoul trash travels (Seoul Economic Daily). Straight-line distances: Cheonan about 85 km, Cheongju about 110 km, Sejong about 125 km."
+    },
+    {
+      "front": "Freshkills Park?",
+      "back": "On Staten Island, once the world's largest landfill, becoming a 2,200-acre park that opens in phases."
+    },
+    {
+      "front": "Cheonggyecheon project facts?",
+      "back": "2003 to 2005, about US$281 million, 5.8 km (3.6 miles). The highway carried about 168,000 vehicles a day."
+    },
+    {
+      "front": "Cheonggyecheon species counts, 2003 to 2008?",
+      "back": "Plants 62 to 308, insects 15 to 192, birds 6 to 36, fish 4 to 25. The 639% figure is an overall index, so use the counts."
+    },
+    {
+      "front": "Cheonggyecheon cooling and air?",
+      "back": "3.3 to 5.9°C cooler than a parallel road (the highest estimate). WWF says 3 to 4°C. Small-particle pollution fell from 74 to 48 µg/m³, about 35% less."
+    },
+    {
+      "front": "Seoul park space per person?",
+      "back": "17.74 m² citywide (2022), but only 5.65 m² within a 5-minute walk. Both numbers are for Seoul."
+    },
+    {
+      "front": "Seoul's 2004 bus reform results?",
+      "back": "July 2004, switched in one night. Bus speed up to +11 km/h, 24% fewer bus accidents in the first year, ridership up 9 to 21% depending on the years compared."
+    },
+    {
+      "front": "Climate Card facts?",
+      "back": "₩65,000 a month, unlimited, Ttareungi bikes included (₩62,000 without). Pilot January 2024, full launch July 2024. 10 million reloads by April 2025, which counts top-ups, so it is not a user count."
+    },
+    {
+      "front": "What are the five ideas for New York, and which is the main one?",
+      "back": "Food waste charged by weight, city retrofit loans, balcony solar kits, a transit pass named for the climate, and highway removal. City retrofit loans tied to LL97 are the main recommendation."
+    }
+  ],
+  "keys": [
+    {
+      "keys": "Right, Space, Enter, PageDown",
+      "action": "Next beat or next slide. Clickers send PageDown or Right."
+    },
+    {
+      "keys": "Left, PageUp, Backspace",
+      "action": "Back one step. Going back pauses the timer, and the next forward press only resumes it."
+    },
+    {
+      "keys": "T",
+      "action": "Pause or resume the timer."
+    },
+    {
+      "keys": "A",
+      "action": "Turn auto-beats on or off."
+    },
+    {
+      "keys": "P",
+      "action": "Present on the projector and start the timer."
+    },
+    {
+      "keys": "Shift+P",
+      "action": "Open the presenter window."
+    },
+    {
+      "keys": "B",
+      "action": "Black screen. Press again, or Esc, to come back."
+    },
+    {
+      "keys": "F",
+      "action": "Fullscreen."
+    },
+    {
+      "keys": "G, then a number, then Enter",
+      "action": "Jump to that content slide (1 to 20)."
+    },
+    {
+      "keys": "Also: Down, Shift+Space",
+      "action": "Down works as next and Shift+Space as back."
+    },
+    {
+      "keys": "Also: Shift+T",
+      "action": "Reset the timer."
+    },
+    {
+      "keys": "Also: Tab",
+      "action": "Pause or resume the timer (the clicker's hyperlink button sends Tab)."
+    },
+    {
+      "keys": "Also: ?",
+      "action": "Show the key help."
+    }
+  ]
+}

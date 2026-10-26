@@ -1,9 +1,9 @@
-// s06-reactor — One Less Nuclear Power Plant (OLNPP Phase 1).
+// s06-reactor: One Less Nuclear Power Plant (OLNPP Phase 1).
 // State 1: a Korean nuclear plant as a white study model: containment (cylinder + hemispherical dome), auxiliary
 // building, long turbine hall with its lower side annex. Coastal and seawater-cooled, so NO cooling tower.
-// State 2: the plant dissolves top-down into 1,680 tiny dwellings (one per 1,000 Eco-Mileage households) that fly
-// right and settle into a tidy block: 79% red (efficiency), 21% grey (renewables). The plant stays as a dashed
-// phantom: the plant Seoul did not need.
+// State 2: a slanted cut sweeps the plant from right to left and every piece it passes becomes a tiny dwelling that
+// flies right and settles into a 10 x 10 mosaic of blocks (16 dwellings each, 1,600 in all): 79 blocks red
+// (efficiency), 21 grey (renewables). The plant stays behind as a dashed outline: the plant Seoul did not need.
 import { defineDiagram, THREE, C, LW, ease, sub, lerp, labelProp, boxGeo, rng, edgeLinesFromGeometry } from '../kit3d/index.js';
 
 const DEG = Math.PI / 180;
@@ -16,33 +16,40 @@ const UPV = new THREE.Vector3().crossVectors(VIEW, RG).normalize();             
 // ---- plant (m) ----
 const Y0 = 1.5;                       // plinth top
 const RC = 22, HC = 40;               // containment radius, wall height (dome on top)
-const DOME_TOP = Y0 + HC + RC;
 const AUX = { x0: -24, x1: 24, z0: 12, z1: 44, h: 26 };
 const TURB = { x0: -20, x1: 20, z0: 44, z1: 128, h: 34 };
 const ANNEX = { x0: 20, x1: 28, z0: 44, z1: 128, h: 14 };
 const PLINTH = { x0: -32, x1: 36, z0: -29, z1: 136 };
 
-// ---- field of dwellings ----
-const NX = 30, NZ = 56, N = NX * NZ;  // 1,680 dwellings
-const N_RED = Math.round(N * 0.79);   // efficiency 79% · renewables 21%
-const PITCH = 2.6;
-const BLOCK_X = 10, BLOCK_Z = 8, STREET = 1.6;   // dwellings grouped in blocks with narrow streets
-const FIELD_D = 156;                  // distance from plant centre along screen-right
+// ---- mosaic of dwellings: 10 x 10 blocks, 4 x 4 dwellings per block ----
+const NB = 10, NH = 4;
+const PITCH = 2.3, STREET = 3.2;
+const BLK = NH * PITCH, CELL = BLK + STREET;
+const FW = NB * BLK + (NB - 1) * STREET;           // 120.8 m
+const N = NB * NB * NH * NH;                        // 1,600 dwellings
+const RED_BLOCKS = 79;                              // efficiency 79% · renewables 21%
+const FIELD_D = 156;                                // field centre, along screen-right from the plant
 const FC = RG.clone().multiplyScalar(FIELD_D);
-const FY = 1.5;                       // field plinth top
-const GREY = '#BDBCB8';
-const GREY_EDGE = '#8E8F92';
+const FY = 1.2;                                     // field plinth top
+const FPAD = 3;
+const GREY = '#C3C2BE';
+const GREY_EDGE = '#94959A';
 
-// beat 2 choreography (fractions of the beat): camera pan, then the top-down dissolve, flights, outlines
-const PAN = [0, 0.2];
-const WIPE0 = 0.12, WIPE1 = 0.6;
-const OUTLINE = [0.9, 1];
+// ---- camera ----
 const SCALE = 2.7, AT1 = [655, 262], AT2 = [384, 262];
-const H_TOP = DOME_TOP + 0.6;
-const H_BOT = Y0 - 0.6;
+
+// ---- beat timing (ms) ----
+const T1 = 1300;                       // build the plant
+const T2 = 3560;                       // dissolve, fly, settle
+const PAN = [0, 1000];                 // camera eases left to make room
+const FPL = [350, 1000];               // field plinth unfolds from its near corner
+const WIPE = [600, 2200];              // slanted cut sweeps the plant
+const FLY = 900, FLY_J = 60, POP = 170;
+const OUT_DUR = 300;
+const L2_DELAY = 3300;
 
 function houseGeo() {
-  const w = 1.9, d = 1.9, h = 1.2, r = 2.05;
+  const w = 1.6, d = 1.8, h = 0.9, r = 1.5;
   const s = new THREE.Shape([
     new THREE.Vector2(-w / 2, 0), new THREE.Vector2(w / 2, 0), new THREE.Vector2(w / 2, h),
     new THREE.Vector2(0, r), new THREE.Vector2(-w / 2, h),
@@ -59,7 +66,7 @@ function containmentGeo() {
   const n = 24;
   for (let i = 1; i <= n; i++) {
     const a = (i / n) * Math.PI / 2;
-    pts.push(new THREE.Vector2(i === n ? 0 : RC * Math.cos(a), HC + RC * Math.sin(a)));   // apex closes to a point
+    pts.push(new THREE.Vector2(i === n ? 0 : RC * Math.cos(a), HC + RC * Math.sin(a)));
   }
   const g = new THREE.LatheGeometry(pts, 120);
   g.computeVertexNormals();
@@ -68,7 +75,7 @@ function containmentGeo() {
 
 const boxAt = (b, h = b.h) => boxGeo(b.x1 - b.x0, h, b.z1 - b.z0).translate((b.x0 + b.x1) / 2, 0, (b.z0 + b.z1) / 2);
 
-// visible edges of an axis-aligned box seen from the (+x, +y, +z) side (for the dashed phantom)
+// visible edges of an axis-aligned box seen from the (+x, +y, +z) side (for the dashed outline)
 function boxPhantom(b, y0, y1) {
   const { x0, x1, z0, z1 } = b;
   const s = [];
@@ -94,28 +101,50 @@ function polySeg(pts, out) {
   return out;
 }
 
+function inkUnder(obj) {
+  const out = [];
+  obj.traverse(o => { if (o.isInkLines) out.push(o); });
+  return out;
+}
+
 export default defineDiagram({
   id: 's06-reactor',
   states: 2,
   region: { x: 100, y: 420, w: 1080, h: 420 },
   stage: {
     view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: SCALE, at: AT1.slice() },
-    shadowBox: { min: [-36, 0, -210], max: [138, 66, 140] },
+    shadowBox: { min: [-36, 0, -196], max: [158, 66, 140] },
   },
   build(S) {
     const plant = S.part('Nuclear plant');
 
-    // ---------- plinth ----------
+    // ---------- plinth (unfolds from its centre) ----------
     const plinth = new THREE.Group();
+    plinth.position.set((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2);
     plant.add(plinth);
-    S.solid(boxGeo(PLINTH.x1 - PLINTH.x0, Y0, PLINTH.z1 - PLINTH.z0).translate((PLINTH.x0 + PLINTH.x1) / 2, 0, (PLINTH.z0 + PLINTH.z1) / 2), {}, plinth);
+    S.solid(boxGeo(PLINTH.x1 - PLINTH.x0, Y0, PLINTH.z1 - PLINTH.z0), {}, plinth);
+    const plinthInk = inkUnder(plinth);
 
-    // ---------- buildings (clipped top-down in beat 2) ----------
-    const clipDown = new THREE.Plane(new THREE.Vector3(0, -1, 0), 1e4);   // keeps y <= h
-    const clipUp = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1e4);     // keeps y >= h
-    const mat = S.material(C.model, { unique: true, clippingPlanes: [clipDown], side: THREE.DoubleSide });
+    // ---------- the slanted cut that turns the plant into dwellings ----------
+    const NS = RG.clone().add(new THREE.Vector3(0, 0.75, 0)).normalize();
+    const Cd = new THREE.Vector3(0, Y0 + HC, 0);
+    const probe = [Cd.clone().addScaledVector(NS, RC)];
+    for (let i = 0; i < 72; i++) {
+      const a = (i / 72) * Math.PI * 2;
+      probe.push(new THREE.Vector3(RC * Math.cos(a), Y0, RC * Math.sin(a)));
+    }
+    for (const b of [AUX, TURB, ANNEX]) for (const x of [b.x0, b.x1]) for (const z of [b.z0, b.z1]) for (const y of [Y0, Y0 + b.h]) probe.push(new THREE.Vector3(x, y, z));
+    const dMax = Math.max(...probe.map(p => NS.dot(p))) + 0.6;
+    const dMin = Math.min(...probe.map(p => NS.dot(p))) - 0.6;
+    const clipSolid = new THREE.Plane(NS.clone().negate(), 1e4);   // keeps NS·p <= c
+    const clipGhost = new THREE.Plane(NS.clone(), -1e4);            // keeps NS·p >= c
+    const cutAt = (p2ms) => lerp(dMax, dMin, sub(p2ms, WIPE[0], WIPE[1]));
+    const releaseMs = (p) => lerp(WIPE[0], WIPE[1], (dMax - NS.dot(p)) / (dMax - dMin));
+
+    // ---------- buildings ----------
+    const mat = S.material(C.model, { unique: true, clippingPlanes: [clipSolid], side: THREE.DoubleSide });
     mat.clipShadows = true;
-    const eClip = { clippingPlanes: [clipDown] };
+    const eClip = { clippingPlanes: [clipSolid] };
     const solids = new THREE.Group();
     plant.add(solids);
     const mk = (geo) => {
@@ -131,7 +160,7 @@ export default defineDiagram({
     const gAnnex = mk(boxAt(ANNEX));
 
     // hairline detail: springline of the dome, aux roof meeting the containment, turbine hall bays
-    const hair = { width: LW.hair, color: C.hair, clippingPlanes: [clipDown] };
+    const hair = { width: LW.hair, color: C.hair, clippingPlanes: [clipSolid] };
     const vh = new THREE.Vector3(VIEW.x, 0, VIEW.z).normalize();
     const phiV = Math.atan2(vh.z, vh.x);
     const ring = [];
@@ -146,19 +175,19 @@ export default defineDiagram({
       const x = -xa + (2 * xa * i) / 32;
       arc.push(new THREE.Vector3(x, AUX.h + 0.02, Math.sqrt(Math.max(0, RC * RC - x * x))));
     }
-    S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: [clipDown] }, gAux);
+    S.lines(polySeg(arc, []), { width: LW.crease, color: C.crease, clippingPlanes: [clipSolid] }, gAux);
     const bays = [];
     for (let k = 1; k < 8; k++) {
       const z = TURB.z0 + (k * (TURB.z1 - TURB.z0)) / 8;
       bays.push(TURB.x1 + 0.02, ANNEX.h, z, TURB.x1 + 0.02, TURB.h, z);
     }
     S.lines(bays, hair, gTurb);
+    const volumes = [gCont, gAux, gTurb, gAnnex].map(g => ({ g, ink: inkUnder(g) }));
 
-    // ---------- phantom (dashed) + depth-only occluder ----------
+    // ---------- dashed outline of the plant (drawn behind the cut) + depth-only occluder ----------
     const phantom = new THREE.Group();
     plant.add(phantom);
     const ph = [];
-    const Cd = new THREE.Vector3(0, Y0 + HC, 0);
     const gen = [RG.clone().multiplyScalar(RC), RG.clone().multiplyScalar(-RC)];
     for (const g of gen) ph.push(g.x, Y0, g.z, g.x, Y0 + HC, g.z);
     const base = [];
@@ -174,9 +203,9 @@ export default defineDiagram({
     }
     polySeg(domeSil, ph);
     for (const b of [AUX, TURB, ANNEX]) ph.push(...boxPhantom(b, Y0, Y0 + b.h));
-    const phLines = S.lines(ph, { width: 1.0, color: C.muted, dashed: true, dashSize: 2.2, gapSize: 1.7, clippingPlanes: [clipUp] }, phantom);
+    S.lines(ph, { width: 1.0, color: C.muted, dashed: true, dashSize: 2.2, gapSize: 1.7, clippingPlanes: [clipGhost] }, phantom);
     const occMat = new THREE.MeshBasicMaterial({ colorWrite: false, polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 4 });
-    occMat.clippingPlanes = [clipUp];
+    occMat.clippingPlanes = [clipGhost];
     for (const geo of [containmentGeo(), boxAt(AUX), boxAt(TURB), boxAt(ANNEX)]) {
       const m = new THREE.Mesh(geo, occMat);
       m.position.y = Y0;
@@ -185,20 +214,23 @@ export default defineDiagram({
       phantom.add(m);
     }
 
-    // ---------- field of dwellings ----------
+    // ---------- the mosaic ----------
     const field = S.part('Households');
-    const fPlinth = new THREE.Group();
-    fPlinth.position.set(FC.x, 0, FC.z);
+    const fPlinth = new THREE.Group();                 // pivot at the near-left corner (closest to the plant)
+    const corner = new THREE.Vector3(FC.x - FW / 2 - FPAD, 0, FC.z + FW / 2 + FPAD);
+    fPlinth.position.copy(corner);
     field.add(fPlinth);
-    const FW = NX * PITCH + (NX / BLOCK_X - 1) * STREET, FD = NZ * PITCH + (NZ / BLOCK_Z - 1) * STREET;
-    S.solid(boxGeo(FW + 5, FY, FD + 5), {}, fPlinth);
+    const PW = FW + 2 * FPAD;
+    S.solid(boxGeo(PW, FY, PW).translate(PW / 2, 0, -PW / 2), {}, fPlinth);
+    const fPlinthInk = inkUnder(fPlinth);
 
-    // targets in fill order: rows along z from the plant side (+z) to the far end
+    // targets in fill order: block rows from the front edge (+z) to the back edge, each row left to right
     const targets = [];
-    for (let j = 0; j < NZ; j++) for (let i = 0; i < NX; i++) {
-      const x = -FW / 2 + PITCH / 2 + i * PITCH + Math.floor(i / BLOCK_X) * STREET;
-      const z = FD / 2 - PITCH / 2 - j * PITCH - Math.floor(j / BLOCK_Z) * STREET;
-      targets.push(new THREE.Vector3(FC.x + x, FY, FC.z + z));
+    for (let bz = 0; bz < NB; bz++) for (let hz = 0; hz < NH; hz++) for (let bx = 0; bx < NB; bx++) for (let hx = 0; hx < NH; hx++) {
+      const x = -FW / 2 + bx * CELL + PITCH / 2 + hx * PITCH;
+      const z = FW / 2 - bz * CELL - PITCH / 2 - hz * PITCH;
+      const red = bz * NB + bx < RED_BLOCKS;
+      targets.push({ p: new THREE.Vector3(FC.x + x, FY, FC.z + z), bz, red });
     }
 
     // start points on the camera-facing surfaces of the plant (area weighted)
@@ -240,42 +272,49 @@ export default defineDiagram({
     addS((ANNEX.z1 - ANNEX.z0) * ANNEX.h, wallX(ANNEX, 0));
     addS((ANNEX.x1 - ANNEX.x0) * ANNEX.h, wallZ(ANNEX, 0));
     const totalA = surf.reduce((s, x) => s + x.area, 0);
-    const hAt = (p2) => H_TOP - (H_TOP - H_BOT) * sub(p2, WIPE0, WIPE1);
-    const releaseAt = (y) => WIPE0 + (WIPE1 - WIPE0) * (H_TOP - y) / (H_TOP - H_BOT);
     const houses = [];
     for (let k = 0; k < N; k++) {
       let r = R() * totalA, s = surf[0];
       for (const x of surf) { if (r < x.area) { s = x; break; } r -= x.area; }
       const { p, n } = s.fn();
       const start = p.clone();
-      if (n.y < 0.99) { start.addScaledVector(n, 1.1); start.y -= 1.0; }
-      const t0 = Math.max(0, releaseAt(p.y) + (R() - 0.5) * 0.02);
+      if (n.y < 0.99) { start.addScaledVector(n, 1.0); start.y -= 0.7; }
+      const t0 = Math.max(0, releaseMs(p) + (R() - 0.5) * 40);
       houses.push({ start, t0 });
     }
     houses.sort((a, b) => a.t0 - b.t0);
     const reds = [], greys = [];
+    const groupLand = new Map();                       // outline group -> last landing (ms)
     houses.forEach((h, k) => {
-      h.goal = targets[k];
+      const tg = targets[k];
+      h.goal = tg.p;
+      h.dur = FLY + (R() - 0.5) * FLY_J;
+      h.key = tg.bz * 2 + (tg.red ? 0 : 1);
+      groupLand.set(h.key, Math.max(groupLand.get(h.key) || 0, h.t0 + h.dur));
       const dist = h.start.distanceTo(h.goal);
-      h.dur = Math.min(0.3 + 0.08 * R(), OUTLINE[0] + 0.05 - h.t0);
       h.ctrl = h.start.clone().add(h.goal).multiplyScalar(0.5);
-      h.ctrl.y += 5 + 0.05 * dist;
-      (k < N_RED ? reds : greys).push(h);
+      h.ctrl.y += 6 + 0.06 * dist;
+      (tg.red ? reds : greys).push(h);
     });
     const hg = houseGeo();
     const mkInst = (list, color) => {
       const m = new THREE.InstancedMesh(hg, S.material(color), list.length);
       m.frustumCulled = false;
-      m.castShadow = true;
+      m.castShadow = false;            // flying specks must not smudge the ground
       m.receiveShadow = true;
+      m.renderOrder = -3;              // drawn before the outline's depth-only occluder, so they never vanish behind it
       field.add(m);
       return m;
     };
     const imRed = mkInst(reds, C.red);
     const imGrey = mkInst(greys, GREY);
-    // ink outlines of the settled dwellings (one merged static set per colour, drawn in once they have landed)
+
+    // ink outlines of the settled dwellings: one merged set per block row and colour, each fades in once its row has landed
     const hpos = hg.toNonIndexed().attributes.position.array;
-    const mkOutline = (list, color) => {
+    const outlines = [];
+    for (const [key, land] of groupLand) {
+      const list = houses.filter(h => h.key === key);
+      const red = key % 2 === 0;
       const arr = new Float32Array(hpos.length * list.length);
       list.forEach((h, k) => {
         for (let i = 0; i < hpos.length; i += 3) {
@@ -286,26 +325,23 @@ export default defineDiagram({
       });
       const g = new THREE.BufferGeometry();
       g.setAttribute('position', new THREE.BufferAttribute(arr, 3));
-      const l = edgeLinesFromGeometry(g, { color, color2: color, width: 0.75, width2: 0.6, creaseAngle: 20 });
+      const col = red ? C.redDeep : GREY_EDGE;
+      const l = edgeLinesFromGeometry(g, { color: col, color2: col, width: 0.75, width2: 0.6, creaseAngle: 20 });
       field.add(l);
-      return l;
-    };
-    const olRed = mkOutline(reds, C.redDeep);
-    const olGrey = mkOutline(greys, GREY_EDGE);
+      outlines.push({ l, t0: land + 40 });
+    }
 
     const _p = new THREE.Vector3();
-    function placeHouses(list, im, p2) {
+    function placeHouses(list, im, ms) {
       const a = im.instanceMatrix.array;
       for (let k = 0; k < list.length; k++) {
         const h = list[k];
-        let sc, t;
-        if (p2 <= h.t0) { sc = 0; t = 0; }
-        else {
-          sc = sub(p2, h.t0, h.t0 + 0.035, ease.out);
-          t = ease.inOut(sub(p2, h.t0, h.t0 + h.dur));
+        let sc = 0, t = 0;
+        if (ms > h.t0) {
+          sc = ease.out(sub(ms, h.t0, h.t0 + POP));
+          t = ease.inOut(sub(ms, h.t0, h.t0 + h.dur));
         }
-        // quadratic Bézier start → ctrl → goal
-        const u = 1 - t;
+        const u = 1 - t;           // quadratic Bezier start -> ctrl -> goal
         _p.set(
           u * u * h.start.x + 2 * u * t * h.ctrl.x + t * t * h.goal.x,
           u * u * h.start.y + 2 * u * t * h.ctrl.y + t * t * h.goal.y,
@@ -317,34 +353,47 @@ export default defineDiagram({
         a[o + 12] = _p.x; a[o + 13] = _p.y; a[o + 14] = _p.z; a[o + 15] = 1;
       }
       im.instanceMatrix.needsUpdate = true;
-      im.visible = p2 > 0.0005;
+      im.visible = ms > WIPE[0] - 50;
     }
 
     // ---------- state application ----------
     let P1 = 0, P2 = 0;
-    const grow = (g, v) => { g.scale.y = Math.max(1e-3, v); g.visible = v > 0.002; };
+    const lastRelease = houses[houses.length - 1].t0;
     function update() {
-      // beat 1: plinth, then the volumes rise
-      grow(plinth, sub(P1, 0, 0.3, ease.out));
-      grow(gCont, sub(P1, 0.12, 0.62, ease.out));
-      grow(gAux, sub(P1, 0.24, 0.72, ease.out));
-      grow(gTurb, sub(P1, 0.32, 0.86, ease.out));
-      grow(gAnnex, sub(P1, 0.44, 1, ease.out));
-      // beat 2: top-down dissolve into dwellings, phantom drawn in behind the cut
-      const h = hAt(P2);
-      clipDown.constant = h;
-      clipUp.constant = -h;
-      solids.visible = P1 > 0.001 && h > H_BOT + 0.05;
-      phantom.visible = P2 > 0.0005;
-      grow(fPlinth, sub(P2, WIPE0, WIPE0 + 0.22, ease.out));
-      placeHouses(reds, imRed, P2);
-      placeHouses(greys, imGrey, P2);
-      const ol = sub(P2, OUTLINE[0], OUTLINE[1], ease.out);
-      for (const l of [olRed, olGrey]) { l.material.setOpacity(ol); l.visible = ol > 0.002; }
-      // camera: state 1 centres the plant; beat 2 pans it left to make room for the dwellings
-      const c = ease.inOut(sub(P2, PAN[0], PAN[1]));
-      S.view.at[0] = lerp(AT1[0], AT2[0], c);
-      S.view.at[1] = lerp(AT1[1], AT2[1], c);
+      // beat 1: the plinth unfolds, then the volumes rise one after another (80 ms apart)
+      const t1 = P1 * T1;
+      const pk = ease.out(sub(t1, 0, 600));
+      plinth.scale.set(Math.max(1e-3, pk), 1, Math.max(1e-3, pk));
+      plinth.visible = pk > 0.001;
+      for (const l of plinthInk) l.material.setOpacity(sub(t1, 0, 200));
+      volumes.forEach(({ g, ink }, i) => {
+        const lt = sub(t1, 160 + i * 80, 160 + i * 80 + 820);
+        g.scale.y = Math.max(1e-3, ease.out(lt));
+        g.visible = lt > 0.001;
+        for (const l of ink) l.material.setOpacity(sub(lt, 0, 0.18));
+      });
+      // beat 2
+      const ms = P2 * T2;
+      const c = P2 > 0 ? cutAt(ms) : 1e4;
+      clipSolid.constant = c;
+      clipGhost.constant = -c;
+      solids.visible = P1 > 0.001 && ms < lastRelease + 60;
+      phantom.visible = ms > WIPE[0] - 50;
+      const fk = ease.out(sub(ms, FPL[0], FPL[1]));
+      fPlinth.scale.set(Math.max(1e-3, fk), 1, Math.max(1e-3, fk));
+      fPlinth.visible = fk > 0.001;
+      for (const l of fPlinthInk) l.material.setOpacity(sub(ms, FPL[0], FPL[0] + 150));
+      placeHouses(reds, imRed, ms);
+      placeHouses(greys, imGrey, ms);
+      for (const o of outlines) {
+        const v = ease.out(sub(ms, o.t0, o.t0 + OUT_DUR));
+        o.l.material.setOpacity(v);
+        o.l.visible = v > 0.002;
+      }
+      // camera: state 1 centres the plant; beat 2 eases it left to make room for the mosaic
+      const k = ease.inOut(sub(ms, PAN[0], PAN[1]));
+      S.view.at[0] = lerp(AT1[0], AT2[0], k);
+      S.view.at[1] = lerp(AT1[1], AT2[1], k);
       S.applyView();
       if (L1) L1.o.place.x = S.project(domeTop).x;
       if (L2) L2.o.place.x = S.project(fAnchor).x;
@@ -352,8 +401,8 @@ export default defineDiagram({
     let L1 = null, L2 = null;
     const domeTop = new THREE.Vector3(0, Y0 + HC, 0).addScaledVector(UPV, RC);
     let fAnchor = null;
-    S.anim.prop('p1', 0, v => { P1 = v; update(); }, { kind: 'reveal', dur: 1500 });
-    S.anim.prop('p2', 0, v => { P2 = v; update(); }, { kind: 'move', dur: 3600 });
+    S.anim.prop('p1', 0, v => { P1 = v; update(); }, { kind: 'move', dur: T1 });
+    S.anim.prop('p2', 0, v => { P2 = v; update(); }, { kind: 'move', dur: T2 });
 
     // ---------- labels (top band, centred over each model, vertical leaders) ----------
     const dTop = S.project(domeTop);
@@ -363,17 +412,14 @@ export default defineDiagram({
       place: { mode: 'fixed', x: dTop.x, y: 24, ax: 'center', ay: 'top' }, leader: 'v',
     });
     breakLines(L1, ['Output of one nuclear reactor:', '2 million TOE a year']);
-    // anchor: back-edge dwelling (i = 0 row) closest to the field's screen centre
-    S.view.at[0] = AT2[0]; S.view.at[1] = AT2[1]; S.applyView();   // the field is only seen from the state-2 view
-    const fcx = S.project(new THREE.Vector3(FC.x, FY, FC.z)).x;
-    let best = null, bestD = 1e9;
-    for (let j = 0; j < NZ; j++) {
-      const t = targets[j * NX];
-      const q = S.project(new THREE.Vector3(t.x, FY + 2.05, t.z));
-      const d = Math.abs(q.x - fcx);
-      if (d < bestD) { bestD = d; best = t; }
+    // anchor: the top-most dwelling (back corner of the mosaic), seen from the state-2 view
+    S.view.at[0] = AT2[0]; S.view.at[1] = AT2[1]; S.applyView();
+    let best = null, bestY = 1e9;
+    for (const t of targets) {
+      const q = S.project(new THREE.Vector3(t.p.x, FY + 1.4, t.p.z));
+      if (q.y < bestY) { bestY = q.y; best = t.p; }
     }
-    fAnchor = new THREE.Vector3(best.x, FY + 2.05, best.z);
+    fAnchor = new THREE.Vector3(best.x, FY + 1.4, best.z);
     const fTop = S.project(fAnchor);
     update();
     L2 = S.label({
@@ -390,18 +436,21 @@ export default defineDiagram({
       targets: n => ({ p1: n >= 1 ? 1 : 0, p2: n >= 2 ? 1 : 0, L1: n >= 1 ? 1 : 0, L2: n >= 2 ? 1 : 0 }),
       plan(name, from, to, dir, n, prev) {
         if (dir > 0) {
-          const d1 = prev < 1 ? 1500 : 0;   // a jump from 0 builds the plant first
+          const d1 = prev < 1 ? T1 : 0;   // a jump from 0 builds the plant first
           return {
-            p1: { dur: 1500, ease: ease.linear },
-            L1: { delay: 1250 },
-            p2: { dur: 3600, delay: d1, ease: ease.linear },
-            L2: { delay: d1 + 3350 },
+            p1: { dur: T1, ease: ease.linear },
+            L1: { delay: 1150, dur: 520 },
+            p2: { dur: T2, delay: d1, ease: ease.linear },
+            L2: { delay: d1 + L2_DELAY, dur: 520 },
           }[name] || null;
         }
+        // backward: labels leave first, then the motion replays in reverse at a brisker pace
+        const d2 = prev >= 2 && n < 1 ? 1900 + 150 : 0;
         return {
-          p1: { dur: 700, delay: 150, ease: ease.linear },
-          p2: { dur: 1400, delay: 150, ease: ease.linear },
-          L1: { dur: 300 }, L2: { dur: 300 },
+          p1: { dur: 900, delay: 150 + d2, ease: ease.linear },
+          p2: { dur: 1900, delay: 150, ease: ease.linear },
+          L1: { dur: 320, delay: d2 },
+          L2: { dur: 320 },
         }[name] || null;
       },
     };

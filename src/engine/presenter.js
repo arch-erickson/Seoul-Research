@@ -459,8 +459,9 @@ export function bootPresenter(arg = {}) {
   if (!timing || !Array.isArray(timing.order)) throw new Error('bootPresenter: data.timing (spec/timing.json) is required');
   const noteMap = notesMapOf(data.notes || data.notesV2 || null);
   const noteOf = (key) => {
+    // spec/notes-v2.json replaces the base notes; notesFor() still appends photo credits / user-supply notes
     const v = noteMap ? noteToMarkdown(noteMap[key]) : null;
-    return v != null && v !== '' ? v : notesFor(key, data.images);
+    return notesFor(key, data.images, v);
   };
   const meta = makeMeta(timing, data.images, noteOf, data.slidesSpec);
   const params = (() => { try { return new URLSearchParams(location.search); } catch { return new URLSearchParams(''); } })();
