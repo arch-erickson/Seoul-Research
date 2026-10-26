@@ -60,6 +60,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
   `node --test src/engine/state.test.mjs src/engine/input.test.mjs src/engine/motion.test.mjs` passes; else --no-site.
 - Unfinished modules are excluded from live builds: `SEOUL_EXCLUDE_DIAGRAMS=<ids> node scripts/checkpoint.mjs ...`
   (MAIN published f7c4d4f with 15 diagrams; s03-donut and s04-timeline excluded until DONE).
+- **18:10 ALL 16 DIAGRAMS DONE** (strict + offline audit clean at every state); published to the live site.
 - **Prewarm-safe:** no module animates at mount; container size falls back to the region size; labels self-remeasure.
 
 ## Checkpoints (ARCHITECTURE §12)
