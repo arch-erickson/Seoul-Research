@@ -35,6 +35,13 @@ export const BEATMAP = {
 // Element patches. { remove: true } drops the element; { remove: 'fallback' } drops it only from the 2D fallback
 // (it is inside a diagram region anyway); other keys overwrite spec fields; `chars` may be a function.
 export const OVERRIDES = {
+  s03: {
+    // The legend must match the s03-donut 3D ring: red Buildings, white Transportation, light grey Other. The Figma
+    // legend had a blue Transportation swatch and blue 18% (blue means New York in this deck).
+    '5:58': { fill: '#FFFFFF', stroke: '#111112', strokeWeight: 1.5 },
+    '5:60': { color: '#111112' },
+    '5:61': { fill: '#E2E1DD', stroke: '#111112', strokeWeight: 1.5 },
+  },
   s09: {
     // copy-v2 shortened 9:31 to "Private rule planned" (about 217 px, was 273 px). The red strikethrough keeps
     // the Figma overhang of about 27 px past the text end.

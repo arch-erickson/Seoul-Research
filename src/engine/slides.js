@@ -294,6 +294,7 @@ function makeElement(e) {
     d.className = 'el r';
     st.background = rgba(e.fill, e.fillOpacity ?? 1);
     if (e.radius) st.borderRadius = e.radius + 'px';
+    if (e.stroke) st.boxShadow = `inset 0 0 0 ${e.strokeWeight || 1}px ${e.stroke}`; // drawn inside: the box keeps its size
     return d;
   }
   if (e.kind === 'ellipse') {

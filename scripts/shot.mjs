@@ -58,6 +58,7 @@ if (opt.dom) {
 } else {
   const out = path.resolve(opt.out || '.tmp/shot.png');
   fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.rmSync(out, { force: true }); // an older PNG with this name must not pass for a fresh one after a timeout
   res = spawnSync(exe, [...flags, `--screenshot=${out}`, url], { encoding: 'utf8', timeout: 180000 });
   if (fs.existsSync(out)) console.log(out); else { console.error('screenshot failed\n' + (res.stderr || '').slice(-2000)); }
 }
