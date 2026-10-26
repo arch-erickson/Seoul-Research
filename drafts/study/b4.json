@@ -7,8 +7,8 @@
       "Since 1995, everyone in Korea, Seoul included, has paid for general trash by buying official priced bags. General trash means anything that is not recycling or food waste, which are kept separate. The more trash you throw out, the more bags you have to buy, so people have a reason to throw out less. This kind of system is called pay as you throw, and Korea's version is the one other countries usually point to.",
       "Food waste goes into shared smart bins instead. A resident taps a household RFID card on the bin, the lid opens, the bin weighs what goes in, and that household is billed for the weight. The 3D diagram on the slide walks through these three steps. The 4.2 kg on the bin's display is only an example.",
       "There is a reward too. A household that cuts its food waste by 10 to 30% compared with the same period a year earlier can earn up to 5,000 points in each evaluation period, worth about ₩5,000. The separated food waste is turned into animal feed, compost and biogas.",
-      "The results are on the slide. The bag fees cut trash by about 8% in 1995 and 11% by 1996, both compared with 1994. Seoul Solution warns that the 1995 number may be too high, because many people threw out large items for free that year, so the 1996 number is the one to trust. For the weighing bins, the reported drop in food waste is 9 to 31%.",
-      "New York has made curbside composting mandatory, and buildings can be fined from $25 to $300 depending on their size. But New York's brown bins don't weigh anything and there is no reward, so a household never learns how much food it throws out. Seoul's bin gives each household its own number every time. That gap becomes the first idea New York could borrow, on slide 19."
+      "The results are on the slide. The bag fees cut trash by about 8% in 1995 and 11% by 1996, both compared with 1994. Seoul Solution warns that the 1995 number may be too high, because many people threw out large items for free that year, so the 1996 number is the more reliable one. For food waste, Korean agency reporting from December 2013 gives a 10 to 30% drop, and a comparison table on the same site gives 9 to 31% for the weighing bins.",
+      "New York has made curbside composting mandatory, and buildings can be fined $25 to $100 if they have 1 to 8 units, and $100 to $300 if they have 9 or more. But New York's brown bins don't weigh anything and there is no reward, so a household never learns how much food it throws out. Seoul's bin gives each household its own number every time. That gap becomes the first idea New York could borrow, on slide 19."
     ],
     "numbers": [
       {
@@ -21,14 +21,14 @@
       {
         "value": "About ₩490",
         "meaning": "The price of one standard official trash bag, given as a reference price.",
-        "source": "Seoul Solution; Development Asia (dossier §4.1)",
-        "confidence": "varies",
+        "source": "Dossier §4.1 (bag cost reference)",
+        "confidence": "hedge",
         "note": "The dossier gives it as an approximate reference. Always say \"about ₩490 for a standard bag.\""
       },
       {
         "value": "Up to ₩100,000",
         "meaning": "The highest fine for breaking the trash rules.",
-        "source": "Seoul Solution; Development Asia (dossier §4.1)",
+        "source": "Dossier §4.1",
         "confidence": "solid",
         "note": "Say \"up to,\" since this is the top of the range."
       },
@@ -49,16 +49,16 @@
       {
         "value": "9 to 31%",
         "meaning": "The reported drop in food waste with the RFID bins that charge by weight.",
-        "source": "Korean agency reporting, Dec 2013 (Korea Environment Corporation figures, dossier §4.2)",
+        "source": "Comparison table on the same site as the Dec 2013 KIIR / Korea Environment Corporation reporting (dossier §4.2)",
         "confidence": "varies",
-        "note": "The same reporting also gives 10 to 30%. Call it a reported range and don't claim an exact number."
+        "note": "The Dec 2013 reporting gives 10 to 30%. A comparison table on the same site gives 9 to 31% for the RFID bins specifically. Call it a reported range and don't claim an exact number."
       },
       {
         "value": "Up to 5,000 points (about ₩5,000)",
         "meaning": "The reward a household can earn in each evaluation period if it cuts its food waste 10 to 30% compared with the same period a year earlier.",
         "source": "Dossier §4.2",
         "confidence": "solid",
-        "note": "Keep the two ranges apart. 10 to 30% is the cut a household needs for points, and 9 to 31% is the overall result."
+        "note": "The 10 to 30% shows up twice in the sources. It is the reported overall drop in food waste, and it is also the cut a household needs to earn points. The slide uses 9 to 31% for the RFID bins and 10 to 30% for the points rule."
       },
       {
         "value": "4.2 kg",
@@ -95,7 +95,7 @@
       },
       {
         "q": "Is the 9 to 31% drop really because of the bins, or because of other things like the points or the bag fees?",
-        "a": "The figure comes from Korean agency reporting from December 2013, and my sources don't explain how the study was done. The same reporting also gives 10 to 30%. So I present it as a reported range, and I don't claim the bin alone caused all of the drop."
+        "a": "Korean agency reporting from December 2013 gives a 10 to 30% drop, and a comparison table on the same site gives 9 to 31% for the RFID bins. My sources don't explain how it was measured, so I treat it as a reported range and don't say the bin alone caused it."
       },
       {
         "q": "Could New York do this?",
@@ -103,14 +103,14 @@
       },
       {
         "q": "How much is ₩490 in US dollars?",
-        "a": "The dossier doesn't give dollar amounts, and exchange rates change. One US dollar buys more than ₩1,000, so a standard bag costs well under a dollar. I'd check a current rate before giving an exact figure."
+        "a": "My sources give the price in won only, and exchange rates change, so I'd check a current rate before giving a dollar figure."
       }
     ],
     "dontSay": [
       "Don't say every household in Seoul uses a weighing bin. The dossier describes shared smart bins but gives no figure for how many homes have them.",
       "Don't present the 4.2 kg on the diagram as a real measurement. It's an example.",
       "Don't lean on the 8% drop for 1995. Seoul Solution itself says it may be too high, so use the 11% for 1996.",
-      "Don't mix up the two ranges. 9 to 31% is how much food waste went down, and 10 to 30% is the cut a household needs to earn points.",
+      "Don't say the 10 to 30% is only the points rule. The 10 to 30% shows up twice in the sources. It is the reported overall drop in food waste, and it is also the cut a household needs to earn points. The slide uses 9 to 31% for the RFID bins and 10 to 30% for the points rule.",
       "Don't use the recycling figures (recycling up more than 30%, about 70% of household waste recycled). They come from one source and aren't measured from the same starting point.",
       "Don't say New Yorkers pay for food waste by weight. New York fines buildings that don't separate it, and nobody is charged by weight.",
       "Don't call Korea's system the strictest in the world as if it were a measured fact."
@@ -178,7 +178,7 @@
         "meaning": "Nanjido became Seoul's official dump.",
         "source": "Seoul Solution, Landfill Recovery Project; Development Asia",
         "confidence": "solid",
-        "note": "The slide says \"main dump.\""
+        "note": "The slide says \"main dump.\" The dossier says official dump. Say official if asked."
       },
       {
         "value": "About 90 m",
@@ -223,18 +223,18 @@
         "note": "Say \"about 2,200 acres, opening in phases.\""
       }
     ],
-    "explainSimply": "Picture a giant trash pile covered with a thick sealed lid, with pipes poking through to pull the gas out safely, and grass and paths planted on top of the lid. That's Haneul Park. People now walk on top of what used to be a pile of garbage about as tall as a 30-story building.",
+    "explainSimply": "Picture a giant trash pile with a cover over it, pipes that pull the gas out, and grass and paths on top. That's Haneul Park. People now walk on top of what used to be a pile of garbage about as tall as a 30-story building.",
     "sayThis": [
       "New York and Seoul came up with the same answer here, at about the same time."
     ],
     "questions": [
       {
         "q": "Is it safe to walk on a park built on trash?",
-        "a": "The dump was closed and the ground stabilized before the park opened in 2002, and the landfill gas is now collected and used. My sources don't give health monitoring data, so I'd say the main gas problem is handled by collecting the gas, without claiming more than that."
+        "a": "The dump closed in 1993 and work to stabilize the site started then. The landfill gas is now collected and used. My sources don't include health monitoring data, so I can't say more than that."
       },
       {
         "q": "What happens to the gas now?",
-        "a": "It's pulled out through wells in the mounds and used. The dossier doesn't say exactly what it's used for, so I wouldn't say it makes electricity or heats homes."
+        "a": "It's pulled out through wells in the mounds and used. My sources don't say exactly what it's used for, so I wouldn't say it makes electricity or heats homes."
       },
       {
         "q": "How can you put a zero-energy building on top of a landfill?",
@@ -260,7 +260,7 @@
     "terms": [
       {
         "term": "Landfill",
-        "meaning": "A place where trash is buried. Modern landfills have liners, gas collection and leachate treatment, and Nanjido had none of these."
+        "meaning": "A place where trash is buried. Nanjido had no modern gas or leachate treatment."
       },
       {
         "term": "Landfill gas and methane",
@@ -303,11 +303,11 @@
   {
     "key": "s15",
     "title": "The 2026 Landfill Ban",
-    "inOneSentence": "Since January 1, 2026, Seoul and its region can't bury raw household trash, but they didn't build enough incinerators first, so some trash is now trucked to other cities.",
+    "inOneSentence": "Since January 1, 2026, Seoul and its region can't bury raw household trash, but they didn't build enough incinerators first, so some trash is now sent to other cities.",
     "background": [
       "In 2021, a law banned direct landfilling of household waste in Seoul, Incheon and Gyeonggi, the area together called the capital region. Direct landfilling means burying raw household trash. Under the ban, trash has to be burned or processed first. The law gave the region a five-year grace period to get ready.",
-      "During those five years, local governments mostly did not add incinerator capacity, and news reports say they largely neglected it. Seoul still runs only four public incinerators, in Gangnam, Mapo, Nowon and Yangcheon, and most of them are 20 to 30 or more years old. The ban still started on schedule on January 1, 2026, with no emergency delay.",
-      "From January to June 2026, Seoul's privately handled household waste reached 457 tons a day, a 3.2-fold rise. Public incineration went up by only 80 tons (from 1,921 to 2,001 tons). So much of the trash went to private companies, and some of it left the region. Gangdong district ships waste to private incinerators in Cheonan and Sejong, and Gangnam district plans to send waste to Cheongju. On the map, the straight-line distances from central Seoul are about 85 km to Cheonan, 110 km to Cheongju and 125 km to Sejong. Seoul Economic Daily reported that some trash travels about 130 km, which is the distance by road.",
+      "During those five years, local governments mostly did not add incinerator capacity. One news report says they effectively neglected it. Seoul still runs only four public incinerators, in Gangnam, Mapo, Nowon and Yangcheon, and most of them are 20 to 30 or more years old. The ban still started on schedule on January 1, 2026, with no emergency delay.",
+      "From January to June 2026, Seoul's privately handled household waste reached 457 tons a day, a 3.2-fold rise. Public incineration went up by only 80 tons (from 1,921 to 2,001 tons). As a result, much of the trash went to private companies, and some of it left the region. Gangdong district ships waste to private incinerators in Cheonan and Sejong, and Gangnam district plans to send waste to Cheongju. On the map, the straight-line distances from central Seoul are about 85 km to Cheonan, 110 km to Cheongju and 125 km to Sejong. Seoul Economic Daily reported that some trash travels about 130 km, which would be the distance by road.",
       "The cities receiving the trash are pushing back. Operators in Cheongju agreed not to bid on contracts from Seoul, Incheon or Gyeonggi through the end of next year. This is an environmental justice problem, because the trash ends up in communities that didn't make it. Amendments to the Wastes Control Act are pending in the National Assembly with no clear timing, and the nearby city of Seongnam is building a new 500-ton-a-day incinerator to replace an old one.",
       "The slide ends with a question for the class. New York's Local Law 97 fines buildings that go over their emissions caps, and about 63% of covered buildings are projected to miss their 2030 caps without further action. Seoul set its deadline before the incinerators were ready. The question is whether New York's retrofit workers and supply chain can keep up with what LL97 asks for. This is where you stop talking and let the class answer."
     ],
@@ -352,14 +352,14 @@
         "meaning": "How much public incineration went up.",
         "source": "Seoul Economic Daily, Oct 13, 2026",
         "confidence": "hedge",
-        "note": "The report gives no time period for these figures. Don't do math between them and the 457 t a day. If asked, say the report doesn't give a period."
+        "note": "The dossier gives no time period for these figures. Don't do math between them and the 457 t a day."
       },
       {
         "value": "About 130 km",
-        "meaning": "How far some of Seoul's trash now travels by road, as reported.",
+        "meaning": "How far some of Seoul's trash now travels, as reported. This would be a road distance.",
         "source": "Seoul Economic Daily, Oct 19, 2026 (Seoul's Trash Travels 130 Kilometers)",
         "confidence": "varies",
-        "note": "This is the reported road distance. The map on the slide shows shorter straight-line distances."
+        "note": "This is the trip distance Seoul Economic Daily reported, which would be by road. The map on the slide shows shorter straight-line distances."
       },
       {
         "value": "About 85, 110 and 125 km",
@@ -380,7 +380,7 @@
         "meaning": "Share of buildings covered by LL97 that are projected to go over their 2030 caps without further action.",
         "source": "Dossier §8.2 (NYC DOB; Building Energy Exchange LL97 FAQ)",
         "confidence": "solid",
-        "note": "It's a projection. Always say \"projected\" and \"without further action.\" About 11% are over the current 2024 to 2029 caps."
+        "note": "It's a projection. Always say \"projected\" and \"without further action.\" An estimated 11% are over the current 2024 to 2029 caps."
       },
       {
         "value": "$268 per ton",
@@ -402,15 +402,15 @@
       },
       {
         "q": "Isn't burning trash bad for the climate too?",
-        "a": "Burning trash does release greenhouse gases, and one of my sources is a study of emissions from Seoul's incinerators. The ban is aimed at burying raw trash, which rots and gives off methane the way Nanjido did. My point on this slide is about timing. The replacement wasn't ready when the ban started."
+        "a": "Burning trash does release greenhouse gases, and one of my sources studies emissions from Seoul's incinerators. Buried raw trash also rots and gives off methane, as it did at Nanjido. My sources don't spell out why the ban was passed. My point on this slide is about timing: the replacement wasn't ready when the ban started."
       },
       {
         "q": "457 tons a day went to private companies, but public incineration only rose 80 tons. Do those numbers add up?",
-        "a": "I don't do math between them. The 457 is tons a day for January to June 2026. The report gives the 80-ton rise (1,921 to 2,001 tons) without saying over what period, so the two can't be compared directly. Both point the same way. Public incinerators took on very little, and private handling jumped."
+        "a": "The 457 is tons a day for January to June 2026. My notes don't have a time period for the 80-ton rise (1,921 to 2,001 tons), so I don't compare the two directly. Both point the same way: public incinerators took on very little, and private handling jumped."
       },
       {
         "q": "Is 130 km the actual distance?",
-        "a": "130 km is what Seoul Economic Daily reported, and it's the distance by road. The map on my slide shows straight-line distances from central Seoul, about 85 km to Cheonan, 110 to Cheongju and 125 to Sejong, so the map numbers are shorter than the headline."
+        "a": "130 km is the distance Seoul Economic Daily reported for the trip, which would be by road. The map shows straight-line distances from central Seoul, about 85 km to Cheonan, 110 to Cheongju and 125 to Sejong, so the map numbers are shorter."
       },
       {
         "q": "What does a trash problem in Seoul have to do with LL97?",
@@ -418,10 +418,10 @@
       }
     ],
     "dontSay": [
-      "Don't say all of Seoul's trash travels 130 km. Some of it does, and 130 km is the reported road distance.",
-      "Don't do math between the 457 t a day and the 1,921 to 2,001 t figures. The second pair has no time period.",
-      "Don't say all 457 t a day leaves the region. That's privately handled waste, and only some of it goes to other cities.",
-      "Don't say Seoul has no plan. Amendments to the Wastes Control Act are pending, and Seongnam is building a 500 t a day incinerator.",
+      "Don't say all of Seoul's trash travels 130 km. Some of it does, and 130 km is the reported trip distance.",
+      "Don't do math between the 457 t a day and the 1,921 to 2,001 t figures. The dossier gives no time period for the second pair.",
+      "Don't say all 457 t a day leaves the region. That figure is privately handled waste, and my sources don't say how much of it goes to other cities.",
+      "Don't say nothing is being done. Changes to the national Wastes Control Act are pending, and nearby Seongnam is building a 500 t a day incinerator. My sources don't describe a new incinerator plan for Seoul itself.",
       "Don't blame a particular mayor or party. The sources say capital-region governments in general didn't expand capacity.",
       "Don't say 63% of all New York buildings will be fined. It's about 63% of buildings covered by LL97, projected to go over their 2030 caps if nothing more is done.",
       "Don't turn \"the end of next year\" into a specific year. Say it the way the report does.",
@@ -476,7 +476,7 @@
     "title": "Two Trash Facilities",
     "seoul": "The Mapo Resource Recovery Facility, one of Seoul's four public incinerators. The others are in Gangnam, Nowon and Yangcheon, and most of the four are 20 or more years old.",
     "nyc": "A DSNY transfer station or waste export barge (the photo credit says which). A transfer station is where garbage trucks unload and the trash is packed into containers to be hauled away by barge or train.",
-    "why": "Both photos show where a city's trash goes after pickup. Seoul burns part of its trash inside the city, and New York loads its trash up to be hauled away, which links to Seoul's new habit of sending trash to other cities."
+    "why": "Both photos show where trash goes after pickup. Seoul burns part of its trash in its own four incinerators. The New York photo shows a transfer station, where trash is loaded to be hauled away. That links to Seoul now sending some trash to other cities."
   },
   {
     "key": "s16",
@@ -484,8 +484,8 @@
     "inOneSentence": "Seoul removed an elevated highway and uncovered the stream buried under it, and the area gained wildlife, cleaner air and cooler temperatures without the traffic jams people expected.",
     "background": [
       "Cheonggyecheon (chung-gyeh-chun) is a stream in central Seoul. It had been buried under a road, with an elevated highway on top that carried about 168,000 vehicles a day. From 2003 to 2005, Seoul took the highway down and opened the stream back up. Uncovering a buried stream like this is called daylighting. The project cost about US$281 million and restored about 5.8 km (3.6 miles) of corridor.",
-      "Wildlife came back. Between 2003 and 2008, the Landscape Architecture Foundation counted plant species going from 62 to 308, insects from 15 to 192, birds from 6 to 36 and fish from 4 to 25. You'll often see a \"639% increase in biodiversity\" quoted. That figure comes from an overall index and doesn't count species, so the counts for each group are safer to give. Plants alone went up about 397%, so there were about five times as many plant species.",
-      "The air got cleaner and the area got cooler. Small-particle air pollution fell from 74 to 48 micrograms per cubic meter, about 35% less. The highest cooling estimate says the corridor is 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. Other sources find a smaller effect. WWF says 3 to 4°C cooler than areas 400 m away. Metropolis says the area went from 2.2°C above the Seoul average to 1.3°C above. A peer-reviewed review of many studies, the most careful source, found lower daily average temperatures within about 300 m of the stream.",
+      "Wildlife came back. A Landscape Architecture Foundation case study reports that between 2003 and 2008 plant species went from 62 to 308, insects from 15 to 192, birds from 6 to 36 and fish from 4 to 25. You'll often see a \"639% increase in biodiversity\" quoted. That figure comes from an overall index and doesn't count species, so the counts for each group are safer to give. Plants alone went up about 397%, so there were about five times as many plant species.",
+      "The air got cleaner and the area got cooler. Small-particle air pollution fell from 74 to 48 micrograms per cubic meter, about 35% less. The highest cooling estimate says the corridor is 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. Other sources find a smaller effect. WWF says 3 to 4°C cooler than areas 400 m away. Metropolis says the area went from 2.2°C above the Seoul average to 1.3°C above. A peer-reviewed study that pulled many studies together is the most careful source, and it found lower daily average temperatures within about 300 m of the stream.",
       "Many people expected traffic chaos when the highway closed, and it didn't happen. In general, when road space is taken away, some car trips stop happening, because people change routes, switch to transit or skip the trip. This is called reduced demand, and it's the opposite of induced demand, where new roads fill up with new traffic. Bus ridership in the corridor rose 15.1% from 2003 to 2008, but Seoul's big 2004 bus reform happened at the same time, so the stream shouldn't get all the credit.",
       "For New York, this is evidence for the debates over the Brooklyn-Queens Expressway (BQE), the Cross Bronx Expressway and the Gowanus Expressway. The High Line reused an old rail line, so no drivers lost a road. Cheonggyecheon removed a busy road that drivers used every day, and the gridlock people predicted did not happen."
     ],
@@ -569,7 +569,7 @@
       },
       {
         "value": "About 300 m",
-        "meaning": "The distance from the stream within which daily average temperatures were lower, according to a peer-reviewed review of many studies.",
+        "meaning": "The distance from the stream within which daily average temperatures were lower, according to a peer-reviewed study that pulled many studies together.",
         "source": "Is Cheonggyecheon Sustainable? A Systematic Literature Review",
         "confidence": "solid",
         "note": "The most careful source. The dossier gives the distance only, with no number of degrees."
@@ -593,7 +593,7 @@
       },
       {
         "q": "Is the stream natural? Where does the water come from, and what does it cost to keep up?",
-        "a": "My sources don't cover where the water comes from or what upkeep costs, so I'd want to check before answering. One of my sources is a peer-reviewed review that asks whether the project is sustainable overall, so it's a fair question to raise."
+        "a": "My sources don't cover where the water comes from or what upkeep costs, so I'd want to check before answering. One of my sources is a peer-reviewed study that pulled many studies together to ask whether the project is sustainable overall, so it's a fair question to raise."
       },
       {
         "q": "Why not use the 639% figure? It sounds impressive.",
@@ -601,7 +601,7 @@
       },
       {
         "q": "How much cooler is it really?",
-        "a": "It depends on what you compare it with. The highest estimate says 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. WWF says 3 to 4°C cooler than areas 400 m away. A peer-reviewed review, the most careful source, found lower daily average temperatures within about 300 m of the stream."
+        "a": "It depends on what you compare it with. The highest estimate says 3.3 to 5.9°C cooler than a parallel road 4 to 7 blocks away. WWF says 3 to 4°C cooler than areas 400 m away. A peer-reviewed study that pulled many studies together is the most careful source, and it found lower daily average temperatures within about 300 m of the stream."
       },
       {
         "q": "Could New York take down the BQE or the Cross Bronx?",
@@ -648,7 +648,7 @@
       },
       {
         "term": "Systematic review",
-        "meaning": "A study that collects and compares all the research on a topic, which makes it more careful than any single study."
+        "meaning": "A study that gathers the published research on a topic and compares it using set rules. It is usually more careful than relying on one study."
       }
     ],
     "nycLink": "New York's High Line reused an old rail line, which was the easy case because no drivers lost a road. Seoul removed a highway in heavy daily use, and the gridlock people predicted didn't happen. That's useful evidence for New York's debates over the BQE, the Cross Bronx and the Gowanus, and it becomes the fifth idea on slide 19."

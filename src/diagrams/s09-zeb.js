@@ -20,7 +20,7 @@ const XS = [-2, -1, 0, 1, 2].map(i => i * PITCH);
 const GRADES = ['Grade 5: 20 to 40%', 'Grade 4', 'Grade 3', 'Grade 2', 'Grade 1: over 100%'];
 
 // solar strips: run front to back on the roof, filling from the left edge
-const PV_MARGIN = 0.7, PV_GAP = 0.3, PV_N = 5;
+const PV_MARGIN = 0.6, PV_GAP = 0.45, PV_N = 5;
 const PV_W = (BW - 2 * PV_MARGIN - (PV_N - 1) * PV_GAP) / PV_N;
 const PV_L = BD - 2 * PV_MARGIN;
 const PV_T = 0.16, PV_LIFT = 0.22;

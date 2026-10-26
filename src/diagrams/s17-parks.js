@@ -132,14 +132,15 @@ export default defineDiagram({
       setPlate(walk, sub(v, 0.12, 0.58, ease.out), sub(v, 0.48, 0.82, ease.out));
       setFig(fig1, sub(v, 0.32, 0.70, ease.out));
       setFig(fig2, sub(v, 0.44, 0.82, ease.out));
-    }, { kind: 'reveal', dur: 1700 });
-    labelProp(S, 'lab1', lab1, { delay: 1150 });
-    labelProp(S, 'lab2', lab2, { delay: 1300 });
+    }, { kind: 'reveal', dur: 1600 });
+    labelProp(S, 'lab1', lab1, { delay: 1050 });
+    labelProp(S, 'lab2', lab2, { delay: 1250 });
 
     return {
       targets: n => ({ build: n >= 1 ? 1 : 0, lab1: n >= 1 ? 1 : 0, lab2: n >= 1 ? 1 : 0 }),
       plan: (name, from, to, dir) => {
-        if (dir >= 0) return null;
+        // forward: the sub-ranges inside 'build' carry their own ease-out, so the beat runs on a linear clock
+        if (dir >= 0) return name === 'build' ? { delay: 0, dur: 1600, ease: ease.linear } : null;
         // backwards: captions leave first, then the model folds away
         if (name === 'lab1' || name === 'lab2') return { delay: 0, dur: 280, ease: ease.in };
         if (name === 'build') return { delay: 160, dur: 750, ease: ease.in };

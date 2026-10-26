@@ -3,11 +3,12 @@
 import j0 from '../../spec/slides.json';
 import j1 from '../../spec/timing.json';
 import j2 from '../slides/references.json';
+import j3 from '../../spec/images.json';
 export default {
   slidesSpec: j0,
   timing: j1,
   references: j2,
-  images: null,
+  images: j3,
   notesV2: null,
   copy: null,
 };

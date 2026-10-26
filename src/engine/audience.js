@@ -24,7 +24,7 @@
 import { createStage } from './stage.js';
 import { buildDeck, fontsReady } from './slides.js';
 import { createStore, slidesFromTiming } from './state.js';
-import { bindKeys } from './input.js';
+import { bindKeys, bindWheel } from './input.js';
 import { createSync, createCommandRouter, shouldRestore, saveSnapshot, loadSnapshot, clearSnapshot } from './sync.js';
 import { createScreenController } from './screens.js';
 import { createOverlayTimer } from './overlay-timer.js';
@@ -132,10 +132,11 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   // ---------------- ui extras broadcast to the presenter
   let keySeq = 0;
   let lastKey = '';
+  let clickerTested = false; // a back press from a clicker in mouse-wheel mode (no key to report)
   let peers = 0;
   let ctrl = null;
   let sync = null;
-  const uiExtras = () => ({ ...(ctrl ? ctrl.uiState() : {}), overlay: overlay.isVisible(), keySeq, lastKey });
+  const uiExtras = () => ({ ...(ctrl ? ctrl.uiState() : {}), overlay: overlay.isVisible(), keySeq, lastKey, clickerTested });
 
   // ---------------- render
   let shownSeq = -1;
@@ -251,6 +252,14 @@ export async function bootAudience({ data, params = new URLSearchParams(location
     escape: () => { toggleHelp(false); gotoShow(null); },
     gotoPrompt: (text) => gotoShow(text),
   });
+
+  // Clicker in mouse-wheel mode (Norwii N27 mode 3): one notch = next / back, bursts debounced by input.js.
+  if (!isStatic) {
+    bindWheel(window, (a) => {
+      if (a && a.type === 'prev') clickerTested = true;
+      store.dispatch(a);
+    }, { ignore: (e) => !chrome.help.hidden && chrome.help.contains(e.target) });
+  }
 
   store.subscribe(render);
   render(store.getState());

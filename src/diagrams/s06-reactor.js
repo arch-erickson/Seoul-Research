@@ -4,7 +4,7 @@
 // State 2: the plant dissolves top-down into 1,680 tiny dwellings (one per 1,000 Eco-Mileage households) that fly
 // right and settle into a tidy block: 79% red (efficiency), 21% grey (renewables). The plant stays as a dashed
 // phantom: the plant Seoul did not need.
-import { defineDiagram, THREE, C, LW, ease, sub, lerp, labelProp, boxGeo, rng } from '../kit3d/index.js';
+import { defineDiagram, THREE, C, LW, ease, sub, lerp, labelProp, boxGeo, rng, edgeLinesFromGeometry } from '../kit3d/index.js';
 
 const DEG = Math.PI / 180;
 const AZ = 55, EL = 28;
@@ -15,7 +15,7 @@ const UPV = new THREE.Vector3().crossVectors(VIEW, RG).normalize();             
 
 // ---- plant (m) ----
 const Y0 = 1.5;                       // plinth top
-const RC = 21, HC = 42;               // containment radius, wall height (dome on top)
+const RC = 22, HC = 40;               // containment radius, wall height (dome on top)
 const DOME_TOP = Y0 + HC + RC;
 const AUX = { x0: -24, x1: 24, z0: 12, z1: 44, h: 26 };
 const TURB = { x0: -20, x1: 20, z0: 44, z1: 128, h: 34 };
@@ -29,9 +29,14 @@ const PITCH = 2.6;
 const FIELD_D = 156;                  // distance from plant centre along screen-right
 const FC = RG.clone().multiplyScalar(FIELD_D);
 const FY = 1.5;                       // field plinth top
-const GREY = '#B3B2AE';
+const GREY = '#BDBCB8';
+const GREY_EDGE = '#8E8F92';
 
-const WIPE = 0.58;                    // share of beat 2 spent dissolving the plant
+// beat 2 choreography (fractions of the beat): camera pan, then the top-down dissolve, flights, outlines
+const PAN = [0, 0.2];
+const WIPE0 = 0.12, WIPE1 = 0.6;
+const OUTLINE = [0.9, 1];
+const SCALE = 2.7, AT1 = [655, 262], AT2 = [384, 262];
 const H_TOP = DOME_TOP + 0.6;
 const H_BOT = Y0 - 0.6;
 
@@ -83,7 +88,7 @@ export default defineDiagram({
   states: 2,
   region: { x: 100, y: 420, w: 1080, h: 420 },
   stage: {
-    view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: 2.7, at: [384, 262] },
+    view: { azimuth: AZ, elevation: EL, target: [0, 0, 0], scale: SCALE, at: AT1.slice() },
     shadowBox: { min: [-36, 0, -210], max: [138, 66, 140] },
   },
   build(S) {
@@ -221,8 +226,8 @@ export default defineDiagram({
     addS((ANNEX.z1 - ANNEX.z0) * ANNEX.h, wallX(ANNEX, 0));
     addS((ANNEX.x1 - ANNEX.x0) * ANNEX.h, wallZ(ANNEX, 0));
     const totalA = surf.reduce((s, x) => s + x.area, 0);
-    const hAt = (p2) => H_TOP - (H_TOP - H_BOT) * sub(p2, 0, WIPE);
-    const releaseAt = (y) => WIPE * (H_TOP - y) / (H_TOP - H_BOT);
+    const hAt = (p2) => H_TOP - (H_TOP - H_BOT) * sub(p2, WIPE0, WIPE1);
+    const releaseAt = (y) => WIPE0 + (WIPE1 - WIPE0) * (H_TOP - y) / (H_TOP - H_BOT);
     const houses = [];
     for (let k = 0; k < N; k++) {
       let r = R() * totalA, s = surf[0];
@@ -238,7 +243,7 @@ export default defineDiagram({
     houses.forEach((h, k) => {
       h.goal = targets[k];
       const dist = h.start.distanceTo(h.goal);
-      h.dur = Math.min(0.34 + 0.08 * R(), 1 - h.t0);
+      h.dur = Math.min(0.3 + 0.08 * R(), OUTLINE[0] + 0.05 - h.t0);
       h.ctrl = h.start.clone().add(h.goal).multiplyScalar(0.5);
       h.ctrl.y += 5 + 0.05 * dist;
       (k < N_RED ? reds : greys).push(h);
@@ -254,6 +259,25 @@ export default defineDiagram({
     };
     const imRed = mkInst(reds, C.red);
     const imGrey = mkInst(greys, GREY);
+    // ink outlines of the settled dwellings (one merged static set per colour, drawn in once they have landed)
+    const hpos = hg.toNonIndexed().attributes.position.array;
+    const mkOutline = (list, color) => {
+      const arr = new Float32Array(hpos.length * list.length);
+      list.forEach((h, k) => {
+        for (let i = 0; i < hpos.length; i += 3) {
+          arr[k * hpos.length + i] = hpos[i] + h.goal.x;
+          arr[k * hpos.length + i + 1] = hpos[i + 1] + h.goal.y;
+          arr[k * hpos.length + i + 2] = hpos[i + 2] + h.goal.z;
+        }
+      });
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(arr, 3));
+      const l = edgeLinesFromGeometry(g, { color, color2: color, width: 0.75, width2: 0.6, creaseAngle: 20 });
+      field.add(l);
+      return l;
+    };
+    const olRed = mkOutline(reds, C.redDeep);
+    const olGrey = mkOutline(greys, GREY_EDGE);
 
     const _p = new THREE.Vector3();
     function placeHouses(list, im, p2) {
@@ -298,23 +322,35 @@ export default defineDiagram({
       clipUp.constant = -h;
       solids.visible = P1 > 0.001 && h > H_BOT + 0.05;
       phantom.visible = P2 > 0.0005;
-      grow(fPlinth, sub(P2, 0.06, 0.32, ease.out));
+      grow(fPlinth, sub(P2, WIPE0, WIPE0 + 0.22, ease.out));
       placeHouses(reds, imRed, P2);
       placeHouses(greys, imGrey, P2);
+      const ol = sub(P2, OUTLINE[0], OUTLINE[1], ease.out);
+      for (const l of [olRed, olGrey]) { l.material.setOpacity(ol); l.visible = ol > 0.002; }
+      // camera: state 1 centres the plant; beat 2 pans it left to make room for the dwellings
+      const c = ease.inOut(sub(P2, PAN[0], PAN[1]));
+      S.view.at[0] = lerp(AT1[0], AT2[0], c);
+      S.view.at[1] = lerp(AT1[1], AT2[1], c);
+      S.applyView();
+      if (L1) L1.o.place.x = S.project(domeTop).x;
+      if (L2) L2.o.place.x = S.project(fAnchor).x;
     }
+    let L1 = null, L2 = null;
+    const domeTop = new THREE.Vector3(0, Y0 + HC, 0).addScaledVector(UPV, RC);
+    let fAnchor = null;
     S.anim.prop('p1', 0, v => { P1 = v; update(); }, { kind: 'reveal', dur: 1500 });
-    S.anim.prop('p2', 0, v => { P2 = v; update(); }, { kind: 'move', dur: 2900 });
+    S.anim.prop('p2', 0, v => { P2 = v; update(); }, { kind: 'move', dur: 3600 });
 
     // ---------- labels (top band, centred over each model, vertical leaders) ----------
-    const domeTop = Cd.clone().addScaledVector(UPV, RC);
     const dTop = S.project(domeTop);
-    const L1 = S.label({
+    L1 = S.label({
       text: 'Output of one nuclear reactor: 2 million TOE a year',
       anchor: domeTop, anchorObj: plant,
       place: { mode: 'fixed', x: dTop.x, y: 24, ax: 'center', ay: 'top' }, leader: 'v',
-      maxWidth: 360, nowrap: false,
+      maxWidth: 345, nowrap: false,
     });
     // anchor: back-edge dwelling (i = 0 row) closest to the field's screen centre
+    S.view.at[0] = AT2[0]; S.view.at[1] = AT2[1]; S.applyView();   // the field is only seen from the state-2 view
     const fcx = S.project(new THREE.Vector3(FC.x, FY, FC.z)).x;
     let best = null, bestD = 1e9;
     for (let j = 0; j < NZ; j++) {
@@ -323,9 +359,10 @@ export default defineDiagram({
       const d = Math.abs(q.x - fcx);
       if (d < bestD) { bestD = d; best = t; }
     }
-    const fAnchor = new THREE.Vector3(best.x, FY + 2.05, best.z);
+    fAnchor = new THREE.Vector3(best.x, FY + 2.05, best.z);
     const fTop = S.project(fAnchor);
-    const L2 = S.label({
+    update();
+    L2 = S.label({
       text: '1.68 million households plus building retrofits',
       anchor: fAnchor, anchorObj: field,
       place: { mode: 'fixed', x: fTop.x, y: 24, ax: 'center', ay: 'top' }, leader: 'v',
@@ -333,6 +370,7 @@ export default defineDiagram({
     });
     labelProp(S, 'L1', L1);
     labelProp(S, 'L2', L2);
+    update();
 
     return {
       targets: n => ({ p1: n >= 1 ? 1 : 0, p2: n >= 2 ? 1 : 0, L1: n >= 1 ? 1 : 0, L2: n >= 2 ? 1 : 0 }),
@@ -342,13 +380,13 @@ export default defineDiagram({
           return {
             p1: { dur: 1500, ease: ease.linear },
             L1: { delay: 1250 },
-            p2: { dur: 2900, delay: d1, ease: ease.linear },
-            L2: { delay: d1 + 2750 },
+            p2: { dur: 3600, delay: d1, ease: ease.linear },
+            L2: { delay: d1 + 3350 },
           }[name] || null;
         }
         return {
           p1: { dur: 700, delay: 150, ease: ease.linear },
-          p2: { dur: 1300, delay: 150, ease: ease.linear },
+          p2: { dur: 1400, delay: 150, ease: ease.linear },
           L1: { dur: 300 }, L2: { dur: 300 },
         }[name] || null;
       },

@@ -361,6 +361,12 @@ export default defineDiagram({
     const fieldHeads = [];
     for (const z of [2, -22]) for (const x of [-27, 0, 27]) fieldHeads.push(makeHead(x + (z < 0 ? 13.5 : 0), yTop, z));
 
+    // clipped parts must clip their shadows too (otherwise the hidden, unclipped mass shades the rising top)
+    S.world.traverse(o => {
+      const m = o.isMesh && o.material;
+      if (m && m.clippingPlanes && m.clippingPlanes.length) m.clipShadows = true;
+    });
+
     // ================= animation =================
     // 1. the mound rises lift by lift (a rising cut with a moving top surface); the second mound follows
     S.anim.prop('mound', 0, v => {
@@ -432,7 +438,7 @@ export default defineDiagram({
     const wL = secWells[5];
     const L1 = S.label({
       text: 'Layers of trash, about 90 m high',
-      anchor: new THREE.Vector3(-20, 2.5, ZL + 0.02), anchorObj: section,
+      anchor: new THREE.Vector3(-13, 8.5, ZL + 0.02), anchorObj: section,
       place: { mode: 'column', x: COLX, side: 'left' }, maxWidth: 200, nowrap: false,
     });
     const L4 = S.label({
@@ -440,7 +446,7 @@ export default defineDiagram({
       anchor: new THREE.Vector3(-aTop + 0.8, yTop, ZC - 12), anchorObj: park,
       place: { mode: 'column', x: COLX, side: 'left' },
     });
-    const yCap = 3;
+    const yCap = 12;
     const L2 = S.label({
       text: 'Sealed cap',
       anchor: new THREE.Vector3(-(halfLen(0, yCap) + halfLen(T_CAP, yCap)) / 2, yCap, ZL + 0.02), anchorObj: section,
@@ -467,9 +473,11 @@ export default defineDiagram({
           if (name[0] === 'L') return { delay: 0, dur: 260, ease: ease.in };
           return { delay: 180, dur: 620, ease: ease.inOut };
         }
+        // props that stagger their own sub-motions run on a linear clock (their parts carry the easing)
+        const lin = ease.linear;
         const seq = {
-          mound: { delay: 0 }, L1: { delay: 2250 },
-          cap: { delay: 0 }, soil: { delay: 380 }, plant: { delay: 900 }, wells: { delay: 1150 },
+          mound: { delay: 0, ease: lin }, L1: { delay: 2250 },
+          cap: { delay: 0, ease: lin }, soil: { delay: 380, ease: lin }, plant: { delay: 900, ease: lin }, wells: { delay: 1150, ease: lin },
           L2: { delay: 1250 }, L4: { delay: 1800 }, L3: { delay: 2350 },
         };
         return seq[name] || null;

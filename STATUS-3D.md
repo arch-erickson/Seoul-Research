@@ -53,6 +53,10 @@ is imported JSON (inlined). 09:20: earlier parallel runs were cut off by usage l
 - Test module moved to `dev/s00-test.js`; `src/diagrams/` holds only real ids.
 - Kit change 09:13: default polygon offset reduced (factor 0.75, units 1.5) so thin slabs no longer show edges beneath them.
 
+## Checkpoints (ARCHITECTURE §12)
+
+- 780b6c2: s10-edc, s01-map, s03-map, s15-export, s11-nowon, s13-rfid (`checkpoint.mjs --no-site`). Each further DONE gets its own checkpoint.
+
 ## Contract requests
 
 None.

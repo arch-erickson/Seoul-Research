@@ -14,8 +14,8 @@ const mt = y => (y <= Y_HALF ? MT0 + (MT0 / 2 - MT0) * (y - Y0) / (Y_HALF - Y0)
 
 // ---- model dimensions (m); 1 m of height = 1 Mt ----
 const PITCH = 2.0;                        // one year
-const BT = 1.04;                          // bar width along the row
-const BD = 1.5;                           // bar depth
+const BT = 0.72;                          // bar width along the row
+const BD = 1.7;                           // bar depth
 const BASE_H = 0.7;                       // model base
 const BASE_X0 = -2.2, BASE_X1 = (N - 1) * PITCH + 2.2;
 const BASE_Z = 2.3;                       // base half depth
@@ -27,7 +27,7 @@ export default defineDiagram({
   states: 1,
   region: { x: 100, y: 320, w: 840, h: 620 },
   stage: {
-    view: { azimuth: -20, elevation: 27, target: [45, 0, 0], scale: 8.6, at: [418, 452] },
+    view: { azimuth: -16, elevation: 27, target: [45, 0, 0], scale: 8.9, at: [420, 470] },
     shadowBox: { min: [BASE_X0, 0, -BASE_Z], max: [BASE_X1, MT0 + BASE_H, BASE_Z] },
     ground: { y: 0, opacity: 0.1 },
   },
@@ -79,9 +79,11 @@ export default defineDiagram({
       text: 'Half by 2033', anchor: top33, anchorObj: redPart,
       place: { mode: 'fixed', x: p33.x - 2, y: p33.y - LIFT, ax: 'left', ay: 'bottom' }, leader: 'v',
     });
+    // 2050 sits at ground level: its label hangs below the base (the leader crosses only the base it marks)
+    const pFront = S.project(new THREE.Vector3(xOf(N - 1), 0, BASE_Z));
     const lab50 = S.label({
       text: 'Net zero by 2050', anchor: foot50, anchorObj: base,
-      place: { mode: 'fixed', x: p50.x + 2, y: p50.y - LIFT, ax: 'right', ay: 'bottom' }, leader: 'v',
+      place: { mode: 'fixed', x: p50.x + 2, y: pFront.y + 34, ax: 'right', ay: 'top' }, leader: 'v',
     });
 
     // ---- motion: one progress prop, bars rise in a wave from 2005 to 2049 ----
