@@ -26,6 +26,7 @@ const PLINTH = { x0: -32, x1: 36, z0: -29, z1: 136 };
 const NX = 30, NZ = 56, N = NX * NZ;  // 1,680 dwellings
 const N_RED = Math.round(N * 0.79);   // efficiency 79% · renewables 21%
 const PITCH = 2.6;
+const BLOCK_X = 10, BLOCK_Z = 8, STREET = 1.6;   // dwellings grouped in blocks with narrow streets
 const FIELD_D = 156;                  // distance from plant centre along screen-right
 const FC = RG.clone().multiplyScalar(FIELD_D);
 const FY = 1.5;                       // field plinth top
@@ -58,7 +59,7 @@ function containmentGeo() {
   const n = 24;
   for (let i = 1; i <= n; i++) {
     const a = (i / n) * Math.PI / 2;
-    pts.push(new THREE.Vector2(Math.max(1e-4, RC * Math.cos(a)), HC + RC * Math.sin(a)));
+    pts.push(new THREE.Vector2(i === n ? 0 : RC * Math.cos(a), HC + RC * Math.sin(a)));   // apex closes to a point
   }
   const g = new THREE.LatheGeometry(pts, 120);
   g.computeVertexNormals();
@@ -76,6 +77,16 @@ function boxPhantom(b, y0, y1) {
   L([x1, y0, z0], [x1, y1, z0]); L([x1, y0, z1], [x1, y1, z1]); L([x0, y0, z1], [x0, y1, z1]);
   L([x1, y0, z0], [x1, y0, z1]); L([x1, y0, z1], [x0, y0, z1]);
   return s;
+}
+
+// deterministic two-line labels: the label keeps its exact text, the break sits where it reads best
+function breakLines(label, lines) {
+  label.nameEl.textContent = '';
+  lines.forEach((t, i) => {
+    if (i) label.nameEl.appendChild(document.createElement('br'));
+    label.nameEl.appendChild(document.createTextNode(t));
+  });
+  label.measure();
 }
 
 function polySeg(pts, out) {
@@ -179,12 +190,15 @@ export default defineDiagram({
     const fPlinth = new THREE.Group();
     fPlinth.position.set(FC.x, 0, FC.z);
     field.add(fPlinth);
-    S.solid(boxGeo(NX * PITCH + 5, FY, NZ * PITCH + 5), {}, fPlinth);
+    const FW = NX * PITCH + (NX / BLOCK_X - 1) * STREET, FD = NZ * PITCH + (NZ / BLOCK_Z - 1) * STREET;
+    S.solid(boxGeo(FW + 5, FY, FD + 5), {}, fPlinth);
 
     // targets in fill order: rows along z from the plant side (+z) to the far end
     const targets = [];
     for (let j = 0; j < NZ; j++) for (let i = 0; i < NX; i++) {
-      targets.push(new THREE.Vector3(FC.x + (i - (NX - 1) / 2) * PITCH, FY, FC.z + ((NZ - 1) / 2 - j) * PITCH));
+      const x = -FW / 2 + PITCH / 2 + i * PITCH + Math.floor(i / BLOCK_X) * STREET;
+      const z = FD / 2 - PITCH / 2 - j * PITCH - Math.floor(j / BLOCK_Z) * STREET;
+      targets.push(new THREE.Vector3(FC.x + x, FY, FC.z + z));
     }
 
     // start points on the camera-facing surfaces of the plant (area weighted)
@@ -347,8 +361,8 @@ export default defineDiagram({
       text: 'Output of one nuclear reactor: 2 million TOE a year',
       anchor: domeTop, anchorObj: plant,
       place: { mode: 'fixed', x: dTop.x, y: 24, ax: 'center', ay: 'top' }, leader: 'v',
-      maxWidth: 345, nowrap: false,
     });
+    breakLines(L1, ['Output of one nuclear reactor:', '2 million TOE a year']);
     // anchor: back-edge dwelling (i = 0 row) closest to the field's screen centre
     S.view.at[0] = AT2[0]; S.view.at[1] = AT2[1]; S.applyView();   // the field is only seen from the state-2 view
     const fcx = S.project(new THREE.Vector3(FC.x, FY, FC.z)).x;
@@ -366,8 +380,8 @@ export default defineDiagram({
       text: '1.68 million households plus building retrofits',
       anchor: fAnchor, anchorObj: field,
       place: { mode: 'fixed', x: fTop.x, y: 24, ax: 'center', ay: 'top' }, leader: 'v',
-      maxWidth: 300, nowrap: false,
     });
+    breakLines(L2, ['1.68 million households', 'plus building retrofits']);
     labelProp(S, 'L1', L1);
     labelProp(S, 'L2', L2);
     update();

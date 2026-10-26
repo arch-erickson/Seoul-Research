@@ -17,9 +17,8 @@ const PITCH = 2.0;                        // one year
 const BT = 0.72;                          // bar width along the row
 const BD = 1.7;                           // bar depth
 const BASE_H = 0.7;                       // model base
-const BASE_X0 = -2.2, BASE_X1 = (N - 1) * PITCH + 2.2;
+const BASE_X0 = -1.6, BASE_X1 = (N - 1) * PITCH + 1.6;
 const BASE_Z = 2.3;                       // base half depth
-const STUB = 0.12;                        // 2050 footprint plate
 const xOf = i => i * PITCH;
 
 export default defineDiagram({
@@ -27,9 +26,9 @@ export default defineDiagram({
   states: 1,
   region: { x: 100, y: 320, w: 840, h: 620 },
   stage: {
-    view: { azimuth: -16, elevation: 27, target: [45, 0, 0], scale: 8.9, at: [420, 470] },
+    view: { azimuth: -16, elevation: 27, target: [45, 0, 0], scale: 8.45, at: [420, 488] },
     shadowBox: { min: [BASE_X0, 0, -BASE_Z], max: [BASE_X1, MT0 + BASE_H, BASE_Z] },
-    ground: { y: 0, opacity: 0.1 },
+    ground: false,
   },
   build(S) {
     // ---- base + footprints ----
@@ -43,9 +42,12 @@ export default defineDiagram({
       fp.push(x0, fy, z0, x1, fy, z0, x1, fy, z0, x1, fy, z1, x1, fy, z1, x0, fy, z1, x0, fy, z1, x0, fy, z0);
     }
     S.lines(fp, { width: LW.hair, color: C.hair }, base);
-    // 2050: net zero, a thin footprint plate (part of the base)
-    const zero = S.solid(boxGeo(BT, STUB, BD), { edges: { color: C.edge, color2: C.edge, width: 1.3, width2: 1.1 } }, base);
-    zero.position.set(xOf(N - 1), BASE_H, 0);
+    // 2050: net zero, the footprint alone, drawn in ink (part of the base)
+    {
+      const x0 = xOf(N - 1) - BT / 2, x1 = xOf(N - 1) + BT / 2, z0 = -BD / 2, z1 = BD / 2;
+      S.lines([x0, fy, z0, x1, fy, z0, x1, fy, z0, x1, fy, z1, x1, fy, z1, x0, fy, z1, x0, fy, z1, x0, fy, z0],
+        { width: 1.2, color: C.edge }, base);
+    }
 
     // ---- bars ----
     const redPart = S.part('Bars 2005 to 2033');
@@ -60,8 +62,8 @@ export default defineDiagram({
       pivot.position.set(xOf(i), BASE_H, 0);
       (isRed ? redPart : greyPart).add(pivot);
       S.solid(boxGeo(BT, h, BD), isRed
-        ? { material: redMat, edges: { color: C.redDeep, color2: C.redDeep, width: 1.3, width2: 0.8 } }
-        : { edges: { color: C.crease, color2: C.hair, width: 1.15, width2: 0.7 } }, pivot);
+        ? { material: redMat, castShadow: false, edges: { color: C.redDeep, color2: C.redDeep, width: 1.3, width2: 0.8 } }
+        : { castShadow: false, edges: { color: C.crease, color2: C.hair, width: 1.15, width2: 0.7 } }, pivot);
       bars.push({ pivot, h });
     }
 
@@ -69,7 +71,7 @@ export default defineDiagram({
     const LIFT = 44;      // px between an anchor and the bottom of its label
     const top05 = new THREE.Vector3(xOf(0), BASE_H + mt(Y0), 0);
     const top33 = new THREE.Vector3(xOf(Y_HALF - Y0), BASE_H + mt(Y_HALF), 0);
-    const foot50 = new THREE.Vector3(xOf(N - 1), BASE_H + STUB, 0);
+    const foot50 = new THREE.Vector3(xOf(N - 1), fy, BD / 2);     // front edge of the 2050 footprint
     const p05 = S.project(top05), p33 = S.project(top33), p50 = S.project(foot50);
     const lab05 = S.label({
       text: '52.34 Mt in 2005', anchor: top05, anchorObj: redPart,
@@ -83,7 +85,7 @@ export default defineDiagram({
     const pFront = S.project(new THREE.Vector3(xOf(N - 1), 0, BASE_Z));
     const lab50 = S.label({
       text: 'Net zero by 2050', anchor: foot50, anchorObj: base,
-      place: { mode: 'fixed', x: p50.x + 2, y: pFront.y + 34, ax: 'right', ay: 'top' }, leader: 'v',
+      place: { mode: 'fixed', x: p50.x + 2, y: pFront.y + 34, ax: 'right', ay: 'top' }, leader: 'v', dot: false,
     });
 
     // ---- motion: one progress prop, bars rise in a wave from 2005 to 2049 ----

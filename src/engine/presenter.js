@@ -20,7 +20,7 @@
 
 import { buildDeck } from './slides.js';
 import { createStore, slidesFromTiming } from './state.js';
-import { bindKeys } from './input.js';
+import { bindKeys, bindWheel } from './input.js';
 import { notesFor } from '../slides/notes.js';
 import { createSync, actionCommand, hookCommand } from './sync.js';
 import { watchScreens, showToast, audienceUrlFor, AUDIENCE_WINDOW, MESSAGES } from './screens.js';
@@ -638,6 +638,13 @@ export function bootPresenter(arg = {}) {
     escape: () => { toggleHelp(false); gotoShow(null); },
     gotoPrompt: (text) => gotoShow(text),
   });
+
+  // clicker in mouse-wheel mode: a notch over the slides navigates; over the notes or the help card it scrolls
+  bindWheel(window, (action) => {
+    if (!action || !action.type) return;
+    if (action.type === 'prev') markClicker();
+    act(action.type);
+  }, { ignore: (e) => !!(e.target && e.target.closest && e.target.closest('.pv-notes, .pv-help, .pv-start')) });
 
   // notes: remember manual scrolling so auto-scroll does not fight the speaker
   const markUser = () => { userScrollAt = Date.now(); };

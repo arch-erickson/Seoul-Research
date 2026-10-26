@@ -235,6 +235,7 @@ export default defineDiagram({
     riseCapGeo.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(capN * 9), 3));
     const riseCap = mesh(riseCapGeo, S.material(C.model, { unique: true }), waste, false);
     const riseCapLine = S.lines([0, 0, 0, 1, 0, 0], { width: LW.silhouette, color: C.edge }, waste);
+    riseCap.receiveShadow = false;   // the rising top is the highest surface: keep it white
     riseCap.visible = riseCapLine.visible = false;
     function setRiseCap(h) {
       const pts = outline(setbackAt(0, h));
