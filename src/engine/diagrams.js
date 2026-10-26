@@ -1,7 +1,7 @@
 // Mounts 3D diagram modules (ARCHITECTURE.md section 5) into their slots and keeps their state.
 // createDiagramHost({ registry, view, getScale, reducedMotion })
 //   -> { has(id), isLive(id), mount(slot, id), unmount(id), setState(id, n, opts), stateOf(id), renderOnce(id),
-//        audit(id), instance(id), refreshPixelRatio(), disposeAll() }
+//        warm(id), audit(id), instance(id), refreshPixelRatio(), disposeAll() }
 // A module that is missing, or whose create() throws, is never live: the slide keeps its Figma 2D fallback.
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
@@ -90,7 +90,25 @@ export function createDiagramHost({ registry = {}, view = 'audience', getScale =
       const { slot, state } = rec;
       unmount(id);
       const inst = mount(slot, id);
-      if (inst) setState(id, state, { instant: true, force: true });
+      if (inst) { setState(id, state, { instant: true, force: true }); warm(id); } // a prewarmed next slide stays warm
+    }
+  }
+
+  // Prewarm: WebGL commands of an instance created inside a hidden (display: none) slide are only queued; Chrome
+  // executes them (shader compile + link + first draw) when the canvas is first composited, i.e. during the slide
+  // crossfade, which then freezes for seconds on a slow GPU. flush() hands that work to the GPU now, without blocking
+  // this thread, so it is done long before the slide is shown. kit3d instances expose their renderer as inst.stage.renderer.
+  function warm(id) {
+    const rec = live.get(id);
+    if (!rec) return false;
+    try {
+      const r = rec.inst.stage && rec.inst.stage.renderer;
+      const gl = r && typeof r.getContext === 'function' ? r.getContext() : null;
+      if (!gl || typeof gl.flush !== 'function' || (gl.isContextLost && gl.isContextLost())) return false;
+      gl.flush();
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 
@@ -105,6 +123,7 @@ export function createDiagramHost({ registry = {}, view = 'audience', getScale =
     setState,
     stateOf: (id) => (live.has(id) ? live.get(id).state : null),
     renderOnce,
+    warm,
     audit,
     instance: (id) => (live.has(id) ? live.get(id).inst : null),
     liveIds: () => [...live.keys()],

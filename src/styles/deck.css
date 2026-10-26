@@ -144,3 +144,32 @@ html.cursor-idle, html.cursor-idle * { cursor: none !important; }
 }
 
 @media print { .aud-blank, .aud-help, .aud-goto { display: none !important; } }
+
+/* ---------- asset loading ring (src/engine/preload.js): viewport bottom-left, outside the scaled stage ---------- */
+/* Track: hairline light grey. Progress from 9 o'clock clockwise: top half red (Seoul), bottom half blue (New York),
+   so the finished ring reads as the taegeuk, red over blue. A white disc keeps it legible over the black letterbox. */
+.asset-ring {
+  position: fixed; z-index: 2147483000; box-sizing: border-box;
+  left: calc(20px + env(safe-area-inset-left, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 40px; height: 40px; border-radius: 50%; background: var(--paper);
+  pointer-events: none; user-select: none; -webkit-user-select: none;
+  opacity: 1; transition: opacity 400ms var(--ease-in);
+  font-family: var(--font); color: var(--ink);
+}
+.asset-ring.is-leaving { opacity: 0; }
+.asset-ring__svg { position: absolute; inset: 0; width: 40px; height: 40px; display: block; overflow: visible; }
+.asset-ring__track { fill: none; stroke: var(--rule); stroke-width: 1; }
+.asset-ring__arc { fill: none; stroke-width: 3; stroke-linecap: butt; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+.asset-ring__arc--red { stroke: var(--red); }
+.asset-ring__arc--blue { stroke: var(--blue); }
+.asset-ring__label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 11px; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
+  font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1;
+}
+.asset-ring__pct { font-size: 7.5px; margin-left: 0.5px; align-self: center; }
+.asset-ring__icon { width: 15px; height: 15px; display: block; }
+.asset-ring__bang { font-weight: 800; font-size: 15px; color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .asset-ring { transition: none; } }
+@media print { .asset-ring { display: none !important; } }
+body[data-view="print"] .asset-ring { display: none !important; }

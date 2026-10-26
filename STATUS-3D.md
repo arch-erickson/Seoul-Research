@@ -9,7 +9,7 @@ is imported JSON (inlined). 10:05: budget cut (user is at 76% of the weekly limi
 
 | # | id | status | states | audit (strict) | screenshots (.tmp/3d/) |
 |---|---|---|---|---|---|
-| 1 | s10-edc | DONE (final polish pending) | 0–5 | 0 violations at every state | s10-edc-0..5.png, s10-edc-5-preview.png, s10-edc-sheet.png, s10-edc-3-t1400.png |
+| 1 | s10-edc | DONE (leaders rerouted: section cut at x = 0, no leader crosses other geometry) | 0–5 | 0 violations at every state | s10-edc-0..5.png, s10-edc-5-preview.png, s10-edc-sheet.png, s10-edc-3-t1400.png |
 | 2 | s01-map | DONE | 0–1 | 0 / 0 | s01-map-0.png, s01-map-1.png, s01-map-1-preview.png, s01-map-sheet.png |
 | 2 | s03-map | DONE | 0–1 | 0 / 0 | s03-map-0.png, s03-map-1.png, s03-map-1-preview.png, s03-map-sheet.png |
 | 3 | s12-towers | DONE (lead-reviewed) | 0–2 | 0 at every state | s12-towers-sheet.png (+ builder per-state PNGs) |

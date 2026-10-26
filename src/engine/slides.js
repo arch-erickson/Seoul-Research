@@ -587,24 +587,55 @@ export function buildDeck(stageEl, opts = {}) {
     for (const d of S.slots) if (!host.isLive(d.id)) host.mount(d.slot, d.id);
   }
 
+  // Prewarm the next slide's diagrams while this one is idle (audience view only: prefetch is 0 in the presenter and
+  // print views). Scheduled once per slide entry, PREWARM_MS after it, in an idle period: the next section is laid out
+  // but invisible (visibility: hidden, never display: none, so the canvas and its DOM labels measure their real size)
+  // for the synchronous mount, then the GL work is flushed to the GPU (host.warm) so entering the slide later costs
+  // nothing. Only the current and next slides' diagrams are ever alive.
+  const PREWARM_MS = 900, PREWARM_IDLE_MS = 800;
+  let prefetchIdle = null, prefetchFor = -1;
+  const ric = typeof requestIdleCallback === 'function' ? requestIdleCallback : null;
+  function cancelPrefetch() {
+    clearTimeout(prefetchTimer);
+    prefetchTimer = null;
+    if (prefetchIdle !== null && typeof cancelIdleCallback === 'function') cancelIdleCallback(prefetchIdle);
+    prefetchIdle = null;
+    prefetchFor = -1;
+  }
+  function prewarm(index) {
+    if (cur !== index) return;
+    for (let i = index + 1; i <= Math.min(slides.length - 1, index + prefetch); i++) {
+      const N = slides[i];
+      const todo = N.slots.filter((d) => host.has(d.id) && !host.isLive(d.id));
+      if (!todo.length) continue;
+      const sec = N.section, st = sec.style;
+      const hidden = getComputedStyle(sec).display === 'none';
+      const keep = hidden ? { display: st.display, visibility: st.visibility } : null;
+      if (hidden) { st.visibility = 'hidden'; st.display = 'block'; }
+      try {
+        for (const d of todo) {
+          host.mount(d.slot, d.id);
+          host.setState(d.id, stateFor(d, N.visible), { instant: true });
+          host.warm(d.id);
+        }
+      } finally {
+        if (keep) { st.display = keep.display; st.visibility = keep.visibility; }
+      }
+    }
+  }
   function manageWindow(index) {
     if (manageDiagrams !== 'window') return;
     const keep = new Set();
     for (let i = index; i <= Math.min(slides.length - 1, index + prefetch); i++) for (const d of slides[i].slots) keep.add(d.id);
     for (const id of host.liveIds()) if (!keep.has(id)) host.unmount(id);
-    clearTimeout(prefetchTimer);
-    if (prefetch > 0) {
-      prefetchTimer = setTimeout(() => {
-        for (let i = index + 1; i <= Math.min(slides.length - 1, index + prefetch); i++) {
-          const N = slides[i];
-          for (const d of N.slots) {
-            if (host.isLive(d.id)) continue;
-            host.mount(d.slot, d.id);
-            host.setState(d.id, stateFor(d, N.visible), { instant: true });
-          }
-        }
-      }, 700);
-    }
+    if (prefetch <= 0 || prefetchFor === index) return; // a beat change on the same slide keeps the scheduled prewarm
+    cancelPrefetch();
+    prefetchFor = index;
+    prefetchTimer = setTimeout(() => {
+      prefetchTimer = null;
+      if (ric) prefetchIdle = ric(() => { prefetchIdle = null; prewarm(index); }, { timeout: PREWARM_IDLE_MS });
+      else prewarm(index);
+    }, PREWARM_MS);
   }
 
   // Decode the photos of the next slides ahead of time so an image slide never appears half-decoded.
@@ -701,7 +732,7 @@ export function buildDeck(stageEl, opts = {}) {
     dispose() {
       finishAll();
       endFade();
-      clearTimeout(prefetchTimer);
+      cancelPrefetch();
       host.disposeAll();
       root.remove();
     },

@@ -7,7 +7,9 @@
 // said word for word) stand out; slide timer elapsed / planned (amber in the last 15 s, red when over); total vs
 // plan (ahead / behind); next auto-beat countdown; wall clock; a big PAUSED banner after going back; buttons
 // Pause/Resume, Reset, Auto-beats, Black screen, Present on projector. Before the talk starts (until the first
-// forward press) a short checklist replaces the next preview, including the PDF reminder the user asked for.
+// forward press) a short checklist replaces the next preview, including the PDF reminder the user asked for and a
+// live "Photos and fonts loaded" line (preload.js runs the same asset loader here, without the ring). A full reset
+// (back / Home to slide 1, state.js) brings the checklist back even if it was hidden with Hide.
 //
 // bootPresenter(arg?) - data comes from arg.data, arg itself, or globalThis.__SEOUL_DECK_DATA__:
 //   { slidesSpec, timing, images, imageBriefs, references, diagrams, notes? }
@@ -25,6 +27,7 @@ import { notesFor } from '../slides/notes.js';
 import { createSync, actionCommand, hookCommand } from './sync.js';
 import { watchScreens, showToast, audienceUrlFor, AUDIENCE_WINDOW, MESSAGES } from './screens.js';
 import { planFromTiming, fmt } from './overlay-timer.js';
+import { createAssetLoader, assetCountText } from './preload.js';
 
 const STAGE_W = 1920;
 const STAGE_H = 1080;
@@ -380,6 +383,7 @@ function buildDom() {
         <button type="button" class="pv-mini" data-act="start-hide">Hide</button>
       </div>
       <ol class="pv-check">
+        <li data-item="assets" data-state="todo"><span class="pv-check-box">${CHECK}</span><div class="pv-check-txt"><div class="pv-check-t">Photos and fonts loaded</div><div class="pv-check-s"></div></div></li>
         <li data-item="projector" data-state="todo"><span class="pv-check-box">${CHECK}</span><div class="pv-check-txt"><div class="pv-check-t">Projector connected and set to Extend</div><div class="pv-check-s"></div></div></li>
         <li data-item="present" data-state="todo"><span class="pv-check-box">${CHECK}</span><div class="pv-check-txt"><div class="pv-check-t">Press ${KB('P')} to present on the projector</div><div class="pv-check-s"></div></div></li>
         <li data-item="clicker" data-state="todo" role="button" tabindex="-1"><span class="pv-check-box">${CHECK}</span><div class="pv-check-txt"><div class="pv-check-t">Test the clicker</div><div class="pv-check-s"></div></div></li>
@@ -492,6 +496,7 @@ export function bootPresenter(arg = {}) {
   let firstKeySeq = null;
   let lastMode = '';
   let dragToast = null;
+  let assetsState = null; // preload.js loader state (set at the end of boot)
   const pdfDay = prefs.get('seoul-deck/pdfSubmitted', null);
   let pdfDone = pdfDay === today();
 
@@ -669,6 +674,8 @@ export function bootPresenter(arg = {}) {
     role: 'presenter',
     onState(state, m) {
       if (!state || typeof state !== 'object') return;
+      // a full reset (back / Home to slide 1) brings the "Before you start" checklist back, even after Hide
+      if (pristineTalk(state) && snap && !pristineTalk(snap)) startHidden = false;
       snap = state;
       snapUi = (m && m.ui) || {};
       snapAt = (m && (m.sentAt || m.receivedAt)) || Date.now();
@@ -703,6 +710,7 @@ export function bootPresenter(arg = {}) {
   // ---------------- derived values
   const row = (i) => meta.rows[i] || null;
   const beatsOf = (i) => (row(i) ? row(i).beats.length : 1);
+  const pristineTalk = (st) => !!st && !st.started && !((st.timer && st.timer.globalMs) > 0) && !((st.furthest | 0) > 0);
   const isStartPhase = (st) => !!st && !((st.furthest | 0) > 0 || (st.furthestBeat | 0) > 0);
   // Both windows see the same screens; the leader's view wins while connected (it runs the present flow).
   const extendedNow = () => (live && snapUi.screens ? !!snapUi.screens.extended : !!screenInfo.extended);
@@ -850,6 +858,12 @@ export function bootPresenter(arg = {}) {
       ? 'The clicker reached the deck.'
       : 'Press its back button once and watch this line tick. Forward starts the talk.');
     setItem('pdf', pdfDone, pdfDone ? 'Marked as submitted today.' : 'Click this line once the PDF is submitted.');
+    const as = assetsState;
+    if (as) {
+      let aSub = as.done ? `All ${as.total} files are in the browser.` : `Loading: ${assetCountText(as)}`;
+      if (as.failed) aSub = `${assetCountText(as)}. Not loaded: ${as.failedNames.join(', ')}`;
+      setItem('assets', as.done && !as.failed, aSub);
+    }
   }
 
   // ---------------- status (connection / projector / clock)
@@ -1005,6 +1019,8 @@ export function bootPresenter(arg = {}) {
   // ---------------- start
   // Render something at once: the URL demo state (?slide=...) or slide 1 with the checklist, replaced by the
   // leader's state as soon as it answers.
+  // photos + fonts: the same loader as the audience ring, shown as a checklist line here
+  safe(() => createAssetLoader({ images: data.images, onProgress: (st) => { assetsState = st; renderStart(); } }), 'assets');
   const first = safe(localSnapshot, 'localSnapshot');
   if (first) { snap = first; snapAt = Date.now(); demo = params.has('slide'); render(); }
   setInterval(tick, 200);
@@ -1015,6 +1031,7 @@ export function bootPresenter(arg = {}) {
     sync,
     getSnapshot: () => snap,
     render,
+    assets: () => assetsState,
     _test: { renderMarkdown, matchCue, meta, undash, noteToMarkdown, startVisible: () => ui.root.classList.contains('is-start') },
   };
   window.__seoulPresenter = api;

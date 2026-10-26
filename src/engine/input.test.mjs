@@ -345,16 +345,19 @@ describe('with the real store', () => {
     assert.equal(store.getState().cur, 0);
     assert.equal(store.getState().beat, 1);
     press('PageDown'); // -> b
-    press('PageUp'); // -> a, paused by back
+    press('PageDown'); // -> c
+    press('PageUp'); // -> b, paused by back (back to slide 1 would be a full reset)
     assert.equal(store.getState().timer.pausedByBack, true);
     press('PageDown'); // resume only
-    assert.equal(store.getState().cur, 0);
-    press('PageDown'); // -> b
     assert.equal(store.getState().cur, 1);
+    assert.equal(store.getState().timer.running, true);
     press('g');
     press('3');
     press('Enter');
     assert.equal(store.getState().cur, 2);
+    press('Home'); // slide 1 = full reset
+    assert.equal(store.getState().cur, 0);
+    assert.equal(store.getState().started, false);
   });
 });
 

@@ -36,3 +36,9 @@ PENDING MAIN: actual deck integration, coordination with diagrams, full offline 
 After integration, rebuild the single-file presentation and verify rapid forward clicking, back navigation, fully built revisits, reduced motion, preview/print paths and strict offline file playback. Review the actual slides against speaker beat timing. No runtime network, modules, workers, libraries, installations or visible test windows. Do not publish merely because this integration handoff exists; follow the user's publishing authorization in the MAIN session.
 
 Codex edited only its assigned motion source/test files and codex folder inside the shared deck project. No npm install or git commands were used.
+
+## Study guide delivered (2026-10-26)
+
+DONE: scripts/build-study.mjs regenerates codex/study/Seoul-Study-Guide.html from the current study, extras, copy, notes, timing and N27 table. All 39 study keys plus untimed qa/thanks are included; 38:30 talk, 60 flashcards, 100 Q&A questions, 25 glossary terms, both themes and the day-of checklist. Source wording and numbers are preserved; obsolete extras schedule/keys are ignored.
+DONE: 7 build/content tests; all 29 browser checks at desktop and true 390x844 phone size, including dark mode, with zero runtime/resource errors or sideways scrolling. Inspected top, s08, Flashcards and Q&A at both sizes. Complete HTML has zero em/en dashes. Evidence and regeneration instructions: codex/study/VERIFICATION.md.
+DELIVERED: copied the self-contained page to C:\Users\erick\OneDrive\Documents\CUNY\Fall 2026\ARCH 3551- Sustainability History & Practice\Research Presentation\Seoul-Study-Guide.html; 815,582 bytes; SHA-256 87EFD056AB78076F1181E0265A9E275C385CBE91F8B4410CFBA583D703EBF892 matches the generated original. No installs, git or visible windows. If source notes/timing change, rerun the builder and refresh the course-folder copy.

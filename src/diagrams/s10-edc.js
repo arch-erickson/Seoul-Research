@@ -116,7 +116,7 @@ export default defineDiagram({
   states: 5,
   region: { x: 100, y: 300, w: 1110, h: 680 },
   stage: {
-    view: { azimuth: 32, elevation: 22, target: [0, 0, 0], scale: 10, at: [384, 318] },
+    view: { azimuth: 32, elevation: 22, target: [0, 0, 0], scale: 8.2, at: [492, 300] },
     shadowBox: { min: [-28, -20, -28], max: [28, 17, 28] },
     ground: false,
   },
@@ -126,21 +126,21 @@ export default defineDiagram({
     // ================= 1. ground section (topsoil, compacted waste, bearing stratum) =================
     const ground = S.part('Ground section');
     const clipGround = new THREE.Plane(new THREE.Vector3(0, -1, 0), 0);
-    const notchL = [[-W, -W], [W, -W], [W, 0], [0, 0], [0, W], [-W, W]];   // front quadrant cut away
+    const halfL = [[-W, -W], [0, -W], [0, W], [-W, W]];   // the right half of the site is cut away (section plane x = 0)
     const gMat = S.material(C.model, { unique: true, clippingPlanes: [clipGround] });
     const cutMat = S.material('#F1F0EC', { unique: true, clippingPlanes: [clipGround] });
     const bearMat = S.material('#E9E8E3', { unique: true, clippingPlanes: [clipGround] });
     const eClip = { clippingPlanes: [clipGround] };
-    S.solid(boxGeo(2 * W, Y_WASTE - Y_BOT, 2 * W).translate(0, Y_BOT, 0), { material: bearMat, edges: eClip }, ground);
-    S.solid(prismGeo(notchL, Y_SOIL - Y_WASTE, Y_WASTE), { material: cutMat, edges: eClip }, ground);
-    S.solid(prismGeo(notchL, -Y_SOIL, Y_SOIL), { material: gMat, edges: eClip }, ground);
+    S.solid(prismGeo(halfL, Y_WASTE - Y_BOT, Y_BOT), { material: bearMat, edges: eClip }, ground);
+    S.solid(prismGeo(halfL, Y_SOIL - Y_WASTE, Y_WASTE), { material: cutMat, edges: eClip }, ground);
+    S.solid(prismGeo(halfL, -Y_SOIL, Y_SOIL), { material: gMat, edges: eClip }, ground);
     // compacted-waste strata: fine horizontal bands on every visible cut face (deterministic jitter)
     const r = rng(7);
     const strata = [];
     const faces = [
       // [x0,z0,x1,z1, outward offset dx,dz]
-      [W, 0, W, -W, 0.03, 0], [0, W, -W, W, 0, 0.03],      // outer faces (+x back half, +z left half)
-      [0, 0, 0, W, 0.03, 0], [0, 0, W, 0, 0, 0.03],         // notch faces
+      [0, W, 0, -W, 0.03, 0],                              // section face x = 0
+      [0, W, -W, W, 0, 0.03],                              // front outer face (+z)
     ];
     let y = Y_SOIL;
     const bandYs = [];
@@ -151,11 +151,11 @@ export default defineDiagram({
     }
     for (const by of bandYs) for (const [x0, z0, x1, z1, dx, dz] of faces) strata.push(x0 + dx, by, z0 + dz, x1 + dx, by, z1 + dz);
     // a few widely spaced lines in the bearing stratum
-    for (const by of [Y_WASTE - 3.2, Y_WASTE - 6.1]) for (const [x0, z0, x1, z1, dx, dz] of [[W, W, W, -W, 0.03, 0], [W, W, -W, W, 0, 0.03]]) strata.push(x0 + dx, by, z0 + dz, x1 + dx, by, z1 + dz);
+    for (const by of [Y_WASTE - 3.2, Y_WASTE - 6.1]) for (const [x0, z0, x1, z1, dx, dz] of faces) strata.push(x0 + dx, by, z0 + dz, x1 + dx, by, z1 + dz);
     S.lines(strata, { width: LW.hair, color: C.hair, clippingPlanes: [clipGround] }, ground);
     // moving caps for the fill animation (section at the current fill level)
-    const capSq = S.solid(new THREE.PlaneGeometry(2 * W, 2 * W).rotateX(-Math.PI / 2), { material: S.material(C.model, { unique: true }) }, ground);
-    const capL = S.solid(prismGeo(notchL, 0.001, 0), { material: S.material(C.model, { unique: true }) }, ground);
+    const capSq = S.solid(prismGeo(halfL, 0.001, 0), { material: S.material(C.model, { unique: true }) }, ground);
+    const capL = capSq;
     capSq.visible = capL.visible = false;
     S.anim.prop('ground', 0, v => {
       const k = ease.inOut(v);
@@ -163,9 +163,8 @@ export default defineDiagram({
       clipGround.constant = v >= 1 ? 1 : h;
       ground.visible = v > 0.001;
       const filling = v > 0.001 && v < 0.999;
-      capSq.visible = filling && h < Y_WASTE;
-      capL.visible = filling && h >= Y_WASTE;
-      capSq.position.y = h; capL.position.y = h;
+      capSq.visible = filling;
+      capSq.position.y = h;
     }, { kind: 'reveal', dur: 1200 });
 
     // ================= 2. piles + base plate =================
@@ -174,11 +173,11 @@ export default defineDiagram({
     const pileLen = -PILE_TIP - PLATE_T;     // from the underside of the plate down to the tip
     const pg = new THREE.CylinderGeometry(0.55, 0.55, pileLen, 20).translate(0, -pileLen / 2, 0);
     const pilePos = [];
-    for (let i = 0; i < 6; i++) for (let j = 0; j < 6; j++) {
+    for (let i = 0; i < 6; i++) for (let j = -5; j < 5; j++) {
       const x = 1.9 + i * 3.6, z = 1.9 + j * 3.6;
-      if (x + z <= R_BOT + 2.2 - 3.1) pilePos.push([x, z]);
+      if (x + Math.abs(z) <= R_BOT + 2.2 - 3.1) pilePos.push([x, z]);
     }
-    pilePos.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
+    pilePos.sort((a, b) => (a[0] - a[1]) - (b[0] - b[1]));
     for (const [x, z] of pilePos) {
       const g = new THREE.Group();
       g.position.set(x, -PLATE_T, z);
@@ -401,7 +400,7 @@ export default defineDiagram({
     // ================= 5. geothermal loops (blue) =================
     const geoPart = S.part('Geothermal loops');
     const loops = [];
-    const loopXZ = [[8.2, 14.6], [12.2, 10.6], [16.2, 6.6]];
+    const loopXZ = [[17.6, -6.2], [20.4, -9.0], [17.8, -11.8]];
     const loopTop = -PLATE_T - 0.4, loopBot = Y_BOT + 1.2;
     for (const [x, z] of loopXZ) {
       const g = new THREE.Group();
@@ -413,7 +412,7 @@ export default defineDiagram({
       loops.push(g);
     }
     // header under the plate linking the loops
-    const header = S.lines([5, loopTop, 5, 8.2, loopTop, 14.6 - 0.55, 5, loopTop, 5, 16.2, loopTop, 6.6 - 0.55, 8.2, loopTop, 14.6 - 0.55, 16.2, loopTop, 6.6 - 0.55], { width: 1.5, color: C.blue }, null);
+    const header = S.lines([12, loopTop, -6, 17.6, loopTop, -6.2 - 0.55, 12, loopTop, -6, 20.4, loopTop, -9.0 - 0.55, 12, loopTop, -6, 17.8, loopTop, -11.8 - 0.55], { width: 1.5, color: C.blue }, null);
     geoPart.add(header);
     S.anim.prop('geo', 0, v => {
       geoPart.visible = v > 0.001;
@@ -425,34 +424,40 @@ export default defineDiagram({
       });
     }, { kind: 'reveal', dur: 1200 });
 
-    // ================= labels (one column, horizontal leaders) =================
-    const COL = 790;
-    const MAXW = 296;
+    // ================= labels =================
+    // Building labels: one right column with horizontal/shoulder leaders. The section is cut at x = 0, so every leader
+    // reaches its anchor through open space: landfill on the left (block's left edge), piles below their tips,
+    // geothermal on the right (the loops are the rightmost element). No leader crosses other geometry.
+    const COL = 800;
+    const MAXW = 286;
     const lWaste = S.label({
       text: 'Old Nanjido landfill',
-      anchor: new THREE.Vector3(W + 0.05, -6.2, -21), anchorObj: ground, place: { mode: 'column', x: COL },
+      anchor: new THREE.Vector3(-W - 0.05, -6.5, W), anchorObj: ground,
+      place: { mode: 'column', x: 172, side: 'left' }, maxWidth: 150, nowrap: false, align: 'right',
     });
-    // the right-most pile in the cut
-    const pileR = pilePos.reduce((a, b) => (0.848 * b[0] - 0.53 * b[1] > 0.848 * a[0] - 0.53 * a[1] ? b : a));
+    // front-right pile: nothing lies below its tip on screen, so a vertical leader drops to the label
+    const pileF = pilePos.filter(p => p[0] >= 5).reduce((a, b) => (b[1] + 0.3 * b[0] > a[1] + 0.3 * a[0] ? b : a));
+    const tip = new THREE.Vector3(pileF[0], PILE_TIP + 0.05, pileF[1]);
+    const tipPx = S.project(tip);
     const lPiles = S.label({
       text: 'Piles reach solid ground',
-      anchor: new THREE.Vector3(pileR[0] + 0.5, -8.2, pileR[1]),
-      anchorObj: pilesPart, allow: [ground], place: { mode: 'column', x: COL },
+      anchor: tip, anchorObj: pilesPart,
+      place: { mode: 'fixed', x: tipPx.x - 26, y: tipPx.y + 54, ax: 'left', ay: 'top' }, leader: 'v', gap: 14,
     });
     const lStoreys = S.label({
       text: 'Three floors, turned 45°',
       anchor: new THREE.Vector3(ROOF_HALF, H_CORE + 0.2, -ROOF_HALF),
-      anchorObj: bldg, place: { mode: 'column', x: COL, dy: 46, elbow: 34 }, maxWidth: MAXW, nowrap: false,
+      anchorObj: bldg, place: { mode: 'column', x: COL, dy: 46, elbow: 18 }, maxWidth: MAXW, nowrap: false,
     });
     const lPV = S.label({
       text: 'Solar panels on the roof and wings',
       anchor: new THREE.Vector3(ROOF_HALF - 3.2 + 0.01, H_CORE + ROOF_T + 0.56, -ROOF_HALF + 3.2 + 2 * ((2 * ROOF_HALF - 6.4) / 10)),
-      anchorObj: pv, allow: [bldg], place: { mode: 'column', x: COL, dy: -58, elbow: 46 }, leaderTone: 'red', maxWidth: MAXW, nowrap: false,
+      anchorObj: pv, allow: [bldg], place: { mode: 'column', x: COL, dy: -58, elbow: 30 }, leaderTone: 'red', maxWidth: MAXW, nowrap: false,
     });
     const lGeo = S.label({
       text: 'Geothermal heating and cooling',
-      anchor: new THREE.Vector3(16.2 + 0.1, -10.5, 6.6 + 0.55), anchorObj: geoPart, allow: [ground], place: { mode: 'column', x: COL }, maxWidth: MAXW, nowrap: false,
-      leaderTone: 'blue',
+      anchor: new THREE.Vector3(20.4 + 0.1, -9.5, -9.0 + 0.55), anchorObj: geoPart,
+      place: { mode: 'column', x: COL }, maxWidth: MAXW, nowrap: false, leaderTone: 'blue',
     });
     labelProp(S, 'L1', lWaste);
     labelProp(S, 'L2', lPiles);

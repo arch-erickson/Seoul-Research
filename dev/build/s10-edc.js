@@ -46401,7 +46401,7 @@ void main() {
     states: 5,
     region: { x: 100, y: 300, w: 1110, h: 680 },
     stage: {
-      view: { azimuth: 32, elevation: 22, target: [0, 0, 0], scale: 10, at: [384, 318] },
+      view: { azimuth: 32, elevation: 22, target: [0, 0, 0], scale: 8.2, at: [492, 300] },
       shadowBox: { min: [-28, -20, -28], max: [28, 17, 28] },
       ground: false
     },
@@ -46409,24 +46409,22 @@ void main() {
       const S = stage;
       const ground = S.part("Ground section");
       const clipGround = new three_module_exports.Plane(new three_module_exports.Vector3(0, -1, 0), 0);
-      const notchL = [[-W, -W], [W, -W], [W, 0], [0, 0], [0, W], [-W, W]];
+      const halfL = [[-W, -W], [0, -W], [0, W], [-W, W]];
       const gMat = S.material(C.model, { unique: true, clippingPlanes: [clipGround] });
       const cutMat = S.material("#F1F0EC", { unique: true, clippingPlanes: [clipGround] });
       const bearMat = S.material("#E9E8E3", { unique: true, clippingPlanes: [clipGround] });
       const eClip = { clippingPlanes: [clipGround] };
-      S.solid(boxGeo(2 * W, Y_WASTE - Y_BOT, 2 * W).translate(0, Y_BOT, 0), { material: bearMat, edges: eClip }, ground);
-      S.solid(prismGeo(notchL, Y_SOIL - Y_WASTE, Y_WASTE), { material: cutMat, edges: eClip }, ground);
-      S.solid(prismGeo(notchL, -Y_SOIL, Y_SOIL), { material: gMat, edges: eClip }, ground);
+      S.solid(prismGeo(halfL, Y_WASTE - Y_BOT, Y_BOT), { material: bearMat, edges: eClip }, ground);
+      S.solid(prismGeo(halfL, Y_SOIL - Y_WASTE, Y_WASTE), { material: cutMat, edges: eClip }, ground);
+      S.solid(prismGeo(halfL, -Y_SOIL, Y_SOIL), { material: gMat, edges: eClip }, ground);
       const r = rng(7);
       const strata = [];
       const faces = [
         // [x0,z0,x1,z1, outward offset dx,dz]
-        [W, 0, W, -W, 0.03, 0],
-        [0, W, -W, W, 0, 0.03],
-        // outer faces (+x back half, +z left half)
-        [0, 0, 0, W, 0.03, 0],
-        [0, 0, W, 0, 0, 0.03]
-        // notch faces
+        [0, W, 0, -W, 0.03, 0],
+        // section face x = 0
+        [0, W, -W, W, 0, 0.03]
+        // front outer face (+z)
       ];
       let y = Y_SOIL;
       const bandYs = [];
@@ -46436,10 +46434,10 @@ void main() {
         bandYs.push(y);
       }
       for (const by of bandYs) for (const [x0, z0, x1, z1, dx, dz] of faces) strata.push(x0 + dx, by, z0 + dz, x1 + dx, by, z1 + dz);
-      for (const by of [Y_WASTE - 3.2, Y_WASTE - 6.1]) for (const [x0, z0, x1, z1, dx, dz] of [[W, W, W, -W, 0.03, 0], [W, W, -W, W, 0, 0.03]]) strata.push(x0 + dx, by, z0 + dz, x1 + dx, by, z1 + dz);
+      for (const by of [Y_WASTE - 3.2, Y_WASTE - 6.1]) for (const [x0, z0, x1, z1, dx, dz] of faces) strata.push(x0 + dx, by, z0 + dz, x1 + dx, by, z1 + dz);
       S.lines(strata, { width: LW.hair, color: C.hair, clippingPlanes: [clipGround] }, ground);
-      const capSq = S.solid(new three_module_exports.PlaneGeometry(2 * W, 2 * W).rotateX(-Math.PI / 2), { material: S.material(C.model, { unique: true }) }, ground);
-      const capL = S.solid(prismGeo(notchL, 1e-3, 0), { material: S.material(C.model, { unique: true }) }, ground);
+      const capSq = S.solid(prismGeo(halfL, 1e-3, 0), { material: S.material(C.model, { unique: true }) }, ground);
+      const capL = capSq;
       capSq.visible = capL.visible = false;
       S.anim.prop("ground", 0, (v) => {
         const k = ease.inOut(v);
@@ -46447,21 +46445,19 @@ void main() {
         clipGround.constant = v >= 1 ? 1 : h;
         ground.visible = v > 1e-3;
         const filling = v > 1e-3 && v < 0.999;
-        capSq.visible = filling && h < Y_WASTE;
-        capL.visible = filling && h >= Y_WASTE;
+        capSq.visible = filling;
         capSq.position.y = h;
-        capL.position.y = h;
       }, { kind: "reveal", dur: 1200 });
       const pilesPart = S.part("Piles");
       const piles = [];
       const pileLen = -PILE_TIP - PLATE_T;
       const pg = new three_module_exports.CylinderGeometry(0.55, 0.55, pileLen, 20).translate(0, -pileLen / 2, 0);
       const pilePos = [];
-      for (let i = 0; i < 6; i++) for (let j = 0; j < 6; j++) {
+      for (let i = 0; i < 6; i++) for (let j = -5; j < 5; j++) {
         const x = 1.9 + i * 3.6, z = 1.9 + j * 3.6;
-        if (x + z <= R_BOT + 2.2 - 3.1) pilePos.push([x, z]);
+        if (x + Math.abs(z) <= R_BOT + 2.2 - 3.1) pilePos.push([x, z]);
       }
-      pilePos.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+      pilePos.sort((a, b) => a[0] - a[1] - (b[0] - b[1]));
       for (const [x, z] of pilePos) {
         const g = new three_module_exports.Group();
         g.position.set(x, -PLATE_T, z);
@@ -46683,7 +46679,7 @@ void main() {
       }, { kind: "reveal", dur: 1100 });
       const geoPart = S.part("Geothermal loops");
       const loops = [];
-      const loopXZ = [[8.2, 14.6], [12.2, 10.6], [16.2, 6.6]];
+      const loopXZ = [[17.6, -6.2], [20.4, -9], [17.8, -11.8]];
       const loopTop = -PLATE_T - 0.4, loopBot = Y_BOT + 1.2;
       for (const [x, z] of loopXZ) {
         const g = new three_module_exports.Group();
@@ -46694,7 +46690,7 @@ void main() {
         geoPart.add(g);
         loops.push(g);
       }
-      const header = S.lines([5, loopTop, 5, 8.2, loopTop, 14.6 - 0.55, 5, loopTop, 5, 16.2, loopTop, 6.6 - 0.55, 8.2, loopTop, 14.6 - 0.55, 16.2, loopTop, 6.6 - 0.55], { width: 1.5, color: C.blue }, null);
+      const header = S.lines([12, loopTop, -6, 17.6, loopTop, -6.2 - 0.55, 12, loopTop, -6, 20.4, loopTop, -9 - 0.55, 12, loopTop, -6, 17.8, loopTop, -11.8 - 0.55], { width: 1.5, color: C.blue }, null);
       geoPart.add(header);
       S.anim.prop("geo", 0, (v) => {
         geoPart.visible = v > 1e-3;
@@ -46705,27 +46701,33 @@ void main() {
           g.visible = s > 1e-3;
         });
       }, { kind: "reveal", dur: 1200 });
-      const COL = 790;
-      const MAXW = 296;
+      const COL = 800;
+      const MAXW = 286;
       const lWaste = S.label({
         text: "Old Nanjido landfill",
-        anchor: new three_module_exports.Vector3(W + 0.05, -6.2, -21),
+        anchor: new three_module_exports.Vector3(-W - 0.05, -6.5, W),
         anchorObj: ground,
-        place: { mode: "column", x: COL }
+        place: { mode: "column", x: 172, side: "left" },
+        maxWidth: 150,
+        nowrap: false,
+        align: "right"
       });
-      const pileR = pilePos.reduce((a, b) => 0.848 * b[0] - 0.53 * b[1] > 0.848 * a[0] - 0.53 * a[1] ? b : a);
+      const pileF = pilePos.filter((p) => p[0] >= 5).reduce((a, b) => b[1] + 0.3 * b[0] > a[1] + 0.3 * a[0] ? b : a);
+      const tip = new three_module_exports.Vector3(pileF[0], PILE_TIP + 0.05, pileF[1]);
+      const tipPx = S.project(tip);
       const lPiles = S.label({
         text: "Piles reach solid ground",
-        anchor: new three_module_exports.Vector3(pileR[0] + 0.5, -8.2, pileR[1]),
+        anchor: tip,
         anchorObj: pilesPart,
-        allow: [ground],
-        place: { mode: "column", x: COL }
+        place: { mode: "fixed", x: tipPx.x - 26, y: tipPx.y + 54, ax: "left", ay: "top" },
+        leader: "v",
+        gap: 14
       });
       const lStoreys = S.label({
         text: "Three floors, turned 45\xB0",
         anchor: new three_module_exports.Vector3(ROOF_HALF, H_CORE + 0.2, -ROOF_HALF),
         anchorObj: bldg,
-        place: { mode: "column", x: COL, dy: 46, elbow: 34 },
+        place: { mode: "column", x: COL, dy: 46, elbow: 18 },
         maxWidth: MAXW,
         nowrap: false
       });
@@ -46734,16 +46736,15 @@ void main() {
         anchor: new three_module_exports.Vector3(ROOF_HALF - 3.2 + 0.01, H_CORE + ROOF_T + 0.56, -ROOF_HALF + 3.2 + 2 * ((2 * ROOF_HALF - 6.4) / 10)),
         anchorObj: pv,
         allow: [bldg],
-        place: { mode: "column", x: COL, dy: -58, elbow: 46 },
+        place: { mode: "column", x: COL, dy: -58, elbow: 30 },
         leaderTone: "red",
         maxWidth: MAXW,
         nowrap: false
       });
       const lGeo = S.label({
         text: "Geothermal heating and cooling",
-        anchor: new three_module_exports.Vector3(16.2 + 0.1, -10.5, 6.6 + 0.55),
+        anchor: new three_module_exports.Vector3(20.4 + 0.1, -9.5, -9 + 0.55),
         anchorObj: geoPart,
-        allow: [ground],
         place: { mode: "column", x: COL },
         maxWidth: MAXW,
         nowrap: false,

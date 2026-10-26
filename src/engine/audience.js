@@ -13,7 +13,10 @@
 //   - the on-slide timer (overlay-timer.js): shown only while no presenter window is connected (or toggled with O)
 //   - black / white screen, the ? help card, the G go-to prompt, an idle mouse cursor that hides itself
 //   - reload safety: the snapshot is kept in sessionStorage and restored on reload; a presenter that followed an
-//     earlier slides window hands its last snapshot over (sync.shouldRestore)
+//     earlier slides window hands its last snapshot over (sync.shouldRestore). A full reset (back / Home to slide 1,
+//     see state.js) is saved like any other state, so a reload after it stays reset.
+//   - the asset loading ring (preload.js): fonts + every photo, bottom-left of the viewport, gone once all loaded
+//     (not in static / audit runs; ?loaderDemo=<0..1> freezes it for screenshots)
 //
 // URL params: ?slide=<n|key>&beat=<k|last>&static=1 (jump, no animation, no timer, no presenter link; the on-slide
 // timer stays hidden unless &timer=1), ?audit=1|all (+ auditSlides, overlay=1: the overlap audit; the on-slide timer
@@ -28,10 +31,11 @@ import { buildDeck, fontsReady } from './slides.js';
 import { finishAll } from './motion.js';
 import { createStore, slidesFromTiming } from './state.js';
 import { bindKeys, bindWheel } from './input.js';
-import { createSync, createCommandRouter, shouldRestore, saveSnapshot, loadSnapshot, clearSnapshot } from './sync.js';
+import { createSync, createCommandRouter, shouldRestore, saveSnapshot, loadSnapshot } from './sync.js';
 import { createScreenController } from './screens.js';
 import { createOverlayTimer } from './overlay-timer.js';
 import { runAudit } from './audit.js';
+import { mountAssetRing } from './preload.js';
 
 export const TICK_MS = 100;
 const SAVE_EVERY_MS = 1000;
@@ -103,6 +107,8 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   const auditMode = params.get('audit'); // '1' | 'all' | null
   const isStatic = params.get('static') === '1' || !!auditMode;
   const jumpIndexParam = params.get('slide');
+  // first, so the photos start downloading while the deck is built (hidden in static / audit / print)
+  const assets = mountAssetRing({ images: data.images, params, view: 'audience' });
 
   // ---------------- stage + deck
   const root = h('div', 'deck-root');
@@ -169,9 +175,8 @@ export async function bootAudience({ data, params = new URLSearchParams(location
     if (sig === savedSig && t - savedAt < SAVE_EVERY_MS) return;
     savedSig = sig;
     savedAt = t;
-    // Shift+T made the deck pristine again: forget the old talk so a reload does not bring it back
-    if (!st.started && st.timer.globalMs === 0 && st.furthest === 0) clearSnapshot();
-    else saveSnapshot(st, uiExtras());
+    // Every state is saved, the pristine one after a full reset (back / Home to slide 1) too, so a reload keeps it.
+    saveSnapshot(st, uiExtras());
   }
 
   function render(st) {
@@ -291,7 +296,7 @@ export async function bootAudience({ data, params = new URLSearchParams(location
   }
 
   const api = {
-    deck, store, sync, ctrl, overlay, stage,
+    deck, store, sync, ctrl, overlay, stage, assets,
     ui: uiExtras,
     ready: showing,
     get restoredFrom() { return restoredFrom; },
@@ -300,6 +305,7 @@ export async function bootAudience({ data, params = new URLSearchParams(location
       clearTimeout(idleTimer);
       if (ctrl) ctrl.stop();
       if (sync) sync.close();
+      if (assets) assets.dispose();
       deck.dispose();
     },
   };

@@ -161,19 +161,15 @@ describe('furthest and fully-built revisits', () => {
     toC(h);
     h.times('next', 3);
     h.d('next'); // -> d, furthest = d
-    h.d('goto', { index: A }); // back to a (paused)
-    assert.equal(h.s().beat, 2, 'a fully built');
+    h.d('goto', { index: B }); // back to b (paused; going to slide 1 would be a full reset)
+    assert.equal(h.s().beat, 1, 'b fully built');
     h.d('next'); // resume only
-    let st = h.d('next'); // -> b
-    assert.equal(st.cur, B);
-    assert.equal(st.beat, 1, 'b entered fully built');
+    let st = h.d('next'); // -> c fully built
+    assert.equal(st.cur, C);
+    assert.equal(st.beat, 3, 'c entered fully built');
     assert.equal(st.fullyBuilt, true);
     assert.equal(st.isLive, false);
     assert.equal(st.nav.instant, true);
-    st = h.d('next'); // -> c fully built
-    assert.equal(st.cur, C);
-    assert.equal(st.beat, 3);
-    assert.equal(st.fullyBuilt, true);
     st = h.d('next'); // -> d is furthest (1 beat, it was fully built)
     assert.equal(st.cur, D);
     assert.equal(st.isLive, true);
@@ -232,14 +228,13 @@ describe('prev', () => {
   test('on a revisited slide prev does not un-build: it goes straight to the previous slide', () => {
     const h = make();
     toC(h);
-    h.d('prev'); // b (fully built, not live)
-    let st = h.d('prev');
-    assert.equal(st.cur, A, 'no un-building on b');
-    assert.equal(st.beat, 2, 'a fully built');
+    h.times('next', 3);
+    h.d('next'); // -> d
+    h.d('prev'); // c (fully built, not live)
+    const st = h.d('prev');
+    assert.equal(st.cur, B, 'no un-building on c');
+    assert.equal(st.beat, 1, 'b fully built');
     assert.equal(st.isLive, false);
-    st = h.d('prev');
-    assert.equal(st.cur, A, 'nothing before the first slide');
-    assert.equal(st.beat, 2, 'revisited slide is not un-built');
   });
 
   test('prev on the very first slide at beat 0 is a no-op', () => {
@@ -265,10 +260,10 @@ describe('prev', () => {
 describe('going back pauses; the first next resumes, the second advances', () => {
   test('going back pauses the timer with pausedByBack', () => {
     const h = make();
-    h.times('next', 3); // -> b, timer running
+    h.times('next', 5); // -> b -> c, timer running
     h.run(2000);
-    const st = h.d('prev'); // b beat 0 -> a
-    assert.equal(st.cur, A);
+    const st = h.d('prev'); // c beat 0 -> b
+    assert.equal(st.cur, B);
     assert.equal(st.timer.running, false);
     assert.equal(st.timer.pausedByBack, true);
   });
@@ -299,16 +294,18 @@ describe('going back pauses; the first next resumes, the second advances', () =>
   test('several back presses still need just one resume press', () => {
     const h = make();
     toC(h);
-    h.times('prev', 2); // -> b -> a
-    assert.equal(h.s().cur, A);
+    h.times('next', 3);
+    h.d('next'); // -> d
+    h.times('prev', 2); // -> c -> b
+    assert.equal(h.s().cur, B);
     assert.equal(h.s().timer.pausedByBack, true);
     let st = h.d('next');
-    assert.equal(st.cur, A);
+    assert.equal(st.cur, B);
     assert.equal(st.timer.running, true);
     st = h.d('next');
-    assert.equal(st.cur, B);
-    st = h.d('next');
     assert.equal(st.cur, C);
+    st = h.d('next');
+    assert.equal(st.cur, D);
   });
 
   test('un-building on the live slide does not pause (no resume press needed)', () => {
@@ -405,18 +402,18 @@ describe('timer', () => {
 
   test('per-slide time is cumulative across visits', () => {
     const h = make({ autoBeats: false });
-    h.d('start');
-    h.run(3000); // a: 3 s
-    h.times('next', 3); // -> b
-    h.run(2000); // b: 2 s
-    h.d('prev'); // -> a (paused)
-    h.d('next'); // resume on a
-    h.run(1500); // a: +1.5 s
-    h.d('next'); // -> b (fully built)
-    h.run(500); // b: +0.5 s
+    h.times('next', 3); // -> b, the first press starts the timer
+    h.run(3000); // b: 3 s
+    h.times('next', 2); // -> c
+    h.run(2000); // c: 2 s
+    h.d('prev'); // -> b (paused)
+    h.d('next'); // resume on b
+    h.run(1500); // b: +1.5 s
+    h.d('next'); // -> c (the live slide)
+    h.run(500); // c: +0.5 s
     const st = h.s();
-    assert.equal(st.timer.slideMs[A], 4500);
-    assert.equal(st.timer.slideMs[B], 2500);
+    assert.equal(st.timer.slideMs[B], 4500);
+    assert.equal(st.timer.slideMs[C], 2500);
     assert.equal(st.timer.globalMs, 7000);
     assert.equal(st.slideElapsedMs, 2500);
   });
@@ -461,13 +458,13 @@ describe('timer', () => {
     toC(h);
     h.times('next', 3);
     h.d('next'); // -> d (furthest d)
-    h.d('goto', { index: A }); // rehearsal over: back to the start (paused)
+    h.d('goto', { index: B }); // back to b (paused)
     h.d('resetTimer');
     let st = h.s();
-    assert.equal(st.furthest, A);
-    st = h.d('next'); // first press of the real talk: a is fully built -> b at beat 0
-    assert.equal(st.cur, B);
-    assert.equal(st.beat, 0, 'b builds again');
+    assert.equal(st.furthest, B);
+    st = h.d('next'); // b is fully built -> c at beat 0
+    assert.equal(st.cur, C);
+    assert.equal(st.beat, 0, 'c builds again');
     assert.equal(st.timer.running, true, 'timer starts');
   });
 
@@ -718,9 +715,9 @@ describe('goto', () => {
   test('backward: target fully built, timer paused by back', () => {
     const h = make();
     toC(h);
-    const st = h.d('goto', { index: A });
-    assert.equal(st.cur, A);
-    assert.equal(st.beat, 2);
+    const st = h.d('goto', { index: B });
+    assert.equal(st.cur, B);
+    assert.equal(st.beat, 1);
     assert.equal(st.fullyBuilt, true);
     assert.equal(st.timer.running, false);
     assert.equal(st.timer.pausedByBack, true);
@@ -740,7 +737,7 @@ describe('goto', () => {
   test('forward to an already-presented slide: fully built, timer runs', () => {
     const h = make();
     h.d('goto', { index: E });
-    h.d('goto', { index: A }); // paused
+    h.d('goto', { index: B }); // paused
     const st = h.d('goto', { index: C });
     assert.equal(st.cur, C);
     assert.equal(st.beat, 3, 'skipped slides count as presented (before furthest)');
@@ -774,9 +771,11 @@ describe('goto', () => {
 
   test('goto to the current slide is a no-op', () => {
     const h = make();
-    h.d('next');
-    const st = h.d('goto', { index: A });
+    h.times('next', 4); // -> b beat 1
+    const seq = h.s().nav.seq;
+    const st = h.d('goto', { index: B });
     assert.equal(st.beat, 1);
+    assert.equal(st.nav.seq, seq);
   });
 
   test('Home and End', () => {
@@ -786,8 +785,9 @@ describe('goto', () => {
     assert.equal(st.timer.running, true);
     st = h.d('first');
     assert.equal(st.cur, A);
-    assert.equal(st.timer.pausedByBack, true);
-    assert.equal(st.fullyBuilt, true);
+    assert.equal(st.timer.pausedByBack, false, 'Home is a full reset, not a pause');
+    assert.equal(st.started, false);
+    assert.equal(st.beat, 0);
   });
 
   test('real deck: G 10 goes to content slide s10, G 20 to s20', () => {
@@ -1093,5 +1093,237 @@ describe('the user scenario, end to end', () => {
     assert.equal(st.beat, 1, 'returns where it was (B2), not fully built');
     assert.equal(st.timer.slideMs[1], 13000, 'i01 time is cumulative: 10 s + 3 s');
     assert.equal(st.timer.globalMs, 45000 + 10000 + 20000 + 3000);
+  });
+});
+
+// ---------------------------------------------------------------------------
+describe('going to slide 1 is a full reset (user: "going to the first screen resets all the timers")', () => {
+  /** Everything as on a fresh load. */
+  function assertPristine(st, msg = '') {
+    assert.equal(st.cur, A, msg + ' cur');
+    assert.equal(st.beat, 0, msg + ' beat');
+    assert.equal(st.furthest, 0, msg + ' furthest');
+    assert.equal(st.furthestBeat, 0, msg + ' furthestBeat');
+    assert.equal(st.started, false, msg + ' started');
+    assert.equal(st.timer.running, false, msg + ' running');
+    assert.equal(st.timer.pausedByBack, false, msg + ' pausedByBack');
+    assert.equal(st.timer.globalMs, 0, msg + ' globalMs');
+    assert.deepEqual(st.timer.slideMs, new Array(DECK.length).fill(0), msg + ' slideMs');
+    assert.equal(st.slideElapsedMs, 0, msg + ' slideElapsedMs');
+    assert.equal(st.beatOffsetMs, 0, msg + ' beatOffsetMs');
+    assert.equal(st.black, false, msg + ' black');
+    assert.equal(st.white, false, msg + ' white');
+    assert.equal(st.isLive, true, msg + ' isLive');
+    assert.equal(st.nav.type, 'reset', msg + ' nav.type');
+    assert.equal(st.nav.instant, true, msg + ' nav.instant');
+  }
+  /** A talk in progress: on slide c with time on a, b and c, timer running. */
+  function talk() {
+    const h = make();
+    h.d('start');
+    h.run(4000); // a
+    h.times('next', 3); // -> b
+    h.run(3000);
+    h.times('next', 2); // -> c
+    h.run(2500);
+    const st = h.s();
+    assert.equal(st.cur, C);
+    assert.ok(st.timer.globalMs > 9000 && st.timer.running && st.started);
+    return h;
+  }
+
+  test('Back from slide 2 to slide 1 resets everything and bumps nav.seq', () => {
+    const h = make();
+    h.d('start');
+    h.run(4000);
+    h.times('next', 3); // -> b (beat 0, live)
+    h.run(2000);
+    const seq = h.s().nav.seq;
+    const st = h.d('prev');
+    assertPristine(st, 'prev b -> a');
+    assert.ok(st.nav.seq > seq, 'views re-render');
+  });
+
+  test('Back un-builds the live slide 2 first, then the next Back resets', () => {
+    const h = make();
+    h.times('next', 4); // -> b beat 1
+    h.run(1000);
+    let st = h.d('prev');
+    assert.equal(st.cur, B);
+    assert.equal(st.beat, 0);
+    assert.equal(st.started, true, 'un-building does not reset');
+    st = h.d('prev');
+    assertPristine(st);
+  });
+
+  test('Back several slides: pause on the way, full reset on arrival at slide 1', () => {
+    const h = talk();
+    let st = h.d('prev'); // c beat 0 -> b (paused)
+    assert.equal(st.cur, B);
+    assert.equal(st.timer.pausedByBack, true);
+    assert.ok(st.timer.globalMs > 0);
+    st = h.d('prev'); // b not live -> a
+    assertPristine(st);
+  });
+
+  test('Shift+Left (prevSlide) to slide 1 resets, also mid-build', () => {
+    const h = make();
+    h.times('next', 3); // -> b beat 0
+    h.run(500);
+    assertPristine(h.d('prevSlide'));
+    const h2 = talk();
+    h2.d('prevSlide'); // c -> b paused
+    assertPristine(h2.d('prevSlide'));
+  });
+
+  test('Home (first) from any slide resets', () => {
+    const h = talk();
+    assertPristine(h.d('first'));
+  });
+
+  test('goto slide 1 by index or key resets', () => {
+    const h = talk();
+    assertPristine(h.d('goto', { index: A }));
+    const h2 = talk();
+    assertPristine(h2.d('goto', { key: 'a' }));
+  });
+
+  test('gotoNumber 1 (G 1 Enter) resets', () => {
+    const h = talk();
+    assertPristine(h.d('gotoNumber', { n: 1 }));
+  });
+
+  test('Back on slide 1 itself resets, even mid-build and with the timer running', () => {
+    const h = make();
+    h.d('start');
+    h.run(3000);
+    h.d('next'); // a beat 1
+    h.run(1000);
+    const st = h.d('prev');
+    assertPristine(st);
+    // pressed again on a pristine deck: still pristine
+    assertPristine(h.d('prev'));
+    assertPristine(h.d('prevSlide'));
+  });
+
+  test('Home on slide 1 itself resets', () => {
+    const h = make();
+    h.d('start');
+    h.run(5000);
+    const seq = h.s().nav.seq;
+    const st = h.d('first');
+    assertPristine(st);
+    assert.ok(st.nav.seq > seq);
+  });
+
+  test('Home clears black / white; Back while blank only clears it first', () => {
+    const h = talk();
+    h.d('black');
+    assertPristine(h.d('first'));
+    const h2 = make();
+    h2.d('start');
+    h2.run(2000);
+    h2.d('white');
+    let st = h2.d('prev');
+    assert.equal(st.white, false);
+    assert.equal(st.started, true, 'the first back only shows the slide again');
+    st = h2.d('prev');
+    assertPristine(st);
+  });
+
+  test('after a reset the timer stays at 0:00 until the next forward press, which starts it from 0:00', () => {
+    const h = talk();
+    h.d('first');
+    let st = h.run(5000);
+    assert.equal(st.timer.globalMs, 0, 'stopped');
+    assert.equal(st.timer.running, false);
+    st = h.d('next');
+    assert.equal(st.started, true);
+    assert.equal(st.timer.running, true);
+    assert.equal(st.timer.pausedByBack, false);
+    assert.equal(st.timer.globalMs, 0);
+    assert.equal(st.cur, A);
+    assert.equal(st.beat, 1, 'the press also reveals the next beat, as on a fresh load');
+    st = h.run(1000);
+    assert.equal(st.timer.globalMs, 1000);
+    assert.equal(st.timer.slideMs[A], 1000);
+    assert.equal(st.timer.slideMs[C], 0, 'old slide times are gone');
+  });
+
+  test('after a reset P (start) and T (toggleTimer) start the clock from 0:00', () => {
+    for (const type of ['start', 'toggleTimer']) {
+      const h = talk();
+      h.d('goto', { index: A });
+      let st = h.d(type);
+      assert.equal(st.timer.running, true, type);
+      assert.equal(st.started, true, type);
+      assert.equal(st.cur, A, type);
+      assert.equal(st.beat, 0, type);
+      st = h.run(700);
+      assert.equal(st.timer.globalMs, 700, type);
+    }
+  });
+
+  test('after a reset builds replay and slides are entered at beat 0 again', () => {
+    const h = talk();
+    h.d('first');
+    h.times('next', 2); // a beat 1, 2
+    const st = h.d('next'); // -> b
+    assert.equal(st.cur, B);
+    assert.equal(st.beat, 0, 'b builds again');
+    assert.equal(st.isLive, true);
+    assert.equal(st.nav.instant, false);
+  });
+
+  test('after a reset the auto-beat schedule starts from slide 1 cue 0', () => {
+    const h = talk();
+    h.d('first');
+    h.d('start');
+    let st = h.run(9900);
+    assert.equal(st.beat, 0);
+    st = h.run(200); // cue 10 s on a
+    assert.equal(st.beat, 1);
+  });
+
+  test('a reset keeps the settings (auto-beats, overlay)', () => {
+    const h = talk();
+    h.d('toggleAutoBeats');
+    h.d('toggleOverlay');
+    const st = h.d('first');
+    assert.equal(st.autoBeats, false);
+    assert.equal(st.overlay, false);
+  });
+
+  test('jump and restore to slide 1 do not reset', () => {
+    const h = talk();
+    const before = h.s();
+    let st = h.d('jump', { index: A, beat: 0 });
+    assert.equal(st.cur, A);
+    assert.equal(st.started, true);
+    assert.ok(st.timer.globalMs >= before.timer.globalMs);
+    st = h.d('restore', { state: { ...before, cur: A, key: 'a', beat: 0 } });
+    assert.equal(st.started, true);
+    assert.ok(st.timer.globalMs > 0);
+  });
+
+  test('real deck: Back from i01 to s01 resets; the next press starts from 0:00', () => {
+    const h = make({ slides: slidesFromTiming(timing) });
+    h.d('start');
+    h.run(5000);
+    let st = h.d('next'); // s01 has one beat -> i01
+    assert.equal(st.key, 'i01');
+    h.run(3000);
+    st = h.d('prev');
+    assert.equal(st.key, 's01');
+    assert.equal(st.started, false);
+    assert.equal(st.timer.running, false);
+    assert.equal(st.timer.globalMs, 0);
+    assert.ok(st.timer.slideMs.every((v) => v === 0), 'every slide timer, the Questions countdown too');
+    st = h.d('next');
+    assert.equal(st.key, 'i01');
+    assert.equal(st.timer.running, true);
+    assert.equal(st.timer.globalMs, 0);
+    st = h.run(1000);
+    assert.equal(st.timer.globalMs, 1000);
   });
 });
