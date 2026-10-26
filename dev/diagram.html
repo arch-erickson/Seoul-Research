@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>3D diagram harness</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html, body { margin: 0; background: #fff; overflow: hidden; }
+  #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #fff; transform-origin: 0 0; overflow: hidden; }
+  .region { position: absolute; }
+  .frame { outline: 1px dashed rgba(0, 71, 160, 0.35); }
+  .vbox { position: absolute; outline: 1.5px solid rgba(205, 46, 58, 0.9); background: rgba(205, 46, 58, 0.08); pointer-events: none; }
+  .ctxbox { position: absolute; background: #F4F4F2; color: #9A9B9E; font: 600 14px Montserrat, sans-serif; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .sheet-cap { position: absolute; font: 600 16px Montserrat, sans-serif; color: #111112; }
+  .sheet-cap .bad { color: #CD2E3A; }
+  .sheet-cap .ok { color: #0047A0; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+  // Usage: diagram.html?d=<id>&state=<n>&static=1&audit=1[&quality=preview&scale=0.25][&frame=1][&ctx=1][&sheet=1]
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var id = q.get('d') || 's10-edc';
+    var s = document.createElement('script');
+    s.src = 'build/' + id + '.js';
+    s.onerror = function () { document.body.insertAdjacentHTML('beforeend', '<pre style="color:#CD2E3A;font:16px monospace">missing bundle build/' + id + '.js — run node scripts/build-diagram.mjs ' + id + '</pre>'); };
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>
