@@ -45,3 +45,7 @@ Updated 2026-10-26 10:15 (integration pass). Every check ran headless, `--strict
 - motion.js integration fix (MAIN): `data-motion-step` (row stagger) and `data-motion-rise="0"` (photo panels do not rise). 36 motion tests pass.
 - Test param `?play=1`: the first slide plays its entry (timer frames, reduced-motion answered as "no preference", 3D instant) for headless mid-motion shots.
 - NOTE: this PC reports prefers-reduced-motion: reduce (Windows animation effects off), so the deck is instant here by design (ARCHITECTURE section 1).
+
+## Closing slides (spec/qa-slide.md)
+- DONE: `qa` (kind qa, bold "Questions?" + 5:00 countdown from the slide's own timer: pauses with Tab / T, red in the last 30 s, stops at 0:00, no sound, no auto-advance) and `thanks` (kind closing, "Thank You" + "instagram: erickson_architecture") after `refs`. timing.json entries have dur 0 (+ `countdown: 300` on qa): plan stays 38:30; the presenter's total and ahead/behind leave out all untimed slide time. Presenter: same countdown on the live preview and the THIS SLIDE tile. Print: 41 pages, no countdown. Notes in src/slides/notes.js; the refs note's "Next" now points to Questions.
+- Verified (strict, offline): qa and thanks renders, audit ok (0 violations, fonts ok, 0 errors); CDP test `.tmp/main/countdown-test.mjs`: 4:58 after entry, frozen while paused, resumes, 0:28 red, 0:00 at the end, then Thank You. state tests 82/82.

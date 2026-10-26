@@ -65,7 +65,7 @@ No git repo here. There is no undo — never delete or overwrite a file you don'
 
 ## 2. Slide sequence & timing — `spec/timing.json`
 
-38 timed slides: the 20 content slides from Figma, plus 18 **image interstitials** (`i01`–`i18`, Seoul vs New York, **10 s each**) placed directly after content slides 1–18. Plus one untimed appendix slide (references + image credits) at the end.
+38 timed slides: the 20 content slides from Figma, plus 18 **image interstitials** (`i01`–`i18`, Seoul vs New York, **10 s each**) placed directly after content slides 1–18. Plus one untimed appendix slide (references + image credits), then two untimed closing slides: `qa` (a bold "Questions?" with a 5 minute countdown that runs on the slide's own timer, pauses with Tab / T, turns red in the last 30 s; shown in the presenter view too, left out of the PDF) and `thanks` (Thank You + "instagram: erickson_architecture"). All three have `dur: 0`, so they stay out of the 38:30 total and the ahead/behind figure. The PDF has 41 pages.
 Total planned run: **38:30** (content 35:30 + 18 × 0:10).
 
 Each slide has **beats** — sequential reveals timed to speech. `timing.json` gives each beat a `cue` (seconds from slide entry), which HTML groups appear, and which state each diagram goes to. Image interstitials have 2 beats: Seoul at 0:00, New York at 0:04.

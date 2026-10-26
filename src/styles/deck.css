@@ -56,6 +56,18 @@ body { background: #000; overflow: hidden; font-family: var(--font); color: var(
 .img-cap.red .tag { color: var(--red); }
 .img-cap.blue .tag { color: var(--blue); }
 .img-cap .dot { color: var(--muted); }
+/* A side with no photo: a white name panel, not an empty box (src/engine/images.js). */
+.img-panel.is-missing { background: var(--paper); }
+.img-panel.is-missing .img-cap {
+  left: 112px; bottom: auto; top: 420px; width: 760px; max-width: none;
+  padding: 0; background: none; overflow: visible; white-space: normal; text-overflow: clip;
+  font: 900 80px/1.05 var(--font); letter-spacing: -0.03em; color: var(--ink);
+}
+.img-panel.nyc.is-missing .img-cap { left: 112px; }
+.img-panel.is-missing .img-cap .tag { display: block; margin-bottom: 30px; font-size: 26px; line-height: 1; letter-spacing: 0.14em; }
+.img-panel.is-missing .img-cap .dot { display: none; }
+.img-panel.is-missing .img-cap .subj { display: block; }
+.image-slide.names-only .img-gutter { left: 959px; width: 2px; top: 270px; height: 540px; background: var(--rule); }
 
 /* ---------- appendix: References and Image Credits ---------- */
 .refs-title { left: 120px; top: 92px; width: 1680px; font: 900 64px/1 var(--font); letter-spacing: -0.03em; color: var(--ink); white-space: pre; }
@@ -74,6 +86,12 @@ body { background: #000; overflow: hidden; font-family: var(--font); color: var(
 .refs-body .sep { color: var(--rule); font-weight: 600; }
 .refs-body b { font-weight: 600; color: var(--ink); }
 .refs-body .ref { white-space: normal; }
+
+/* ---------- closing: Questions? (with its 5 minute countdown) and Thank You ---------- */
+.closing-title { left: 0; top: 398px; width: 1920px; text-align: center; font: 900 180px/1 var(--font); letter-spacing: -0.03em; color: var(--ink); white-space: pre; }
+.qa-countdown, .closing-handle { left: 0; top: 638px; width: 1920px; text-align: center; font: 500 44px/1 var(--font); color: var(--muted); white-space: pre; }
+.qa-countdown { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; transition: color 600ms var(--ease-in-out); }
+.qa-countdown.is-low { color: var(--red); }
 
 /* ---------- audience window chrome (src/engine/audience.js), outside the 1920x1080 stage ---------- */
 html.cursor-idle, html.cursor-idle * { cursor: none !important; }

@@ -18,7 +18,7 @@
 // bindKeys(), so every shortcut behaves exactly as in the audience window and is forwarded to it.
 // UI text added here never uses em or en dashes; text coming from data is cleaned the same way (undash).
 
-import { buildDeck } from './slides.js';
+import { buildDeck, fmtCountdown, COUNTDOWN_LOW_MS } from './slides.js';
 import { createStore, slidesFromTiming } from './state.js';
 import { bindKeys, bindWheel } from './input.js';
 import { notesFor } from '../slides/notes.js';
@@ -251,7 +251,7 @@ function makeMeta(timing, images, noteOf, slidesSpec) {
     else title = plainTitle || 'Appendix';
     return {
       i, key: s.key, kind: s.kind, n: s.n, after: s.after, plainTitle, title, md, pair,
-      dur: Number(s.dur) || 0, start: plan.rows[i] ? plan.rows[i].start : 0,
+      dur: Number(s.dur) || 0, start: plan.rows[i] ? plan.rows[i].start : 0, countdown: Number(s.countdown) || 0,
       beats: beats.map((b) => {
         const fromShow = undash((b.show[0] || '').replace(/^B\d+\s*·\s*/, ''));
         return { ...b, label: labels[b.id] || (s.kind === 'image' ? (b.id === 'B1' ? 'Seoul' : 'New York') : fromShow) };
@@ -265,6 +265,8 @@ function positionText(row, meta) {
   if (!row) return '';
   if (row.kind === 'content') return `Slide ${pad2(row.n)} of ${meta.contentCount}`;
   if (row.kind === 'image') return `Photos after slide ${pad2(row.after ?? '')}`.trim();
+  if (row.kind === 'qa') return 'Questions, not part of the talk time';
+  if (row.kind === 'closing') return 'Closing';
   return 'Appendix';
 }
 
@@ -320,6 +322,7 @@ function createPreview(frame, data, label) {
       shown = { i, b: beatsVisible };
       safe(() => deck.show(i, beatsVisible, { instant: opts.instant !== false }), 'show');
     },
+    countdown(i, slideMs) { if (deck && i != null) safe(() => deck.countdown(i, slideMs), 'countdown'); },
     dispose() { if (ro) ro.disconnect(); safe(() => deck && deck.dispose(), 'dispose'); },
   };
 }
@@ -809,7 +812,7 @@ export function bootPresenter(arg = {}) {
     if (r.kind === 'image' && r.pair) {
       for (const side of ['seoul', 'nyc']) {
         const p = r.pair[side];
-        if (p && p.status === 'user-supply' && p.userSupplyNote) html += `<div class="pv-callout"><strong>Photo to supply (${side === 'nyc' ? 'New York' : 'Seoul'}):</strong> ${inline(undash(p.userSupplyNote))}</div>`;
+        if (p && (p.present === false || (p.present == null && p.status === 'user-supply')) && p.userSupplyNote) html += `<div class="pv-callout"><strong>Photo to supply (${side === 'nyc' ? 'New York' : 'Seoul'}):</strong> ${inline(undash(p.userSupplyNote))}</div>`;
       }
     }
     ui.notesBody.innerHTML = html;
@@ -882,25 +885,39 @@ export function bootPresenter(arg = {}) {
 
     // slide timer: elapsed / planned; amber in the last 15 s (half the slide for the 10 s photo slides), red when over
     const warnMs = Math.min(15000, durMs / 2);
+    // qa slide: the tile shows the same countdown as the slide (red in the last 30 s)
+    const cdMs = r.countdown > 0 ? r.countdown * 1000 : 0;
     let sState = 'ok';
-    if (durMs > 0 && T.slideMs > durMs) sState = 'over';
+    if (cdMs) { if (cdMs - T.slideMs <= COUNTDOWN_LOW_MS) sState = 'over'; }
+    else if (durMs > 0 && T.slideMs > durMs) sState = 'over';
     else if (durMs > 0 && durMs - T.slideMs <= warnMs) sState = 'warn';
     if (!T.running) sState += ' paused';
     if (ui.slideTile.dataset.state !== sState) ui.slideTile.dataset.state = sState;
-    setText(ui.slideV, durMs > 0 && T.slideMs > durMs ? `+${fmtMs(T.slideMs - durMs)}` : fmtMs(T.slideMs));
-    setText(ui.slideOf, durMs > 0 ? `${T.slideMs > durMs ? 'over ' : '/ '}${fmtMs(durMs)}` : 'untimed');
-    const frac = durMs > 0 ? clamp(T.slideMs / durMs, 0, 1) : 0;
+    if (cdMs) {
+      setText(ui.slideV, fmtCountdown(cdMs - T.slideMs));
+      setText(ui.slideOf, `left of ${fmtMs(cdMs)}`);
+    } else {
+      setText(ui.slideV, durMs > 0 && T.slideMs > durMs ? `+${fmtMs(T.slideMs - durMs)}` : fmtMs(T.slideMs));
+      setText(ui.slideOf, durMs > 0 ? `${T.slideMs > durMs ? 'over ' : '/ '}${fmtMs(durMs)}` : 'untimed');
+    }
+    cur.countdown(i, T.slideMs);
+    const frac = cdMs ? clamp(T.slideMs / cdMs, 0, 1) : durMs > 0 ? clamp(T.slideMs / durMs, 0, 1) : 0;
     ui.sbarFill.style.transform = `scaleX(${frac})`;
     for (const tk of ui.sbarTicks.children) tk.classList.toggle('is-done', Number(tk.dataset.k) <= (st.beat | 0));
 
     // total vs plan (measured at the furthest slide reached, so a detour back is not "behind")
     const totalMs = st.plannedTotalMs ?? meta.plan.total * 1000;
-    setText(ui.totalV, fmtMs(T.globalMs));
+    // Untimed slides (appendix, Questions, Thank You) are not talk time: out of the total and the ahead / behind figure.
+    let offMs = 0;
+    const sm = t.slideMs || [];
+    for (let j = 0; j < meta.rows.length; j++) if (!(meta.rows[j].dur > 0)) offMs += (sm[j] || 0) + (j === i ? T.dt : 0);
+    const talkMs = Math.max(0, T.globalMs - offMs);
+    setText(ui.totalV, fmtMs(talkMs));
     setText(ui.totalOf, `/ ${fmtMs(totalMs)}`);
     const fr = row(T.furthest) || r;
     const fDur = fr.dur * 1000;
     const expected = fr.start * 1000 + Math.min(T.fSlideMs, fDur);
-    const diff = T.globalMs - expected;
+    const diff = talkMs - expected;
     let dState;
     let dText;
     if (!st.started && T.globalMs === 0) { dState = 'none'; dText = 'Not started'; }

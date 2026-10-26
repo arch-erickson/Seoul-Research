@@ -373,6 +373,54 @@ function buildAppendix(section, { references, images }) {
   return items;
 }
 
+// ---------------------------------------------------------------- closing slides (spec/qa-slide.md)
+// qa: a centered bold "Questions?" and a small countdown below it; thanks: "Thank You" and the Instagram handle.
+export const CLOSING_TEXT = { qa: 'Questions?', thanks: 'Thank You', handle: 'instagram: erickson_architecture' };
+export const COUNTDOWN_LOW_MS = 30000; // red in the last 30 s
+/** Remaining ms -> "m:ss", rounded up so the full time shows on entry and 0:00 only at the end. */
+export function fmtCountdown(ms) {
+  const s = Math.max(0, Math.ceil((Number(ms) || 0) / 1000));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function buildClosing(section, entry, view) {
+  section.classList.add('closing');
+  const mk = (cls, text, row) => {
+    const d = document.createElement('div');
+    d.className = `el t ${cls}`;
+    d.dataset.beat = '0';
+    d.dataset.motionStep = String(row);
+    d.style.setProperty('--o', '1');
+    d.textContent = text;
+    section.appendChild(d);
+    return { el: d, beat: 0, row };
+  };
+  if (entry.kind === 'qa') {
+    const items = [mk('closing-title', CLOSING_TEXT.qa, 0)];
+    const totalMs = Number(entry.countdown) > 0 ? Number(entry.countdown) * 1000 : 0;
+    if (totalMs && view !== 'print') { // the PDF shows no countdown
+      const c = mk('qa-countdown', fmtCountdown(totalMs), 1);
+      c.el.dataset.countdown = String(totalMs);
+      c.el.setAttribute('role', 'timer');
+      items.push(c);
+    }
+    return items;
+  }
+  return [mk('closing-title', CLOSING_TEXT.thanks, 0), mk('closing-handle', CLOSING_TEXT.handle, 1)];
+}
+
+/** Sets the qa countdown from the slide's own timer (slideMs accrues only while the talk timer runs, so Tab / T pause it). */
+export function setCountdown(section, slideMs) {
+  const el = section && section.querySelector('.qa-countdown');
+  if (!el) return null;
+  const left = Math.max(0, (Number(el.dataset.countdown) || 0) - (Number(slideMs) || 0));
+  const txt = fmtCountdown(left);
+  if (el.textContent !== txt) el.textContent = txt;
+  el.classList.toggle('is-low', left <= COUNTDOWN_LOW_MS);
+  el.classList.toggle('is-done', left <= 0);
+  return left;
+}
+
 export const APPENDIX_FONT = { max: 17, min: 10.5, step: 0.25 };
 /** Largest font size at which the appendix fits inside its box (no extra column, nothing clipped). */
 export function fitAppendix(section) {
@@ -459,6 +507,8 @@ export function buildDeck(stageEl, opts = {}) {
       prep.pair = pair;
     } else if (entry.kind === 'appendix') {
       items = buildAppendix(section, { references, images: { pairs: [...pairById.values()].filter((p) => !p.placeholder) } });
+    } else if (entry.kind === 'qa' || entry.kind === 'closing') {
+      items = buildClosing(section, entry, view);
     }
     for (const d of prep.diagrams) {
       const slot = document.createElement('div');
@@ -646,6 +696,8 @@ export function buildDeck(stageEl, opts = {}) {
     mountDiagrams: (i) => ensureMounted(slides[clampIndex(i)]),
     stateFor,
     fitAppendix: () => { for (const s of slides) if (s.kind === 'appendix') fitAppendix(s.section); },
+    /** qa slide: countdown from that slide's timer ms (no-op on other slides). */
+    countdown: (i, slideMs) => (slides[i] && slides[i].kind === 'qa' ? setCountdown(slides[i].section, slideMs) : null),
     dispose() {
       finishAll();
       endFade();

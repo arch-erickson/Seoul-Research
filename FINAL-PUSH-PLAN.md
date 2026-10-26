@@ -50,3 +50,7 @@ Phase B delivers a complete, working presentation and PDF **early**. Any diagram
 ## If everything stops
 
 All the work is on GitHub. The live presentation is at https://arch-erickson.github.io/Seoul-Research/ once Phase B publishes it, and the offline file `Seoul-Presentation.html` will be in this folder. Either one is enough to present.
+
+## Queued after the final build
+
+- **Questions? slide** (bold "Questions?" with a 5-minute countdown) after the references, then a final **Thank You** slide with "instagram: erickson_architecture" under it. Spec: `spec/qa-slide.md` in the workspace.

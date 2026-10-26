@@ -616,6 +616,21 @@ export const NOTES = {
 - **Full reference list:** the research dossier, *01-Seoul-Research-Dossier.md* — §10, 105 sources in seven groups (SMG, Seoul Solution, international organisations, peer-reviewed, buildings, news, NYC) — and **the submitted PDF**, per the assignment
 - If a number is challenged: the dossier's **"Figures to Avoid or Hedge"** appendix has the honest answer for every conflicting source
 - Photo credits for every image slide are on this slide and listed below`,
+
+  qa: `**Questions · untimed · 5 minute countdown**
+
+**[0:00] B1 · Questions**
+- repeat each question so the whole room hears it
+- the discussion prompts are in the study guide
+- Tab or T pauses the countdown · it turns red in the last 30 seconds
+
+**Next:** Thank You`,
+
+  thanks: `**Closing · untimed**
+
+**[0:00] B1 · Thank You**
+- say thank you · the slide shows instagram: erickson_architecture
+- this is the last slide`,
 };
 
 // ---------------------------------------------------------------------------
@@ -657,7 +672,7 @@ function photoLine(side, place) {
   const parts = [credit || 'credit missing'];
   if (license && !credit.includes(license)) parts.push(license);
   let line = `- ${label}${year}: ${parts.join(' · ')}`;
-  if (side.status === 'user-supply') {
+  if (side.present === false || (side.present == null && side.status === 'user-supply')) {
     line += `\n  - **PHOTO NEEDED:** ${clean(side.userSupplyNote) || 'no open-licence photo found yet'}`;
   } else if (side.status === 'low-res') {
     const size = side.width && side.height ? ` (${Number(side.width)}×${Number(side.height)} px)` : '';
@@ -686,7 +701,9 @@ function creditsBlock(pair, id) {
  * @returns {string} markdown
  */
 export function notesFor(key, images, override) {
-  const base = typeof override === 'string' && override.trim() ? override : NOTES[key] || '';
+  let base = typeof override === 'string' && override.trim() ? override : NOTES[key] || '';
+  // The Questions and Thank You slides now follow the appendix (spec/qa-slide.md).
+  if (key === 'refs') base = base.replace(/\*\*Next:\*\*[^\n]*/, '**Next:** Questions, with the 5 minute countdown');
   const pairs = pairsOf(images);
   if (/^i\d\d$/.test(key)) {
     const pair = pairs.find((p) => p.id === key);

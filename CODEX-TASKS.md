@@ -43,20 +43,41 @@ Done means: node --test src/engine/motion.test.mjs passes (cover number parsing 
 
 ---
 
-## Task 2 (optional): study guide page. Wait until Claude says `spec/study-v2.json` is ready
+## Task 2: study guide page (ready now)
 
 ```
 Work in this folder: C:\Users\erick\AppData\Local\Temp\claude\seoul-deck
 
-IMPORTANT: other AI agents are editing this folder right now. Create and edit ONLY scripts/build-study.mjs and files inside codex/study/. Do not change any other file, do not run npm install, do not use git, and never open a visible window (test headless with node scripts/shot.mjs <page.html> --out codex/study/<name>.png --strict).
+IMPORTANT: other AI agents are editing this folder right now. Create and edit ONLY scripts/build-study.mjs, files inside codex/study/, and codex/STATUS-CODEX.md. The one exception: copy the finished page to the course folder (last step below). Do not change any other file, do not run npm install, do not use git, and never open a visible window. Test headless only: node scripts/shot.mjs <page.html> --out codex/study/<name>.png --strict --offline (add --w 390 --h 844 for phone size).
 
-Task: build a self-contained study guide page for a student presenting "Seoul: The Carrot and the Stick" (Seoul vs New York sustainability policy). scripts/build-study.mjs reads spec/study-v2.json and spec/study-v2-extras.json and writes codex/study/Seoul-Study-Guide.html: ONE file with all CSS and JS inline and Montserrat inlined as base64 from node_modules/@fontsource/montserrat/files/. It must work by double-click with no internet.
+Goal: a student presents "Seoul: The Carrot and the Stick" (Seoul vs New York sustainability policy, 20 slides plus 18 photo slides, 38:30 talk, then 5 minutes of questions) and wants to study everything on and behind every slide before presenting. Build ONE self-contained study page for that.
 
-Input: study-v2.json = { "slides": [ ... ] } in deck order. Content slides: { key, title, inOneSentence, background: [paragraphs], numbers: [ { value, meaning, source, confidence: "solid"|"varies"|"hedge", note } ], explainSimply, sayThis: [lines], questions: [ { q, a } ], dontSay: [items], terms: [ { term, meaning } ], nycLink }. Photo slides (keys i01 to i18): { key, title, seoul, nyc, why }. Appendix (refs): { key, title, howToCite, keySources: [items] }. study-v2-extras.json = { thesis, runOfShow: [ { key, title, dur, start, end } ], glossary: [ { term, meaning } ], fiveThings: [items], flashcards: [ { front, back } ], keys: [items] }.
+scripts/build-study.mjs reads the files below at build time and writes codex/study/Seoul-Study-Guide.html: one file, all CSS and JS inline, Montserrat inlined as base64 from node_modules/@fontsource/montserrat/files/, no network requests at all. It must work by double-click with no internet.
 
-Page: a clean study layout in the deck's look (white background, ink #111112, red #CD2E3A for Seoul, blue #0047A0 for New York, Montserrat), with light and dark themes. Sections: the thesis and "five things to remember" at the top; the run of show as a timing table; one section per slide (key numbers as a table with a small solid/varies/hedge chip, "say this" lines styled as quotes, likely questions as click-to-open answers, "don't say" as a caution list, terms); the glossary; a flashcards mode (flip, next, shuffle, keyboard arrows); a search box that filters slides. Readable at phone width. No em dashes or en dashes anywhere in the UI text.
+Inputs (read them, do not edit them):
+- spec/study-v2.json = { slides: [...] } in deck order, 39 entries. Content slides s01 to s20: { key, title, inOneSentence, background: [paragraphs], numbers: [ { value, meaning, source, confidence: "solid"|"varies"|"hedge", note } ], explainSimply, sayThis: [lines], questions: [ { q, a } ], dontSay: [items], terms: [ { term, meaning } ], nycLink }. Photo slides i01 to i18: { key, title, seoul, nyc, why }. References (refs): { key, title, howToCite, keySources: [items] }.
+- spec/study-v2-extras.json = { thesis, fiveThings, glossary: [ { term, definition } ], flashcards: [ { front, back } ] }. IGNORE its runOfShow and keys fields: they are out of date.
+- spec/timing.json: "order" is the true slide order with key, kind (content | image | appendix | qa | closing), n (slide number), title and dur (seconds). Compute the run of show (start and end times) by adding up dur. Content slides are 45 to 195 s, photo slides 10 s, the total is 38:30. refs, qa and thanks have dur 0 and come after the talk.
+- spec/copy-v2.json: the text the audience actually sees. An array of { key, headline, elements: [ { id, group, action, new } ] }. Use headline as each slide's title. Show "On the slide" from elements whose action is not "remove" (use the "new" text), grouped by the beat in "group" (like "B2 · Seoul panel").
+- spec/notes-v2.json: the presenter notes, one string per key (s01, i01, ..., refs; show qa and thanks too if present). Small markdown: **bold**, lines starting with "- " are bullets, a line like **[0:20] B2 · Seoul's retrofit loans** is a beat cue (time from the start of the slide), and a line wrapped in double quotes is a line to say word for word. Style those quoted lines so they stand out.
+- ARCHITECTURE.md section 11: the Norwii N27 clicker table (which button does what). Use it for the clicker section.
 
-Done means: node scripts/build-study.mjs produces the file, it opens offline, every slide from the JSON appears, and you checked headless screenshots.
+Page layout:
+- Top: the thesis, "five things to remember", and a run-of-show strip (each slide a segment sized by its duration, click to jump).
+- Side list (a top menu at phone width): every slide with its number, title and start time; a search box that filters the slides.
+- One section per content slide, in order: slide number, title, time window ("4:10 to 5:40, 1:30 long"), the one-sentence summary, On the slide, Your notes, Background, Key numbers (a table: value, meaning, a small chip for solid / varies / hedge, with a legend explaining that hedge means say it loosely), Explain it simply, Say this (only lines not already quoted in the notes), Likely questions (click to open the answer), Don't say (a caution list), Terms, New York link.
+- Photo slides: a compact card between content slides, with the Seoul text in red, the New York text in blue, and why the pair is there.
+- References: how to cite and the key sources.
+- Extra modes from a tab bar: Flashcards (flip, next, previous, shuffle, keyboard arrows and space), Q&A practice (every likely question from every slide, shuffled, "show answer", with the slide it belongs to), Glossary, and Day of (checklist: submit the PDF before presenting because the assignment requires it, press Win+P and choose Extend, test the clicker; plus the N27 button table).
+- Each slide section gets an id equal to its key so links like #s08 work.
+
+Look: the deck's look. White background, ink #111112, red #CD2E3A for Seoul, blue #0047A0 for New York, Montserrat, generous spacing, light and dark themes. Readable at phone width with no sideways scrolling. No em dashes or en dashes anywhere in the page.
+
+Use the content exactly as written. Do not add facts, change numbers or rewrite the wording.
+
+Done means: node scripts/build-study.mjs runs cleanly; every one of the 39 keys appears in the page; the page has zero em or en dashes (check with a search of the output); it opens with --strict --offline with no errors; you looked at screenshots of the top, slide 8, the flashcards and the Q&A practice at 1440 wide and at phone size. Then copy the page to:
+C:\Users\erick\OneDrive\Documents\CUNY\Fall 2026\ARCH 3551- Sustainability History & Practice\Research Presentation\Seoul-Study-Guide.html
+and add a short note to codex/STATUS-CODEX.md. The notes and timing may change a little before the talk, so build-study.mjs must regenerate everything from the spec files when run again.
 ```
 
 ---

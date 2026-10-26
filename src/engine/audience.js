@@ -182,6 +182,7 @@ export async function bootAudience({ data, params = new URLSearchParams(location
       playFirst = false;
     }
     overlay.update(st, data.timing, { presenterConnected: peers > 0 });
+    deck.countdown(st.cur, st.timer && st.timer.slideMs ? st.timer.slideMs[st.cur] : 0); // qa slide only
     setBlank(st.black ? 'black' : st.white ? 'white' : null);
     if (st.started) keepAwake();
     if (sync) sync.broadcast(st, uiExtras());

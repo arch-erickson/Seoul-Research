@@ -812,11 +812,13 @@ describe('image slides (from spec/timing.json)', () => {
   });
 
   test('deck order, content numbers and planned total (38:30)', () => {
-    assert.equal(slides.length, 39);
+    assert.equal(slides.length, 41);
     assert.equal(slides.filter((s) => s.kind === 'content').length, 20);
     assert.equal(slides[0].key, 's01');
     assert.equal(slides[1].key, 'i01');
-    assert.equal(slides.at(-1).key, 'refs');
+    // the untimed appendix, then Questions and Thank You (spec/qa-slide.md): none of them adds to the 38:30 plan
+    assert.deepEqual(slides.slice(-3).map((s) => s.key), ['refs', 'qa', 'thanks']);
+    assert.deepEqual(slides.slice(-3).map((s) => s.dur), [0, 0, 0]);
     const st = createStore({ slides, now: () => 0 }).getState();
     assert.equal(st.plannedTotalMs, 2310 * 1000);
     assert.equal(st.n, 1);

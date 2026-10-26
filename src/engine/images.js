@@ -40,11 +40,17 @@ export function resolveImage(file) {
 }
 
 export function imageUsable(entry) {
-  return !!(entry && entry.file && entry.status !== 'user-supply' && entry.status !== 'missing');
+  if (!entry || !entry.file) return false;
+  // scripts/build.mjs stamps `present` from the files that really exist in assets/img; without it, trust the status.
+  if (typeof entry.present === 'boolean') return entry.present;
+  return entry.status !== 'user-supply' && entry.status !== 'missing';
 }
 
 export function buildImageSlide(section, pair, { view = 'audience' } = {}) {
   section.classList.add('image-slide');
+  // A side without a photo becomes a white name panel (place tag over the subject in large type), never an empty
+  // box. With no photo on either side the slide reads as a two column name card, split by a hairline.
+  if (!SIDES.some((s) => imageUsable(pair && pair[s.side]))) section.classList.add('names-only');
   const out = [];
   SIDES.forEach((s, beat) => {
     const entry = (pair && pair[s.side]) || {};

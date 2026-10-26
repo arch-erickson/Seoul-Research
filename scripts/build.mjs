@@ -189,6 +189,14 @@ function generateData() {
     if (!ok && inp.required) throw new Error(`${inp.file} is missing`);
     if (ok) {
       try { readJson(P(inp.file)); } catch (e) { if (inp.required) throw e; warn(`warn: ${inp.file} is not valid JSON (${shortErr(e)}); left out`); fields.push(`  ${inp.name}: null,`); return; }
+      if (inp.name === 'images') {
+        // Inline the manifest with a build-time `present` flag per photo: a photo is shown when its file exists in
+        // assets/img (so a photo dropped in later works with no manifest edit), and a missing one gets the
+        // typographic name panel from src/engine/images.js instead of an empty box.
+        fields.push(`  images: ${JSON.stringify(withPresence(readJson(P(inp.file))))},`);
+        present.push(inp.name);
+        return;
+      }
       const from = path.relative(P('src/engine'), P(inp.file)).split(path.sep).join('/');
       imports.push(`import j${i} from '${from.startsWith('.') ? from : './' + from}';`);
       fields.push(`  ${inp.name}: j${i},`);
@@ -251,6 +259,19 @@ function buildCss() {
 }
 
 // ---------------------------------------------------------------- d. images
+function photoExists(file) {
+  return !!file && exists(P(String(file).replace(/^\.\//, '')));
+}
+
+/** The manifest with `present: true|false` on every side (true = the photo file exists in the workspace). */
+function withPresence(man) {
+  const out = JSON.parse(JSON.stringify(man || {}));
+  for (const p of out.pairs || []) for (const side of ['seoul', 'nyc']) {
+    if (p && p[side]) p[side].present = photoExists(p[side].file);
+  }
+  return out;
+}
+
 function imageRefs() {
   const file = P(IMAGES_MANIFEST);
   if (!exists(file)) return [];
@@ -259,7 +280,7 @@ function imageRefs() {
   const refs = new Set();
   for (const p of man.pairs || []) for (const side of ['seoul', 'nyc']) {
     const en = p && p[side];
-    if (en && en.file && en.status !== 'user-supply' && en.status !== 'missing') refs.add(String(en.file).replace(/^\.\//, ''));
+    if (en && en.file && photoExists(en.file)) refs.add(String(en.file).replace(/^\.\//, ''));
   }
   return [...refs];
 }
